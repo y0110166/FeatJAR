@@ -154,6 +154,8 @@ public class FeatureModelSimplifyerCommand extends ACommand {
         return slicedModel;
     }
 
+    // run --args="simplify-model --input '../formula/src/testFixtures/resources/GPL/model.xml'"
+    // run --args="simplify-model --input 'D:/Uni/FeatJAR/formula/src/testFixtures/resources/GPL/model.xml'"
     @Override
     public int run(OptionList optionParser) {
         final FeatJARWrapper featJARWrapper = new FeatJARWrapper();
