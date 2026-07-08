@@ -173,8 +173,8 @@ public class FeatureModelAnalyzer {
                 .set(ComputeAtomicSetsSAT4J.OMIT_SINGLE_SETS, true)
                 .compute();
 
-        FeatJAR.log().message(core());
-        FeatJAR.log().message(atomicSets());
+        FeatJAR.log().message("CORE_FEATURES " + core());
+        FeatJAR.log().message("ATOMIC_SETS " + atomicSets());
 
         final IExpression simplifiedFormula = formula.cloneTree();
         Trees.traverse(simplifiedFormula, new ExpressionReplacer(ExpressionReplacer.createCoreReplacementMap(core)));
@@ -182,19 +182,26 @@ public class FeatureModelAnalyzer {
                 simplifiedFormula,
                 new ExpressionReplacer(ExpressionReplacer.createAtomicSetsReplacementMap(atomicSets)));
 
-        FeatJAR.log().message(Expressions.print(formula));
-        FeatJAR.log().message(Expressions.print(simplifiedFormula));
+        //compareFormulaAndSimplifiedFormula(formula, simplifiedFormula);
+
 
         return Result.of(simplifiedFormula);
     }
-
+    /*
+     * @convertModelFormatCommand.java in feature-model für command-line arguments
+     * hinzufügen zu extensions.xm
+     */
     public static void main(String[] args) {
+        //if(args.length == 0){
+        //    args[0] = "D:/Uni/FeatJAR/formula/src/testFixtures/resources/GPL/model.xml";
+        //}
         final FeatJARWrapper featJARWrapper = new FeatJARWrapper();
         final IFeatureModel featureModel = featJARWrapper
-                .loadFeatureModel(Path.of("../test/sandwich.dimacs"))
+                .loadFeatureModel(Path.of("D:/Uni/FeatJAR/formula/src/testFixtures/resources/GPL/model.xml"))
                 .get();
         final FeatureModelAnalyzer analyzer = featJARWrapper.featureModelAnalyzer(featureModel);
         analyzer.simplify();
+        System.out.println("REACHED THE END OF MAIN IN FEATUREMODELANALYZER.JAVA");
     }
     /**
      * {@return an equivalent propositional formula from the feature model}
@@ -414,5 +421,44 @@ public class FeatureModelAnalyzer {
                 .map(ComputeCNFFormula::new)
                 .map(ComputeSolutionCountSharpSAT::new)
                 .computeResult();
+    }
+
+    /**
+     * Compares two formulas side by side and highlights changes.
+     *
+     * @param formula the original formula
+     * @param simplifiedFormula the simplified formula
+     */
+    public static void compareFormulaAndSimplifiedFormula(
+            de.featjar.formula.structure.IExpression formula,
+            de.featjar.formula.structure.IExpression simplifiedFormula) {
+
+        String formulaStr = de.featjar.formula.structure.Expressions.print(formula);
+        String simplifiedStr = de.featjar.formula.structure.Expressions.print(simplifiedFormula);
+
+        String[] formulaLines = formulaStr.split("\n");
+        String[] simplifiedLines = simplifiedStr.split("\n");
+
+        int maxLines = Math.max(formulaLines.length, simplifiedLines.length);
+        int maxFormulaWidth = formulaLines.length > 0 ?
+                java.util.Arrays.stream(formulaLines).mapToInt(String::length).max().orElse(0) : 0;
+
+        System.out.println("=== Formula Comparison ===");
+        System.out.println(String.format("%-" + (maxFormulaWidth + 5) + "s| Simplified Formula", "Original Formula"));
+        System.out.println("-".repeat(maxFormulaWidth + 5) + "+" + "-".repeat(50));
+
+        for (int i = 0; i < maxLines; i++) {
+            String formulaLine = i < formulaLines.length ? formulaLines[i] : "";
+            String simplifiedLine = i < simplifiedLines.length ? simplifiedLines[i] : "";
+
+            if (formulaLine.equals(simplifiedLine)) {
+                System.out.println(String.format("%-" + (maxFormulaWidth + 5) + "s| %s", formulaLine, simplifiedLine));
+            } else {
+                System.out.println(
+                        String.format("[CHANGED] %-" + (maxFormulaWidth - 10) + "s| [CHANGED] %s", formulaLine, simplifiedLine)
+                );
+            }
+        }
+        System.out.println("=".repeat(maxFormulaWidth + 5 + 1 + 50));
     }
 }

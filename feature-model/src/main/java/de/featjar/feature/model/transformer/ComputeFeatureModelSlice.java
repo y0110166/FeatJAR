@@ -102,7 +102,7 @@ public class ComputeFeatureModelSlice extends AComputation<IFeatureModel> {
                 .map(CNFSlicer::new)
                 .set(CNFSlicer.VARIABLES_TO_KEEP, new Variables(literalsToKeep))
                 .compute();
-
+        // relevant ab hier alles in die main kopieren vom command line
         IFeatureModel slicedModel = featureModel.clone();
 
         List<IFeatureTree> newRoots = new ArrayList<>(slicedModel.getRoots().size());
@@ -110,10 +110,10 @@ public class ComputeFeatureModelSlice extends AComputation<IFeatureModel> {
             PseudoFeatureTreeRoot pseudoRoot = new PseudoFeatureTreeRoot(slicedModel);
             pseudoRoot.addChild(rootFeature);
             rootFeature
-                    .postOrderStream()
-                    .filter(node -> !featureFilter.test(node.getFeature()))
-                    .forEach(node -> node.mutate().removeFromTree());
-            newRoots.addAll(pseudoRoot.detach());
+                    .postOrderStream() //travers the tree in a post order (children first)
+                    .filter(node -> !featureFilter.test(node.getFeature())) // selects the nodes that fail the filter (should be removed)
+                    .forEach(node -> node.mutate().removeFromTree()); // removes the nodes from the tree
+            newRoots.addAll(pseudoRoot.detach()); // adds the modified roots to the collection for the final model
         }
 
         Collection<IConstraint> constraints = new ArrayList<>(slicedModel.getConstraints());
@@ -122,14 +122,14 @@ public class ComputeFeatureModelSlice extends AComputation<IFeatureModel> {
                 slicedModel.mutate().removeConstraint(constraint);
             }
         }
-
+        // auf redundanz prüfen ggf. 1 zu 1 übernehmen
         BooleanAssignmentList newCnf = Computations.of(slicedModel)
                 .map(ComputeFormula::new)
                 .map(ComputeNNFFormula::new)
                 .map(ComputeCNFFormula::new)
                 .map(ComputeBooleanClauseList::new)
                 .compute();
-
+        // relevant
         SAT4JSolutionSolver solver = new SAT4JSolutionSolver(newCnf, false);
         SAT4JClauseList clauseList = solver.getClauseList();
         clauseList.addAll(newCnf);
@@ -151,5 +151,8 @@ public class ComputeFeatureModelSlice extends AComputation<IFeatureModel> {
             }
         }
         return Result.of(slicedModel);
+        // end relevant
+        // dead features und deren kinder werden alle dead
+        // core auf true
     }
 }
