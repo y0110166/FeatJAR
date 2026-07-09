@@ -1,0 +1,9 @@
+features
+        f2 {de.featjar.base."data:name" 'f2'}
+                alternative
+                        f3 {de.featjar.base."data:name" 'f3'}
+                                or
+                                        f4 {de.featjar.base."data:name" 'f4'}
+                                        f5 {de.featjar.base."data:name" 'f5'}
+                        f6 {de.featjar.base."data:name" 'f6'}
+
