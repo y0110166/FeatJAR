@@ -23,6 +23,8 @@ import de.featjar.formula.structure.IFormula;
 import de.featjar.formula.structure.connective.Or;
 import de.featjar.formula.structure.predicate.Literal;
 
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.*;
 import java.util.function.Predicate;
 
@@ -46,7 +48,7 @@ public class FeatureModelSimplifyerCommand extends ACommand {
         return Optional.of("simplify-model");
     }
 
-    private int[] updateCnfs(IFeatureModel featureModel, Predicate<IFeatureModelElement> featureFilter) {
+    private void updateCnfs(IFeatureModel featureModel, Predicate<IFeatureModelElement> featureFilter) {
         this.cnf = Computations.of(featureModel)
                 .map(ComputeFormula::new)
                 .map(ComputeNNFFormula::new)
@@ -67,8 +69,6 @@ public class FeatureModelSimplifyerCommand extends ACommand {
                 .map(CNFSlicer::new)
                 .set(CNFSlicer.VARIABLES_TO_KEEP, new Variables(literalsToKeep))
                 .compute();
-
-        return literalsToKeep;
     }
 
     private IFeatureModel checkRedundancy(IFeatureModel slicedModel) {
@@ -113,22 +113,19 @@ public class FeatureModelSimplifyerCommand extends ACommand {
         IExpression originalExpression = formula.cloneTree();
         IExpression modifiedExpression = simplify_Expression.get();
 
-        // Get feature names from both expressions
         LinkedHashSet<String> allFeatureNames = originalExpression.getVariableNames();
         LinkedHashSet<String> featureNamesToKeep = modifiedExpression.getVariableNames();
 
-        // Features to exclude are those in original but not in modified
         LinkedHashSet<String> featureNamesToExclude = new LinkedHashSet<>(allFeatureNames);
         featureNamesToExclude.removeAll(featureNamesToKeep);
 
-        // Create the filters
         IFeatureModelElementFilter include = IFeatureModelElementFilter.featuresByName(featureNamesToKeep);
         IFeatureModelElementFilter exclude = IFeatureModelElementFilter.featuresByName(featureNamesToExclude);
 
         // Create the combined filter
         Predicate<IFeatureModelElement> featureFilter = include.and(exclude.negate());
 
-        int[] literalsToKeep = updateCnfs(featureModel, featureFilter);
+        updateCnfs(featureModel, featureFilter);
 
         // relevant ab hier alles in die main kopieren vom command line
         IFeatureModel slicedModel = featureModel.clone();
@@ -143,6 +140,9 @@ public class FeatureModelSimplifyerCommand extends ACommand {
                     .forEach(node -> node.mutate().removeFromTree()); // removes the nodes from the tree
             newRoots.addAll(pseudoRoot.detach()); // adds the modified roots to the collection for the final model
         }
+        // Remove all existing roots and add the new filtered roots
+        new ArrayList<>(slicedModel.getRoots()).forEach(root -> slicedModel.mutate().removeFeatureTreeRoot(root));
+        newRoots.forEach(root -> slicedModel.mutate().addFeatureTreeRoot(root));
 
         Collection<IConstraint> constraints = new ArrayList<>(slicedModel.getConstraints());
         for (IConstraint constraint : constraints) {
@@ -153,7 +153,9 @@ public class FeatureModelSimplifyerCommand extends ACommand {
 
         return slicedModel;
     }
-
+    // run --args="simplify-model --input '../feature-model-assistance/src/main/resources/uvlModelsInput/testModel_core.uvl'"
+    // run --args="simplify-model --input '../feature-model-assistance/src/main/resources/uvlModelsInput/testModel_atomicSets.uvl'"
+    // run --args="simplify-model --input 'D:/Uni/FeatJAR/uvl/src/main/resources/uvl/featureModelSerializeResult.uvl'"
     // run --args="simplify-model --input '../formula/src/testFixtures/resources/GPL/model.xml'"
     // run --args="simplify-model --input 'D:/Uni/FeatJAR/formula/src/testFixtures/resources/GPL/model.xml'"
     @Override
@@ -175,14 +177,30 @@ public class FeatureModelSimplifyerCommand extends ACommand {
         IFormula formula1 = Computations.of(slicedModel).map(ComputeFormula::new).compute();
         IFormula formula2 = Computations.of(slicedModelWithoutRedundancies).map(ComputeFormula::new).compute();
         System.out.println("Simplified Model without and with are equal: " + formula1.equals(formula2));
+        System.out.println("SIMPLIFIED MODEL features:\n" + slicedModel.getFeatures().toString());
+        System.out.println("SIMPLIFIED MODEL CONSTRAINTS: \n" + slicedModel.getConstraints().toString());
+
+        Path path = Path.of("../feature-model-assistance/src/main/resources/uvlModelsOutput/slicedModel.uvl");
+        try {
+            featJARWrapper.storeFeatureModel(slicedModel, path);
+            System.out.println("Sliced model stored at: " + path.toAbsolutePath());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         /*
         Derzeitiger Stand:
             - Beim FM werden Features gelöscht, dafür aber eine Menge an Constraints hinzugefügt.
-            - Ob die Constraints notwendig sind, muss noch überprüft werden.
-            - Ob die richtigen Features gelöscht werden, muss auch noch überprüft werden.
+                ⇾ Atomic sets zusammengefasst
+            - Alle hinzugefügten Constraints notwendig/sinnvoll?
+                - Anscheinend sind die Notwendig, da features gelöscht werden und sonst semantische Informationen verloren gehen.
+                - sinnvoll?
+                → Problem: Dadurch wird das Modell derzeit deutlich größer.
+                    → Die hinzugefügten Constraints sind nicht lesbar und dadurch auch nicht interpretierbar.
             - Ob die Core und Dead Features separat ausgewählt werden können, um das FM zu reduzieren, muss auch noch
                 überprüft werden.
-            - Ob die Atomic Sets am FM schon geändert werden, weiß ich gerade auch nicht.
+            - TODO!! Es werden keine Constraints, sowie auch keine optionale features in das simplified feature model
+               übernommen oder erstellt.
          */
 
 
