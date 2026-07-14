@@ -5,10 +5,7 @@ features
                         Boolean f2 {name 'f2', abstract false}
                                 alternative
                                         Boolean f3 {name 'f3', abstract false}
-                                                or
-                                                        Boolean f4 {name 'f4', abstract false}
-                                                        Boolean f5 {name 'f5', abstract false}
-                                        Boolean f6 {name 'f6', abstract false}
+                                        Boolean f4 {name 'f6', abstract false}
 
 constraints
         (!f1 => f2) & (f2 => f1)

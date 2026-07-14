@@ -1,6 +1,0 @@
-features
-        f7 {de.featjar.base."data:name" 'f7'}
-                alternative
-                        f8 {de.featjar.base."data:name" 'f8'}
-                        f9 {de.featjar.base."data:name" 'f9'}
-

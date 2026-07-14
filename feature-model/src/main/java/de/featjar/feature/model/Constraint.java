@@ -22,6 +22,7 @@ package de.featjar.feature.model;
 
 import de.featjar.base.tree.Trees;
 import de.featjar.feature.model.IConstraint.IMutableConstraint;
+import de.featjar.formula.structure.Expressions;
 import de.featjar.formula.structure.IFormula;
 import java.util.LinkedHashSet;
 
@@ -64,7 +65,7 @@ public class Constraint extends AFeatureModelElement implements IMutableConstrai
 
     @Override
     public String toString() {
-        return String.format("Constraint{formula=%s}", formula);
+        return String.format("Constraint{formula=%s}", Expressions.print(formula));
     }
 
     @Override

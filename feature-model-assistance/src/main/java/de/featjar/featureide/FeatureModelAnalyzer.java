@@ -61,11 +61,13 @@ import de.featjar.formula.assignment.conversion.ComputeBooleanClauseList;
 import de.featjar.formula.combination.VariableCombinationSpecification;
 import de.featjar.formula.computation.ComputeCNFFormula;
 import de.featjar.formula.computation.ComputeNNFFormula;
-import de.featjar.formula.structure.Expressions;
 import de.featjar.formula.structure.IExpression;
 import de.featjar.formula.structure.IFormula;
+import de.featjar.formula.structure.predicate.DefLiteral;
+import de.featjar.formula.structure.predicate.Literal;
 import de.featjar.formula.visitor.ExpressionReplacer;
 import java.math.BigInteger;
+import java.util.Map;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -173,20 +175,43 @@ public class FeatureModelAnalyzer {
                 .set(ComputeAtomicSetsSAT4J.OMIT_SINGLE_SETS, true)
                 .compute();
 
+        FeatJAR.log().message("DEAD_FEATURES " + dead());
         FeatJAR.log().message("CORE_FEATURES " + core());
         FeatJAR.log().message("ATOMIC_SETS " + atomicSets());
 
         final IExpression simplifiedFormula = formula.cloneTree();
-        Trees.traverse(simplifiedFormula, new ExpressionReplacer(ExpressionReplacer.createCoreReplacementMap(core)));
-        Trees.traverse(
-                simplifiedFormula,
-                new ExpressionReplacer(ExpressionReplacer.createAtomicSetsReplacementMap(atomicSets)));
+        
+        // Filter out the root features that are present in the core features
+        List<String> rootFeatureNames = featureModel.getRootFeatures().stream()
+                .map(IFeature::getName)
+                .map(Result::get)
+                .toList();
+        Map<IExpression, IExpression> coreReplacementMap = ExpressionReplacer.createCoreReplacementMap(core);
+        removeRootFeature(simplifiedFormula, rootFeatureNames, coreReplacementMap);
 
-        //compareFormulaAndSimplifiedFormula(formula, simplifiedFormula);
+        // Filter out the root features that are present in the atomic sets features
+        Map<IExpression, IExpression> atomicSetsReplacementMap = ExpressionReplacer.createAtomicSetsReplacementMap(atomicSets);
+        removeRootFeature(simplifiedFormula, rootFeatureNames, atomicSetsReplacementMap);
+
+        compareFormulaAndSimplifiedFormula(formula, simplifiedFormula);
 
 
         return Result.of(simplifiedFormula);
     }
+
+    private void removeRootFeature(IExpression simplifiedFormula, List<String> rootFeatureNames, Map<IExpression, IExpression> ReplacementMap) {
+        ReplacementMap.keySet().removeIf(key -> {
+            if (key instanceof Literal) {
+                return rootFeatureNames.contains(((Literal) key).getVariable().getName());
+            } else if (key instanceof DefLiteral) {
+                return rootFeatureNames.contains(((DefLiteral) key).getVariable().getName());
+            }
+            return false;
+        });
+
+        Trees.traverse(simplifiedFormula, new ExpressionReplacer(ReplacementMap));
+    }
+
     /*
      * @convertModelFormatCommand.java in feature-model für command-line arguments
      * hinzufügen zu extensions.xm

@@ -9,6 +9,7 @@ import de.featjar.base.computation.Computations;
 import de.featjar.base.computation.IComputation;
 import de.featjar.base.data.Result;
 import de.featjar.feature.model.*;
+import de.featjar.feature.model.io.tikz.TikzFeatureModelFormat;
 import de.featjar.feature.model.transformer.ComputeFormula;
 import de.featjar.featureide.FeatJARWrapper;
 import de.featjar.featureide.FeatureModelAnalyzer;
@@ -30,7 +31,7 @@ import java.util.function.Predicate;
 
 /**
  *
- * @author Knut Köhnlein
+ * @author
  */
 public class FeatureModelSimplifyerCommand extends ACommand {
 
@@ -116,14 +117,13 @@ public class FeatureModelSimplifyerCommand extends ACommand {
         LinkedHashSet<String> allFeatureNames = originalExpression.getVariableNames();
         LinkedHashSet<String> featureNamesToKeep = modifiedExpression.getVariableNames();
 
-        LinkedHashSet<String> featureNamesToExclude = new LinkedHashSet<>(allFeatureNames);
-        featureNamesToExclude.removeAll(featureNamesToKeep);
+        // LinkedHashSet<String> featureNamesToExclude = new LinkedHashSet<>(allFeatureNames);
+        // featureNamesToExclude.removeAll(featureNamesToKeep);
 
-        IFeatureModelElementFilter include = IFeatureModelElementFilter.featuresByName(featureNamesToKeep);
-        IFeatureModelElementFilter exclude = IFeatureModelElementFilter.featuresByName(featureNamesToExclude);
+        //IFeatureModelElementFilter exclude = IFeatureModelElementFilter.featuresByName(featureNamesToExclude);
 
         // Create the combined filter
-        Predicate<IFeatureModelElement> featureFilter = include.and(exclude.negate());
+        Predicate<IFeatureModelElement> featureFilter = IFeatureModelElementFilter.featuresByName(featureNamesToKeep);
 
         updateCnfs(featureModel, featureFilter);
 
@@ -136,7 +136,7 @@ public class FeatureModelSimplifyerCommand extends ACommand {
             pseudoRoot.addChild(rootFeature);
             rootFeature
                     .postOrderStream() //travers the tree in a post order (children first)
-                    .filter(node -> !featureFilter.test(node.getFeature())) // selects the nodes that fail the filter (should be removed)
+                    .filter(node -> node.hasParent() && !featureFilter.test(node.getFeature())) // selects the nodes that fail the filter (should be removed)
                     .forEach(node -> node.mutate().removeFromTree()); // removes the nodes from the tree
             newRoots.addAll(pseudoRoot.detach()); // adds the modified roots to the collection for the final model
         }
@@ -153,6 +153,7 @@ public class FeatureModelSimplifyerCommand extends ACommand {
 
         return slicedModel;
     }
+    // run --args="simplify-model --input '../feature-model-assistance/src/main/resources/uvlModelsInput/testModel_dead.uvl'"
     // run --args="simplify-model --input '../feature-model-assistance/src/main/resources/uvlModelsInput/testModel_core.uvl'"
     // run --args="simplify-model --input '../feature-model-assistance/src/main/resources/uvlModelsInput/testModel_atomicSets.uvl'"
     // run --args="simplify-model --input 'D:/Uni/FeatJAR/uvl/src/main/resources/uvl/featureModelSerializeResult.uvl'"
@@ -171,39 +172,38 @@ public class FeatureModelSimplifyerCommand extends ACommand {
         IFeatureModel slicedModelWithoutRedundancies = checkRedundancy(slicedModel);
 
 
-        System.out.println("ORIGINAL FEATURE MODEL: " + featureModel);
-        System.out.println("SIMPLIFIED FEATURE MODEL: " + slicedModel);
-        System.out.println("SIMPLIFIED FEATURE MODEL WITHOUT REDUNDANCIES: " + slicedModelWithoutRedundancies); // dadurch sind da deutlich mehr Constraints da?
+        System.out.println("ORIGINAL FEATURE MODEL: " + featureModel.getFeatures());
+        System.out.println("ORIGINAL MODEL CONSTRAINTS " + featureModel.getConstraints());
+        System.out.println("SIMPLIFIED FEATURE MODEL: " + slicedModel.getFeatures() + "\n" + slicedModel.getConstraints());
+        System.out.println("SIMPLIFIED FEATURE MODEL WITHOUT REDUNDANCIES: " + slicedModelWithoutRedundancies.getFeatures() + "\n" + slicedModelWithoutRedundancies.getConstraints()); // dadurch sind da deutlich mehr Constraints da?
         IFormula formula1 = Computations.of(slicedModel).map(ComputeFormula::new).compute();
         IFormula formula2 = Computations.of(slicedModelWithoutRedundancies).map(ComputeFormula::new).compute();
         System.out.println("Simplified Model without and with are equal: " + formula1.equals(formula2));
-        System.out.println("SIMPLIFIED MODEL features:\n" + slicedModel.getFeatures().toString());
-        System.out.println("SIMPLIFIED MODEL CONSTRAINTS: \n" + slicedModel.getConstraints().toString());
 
-        Path path = Path.of("../feature-model-assistance/src/main/resources/uvlModelsOutput/slicedModel.uvl");
+
+        // final TikzFeatureModelFormat tikzFeatureModelFormat = new TikzFeatureModelFormat();
+        // final TikzFeatureModelFormat tikzFeatureModelFormatWithoutRedundancies = new TikzFeatureModelFormat();
+        String inputPath = String.valueOf(optionParser.get(INPUT_OPTION));
+        String inputFileName = Path.of(inputPath).getFileName().toString();
+        int underscoreIndex = inputFileName.indexOf('_');
+        int dotIndex = inputFileName.lastIndexOf('.');
+        String namePart = (underscoreIndex != -1 && dotIndex != -1)
+                ? inputFileName.substring(underscoreIndex + 1, dotIndex)
+                : inputFileName.substring(0, dotIndex != -1 ? dotIndex : inputFileName.length());
+        Path path = Path.of("../feature-model-assistance/src/main/resources/uvlModelsOutput/" + namePart + "_slicedModel.uvl");
         try {
-            featJARWrapper.storeFeatureModel(slicedModel, path);
+            featJARWrapper.storeFeatureModel(slicedModelWithoutRedundancies, path);
             System.out.println("Sliced model stored at: " + path.toAbsolutePath());
+            System.out.println("SIMPLIFIED MODEL WITHOUT REDUNDANCIES features:\n" + slicedModelWithoutRedundancies);
+            //Path tikzPath_sliced = Path.of("../feature-model-assistance/src/main/resources/uvlModelsOutput/" + namePart + "_slicedModel.tex");
+            //featJARWrapper.storeAnything(slicedModelWithoutRedundancies, tikzPath_sliced, tikzFeatureModelFormat);
+            //Path tikzPath = Path.of("../feature-model-assistance/src/main/resources/uvlModelsOutput/" + namePart + ".tex");
+            //featJARWrapper.storeAnything(slicedModelWithoutRedundancies, tikzPath, tikzFeatureModelFormat);
+
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-        /*
-        Derzeitiger Stand:
-            - Beim FM werden Features gelöscht, dafür aber eine Menge an Constraints hinzugefügt.
-                ⇾ Atomic sets zusammengefasst
-            - Alle hinzugefügten Constraints notwendig/sinnvoll?
-                - Anscheinend sind die Notwendig, da features gelöscht werden und sonst semantische Informationen verloren gehen.
-                - sinnvoll?
-                → Problem: Dadurch wird das Modell derzeit deutlich größer.
-                    → Die hinzugefügten Constraints sind nicht lesbar und dadurch auch nicht interpretierbar.
-            - Ob die Core und Dead Features separat ausgewählt werden können, um das FM zu reduzieren, muss auch noch
-                überprüft werden.
-            - TODO!! Es werden keine Constraints, sowie auch keine optionale features in das simplified feature model
-               übernommen oder erstellt.
-         */
-
-
         return 0;
     }
 }
