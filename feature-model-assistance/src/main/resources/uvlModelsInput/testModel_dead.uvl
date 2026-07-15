@@ -18,4 +18,3 @@ features
 
 constraints
         (f6 => f7) & (f7 => !f6)
-        f8 | f9 | f2 | f1

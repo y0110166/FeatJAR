@@ -1,0 +1,23 @@
+features
+        Boolean root {name 'root', abstract true}
+                mandatory
+                        Boolean f00 {name 'f00', abstract false}
+                        Boolean f0 {name 'f0', abstract true}
+                                or
+                                        Boolean f1 {name 'f1', abstract false}
+                                        Boolean f2 {name 'f2', abstract false}
+                                                or
+                                                        Boolean f3 {name 'f3', abstract false}
+                                                                or
+                                                                        Boolean f4 {name 'f4', abstract false}
+                                                                        Boolean f5 {name 'f5', abstract false}
+                                                                        Boolean f6 {name 'f6', abstract false}
+                                                        Boolean f7 {name 'f7', abstract false}
+                                        Boolean f8 {name 'f8', abstract false}
+                                        Boolean f9 {name 'f9', abstract false}
+
+
+
+
+constraints
+        (f6 => f7) & (f7 => !f6)
