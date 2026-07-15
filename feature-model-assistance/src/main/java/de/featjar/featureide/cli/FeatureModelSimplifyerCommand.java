@@ -84,9 +84,10 @@ public class FeatureModelSimplifyerCommand extends ACommand {
         // relevant
         SAT4JSolutionSolver solver = new SAT4JSolutionSolver(newCnf, false);
         SAT4JClauseList clauseList = solver.getClauseList();
-        clauseList.addAll(newCnf);
 
         for (BooleanAssignment disjunction : this.slicedCnf.getAll()) {
+            BooleanAssignment remappedDisjunction =
+                    disjunction.remap(this.slicedCnf.getVariableMap(), newCnf.getVariableMap());
             List<IFormula> clause = new ArrayList<>();
             for (int literal : disjunction.get()) {
                 if (literal < 0) {
@@ -97,8 +98,8 @@ public class FeatureModelSimplifyerCommand extends ACommand {
                             new Literal(true, cnf.getVariableMap().get(literal).get()));
                 }
             }
-            if (solver.hasSolution(disjunction.negateInts()).orElse(Boolean.TRUE)) {
-                clauseList.add(disjunction);
+            if (solver.hasSolution(remappedDisjunction.negateInts()).orElse(Boolean.TRUE)) {
+                clauseList.add(remappedDisjunction);
                 workingModel.mutate().addConstraint(new Or(clause));
             }
         }
