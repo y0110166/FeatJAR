@@ -80,7 +80,6 @@ import java.util.stream.Collectors;
  * @author Sebastian Krieter
  */
 public class FeatureModelAnalyzer {
-    // TODO Redundant Constraints
     // TODO Explanations
 
     private final IFeatureModel featureModel;
@@ -175,10 +174,6 @@ public class FeatureModelAnalyzer {
                 .set(ComputeAtomicSetsSAT4J.OMIT_SINGLE_SETS, true)
                 .compute();
 
-        FeatJAR.log().message("DEAD_FEATURES " + dead());
-        FeatJAR.log().message("CORE_FEATURES " + core());
-        FeatJAR.log().message("ATOMIC_SETS " + atomicSets());
-
         final IExpression simplifiedFormula = formula.cloneTree();
         
         // Filter out the root features that are present in the core features
@@ -193,7 +188,7 @@ public class FeatureModelAnalyzer {
         Map<IExpression, IExpression> atomicSetsReplacementMap = ExpressionReplacer.createAtomicSetsReplacementMap(atomicSets);
         removeRootFeature(simplifiedFormula, rootFeatureNames, atomicSetsReplacementMap);
 
-        compareFormulaAndSimplifiedFormula(formula, simplifiedFormula);
+        // compareFormulaAndSimplifiedFormula(formula, simplifiedFormula);
 
 
         return Result.of(simplifiedFormula);
