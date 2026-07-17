@@ -61,12 +61,14 @@ import de.featjar.formula.assignment.conversion.ComputeBooleanClauseList;
 import de.featjar.formula.combination.VariableCombinationSpecification;
 import de.featjar.formula.computation.ComputeCNFFormula;
 import de.featjar.formula.computation.ComputeNNFFormula;
+import de.featjar.formula.structure.Expressions;
 import de.featjar.formula.structure.IExpression;
 import de.featjar.formula.structure.IFormula;
 import de.featjar.formula.structure.predicate.DefLiteral;
 import de.featjar.formula.structure.predicate.Literal;
 import de.featjar.formula.visitor.ExpressionReplacer;
 import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.Map;
 import java.nio.file.Path;
 import java.util.List;
@@ -159,7 +161,9 @@ public class FeatureModelAnalyzer {
                 .computeResult();
     }
 
-    public Result<IExpression> simplify() {
+    public Result<IExpression> simplify(Boolean coreDead, Boolean atomic_sets) {
+        BooleanAssignmentList core;
+        BooleanAssignmentList atomicSets;
         ComputeFormula formulaComputation = fmComputation.map(ComputeFormula::new);
         ComputeBooleanClauseList cnfComputation = formulaComputation
                 .map(ComputeNNFFormula::new)
@@ -167,26 +171,29 @@ public class FeatureModelAnalyzer {
                 .map(ComputeBooleanClauseList::new);
 
         IFormula formula = formulaComputation.compute();
-        BooleanAssignmentList core = cnfComputation.map(ComputeCoreSAT4J::new).compute();
-        BooleanAssignmentList atomicSets = cnfComputation
-                .map(ComputeAtomicSetsSAT4J::new)
-                .set(ComputeAtomicSetsSAT4J.OMIT_CORE, true)
-                .set(ComputeAtomicSetsSAT4J.OMIT_SINGLE_SETS, true)
-                .compute();
-
         final IExpression simplifiedFormula = formula.cloneTree();
-        
+
         // Filter out the root features that are present in the core features
         List<String> rootFeatureNames = featureModel.getRootFeatures().stream()
                 .map(IFeature::getName)
                 .map(Result::get)
                 .toList();
-        Map<IExpression, IExpression> coreReplacementMap = ExpressionReplacer.createCoreReplacementMap(core);
-        removeRootFeature(simplifiedFormula, rootFeatureNames, coreReplacementMap);
 
-        // Filter out the root features that are present in the atomic sets features
-        Map<IExpression, IExpression> atomicSetsReplacementMap = ExpressionReplacer.createAtomicSetsReplacementMap(atomicSets);
-        removeRootFeature(simplifiedFormula, rootFeatureNames, atomicSetsReplacementMap);
+        if(coreDead) {
+            core = cnfComputation.map(ComputeCoreSAT4J::new).compute();
+            Map<IExpression, IExpression> coreReplacementMap = ExpressionReplacer.createCoreReplacementMap(core);
+            removeRootFeature(simplifiedFormula, rootFeatureNames, coreReplacementMap);
+
+        } if(atomic_sets) {
+            atomicSets = cnfComputation
+                    .map(ComputeAtomicSetsSAT4J::new)
+                    .set(ComputeAtomicSetsSAT4J.OMIT_CORE, true)
+                    .set(ComputeAtomicSetsSAT4J.OMIT_SINGLE_SETS, true)
+                    .compute();
+            // Filter out the root features that are present in the atomic sets features
+            Map<IExpression, IExpression> atomicSetsReplacementMap = ExpressionReplacer.createAtomicSetsReplacementMap(atomicSets);
+            removeRootFeature(simplifiedFormula, rootFeatureNames, atomicSetsReplacementMap);
+        }
 
         // compareFormulaAndSimplifiedFormula(formula, simplifiedFormula);
 
@@ -220,8 +227,7 @@ public class FeatureModelAnalyzer {
                 .loadFeatureModel(Path.of("D:/Uni/FeatJAR/formula/src/testFixtures/resources/GPL/model.xml"))
                 .get();
         final FeatureModelAnalyzer analyzer = featJARWrapper.featureModelAnalyzer(featureModel);
-        analyzer.simplify();
-        System.out.println("REACHED THE END OF MAIN IN FEATUREMODELANALYZER.JAVA");
+        analyzer.simplify(true, true);
     }
     /**
      * {@return an equivalent propositional formula from the feature model}
@@ -450,18 +456,18 @@ public class FeatureModelAnalyzer {
      * @param simplifiedFormula the simplified formula
      */
     public static void compareFormulaAndSimplifiedFormula(
-            de.featjar.formula.structure.IExpression formula,
-            de.featjar.formula.structure.IExpression simplifiedFormula) {
+            IExpression formula,
+            IExpression simplifiedFormula) {
 
-        String formulaStr = de.featjar.formula.structure.Expressions.print(formula);
-        String simplifiedStr = de.featjar.formula.structure.Expressions.print(simplifiedFormula);
+        String formulaStr = Expressions.print(formula);
+        String simplifiedStr = Expressions.print(simplifiedFormula);
 
         String[] formulaLines = formulaStr.split("\n");
         String[] simplifiedLines = simplifiedStr.split("\n");
 
         int maxLines = Math.max(formulaLines.length, simplifiedLines.length);
         int maxFormulaWidth = formulaLines.length > 0 ?
-                java.util.Arrays.stream(formulaLines).mapToInt(String::length).max().orElse(0) : 0;
+                Arrays.stream(formulaLines).mapToInt(String::length).max().orElse(0) : 0;
 
         System.out.println("=== Formula Comparison ===");
         System.out.println(String.format("%-" + (maxFormulaWidth + 5) + "s| Simplified Formula", "Original Formula"));

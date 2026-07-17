@@ -5,9 +5,12 @@ import de.featjar.analysis.sat4j.solver.SAT4JClauseList;
 import de.featjar.analysis.sat4j.solver.SAT4JSolutionSolver;
 import de.featjar.base.FeatJAR;
 import de.featjar.base.cli.ACommand;
+import de.featjar.base.cli.Option;
 import de.featjar.base.cli.OptionList;
+import de.featjar.base.cli.Options;
 import de.featjar.base.computation.Computations;
 import de.featjar.base.computation.IComputation;
+import de.featjar.base.data.Pair;
 import de.featjar.base.data.Result;
 import de.featjar.base.tree.structure.IRootedTree;
 import de.featjar.feature.model.*;
@@ -41,6 +44,21 @@ public class FeatureModelSimplifyerCommand extends ACommand {
 
     private BooleanAssignmentList cnf;
     private BooleanAssignmentList slicedCnf;
+
+    /*
+    public static final Option<Path> INPUT_OPTION = Options.newOption("redundancies", Options.newChoiceOption())
+            .setDescription("Path to input file(s)")
+            .setValidator(Options.PathValidator);
+     */
+
+    public static final Option<Boolean> CORE_DEAD_OPTION = Options.newOption("coreDead", Options.BooleanParser, "true")
+            .setDescription("Enable core and dead feature simplification (default: true)");
+
+    public static final Option<Boolean> ATOMIC_SETS_OPTION = Options.newOption("atomic_sets", Options.BooleanParser, "true")
+            .setDescription("Enable atomic sets simplification (default: true)");
+
+    public static final Option<Path> OUTPUT_OPTION = Options.newOption("output", Options.PathParser, "../feature-model-assistance/src/main/resources/uvlModelsOutput/")
+            .setDescription("Path to output directory or file (default: ../feature-model-assistance/src/main/resources/uvlModelsOutput/)");
 
 
     @Override
@@ -78,14 +96,12 @@ public class FeatureModelSimplifyerCommand extends ACommand {
 
     private IFeatureModel checkRedundancy(IFeatureModel slicedModel) {
         IFeatureModel workingModel = slicedModel.clone();
-        // auf redundanz prüfen ggf. 1 zu 1 übernehmen
         BooleanAssignmentList newCnf = Computations.of(workingModel)
                 .map(ComputeFormula::new)
                 .map(ComputeNNFFormula::new)
                 .map(ComputeCNFFormula::new)
                 .map(ComputeBooleanClauseList::new)
                 .compute();
-        // relevant
         SAT4JSolutionSolver solver = new SAT4JSolutionSolver(newCnf, false);
         SAT4JClauseList clauseList = solver.getClauseList();
 
@@ -184,9 +200,17 @@ public class FeatureModelSimplifyerCommand extends ACommand {
         List<String> removedDeadFeatures = getRemovedFeatures(deadFeatures, slicedFeatureNames);
         List<String> removedCoreFeatures = getRemovedFeatures(coreFeatures, slicedFeatureNames);
         
+        List<Pair<List<String>, List<String>>> atomicSetsPairs = analyzer.atomicSets().orElse(new ArrayList<>());
+        List<String> allAtomicSetFeatures = new ArrayList<>();
+        for (Pair<List<String>, List<String>> pair : atomicSetsPairs) {
+            allAtomicSetFeatures.addAll(pair.getFirst());
+            allAtomicSetFeatures.addAll(pair.getSecond());
+        }
+        List<String> removedAtomicSets = getRemovedFeatures(allAtomicSetFeatures, slicedFeatureNames);
+        
         FeatJAR.log().message("REMOVED DEAD FEATURES " + removedDeadFeatures);
-        FeatJAR.log().message("REMOVED_CORE_FEATURES " + removedCoreFeatures);
-        FeatJAR.log().message("ATOMIC_SETS " + analyzer.atomicSets());
+        FeatJAR.log().message("REMOVED CORE FEATURES " + removedCoreFeatures);
+        FeatJAR.log().message("REMOVED ATOMIC SETS " + removedAtomicSets);
     }
 
     private List<String> getRemovedFeatures(List<String> features, Set<String> slicedFeatureNames) {
@@ -196,10 +220,10 @@ public class FeatureModelSimplifyerCommand extends ACommand {
     }
 
     private void printMergedFeatures(FeatureModelAnalyzer analyzer, Set<String> slicedFeatureNames, IFeatureModel featureModel) {
-        List<de.featjar.base.data.Pair<List<String>, List<String>>> atomicSets = analyzer.atomicSets().orElse(new ArrayList<>());
+        List<Pair<List<String>, List<String>>> atomicSets = analyzer.atomicSets().orElse(new ArrayList<>());
         Set<String> featuresWithParents = getFeaturesWithParents(featureModel);
 
-        for (de.featjar.base.data.Pair<List<String>, List<String>> atomicSet : atomicSets) {
+        for (Pair<List<String>, List<String>> atomicSet : atomicSets) {
             List<String> positiveFeatures = atomicSet.getFirst();
             List<String> negativeFeatures = atomicSet.getSecond();
             List<String> allFeaturesInSet = new ArrayList<>(positiveFeatures);
@@ -242,38 +266,40 @@ public class FeatureModelSimplifyerCommand extends ACommand {
         return featuresWithParents;
     }
 
-    private void processSingleFile(Path inputPath, FeatJARWrapper featJARWrapper) {
+    private void processSingleFile(Path inputPath, FeatJARWrapper featJARWrapper, OptionList optionParser, boolean isDirectoryProcessing) {
         final IFeatureModel featureModel = featJARWrapper
                 .loadFeatureModel(inputPath)
                 .get();
         final FeatureModelAnalyzer analyzer = featJARWrapper.featureModelAnalyzer(featureModel);
-        Result<IExpression> simplify_Expression = analyzer.simplify();
+        boolean coreDead = optionParser.get(CORE_DEAD_OPTION);
+        boolean atomicSets = optionParser.get(ATOMIC_SETS_OPTION);
+        Result<IExpression> simplify_Expression = analyzer.simplify(coreDead, atomicSets);
 
         IFeatureModel slicedModel = sliceFeatureModel(featureModel, simplify_Expression);
         IFeatureModel slicedModelWithoutRedundancies = checkRedundancy(slicedModel);
 
         printInfo(analyzer, slicedModel, featureModel);
-        
-
-
-        /*
-        System.out.println("ORIGINAL FEATURE MODEL: " + featureModel.getFeatures());
-        System.out.println("ORIGINAL MODEL CONSTRAINTS " + featureModel.getConstraints());
-        System.out.println("SIMPLIFIED FEATURE MODEL: " + slicedModel.getFeatures() + "\n" + slicedModel.getConstraints());
-        System.out.println("SIMPLIFIED FEATURE MODEL WITHOUT REDUNDANCIES: " + slicedModelWithoutRedundancies.getFeatures() + "\n" + slicedModelWithoutRedundancies.getConstraints());
-        IFormula formula1 = Computations.of(slicedModel).map(ComputeFormula::new).compute();
-        IFormula formula2 = Computations.of(slicedModelWithoutRedundancies).map(ComputeFormula::new).compute();
-        System.out.println("Simplified Model without and with are equal: " + formula1.equals(formula2));
-
-         */
 
         String inputFileName = inputPath.getFileName().toString();
+        Path outputPath = Path.of("../feature-model-assistance/src/main/resources/uvlModelsOutput/");
+        if(optionParser.has(OUTPUT_OPTION)){
+            outputPath = optionParser.get(OUTPUT_OPTION);
+        }
         int underscoreIndex = inputFileName.indexOf('_');
         int dotIndex = inputFileName.lastIndexOf('.');
         String namePart = (underscoreIndex != -1 && dotIndex != -1)
                 ? inputFileName.substring(underscoreIndex + 1, dotIndex)
                 : inputFileName.substring(0, dotIndex != -1 ? dotIndex : inputFileName.length());
-        Path outputPath = Path.of("../feature-model-assistance/src/main/resources/uvlModelsOutput/" + namePart + "_slicedModel.uvl");
+        
+        // Always treat as directory when processing multiple files or if path doesn't exist
+        if(isDirectoryProcessing || !Files.exists(outputPath) || Files.isDirectory(outputPath)){
+            try {
+                Files.createDirectories(outputPath);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            outputPath = outputPath.resolve("slicedModel_" + namePart + ".uvl");
+        }
         try {
             featJARWrapper.storeFeatureModel(slicedModelWithoutRedundancies, outputPath);
             FeatJAR.log().message("Sliced model stored at: " + outputPath.toAbsolutePath());
@@ -282,31 +308,33 @@ public class FeatureModelSimplifyerCommand extends ACommand {
         }
     }
 
-    // run --args="simplify-model --input '../feature-model-assistance/src/main/resources/uvlModelsInput/testModel_dead.uvl'"
-    // run --args="simplify-model --input '../feature-model-assistance/src/main/resources/uvlModelsInput/testModel_core.uvl'"
-    // run --args="simplify-model --input '../feature-model-assistance/src/main/resources/uvlModelsInput/testModel_atomicSets.uvl'"
-    // run --args="simplify-model --input 'D:/Uni/FeatJAR/uvl/src/main/resources/uvl/featureModelSerializeResult.uvl'"
-    // run --args="simplify-model --input '../formula/src/testFixtures/resources/GPL/model.xml'"
-    // run --args="simplify-model --input 'D:/Uni/FeatJAR/formula/src/testFixtures/resources/GPL/model.xml'"
-    // run --args="simplify-model --input '../feature-model-assistance/src/main/resources/uvlModelsInput/'" (directory)
+    /*
+     run --args="simplify-model --input '../feature-model-assistance/src/main/resources/uvlModelsInput/testModel_dead.uvl'"
+     run --args="simplify-model --input '../feature-model-assistance/src/main/resources/uvlModelsInput/testModel_core.uvl'"
+     run --args="simplify-model --input '../feature-model-assistance/src/main/resources/uvlModelsInput/testModel_atomicSets.uvl'"
+     run --args="simplify-model --input 'D:/Uni/FeatJAR/uvl/src/main/resources/uvl/featureModelSerializeResult.uvl'"
+     run --args="simplify-model --input '../formula/src/testFixtures/resources/GPL/model.xml'"
+     run --args="simplify-model --input 'D:/Uni/FeatJAR/formula/src/testFixtures/resources/GPL/model.xml'"
+     run --args="simplify-model --input '../feature-model-assistance/src/main/resources/uvlModelsInput/'" (directory)
+     run --args="simplify-model --input '../feature-model-assistance/src/main/resources/uvlModelsInput/' --coreDead true --atomic_sets true --output '../feature-model-assistance/src/main/resources/uvlModelsOutput/'"
+    */
     @Override
     public int run(OptionList optionParser) {
         final FeatJARWrapper featJARWrapper = new FeatJARWrapper();
         Path inputPath = Path.of(String.valueOf(optionParser.get(INPUT_OPTION)));
-
         if (Files.isDirectory(inputPath)) {
             try (Stream<Path> paths = Files.walk(inputPath)) {
                 paths.filter(Files::isRegularFile)
                      .filter(p -> p.toString().endsWith(".uvl"))
                      .forEach(uvlFile -> {
-                         FeatJAR.log().message("\t\t====== Processing file: " + uvlFile + " ======");
-                         processSingleFile(uvlFile, featJARWrapper);
+                         FeatJAR.log().message("====== Processing file: " + uvlFile + " ======");
+                         processSingleFile(uvlFile, featJARWrapper, optionParser, true);
                      });
             } catch (IOException e) {
                 throw new RuntimeException("Error walking directory: " + inputPath, e);
             }
         } else {
-            processSingleFile(inputPath, featJARWrapper);
+            processSingleFile(inputPath, featJARWrapper, optionParser, false);
         }
         return 0;
     }
