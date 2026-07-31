@@ -10,8 +10,6 @@ features
                                                         Boolean f5 {name 'f5', abstract false}
                                                         Boolean f6 {name 'f6', abstract false}
                                         Boolean f7 {name 'f7', abstract false}
-                        Boolean f8 {name 'f8', abstract false}
-                        Boolean f9 {name 'f9', abstract false}
 
 
 

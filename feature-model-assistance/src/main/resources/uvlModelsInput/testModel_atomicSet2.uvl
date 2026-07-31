@@ -7,9 +7,6 @@ features
                                         Boolean f11 {name 'f11', abstract false}
                                         Boolean f12 {name 'f12', abstract false}
                         Boolean f13 {name 'f13', abstract false}
-                or
-                        Boolean f14 {name 'f14', abstract false}
-                        Boolean f15 {name 'f15', abstract false}
 
 constraints
         (f7 <=> f10) & (f10 <=> f13)

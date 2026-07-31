@@ -45,6 +45,7 @@ import de.featjar.feature.model.IConstraint;
 import de.featjar.feature.model.IFeature;
 import de.featjar.feature.model.IFeatureModel;
 import de.featjar.feature.model.IFeatureModelElementFilter;
+import de.featjar.feature.model.IFeatureTree;
 import de.featjar.feature.model.computation.ComputeConstraintNumberOfAtoms;
 import de.featjar.feature.model.computation.ComputeConstraintNumberOfConnectives;
 import de.featjar.feature.model.computation.ComputeConstraintNumberOfDistinctVariables;
@@ -56,6 +57,7 @@ import de.featjar.feature.model.computation.ComputeFeatureTreeNumberOfTopNodes;
 import de.featjar.feature.model.transformer.ComputeFeatureModelSlice;
 import de.featjar.feature.model.transformer.ComputeFormula;
 import de.featjar.formula.VariableMap;
+import de.featjar.formula.assignment.BooleanAssignment;
 import de.featjar.formula.assignment.BooleanAssignmentList;
 import de.featjar.formula.assignment.conversion.ComputeBooleanClauseList;
 import de.featjar.formula.combination.VariableCombinationSpecification;
@@ -68,10 +70,12 @@ import de.featjar.formula.structure.predicate.DefLiteral;
 import de.featjar.formula.structure.predicate.Literal;
 import de.featjar.formula.visitor.ExpressionReplacer;
 import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.Map;
 import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -161,7 +165,32 @@ public class FeatureModelAnalyzer {
                 .computeResult();
     }
 
+    /**
+     * The propositional simplification and the positive atomic-set replacements
+     * that can also be applied safely to the feature tree.
+     *
+     * <p>Complementary atomic-set members are deliberately absent from
+     * {@code positiveAtomicRepresentatives}: moving their children below the
+     * representative would invert the condition under which those children are
+     * active.</p>
+     */
+    public record SimplificationResult(IExpression expression, Map<String, String> positiveAtomicRepresentatives) {
+
+        public SimplificationResult {
+            positiveAtomicRepresentatives =
+                    Collections.unmodifiableMap(new LinkedHashMap<>(positiveAtomicRepresentatives));
+        }
+    }
+
     public Result<IExpression> simplify(Boolean coreDead, Boolean atomic_sets) {
+        return simplifyWithPlan(coreDead, atomic_sets).map(SimplificationResult::expression);
+    }
+
+    /**
+     * Simplifies the propositional expression and retains the chosen
+     * representatives for later structure-aware feature-tree reduction.
+     */
+    public Result<SimplificationResult> simplifyWithPlan(Boolean coreDead, Boolean atomic_sets) {
         BooleanAssignmentList core;
         BooleanAssignmentList atomicSets;
         ComputeFormula formulaComputation = fmComputation.map(ComputeFormula::new);
@@ -178,35 +207,123 @@ public class FeatureModelAnalyzer {
                 .map(IFeature::getName)
                 .map(Result::get)
                 .toList();
+        Map<String, String> positiveAtomicRepresentatives = new LinkedHashMap<>();
 
-        if(coreDead) {
+        if (coreDead) {
             core = cnfComputation.map(ComputeCoreSAT4J::new).compute();
             Map<IExpression, IExpression> coreReplacementMap = ExpressionReplacer.createCoreReplacementMap(core);
             removeRootFeature(simplifiedFormula, rootFeatureNames, coreReplacementMap);
-
-        } if(atomic_sets) {
+        }
+        if (atomic_sets) {
             atomicSets = cnfComputation
                     .map(ComputeAtomicSetsSAT4J::new)
                     .set(ComputeAtomicSetsSAT4J.OMIT_CORE, true)
                     .set(ComputeAtomicSetsSAT4J.OMIT_SINGLE_SETS, true)
                     .compute();
+            atomicSets = orderAtomicSetsByStructuralCost(atomicSets, rootFeatureNames, positiveAtomicRepresentatives);
             // Filter out the root features that are present in the atomic sets features
-            Map<IExpression, IExpression> atomicSetsReplacementMap = ExpressionReplacer.createAtomicSetsReplacementMap(atomicSets);
+            Map<IExpression, IExpression> atomicSetsReplacementMap =
+                    ExpressionReplacer.createAtomicSetsReplacementMap(atomicSets);
             removeRootFeature(simplifiedFormula, rootFeatureNames, atomicSetsReplacementMap);
         }
 
         // compareFormulaAndSimplifiedFormula(formula, simplifiedFormula);
 
-
-        return Result.of(simplifiedFormula);
+        return Result.of(new SimplificationResult(simplifiedFormula, positiveAtomicRepresentatives));
     }
 
-    private void removeRootFeature(IExpression simplifiedFormula, List<String> rootFeatureNames, Map<IExpression, IExpression> ReplacementMap) {
+    private BooleanAssignmentList orderAtomicSetsByStructuralCost(
+            BooleanAssignmentList atomicSets,
+            List<String> rootFeatureNames,
+            Map<String, String> positiveAtomicRepresentatives) {
+        VariableMap variableMap = atomicSets.getVariableMap();
+        BooleanAssignmentList orderedAtomicSets = new BooleanAssignmentList(variableMap);
+
+        for (BooleanAssignment atomicSet : atomicSets) {
+            int[] literals = atomicSet.get();
+            if (literals.length < 2) {
+                orderedAtomicSets.add(new BooleanAssignment(atomicSet));
+                continue;
+            }
+
+            int representativeIndex = selectAtomicRepresentative(literals, variableMap, rootFeatureNames);
+            int[] orderedLiterals = new int[literals.length];
+            orderedLiterals[0] = literals[representativeIndex];
+            int targetIndex = 1;
+            for (int i = 0; i < literals.length; i++) {
+                if (i != representativeIndex) {
+                    orderedLiterals[targetIndex++] = literals[i];
+                }
+            }
+            orderedAtomicSets.add(new BooleanAssignment(orderedLiterals));
+
+            int representativeLiteral = orderedLiterals[0];
+            String representativeName =
+                    variableMap.get(Math.abs(representativeLiteral)).orElseThrow();
+            for (int i = 1; i < orderedLiterals.length; i++) {
+                int replacedLiteral = orderedLiterals[i];
+                String replacedName = variableMap.get(Math.abs(replacedLiteral)).orElseThrow();
+                if (Integer.signum(replacedLiteral) == Integer.signum(representativeLiteral)
+                        && !rootFeatureNames.contains(replacedName)) {
+                    positiveAtomicRepresentatives.put(replacedName, representativeName);
+                }
+            }
+        }
+        return orderedAtomicSets;
+    }
+
+    private int selectAtomicRepresentative(int[] literals, VariableMap variableMap, List<String> rootFeatureNames) {
+        int bestIndex = 0;
+        long bestCost = Long.MAX_VALUE;
+
+        for (int i = 0; i < literals.length; i++) {
+            String featureName = variableMap.get(Math.abs(literals[i])).orElseThrow();
+            long cost = structuralRepresentativeCost(featureName, rootFeatureNames);
+            if (cost < bestCost) {
+                bestCost = cost;
+                bestIndex = i;
+            }
+        }
+        return bestIndex;
+    }
+
+    private long structuralRepresentativeCost(String featureName, List<String> rootFeatureNames) {
+        if (rootFeatureNames.contains(featureName)) {
+            return Long.MIN_VALUE;
+        }
+
+        List<? extends IFeatureTree> featureTrees = featureModel.getFeatureTreeNodes(featureName);
+        if (featureTrees.size() != 1) {
+            return 1_000_000L + featureTrees.size();
+        }
+
+        IFeatureTree featureTree = featureTrees.get(0);
+        long nonEmptyGroupCount = Arrays.stream(featureTree.getChildrenGroupIDs())
+                .filter(groupID -> !featureTree.getChildren(groupID).isEmpty())
+                .count();
+        long depth = 0;
+        IFeatureTree current = featureTree;
+        while (current.hasParent()) {
+            depth++;
+            current = current.getParent().get();
+        }
+
+        // Prefer leaves first, followed by nodes with few existing groups and
+        // shallow positions in the tree. The original atomic-set order remains
+        // the deterministic tie breaker.
+        return (1_000L * featureTree.getChildrenCount()) + (100L * nonEmptyGroupCount) + depth;
+    }
+
+    private void removeRootFeature(
+            IExpression simplifiedFormula,
+            List<String> rootFeatureNames,
+            Map<IExpression, IExpression> ReplacementMap) {
         ReplacementMap.keySet().removeIf(key -> {
             if (key instanceof Literal) {
                 return rootFeatureNames.contains(((Literal) key).getVariable().getName());
             } else if (key instanceof DefLiteral) {
-                return rootFeatureNames.contains(((DefLiteral) key).getVariable().getName());
+                return rootFeatureNames.contains(
+                        ((DefLiteral) key).getVariable().getName());
             }
             return false;
         });
@@ -219,9 +336,9 @@ public class FeatureModelAnalyzer {
      * hinzufügen zu extensions.xm
      */
     public static void main(String[] args) {
-        //if(args.length == 0){
+        // if(args.length == 0){
         //    args[0] = "D:/Uni/FeatJAR/formula/src/testFixtures/resources/GPL/model.xml";
-        //}
+        // }
         final FeatJARWrapper featJARWrapper = new FeatJARWrapper();
         final IFeatureModel featureModel = featJARWrapper
                 .loadFeatureModel(Path.of("D:/Uni/FeatJAR/formula/src/testFixtures/resources/GPL/model.xml"))
@@ -455,9 +572,7 @@ public class FeatureModelAnalyzer {
      * @param formula the original formula
      * @param simplifiedFormula the simplified formula
      */
-    public static void compareFormulaAndSimplifiedFormula(
-            IExpression formula,
-            IExpression simplifiedFormula) {
+    public static void compareFormulaAndSimplifiedFormula(IExpression formula, IExpression simplifiedFormula) {
 
         String formulaStr = Expressions.print(formula);
         String simplifiedStr = Expressions.print(simplifiedFormula);
@@ -466,8 +581,9 @@ public class FeatureModelAnalyzer {
         String[] simplifiedLines = simplifiedStr.split("\n");
 
         int maxLines = Math.max(formulaLines.length, simplifiedLines.length);
-        int maxFormulaWidth = formulaLines.length > 0 ?
-                Arrays.stream(formulaLines).mapToInt(String::length).max().orElse(0) : 0;
+        int maxFormulaWidth = formulaLines.length > 0
+                ? Arrays.stream(formulaLines).mapToInt(String::length).max().orElse(0)
+                : 0;
 
         System.out.println("=== Formula Comparison ===");
         System.out.println(String.format("%-" + (maxFormulaWidth + 5) + "s| Simplified Formula", "Original Formula"));
@@ -480,9 +596,8 @@ public class FeatureModelAnalyzer {
             if (formulaLine.equals(simplifiedLine)) {
                 System.out.println(String.format("%-" + (maxFormulaWidth + 5) + "s| %s", formulaLine, simplifiedLine));
             } else {
-                System.out.println(
-                        String.format("[CHANGED] %-" + (maxFormulaWidth - 10) + "s| [CHANGED] %s", formulaLine, simplifiedLine)
-                );
+                System.out.println(String.format(
+                        "[CHANGED] %-" + (maxFormulaWidth - 10) + "s| [CHANGED] %s", formulaLine, simplifiedLine));
             }
         }
         System.out.println("=".repeat(maxFormulaWidth + 5 + 1 + 50));

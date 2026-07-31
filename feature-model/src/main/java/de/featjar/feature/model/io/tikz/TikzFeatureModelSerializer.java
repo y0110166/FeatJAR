@@ -162,26 +162,24 @@ public class TikzFeatureModelSerializer {
         }
 
         private void printGroupCardinality(IFeatureTree featureTree) {
-            if (featureTree.hasParent()) {
-                int previousChildrenCount = 1;
-                for (int i = 0; i < featureTree.getChildrenGroups().size(); i++) {
-                    if (featureTree.getChildrenGroup(i).isPresent()) {
-                        int childrenCount = featureTree.getChildren(i).size();
-                        FeatureTree.Group group =
-                                featureTree.getChildrenGroup(i).get();
-                        if (group.isOr()) {
+            int previousChildrenCount = 1;
+            for (int i = 0; i < featureTree.getChildrenGroups().size(); i++) {
+                if (featureTree.getChildrenGroup(i).isPresent()) {
+                    int childrenCount = featureTree.getChildren(i).size();
+                    FeatureTree.Group group = featureTree.getChildrenGroup(i).get();
+                    if (group.isOr()) {
                             stringBuilder.append(String.format(
                                     ",or={%d}{%d}{%d}",
                                     previousChildrenCount,
                                     previousChildrenCount + childrenCount - 1,
                                     (2 * previousChildrenCount + childrenCount - 1) / 2));
-                        } else if (group.isAlternative()) {
+                    } else if (group.isAlternative()) {
                             stringBuilder.append(String.format(
                                     ",alternative={%d}{%d}{%d}",
                                     previousChildrenCount,
                                     previousChildrenCount + childrenCount - 1,
                                     (2 * previousChildrenCount + childrenCount - 1) / 2));
-                        } else if (group.isCardinalityGroup()) {
+                    } else if (group.isCardinalityGroup()) {
                             stringBuilder.append(String.format(
                                     ",groupcardinality={%d}{%d}{%d}{%d}{%d}",
                                     previousChildrenCount,
@@ -189,10 +187,9 @@ public class TikzFeatureModelSerializer {
                                     (2 * previousChildrenCount + childrenCount - 1) / 2,
                                     group.getLowerBound(),
                                     group.getUpperBound()));
-                        }
-
-                        previousChildrenCount += childrenCount;
                     }
+
+                    previousChildrenCount += childrenCount;
                 }
             }
         }
