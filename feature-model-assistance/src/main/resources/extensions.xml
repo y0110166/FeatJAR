@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <extensions>
     <point id="de.featjar.base.cli.Commands">
-        <extension id="de.featjar.featureide.cli.FeatureModelSimplifyerCommand" />    </point>
+        <extension id="de.featjar.featureide.cli.FeatureModelSimplifyerCommand" />
+        <extension id="de.featjar.featureide.cli.Evaluation" />
+    </point>
 </extensions>
