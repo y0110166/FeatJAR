@@ -1,0 +1,5 @@
+outcome,test,sample_size,estimate,statistic,p_value,method
+Features,Paired t-test,1519,59.71823568136932,14.140774706729843,9.687357048254211e-43,Paired t-test
+Features,Wilcoxon signed-rank test,1519,NA,1069453,1.1447286671592492e-240,Wilcoxon signed rank test with continuity correction
+Constraints,Paired t-test,1519,-57.88150098749177,-9.401492247099112,1.9096592044810036e-20,Paired t-test
+Constraints,Wilcoxon signed-rank test,1519,NA,43204,7.161647440725962e-135,Wilcoxon signed rank test with continuity correction

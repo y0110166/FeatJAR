@@ -1,0 +1,5 @@
+reason,failures,share_of_failures
+input_model_load_error,94,0.8034188034188035
+unsatisfiable_feature_model,12,0.10256410256410256
+unsupported_feature_types,6,0.05128205128205128
+model_timeout,5,0.042735042735042736

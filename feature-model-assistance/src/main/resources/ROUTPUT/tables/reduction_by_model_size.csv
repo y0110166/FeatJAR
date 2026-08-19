@@ -1,0 +1,5 @@
+model_size_group,models,min_original_features,max_original_features,mean_feature_reduction,median_feature_reduction,mean_constraint_reduction,median_constraint_reduction
+Q1: smallest,380,3,14,0.3842127684210526,0.357143,-0.4307901421052632,0
+Q2,380,14,24,0.42884258684210524,0.4375,-0.4074580315789474,0
+Q3,380,24,43,0.39607056315789474,0.368421,-1.276508144736842,0
+Q4: largest,379,43,2513,0.36419302902374673,0.380228,-1.5582557546174143,-0.431072

@@ -1,0 +1,22 @@
+reason,message,occurrences
+input_model_load_error,Multiple Errors occurred during parsing! failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10) failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1),38
+input_model_load_error,java.util.EmptyStackException,21
+unsatisfiable_feature_model,Feature model is unsatisfiable and cannot be simplified,12
+input_model_load_error,Could not resolve import: D:\Uni\FeatJAR\all\Bausatz_2025_Ingredients.uvl (at 2:0),7
+input_model_load_error,java.lang.IllegalArgumentException: Cannot create attribute for type class java.lang.Double. Attribute already defined for type class java.lang.Long.,7
+input_model_load_error,"java.lang.NumberFormatException: For input string: ""*""",6
+input_model_load_error,de.featjar.feature.model.io.uvl.UVLConversionException: SumAggregateFunctionExpression is not supported.,5
+model_timeout,Model evaluation exceeded the timeout of 600 seconds,5
+unsupported_feature_types,"Boolean features are required; unsupported features: Table (Integer), Your name (String)",3
+input_model_load_error,java.lang.IllegalArgumentException: Cannot create attribute for type class java.lang.Long. Attribute already defined for type class java.lang.Boolean.,2
+input_model_load_error,Could not resolve import: D:\Uni\FeatJAR\all\Bibra_2025_Bases.uvl (at 2:0),1
+input_model_load_error,Could not resolve import: D:\Uni\FeatJAR\all\Bibra_2025_Salad.uvl (at 2:0),1
+input_model_load_error,Could not resolve import: D:\Uni\FeatJAR\all\JustSalad_2025_Bases.uvl (at 2:0),1
+input_model_load_error,"Multiple Errors occurred during parsing! failed to parse at line 13:5 due to mismatched input 'Type' expecting {'String', 'Boolean', 'Integer', 'Real', ID_NOT_STRICT, ID_STRICT} (at 13:5) failed to parse at line 15:7 due to mismatched input '\t\t\t\t\t\t\t' expecting {<EOF>, 'constraints'} (at 15:7)",1
+input_model_load_error,java.lang.IllegalArgumentException: Cannot create attribute for type class java.lang.Long. Attribute already defined for type class java.lang.Double.,1
+input_model_load_error,java.lang.NullPointerException,1
+input_model_load_error,"java.lang.NullPointerException: Cannot invoke ""de.vill.model.Feature.getAttributes()"" because ""relevantFeature"" is null",1
+input_model_load_error,"java.lang.NullPointerException: Cannot invoke ""de.vill.model.building.VariableReference.getIdentifier()"" because ""rootFeature"" is null",1
+unsupported_feature_types,"Boolean features are required; unsupported features: 1 Extra Sliced of Bread (Integer), 1 Wrap on the Side (Integer)",1
+unsupported_feature_types,"Boolean features are required; unsupported features: Community Standards (Integer), Dependencies (Integer), Dependents (Integer), Number of Labels (Integer), Number of Forks (Integer), Number of Watchers (Integer), Number of Stars (Integer), Number of Contributors (Integer), Programming Language (String), Number of Workflows (Integer)",1
+unsupported_feature_types,"Boolean features are required; unsupported features: rondas (Integer), tiemporespuesta (Integer), server_address (String), total_songs (Integer), onfire_extra_points (Integer)",1

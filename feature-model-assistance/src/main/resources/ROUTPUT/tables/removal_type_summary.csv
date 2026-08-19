@@ -1,0 +1,4 @@
+removal_type,total_removed,mean_per_model,median_per_model,maximum_per_model,models_with_removals,share_of_models_with_removals,share_of_all_removed_features
+Atomic-set features,69137,45.514812376563526,1,626,1026,0.6754443712969058,0.7621593614957227
+Core features,13751,9.052666227781435,6,118,1426,0.9387755102040817,0.15158964635329394
+Dead features,7824,5.150757077024358,0,185,197,0.12969058591178406,0.08625099215098334
