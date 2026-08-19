@@ -1,0 +1,196 @@
+input_file,reason,message
+dataset_12/uvl/embtoolkit.uvl,unsatisfiable_feature_model,Feature model is unsatisfiable and cannot be simplified
+dataset_13/uvl/busybox_2010-05-02_14-17-07.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2007-05-20_17-12-43.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2007-06-01_14-40-03.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2007-07-01_14-53-06.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2007-08-01_23-30-54.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2007-09-02_14-51-54.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2007-10-01_09-59-01.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2007-11-02_23-31-10.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2007-12-02_01-43-18.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2008-01-02_19-55-04.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2008-02-01_01-41-57.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2008-03-01_09-35-39.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2008-04-01_14-47-57.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2008-05-02_09-19-29.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2008-06-01_10-10-22.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2008-07-01_01-57-36.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2008-08-01_02-15-05.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2008-09-01_15-23-04.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2008-10-02_13-30-31.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2008-11-01_00-10-51.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2008-12-01_12-36-41.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2009-01-01_17-52-09.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2009-02-01_00-40-45.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2009-03-01_04-50-18.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2009-04-01_11-24-04.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2009-05-01_03-00-04.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2009-06-01_11-26-30.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2009-07-02_12-04-50.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2009-08-01_06-53-03.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2009-09-02_11-49-25.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2009-10-02_01-10-32.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2009-11-01_04-01-30.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2009-12-01_02-32-01.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2010-01-01_16-45-43.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2010-02-01_04-55-30.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2010-03-02_15-02-45.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2010-04-01_15-09-44.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_14/uvl/2010-05-02_14-17-07.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 1:10 due to: token recognition error at: '_' (at 1:10)
+failed to parse at line 3:1 due to: token recognition error at: '_' (at 3:1)"
+dataset_15/uvl/linux-2.6.33.3.uvl,unsatisfiable_feature_model,Feature model is unsatisfiable and cannot be simplified
+dataset_19/uvl/ovm_RFW.ovm.uvl,input_model_load_error,java.lang.NullPointerException
+dataset_20/uvl/model_20110207_1623721536.uvl,unsatisfiable_feature_model,Feature model is unsatisfiable and cannot be simplified
+dataset_20/uvl/model_20151123_702303189.uvl,unsatisfiable_feature_model,Feature model is unsatisfiable and cannot be simplified
+dataset_20/uvl/model_20160226_1944186213.uvl,unsatisfiable_feature_model,Feature model is unsatisfiable and cannot be simplified
+dataset_20/uvl/model_20160519_1846923063.uvl,unsatisfiable_feature_model,Feature model is unsatisfiable and cannot be simplified
+dataset_20/uvl/model_20161118_228131771.uvl,unsatisfiable_feature_model,Feature model is unsatisfiable and cannot be simplified
+dataset_20/uvl/model_20170514_1578942718.uvl,unsatisfiable_feature_model,Feature model is unsatisfiable and cannot be simplified
+dataset_20/uvl/model_20190411_1457420991.uvl,unsatisfiable_feature_model,Feature model is unsatisfiable and cannot be simplified
+dataset_20/uvl/model_20221031_379205114.uvl,unsatisfiable_feature_model,Feature model is unsatisfiable and cannot be simplified
+"dataset_42/uvl/step3 Design the display to show the information simply, clearly and accurately (tables).uvl",input_model_load_error,java.util.EmptyStackException
+dataset_48/uvl/linux-2.6.33.3.uvl,unsatisfiable_feature_model,Feature model is unsatisfiable and cannot be simplified
+dataset_49/uvl/linux-2.6.33.3.uvl,unsatisfiable_feature_model,Feature model is unsatisfiable and cannot be simplified
+dataset_53/uvl/GitHubProject.uvl,unsupported_feature_types,"Boolean features are required; unsupported features: Community Standards (Integer), Dependencies (Integer), Dependents (Integer), Number of Labels (Integer), Number of Forks (Integer), Number of Watchers (Integer), Number of Stars (Integer), Number of Contributors (Integer), Programming Language (String), Number of Workflows (Integer)"
+dataset_54/uvl/KubernetesFM.uvl,input_model_load_error,"java.lang.NumberFormatException: For input string: ""*"""
+dataset_54/uvl/KubernetesFM_Boolean.uvl,input_model_load_error,java.lang.IllegalArgumentException: Cannot create attribute for type class java.lang.Long. Attribute already defined for type class java.lang.Boolean.
+dataset_56/uvl/Akesson2019b_gft.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_56/uvl/BerkeleyDB_gft.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_56/uvl/GPL_excerpt_gft.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_56/uvl/Horcas2022b_gft.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_56/uvl/JHipster_gft.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_56/uvl/MobileMedia_gft.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_56/uvl/Oh2019_gft.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_56/uvl/Pizzas_complex_gft.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_56/uvl/Truck_gft.uvl,input_model_load_error,"Multiple Errors occurred during parsing!
+failed to parse at line 13:5 due to mismatched input 'Type' expecting {'String', 'Boolean', 'Integer', 'Real', ID_NOT_STRICT, ID_STRICT} (at 13:5)
+failed to parse at line 15:7 due to mismatched input '\t\t\t\t\t\t\t' expecting {<EOF>, 'constraints'} (at 15:7)"
+dataset_56/uvl/WeaFQAs_gft.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_56/uvl/axTLS_gft.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_57/uvl/Bausatz_2022_Burgers.uvl,input_model_load_error,"java.lang.NumberFormatException: For input string: ""*"""
+dataset_57/uvl/Bausatz_2022_Desserts.uvl,input_model_load_error,de.featjar.feature.model.io.uvl.UVLConversionException: SumAggregateFunctionExpression is not supported.
+dataset_57/uvl/Bausatz_2025_Burgers.uvl,input_model_load_error,Could not resolve import: D:\Uni\FeatJAR\all\Bausatz_2025_Ingredients.uvl (at 2:0)
+dataset_57/uvl/Bausatz_2025_Desserts.uvl,input_model_load_error,de.featjar.feature.model.io.uvl.UVLConversionException: SumAggregateFunctionExpression is not supported.
+dataset_57/uvl/Bausatz_2025_DrinkMix.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_57/uvl/Bausatz_2025_Pasta.uvl,input_model_load_error,Could not resolve import: D:\Uni\FeatJAR\all\Bausatz_2025_Ingredients.uvl (at 2:0)
+dataset_57/uvl/Bausatz_2025_Pfandl.uvl,input_model_load_error,Could not resolve import: D:\Uni\FeatJAR\all\Bausatz_2025_Ingredients.uvl (at 2:0)
+dataset_57/uvl/Bausatz_2025_Pizzas.uvl,input_model_load_error,Could not resolve import: D:\Uni\FeatJAR\all\Bausatz_2025_Ingredients.uvl (at 2:0)
+dataset_57/uvl/Bausatz_2025_Potatoes.uvl,input_model_load_error,Could not resolve import: D:\Uni\FeatJAR\all\Bausatz_2025_Ingredients.uvl (at 2:0)
+dataset_57/uvl/Bausatz_2025_Salads.uvl,input_model_load_error,Could not resolve import: D:\Uni\FeatJAR\all\Bausatz_2025_Ingredients.uvl (at 2:0)
+dataset_57/uvl/Bausatz_2025_ScrambledEggs.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_57/uvl/Bausatz_2025_ToastedBread.uvl,input_model_load_error,Could not resolve import: D:\Uni\FeatJAR\all\Bausatz_2025_Ingredients.uvl (at 2:0)
+dataset_57/uvl/Bibra_2025.uvl,input_model_load_error,Could not resolve import: D:\Uni\FeatJAR\all\Bibra_2025_Salad.uvl (at 2:0)
+dataset_57/uvl/Bibra_2025_Pokebowls.uvl,input_model_load_error,Could not resolve import: D:\Uni\FeatJAR\all\Bibra_2025_Bases.uvl (at 2:0)
+dataset_57/uvl/Bibra_2025_Salad.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_57/uvl/Bibra_2025_Wraps.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_57/uvl/FiveGuys_2024.uvl,input_model_load_error,"java.lang.NullPointerException: Cannot invoke ""de.vill.model.Feature.getAttributes()"" because ""relevantFeature"" is null"
+dataset_57/uvl/JustSalad_2025.uvl,input_model_load_error,"java.lang.NumberFormatException: For input string: ""*"""
+dataset_57/uvl/JustSalad_2025_Bases.uvl,input_model_load_error,java.lang.IllegalArgumentException: Cannot create attribute for type class java.lang.Double. Attribute already defined for type class java.lang.Long.
+dataset_57/uvl/JustSalad_2025_Bowl.uvl,input_model_load_error,Could not resolve import: D:\Uni\FeatJAR\all\JustSalad_2025_Bases.uvl (at 2:0)
+dataset_57/uvl/JustSalad_2025_Cheese.uvl,input_model_load_error,java.lang.IllegalArgumentException: Cannot create attribute for type class java.lang.Double. Attribute already defined for type class java.lang.Long.
+dataset_57/uvl/JustSalad_2025_Dressings.uvl,input_model_load_error,java.lang.IllegalArgumentException: Cannot create attribute for type class java.lang.Double. Attribute already defined for type class java.lang.Long.
+dataset_57/uvl/JustSalad_2025_Essentials.uvl,input_model_load_error,java.lang.IllegalArgumentException: Cannot create attribute for type class java.lang.Double. Attribute already defined for type class java.lang.Long.
+dataset_57/uvl/JustSalad_2025_Greens.uvl,input_model_load_error,java.lang.IllegalArgumentException: Cannot create attribute for type class java.lang.Double. Attribute already defined for type class java.lang.Long.
+dataset_57/uvl/JustSalad_2025_Other.uvl,unsupported_feature_types,"Boolean features are required; unsupported features: 1 Extra Sliced of Bread (Integer), 1 Wrap on the Side (Integer)"
+dataset_57/uvl/JustSalad_2025_Premiums.uvl,input_model_load_error,java.lang.IllegalArgumentException: Cannot create attribute for type class java.lang.Double. Attribute already defined for type class java.lang.Long.
+dataset_57/uvl/JustSalad_2025_Proteins.uvl,input_model_load_error,java.lang.IllegalArgumentException: Cannot create attribute for type class java.lang.Double. Attribute already defined for type class java.lang.Long.
+dataset_57/uvl/JustSalad_2025_Salad.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_57/uvl/JustSalad_2025_Wraps.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_57/uvl/LaGalerna_2020_Burgers.uvl,unsupported_feature_types,"Boolean features are required; unsupported features: Table (Integer), Your name (String)"
+dataset_57/uvl/LaGalerna_2020_Salads.uvl,unsupported_feature_types,"Boolean features are required; unsupported features: Table (Integer), Your name (String)"
+dataset_57/uvl/LaGalerna_2020_Sandwiches.uvl,unsupported_feature_types,"Boolean features are required; unsupported features: Table (Integer), Your name (String)"
+dataset_57/uvl/LaGalerna_2023_Salads.uvl,input_model_load_error,de.featjar.feature.model.io.uvl.UVLConversionException: SumAggregateFunctionExpression is not supported.
+dataset_57/uvl/LaGondolaDeYdai_Pizza.uvl,input_model_load_error,de.featjar.feature.model.io.uvl.UVLConversionException: SumAggregateFunctionExpression is not supported.
+dataset_57/uvl/Ohana_2022_Burger.uvl,input_model_load_error,java.lang.IllegalArgumentException: Cannot create attribute for type class java.lang.Long. Attribute already defined for type class java.lang.Double.
+dataset_57/uvl/Ohana_2022_Poke.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_57/uvl/Ohana_2022_Salad.uvl,input_model_load_error,de.featjar.feature.model.io.uvl.UVLConversionException: SumAggregateFunctionExpression is not supported.
+dataset_57/uvl/PizzeriaLaTradizionale.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_57/uvl/Turkish_2025_Calzone.uvl,input_model_load_error,"java.lang.NumberFormatException: For input string: ""*"""
+dataset_57/uvl/Turkish_2025_Kebab.uvl,input_model_load_error,"java.lang.NullPointerException: Cannot invoke ""de.vill.model.building.VariableReference.getIdentifier()"" because ""rootFeature"" is null"
+dataset_57/uvl/Turkish_2025_Pizzas.uvl,input_model_load_error,"java.lang.NumberFormatException: For input string: ""*"""
+dataset_58/uvl/Pizzeria.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_58/uvl/Pizzeria_imports.uvl,input_model_load_error,java.util.EmptyStackException
+dataset_76/uvl/KubernetesFM.uvl,input_model_load_error,"java.lang.NumberFormatException: For input string: ""*"""
+dataset_78/uvl/MusicQuizz.uvl,unsupported_feature_types,"Boolean features are required; unsupported features: rondas (Integer), tiemporespuesta (Integer), server_address (String), total_songs (Integer), onfire_extra_points (Integer)"
+dataset_79/uvl/ClickerGame.uvl,input_model_load_error,java.lang.IllegalArgumentException: Cannot create attribute for type class java.lang.Long. Attribute already defined for type class java.lang.Boolean.
+dataset_8/uvl/automotive2_4.uvl,model_timeout,Model evaluation exceeded the timeout of 600 seconds
+dataset_9/uvl/automotive02_01.uvl,model_timeout,Model evaluation exceeded the timeout of 600 seconds
+dataset_9/uvl/automotive02_02.uvl,model_timeout,Model evaluation exceeded the timeout of 600 seconds
+dataset_9/uvl/automotive02_03.uvl,model_timeout,Model evaluation exceeded the timeout of 600 seconds
+dataset_9/uvl/automotive02_04.uvl,model_timeout,Model evaluation exceeded the timeout of 600 seconds
