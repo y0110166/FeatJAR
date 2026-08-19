@@ -34,7 +34,10 @@ import de.featjar.feature.model.io.uvl.visitor.FormulaToUVLConstraintVisitor;
 import de.vill.model.FeatureModel;
 import de.vill.model.constraint.Constraint;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.regex.Pattern;
 
 /**
  * Parses and writes feature models from and to UVL files.
@@ -45,6 +48,7 @@ import java.util.List;
 public class UVLFeatureModelFormat extends AUVLFormat<IFeatureModel> implements IFeatureModelFormat {
 
     public static final String ID = UVLFeatureModelFormat.class.getCanonicalName();
+    private static final Set<String> UVL_TYPE_KEYWORDS = Set.of("Boolean", "String", "Integer", "Real");
 
     @Override
     public String getIdentifier() {
@@ -114,9 +118,89 @@ public class UVLFeatureModelFormat extends AUVLFormat<IFeatureModel> implements 
                 }
                 model.getOwnConstraints().add(uvlConstraint.get());
             }
-            return Result.of(model.toString(), problems);
+            // fm-metamodel 1.1 does not quote feature names that collide with UVL type keywords.
+            return Result.of(quoteTypeKeywordFeatureNames(model.toString(), fm), problems);
         } catch (Exception e) {
             return Result.empty(e);
         }
+    }
+
+    private static String quoteTypeKeywordFeatureNames(String serializedModel, IFeatureModel featureModel) {
+        Set<String> conflictingFeatureNames = new LinkedHashSet<>();
+        for (IFeature feature : featureModel.getFeatures()) {
+            feature.getName().ifPresent(name -> {
+                if (UVL_TYPE_KEYWORDS.contains(name)) {
+                    conflictingFeatureNames.add(name);
+                }
+            });
+        }
+        if (conflictingFeatureNames.isEmpty()) {
+            return serializedModel;
+        }
+
+        String lineSeparator = detectLineSeparator(serializedModel);
+        String[] lines = serializedModel.split("\\R", -1);
+        boolean inFeatures = false;
+        boolean inConstraints = false;
+        for (int i = 0; i < lines.length; i++) {
+            String trimmedLine = lines[i].trim();
+            if (trimmedLine.equals("features")) {
+                inFeatures = true;
+                inConstraints = false;
+                continue;
+            }
+            if (trimmedLine.equals("constraints")) {
+                inFeatures = false;
+                inConstraints = true;
+                continue;
+            }
+
+            for (String featureName : conflictingFeatureNames) {
+                if (inFeatures) {
+                    lines[i] = quoteFeatureDeclaration(lines[i], featureName);
+                } else if (inConstraints) {
+                    lines[i] = quoteConstraintReferences(lines[i], featureName);
+                }
+            }
+        }
+        return String.join(lineSeparator, lines);
+    }
+
+    private static String quoteFeatureDeclaration(String line, String featureName) {
+        int indentationLength = 0;
+        while (indentationLength < line.length() && Character.isWhitespace(line.charAt(indentationLength))) {
+            indentationLength++;
+        }
+        String indentation = line.substring(0, indentationLength);
+        String declaration = line.substring(indentationLength);
+
+        for (String typePrefix : List.of("", "Boolean ", "String ", "Integer ", "Real ")) {
+            String unquotedPrefix = typePrefix + featureName;
+            if (declaration.equals(unquotedPrefix)
+                    || declaration.startsWith(unquotedPrefix + " cardinality ")
+                    || declaration.startsWith(unquotedPrefix + " {")) {
+                return indentation
+                        + typePrefix
+                        + '"'
+                        + featureName
+                        + '"'
+                        + declaration.substring(unquotedPrefix.length());
+            }
+        }
+        return line;
+    }
+
+    private static String quoteConstraintReferences(String line, String featureName) {
+        Pattern unquotedReference =
+                Pattern.compile("(?<![A-Za-z0-9_\\\"])(" + Pattern.quote(featureName) + ")(?![A-Za-z0-9_\\\"])");
+        return unquotedReference.matcher(line).replaceAll("\\\"$1\\\"");
+    }
+
+    private static String detectLineSeparator(String text) {
+        int newlineIndex = text.indexOf('\n');
+        if (newlineIndex >= 0) {
+            return newlineIndex > 0 && text.charAt(newlineIndex - 1) == '\r' ? "\r\n" : "\n";
+        }
+        return text.indexOf('\r') >= 0 ? "\r" : System.lineSeparator();
     }
 }
