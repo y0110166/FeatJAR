@@ -1,0 +1,3 @@
+feature_count_group,feature_models,mean_original_features,median_original_features,mean_feature_reduction,median_feature_reduction,mean_net_constraint_change,median_net_constraint_change,mean_constraints_added,median_constraints_added,mean_core_features_removed,mean_dead_features_removed,mean_atomic_set_features_removed
+"1,000 features or fewer",1399,37.689778413152254,22,0.3854630128663331,0.357143,25.534667619728378,1,27.579699785561115,1,8.015010721944245,0.3902787705503931,3.5954253037884203
+"More than 1,000 features",120,1274.8666666666666,1262,0.48528543333333335,0.48841049999999997,434.9916666666667,413,438.19166666666666,413,21.15,60.65,534.225
