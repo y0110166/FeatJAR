@@ -39,6 +39,14 @@ Run argument (for me):
 /** Evaluates {@link FeatureModelSimplifyerCommand} on a directory of UVL models. */
 public class Evaluation extends ACommand {
 
+    private static final int PERFORMANCE_RUNS = 3;
+    private static final Set<String> KNOWN_TIMEOUT_MODELS = Set.of(
+            "dataset_8/uvl/automotive2_4.uvl",
+            "dataset_9/uvl/automotive02_01.uvl",
+            "dataset_9/uvl/automotive02_02.uvl",
+            "dataset_9/uvl/automotive02_03.uvl",
+            "dataset_9/uvl/automotive02_04.uvl");
+
     public static final Option<Boolean> CORE_DEAD_OPTION = Options.newOption("coreDead", Options.BooleanParser, "true")
             .setDescription("Enable core and dead feature removal (default: true)");
 
@@ -69,7 +77,12 @@ public class Evaluation extends ACommand {
             "removed_core_features",
             "removed_dead_features",
             "removed_atomic_set_features",
-            "full_reduction");
+            "full_reduction",
+            "evaluation_time_run_1_seconds",
+            "evaluation_time_run_2_seconds",
+            "evaluation_time_run_3_seconds",
+            "evaluation_time_mean_seconds",
+            "evaluation_time_standard_deviation_seconds");
 
     record Statistics(
             String inputFile,
@@ -83,7 +96,14 @@ public class Evaluation extends ACommand {
             int removedCoreFeatures,
             int removedDeadFeatures,
             int removedAtomicSetFeatures,
-            boolean fullReduction) {}
+            boolean fullReduction,
+            double evaluationTimeRun1Seconds,
+            double evaluationTimeRun2Seconds,
+            double evaluationTimeRun3Seconds,
+            double evaluationTimeMeanSeconds,
+            double evaluationTimeStandardDeviationSeconds) {}
+
+    private record TimedEvaluation(Statistics statistics, double elapsedSeconds) {}
 
     private record AggregateStatistics(double mean, double standardDeviation) {}
 
@@ -305,21 +325,36 @@ public class Evaluation extends ACommand {
                 Files.createDirectories(outputParent);
             }
 
-            FeatJAR.log()
-                    .message("Evaluating [" + (inputFileIndex + 1) + "/" + inputFiles.size() + "] "
-                            + inputFile.toAbsolutePath());
-            try (ProgressReporter progress =
-                    new ProgressReporter(toPortablePath(relativeInputPath), progressIntervalSeconds)) {
-                statistics.add(evaluateSingleFileWithTimeout(
-                        featJARWrapper,
-                        simplifier,
-                        inputFile,
-                        outputFile,
-                        relativeInputPath,
-                        simplifyCoreAndDeadFeatures,
-                        simplifyAtomicSets,
-                        progress,
-                        modelTimeoutSeconds));
+            if (isKnownTimeoutModel(inputFile)) {
+                String message = "Skipped because this model previously exceeded the 600-second timeout";
+                failures.add(new EvaluationFailure(toPortablePath(relativeInputPath), "model_timeout", message));
+                Files.deleteIfExists(outputFile);
+                FeatJAR.log().warning("Skipping known timeout model: " + inputFile.toAbsolutePath());
+                continue;
+            }
+
+            try {
+                List<TimedEvaluation> runs = new ArrayList<>(PERFORMANCE_RUNS);
+                for (int runIndex = 0; runIndex < PERFORMANCE_RUNS; runIndex++) {
+                    FeatJAR.log()
+                            .message("Evaluating [" + (inputFileIndex + 1) + "/" + inputFiles.size() + "] run ["
+                                    + (runIndex + 1) + "/" + PERFORMANCE_RUNS + "] " + inputFile.toAbsolutePath());
+                    try (ProgressReporter progress = new ProgressReporter(
+                            toPortablePath(relativeInputPath) + " | run " + (runIndex + 1) + "/" + PERFORMANCE_RUNS,
+                            progressIntervalSeconds)) {
+                        runs.add(evaluateSingleFileWithTimeout(
+                                featJARWrapper,
+                                simplifier,
+                                inputFile,
+                                outputFile,
+                                relativeInputPath,
+                                simplifyCoreAndDeadFeatures,
+                                simplifyAtomicSets,
+                                progress,
+                                modelTimeoutSeconds));
+                    }
+                }
+                statistics.add(withPerformanceStatistics(runs));
             } catch (InputFeatureModelLoadException e) {
                 failures.add(new EvaluationFailure(
                         toPortablePath(relativeInputPath), "input_model_load_error", e.getMessage()));
@@ -358,7 +393,7 @@ public class Evaluation extends ACommand {
         return List.copyOf(statistics);
     }
 
-    private Statistics evaluateSingleFileWithTimeout(
+    private TimedEvaluation evaluateSingleFileWithTimeout(
             FeatJARWrapper featJARWrapper,
             FeatureModelSimplifyerCommand simplifier,
             Path inputFile,
@@ -370,7 +405,7 @@ public class Evaluation extends ACommand {
             int modelTimeoutSeconds)
             throws IOException {
         if (modelTimeoutSeconds == 0) {
-            return evaluateSingleFile(
+            return evaluateSingleFileTimed(
                     featJARWrapper,
                     simplifier,
                     inputFile,
@@ -386,7 +421,7 @@ public class Evaluation extends ACommand {
             thread.setDaemon(true);
             return thread;
         });
-        Future<Statistics> future = executor.submit(() -> evaluateSingleFile(
+        Future<TimedEvaluation> future = executor.submit(() -> evaluateSingleFileTimed(
                 featJARWrapper,
                 simplifier,
                 inputFile,
@@ -426,6 +461,62 @@ public class Evaluation extends ACommand {
                 Thread.currentThread().interrupt();
             }
         }
+    }
+
+    private TimedEvaluation evaluateSingleFileTimed(
+            FeatJARWrapper featJARWrapper,
+            FeatureModelSimplifyerCommand simplifier,
+            Path inputFile,
+            Path outputFile,
+            Path relativeInputPath,
+            boolean simplifyCoreAndDeadFeatures,
+            boolean simplifyAtomicSets,
+            ProgressReporter progress)
+            throws IOException {
+        long startedNanos = System.nanoTime();
+        Statistics result = evaluateSingleFile(
+                featJARWrapper,
+                simplifier,
+                inputFile,
+                outputFile,
+                relativeInputPath,
+                simplifyCoreAndDeadFeatures,
+                simplifyAtomicSets,
+                progress);
+        return new TimedEvaluation(result, nanosToSeconds(System.nanoTime() - startedNanos));
+    }
+
+    private static Statistics withPerformanceStatistics(List<TimedEvaluation> runs) {
+        if (runs.size() != PERFORMANCE_RUNS) {
+            throw new IllegalArgumentException(
+                    "Expected " + PERFORMANCE_RUNS + " performance runs, got " + runs.size());
+        }
+        Statistics base = runs.get(runs.size() - 1).statistics();
+        double run1 = runs.get(0).elapsedSeconds();
+        double run2 = runs.get(1).elapsedSeconds();
+        double run3 = runs.get(2).elapsedSeconds();
+        double mean = (run1 + run2 + run3) / PERFORMANCE_RUNS;
+        double variance =
+                (squaredDifference(run1, mean) + squaredDifference(run2, mean) + squaredDifference(run3, mean))
+                        / PERFORMANCE_RUNS;
+        return new Statistics(
+                base.inputFile(),
+                base.outputFile(),
+                base.originalFeatures(),
+                base.simplifiedFeatures(),
+                base.featureReductionRatio(),
+                base.originalConstraints(),
+                base.simplifiedConstraints(),
+                base.constraintReductionRatio(),
+                base.removedCoreFeatures(),
+                base.removedDeadFeatures(),
+                base.removedAtomicSetFeatures(),
+                base.fullReduction(),
+                run1,
+                run2,
+                run3,
+                mean,
+                Math.sqrt(variance));
     }
 
     private Statistics evaluateSingleFile(
@@ -509,7 +600,12 @@ public class Evaluation extends ACommand {
                 intersectionSize(removedFeatures, coreFeatures),
                 intersectionSize(removedFeatures, deadFeatures),
                 intersectionSize(removedFeatures, atomicSetFeatures),
-                simplifiedFeatureCount < originalFeatureCount && simplifiedConstraintCount < originalConstraintCount);
+                simplifiedFeatureCount < originalFeatureCount && simplifiedConstraintCount < originalConstraintCount,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0);
         progress.complete();
         return statistics;
     }
@@ -606,7 +702,12 @@ public class Evaluation extends ACommand {
                             Integer.toString(row.removedCoreFeatures()),
                             Integer.toString(row.removedDeadFeatures()),
                             Integer.toString(row.removedAtomicSetFeatures()),
-                            Boolean.toString(row.fullReduction())));
+                            Boolean.toString(row.fullReduction()),
+                            formatRatio(row.evaluationTimeRun1Seconds()),
+                            formatRatio(row.evaluationTimeRun2Seconds()),
+                            formatRatio(row.evaluationTimeRun3Seconds()),
+                            formatRatio(row.evaluationTimeMeanSeconds()),
+                            formatRatio(row.evaluationTimeStandardDeviationSeconds())));
         }
         Files.writeString(statisticsFile, csv, StandardCharsets.UTF_8);
     }
@@ -623,6 +724,7 @@ public class Evaluation extends ACommand {
         appendAggregateRow(csv, "removed_core_features", statistics, Statistics::removedCoreFeatures);
         appendAggregateRow(csv, "removed_dead_features", statistics, Statistics::removedDeadFeatures);
         appendAggregateRow(csv, "removed_atomic_set_features", statistics, Statistics::removedAtomicSetFeatures);
+        appendAggregateRow(csv, "evaluation_time_mean_seconds", statistics, Statistics::evaluationTimeMeanSeconds);
         long fullReductionCount =
                 statistics.stream().filter(Statistics::fullReduction).count();
         appendCSVRow(csv, List.of("full_reduction", "", "", Long.toString(fullReductionCount)));
@@ -666,6 +768,11 @@ public class Evaluation extends ACommand {
         return new AggregateStatistics(mean, Math.sqrt(variance));
     }
 
+    private static double squaredDifference(double value, double mean) {
+        double difference = value - mean;
+        return difference * difference;
+    }
+
     private static void appendCSVRow(StringBuilder csv, List<String> fields) {
         for (int i = 0; i < fields.size(); i++) {
             if (i > 0) {
@@ -696,6 +803,18 @@ public class Evaluation extends ACommand {
         long minutes = (totalSeconds % 3600) / 60;
         long seconds = totalSeconds % 60;
         return String.format(Locale.ROOT, "%02d:%02d:%02d", hours, minutes, seconds);
+    }
+
+    private static double nanosToSeconds(long elapsedNanos) {
+        return elapsedNanos / 1_000_000_000.0;
+    }
+
+    private static boolean isKnownTimeoutModel(Path inputFile) {
+        String normalizedInputPath =
+                toPortablePath(inputFile.toAbsolutePath().normalize()).toLowerCase(Locale.ROOT);
+        return KNOWN_TIMEOUT_MODELS.stream()
+                .map(path -> path.toLowerCase(Locale.ROOT))
+                .anyMatch(path -> normalizedInputPath.endsWith('/' + path));
     }
 
     private static boolean isUVLFile(Path path) {
