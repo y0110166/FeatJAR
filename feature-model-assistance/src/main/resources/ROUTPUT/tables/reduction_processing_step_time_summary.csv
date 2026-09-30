@@ -1,0 +1,10 @@
+source_file,component_order,component,timing_prefix,feature_models,mean_seconds,standard_deviation_seconds,minimum_seconds,first_quartile_seconds,median_seconds,third_quartile_seconds,maximum_seconds
+stats-thorough.csv,1,Complete reduction,reduction_time,1519,0.8944300941408821,3.229228463050343,0.005106,0.0093385,0.014307,0.029754000000000003,70.240362
+stats-thorough.csv,2,Satisfiability check,reduction_satisfiability_check_time,1519,0.06793783475971034,0.23621600431999137,4.17e-4,7.52e-4,0.001065,0.001703,4.142781
+stats-thorough.csv,3,Original CNF construction,reduction_original_cnf_construction_time,1519,0.0714788090849243,0.24818857595166643,2.76e-4,7.41e-4,0.001148,0.0020055,4.145355
+stats-thorough.csv,4,Removal-plan computation,reduction_removal_plan_computation_time,1519,0.22713623041474654,0.7863130590736616,8.96e-4,0.0016454999999999998,0.002394,0.00414,13.808685
+stats-thorough.csv,5,Variable projection,reduction_variable_projection_time,1519,0.10165262936142198,0.543590749163371,1.71e-4,0.0011605,0.003677,0.0116535,14.873615
+stats-thorough.csv,6,Feature-tree rebuild,reduction_feature_tree_rebuild_time,1519,0.2907264042132982,0.9901443248610611,9.3e-5,1.8649999999999998e-4,2.77e-4,6.275e-4,7.117849
+stats-thorough.csv,7,Structural-model validation,reduction_structural_model_validation_time,1519,0.014591148782093482,0.07519483949217001,1.72e-4,3.61e-4,5.2e-4,9.19e-4,1.726317
+stats-thorough.csv,8,Projected-constraint addition,reduction_projected_constraint_addition_time,1519,0.027621608953258724,0.13240194456845555,2.1e-5,1.025e-4,6.14e-4,0.00243,2.257485
+stats-thorough.csv,9,Reduced-model validation,reduction_reduced_model_validation_time,1519,0.08849716919025676,0.6577748737423725,1.31e-4,4.28e-4,7.38e-4,0.001781,22.161342

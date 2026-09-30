@@ -1,0 +1,6 @@
+component_order,component,timing_prefix,feature_models,mean_seconds,standard_deviation_seconds,minimum_seconds,first_quartile_seconds,median_seconds,third_quartile_seconds,maximum_seconds,timeouts_during_step
+1,Complete reduction,reduction_time,5,3437.7137542,32.67504223493437,3413.105254,3415.761315,3420.335337,3449.225969,3490.140896,0
+2,Satisfiability check,reduction_satisfiability_check_time,5,38.580673,8.16920139003945,25.490646,35.765457,42.453233,44.223045,44.970984,0
+3,Original CNF construction,reduction_original_cnf_construction_time,5,37.7567924,7.490105078286773,25.812527,35.012184,41.763878,42.355625,43.839748,0
+4,Removal-plan computation,reduction_removal_plan_computation_time,5,100.5123398,22.196282423524302,64.556739,93.574207,112.205151,114.33991,117.885692,0
+5,Variable projection,reduction_variable_projection_time,5,3260.8525994,70.51212278346026,3206.397665,3214.831633,3223.902532,3284.864841,3374.266326,5

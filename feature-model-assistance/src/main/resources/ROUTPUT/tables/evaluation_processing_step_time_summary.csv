@@ -1,0 +1,12 @@
+component_order,component,timing_prefix,feature_models,mean_seconds,standard_deviation_seconds,minimum_seconds,first_quartile_seconds,median_seconds,third_quartile_seconds,maximum_seconds
+1,Complete evaluation,evaluation_time,1519,1.2833551500987492,4.532071865779193,0.006056,0.013667499999999999,0.024938,0.0575765,88.574723
+2,Input model loading,input_model_loading_time,1519,0.015470563528637262,0.04536622846884269,6.59e-4,0.0010985,0.001632,0.0027400000000000002,0.430405
+3,Boolean feature-type validation,boolean_feature_type_validation_time,1519,8.909809084924293e-6,3.0951198825329135e-5,1e-6,1e-6,1e-6,2e-6,6e-4
+4,Initial satisfiability check,initial_satisfiability_check_time,1519,0.06935937656352864,0.2379201109197669,4.83e-4,8.88e-4,0.001209,0.0018755,4.310337
+5,Core-feature computation,core_feature_computation_time,1519,0.06919268861092824,0.23580914020943308,4.16e-4,8.225e-4,0.001148,0.00184,4.107371
+6,Dead-feature computation,dead_feature_computation_time,1519,0.06857824423963134,0.23400008845929826,3.56e-4,7.6e-4,0.00108,0.0017445,4.092489
+7,Atomic-set computation,atomic_set_computation_time,1519,0.07391532718894009,0.25041670595970184,3.8e-4,7.81e-4,0.001134,0.0018705000000000002,4.22501
+8,Complete reduction,reduction_time,1519,0.9638027221856484,3.4787253928986592,0.001889,0.006658,0.014808,0.041507,68.732528
+9,Simplified-model storage,simplified_model_storage_time,1519,0.002552849242922976,0.010714853291803515,5.81e-4,7.61e-4,8.67e-4,0.001068,0.283277
+10,Reduced-model reloading,reduced_model_reloading_time,1519,0.02031558064516129,0.08923994900382591,5.01e-4,0.0010745,0.001745,0.004064,2.389786
+11,Statistics computation,statistics_computation_time,1519,1.1136668861092824e-4,2.6614937898311657e-4,8e-6,1.8e-5,2.7e-5,4.2e-5,0.002809

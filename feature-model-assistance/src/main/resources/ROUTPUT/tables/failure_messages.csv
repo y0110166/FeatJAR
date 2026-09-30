@@ -6,7 +6,7 @@ input_model_load_error,Could not resolve import: D:\Uni\FeatJAR\all\Bausatz_2025
 input_model_load_error,java.lang.IllegalArgumentException: Cannot create attribute for type class java.lang.Double. Attribute already defined for type class java.lang.Long.,7
 input_model_load_error,"java.lang.NumberFormatException: For input string: ""*""",6
 input_model_load_error,de.featjar.feature.model.io.uvl.UVLConversionException: SumAggregateFunctionExpression is not supported.,5
-model_timeout,Model evaluation exceeded the timeout of 600 seconds,5
+model_timeout,Skipped because this model previously exceeded the 600-second timeout,5
 unsupported_feature_types,"Boolean features are required; unsupported features: Table (Integer), Your name (String)",3
 input_model_load_error,java.lang.IllegalArgumentException: Cannot create attribute for type class java.lang.Long. Attribute already defined for type class java.lang.Boolean.,2
 input_model_load_error,Could not resolve import: D:\Uni\FeatJAR\all\Bibra_2025_Bases.uvl (at 2:0),1
