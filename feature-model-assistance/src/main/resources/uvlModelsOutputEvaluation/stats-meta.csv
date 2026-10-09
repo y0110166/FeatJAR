@@ -1,0 +1,10 @@
+metric,mean,standard_deviation
+original_features,8.600000,3.200000
+simplified_features,5.700000,2.193171
+feature_reduction_ratio,0.317357,0.207778
+original_constraints,0.900000,0.300000
+simplified_constraints,1.400000,2.107131
+constraint_reduction_ratio,-0.500000,2.061553
+removed_core_features,1.200000,1.166190
+removed_dead_features,0.900000,1.135782
+removed_atomic_set_features,0.800000,0.979796

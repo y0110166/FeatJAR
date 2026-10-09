@@ -1,0 +1,19 @@
+features
+        root {abstract true, de_featjar_base_data_name 'root'}
+                optional
+                        f1 {de_featjar_base_data_name 'f1'}
+                        f3 {de_featjar_base_data_name 'f3'}
+                                optional
+                                        f10 {de_featjar_base_data_name 'f10'}
+                                optional
+                                        f4 {de_featjar_base_data_name 'f4'}
+                                        f5 {de_featjar_base_data_name 'f5'}
+                                alternative
+                                        f7 {de_featjar_base_data_name 'f7'}
+                                        f8 {de_featjar_base_data_name 'f8'}
+                        f9 {de_featjar_base_data_name 'f9'}
+
+constraints
+        !(f7) | !(f3) | f4 | f5
+        !(f3) | f7 | f4 | f5
+        !(root) | f1 | f9 | f7 | f8

@@ -1,0 +1,12 @@
+features
+        root {abstract true}
+                optional
+                        core1
+                optional
+                        dead2
+                                optional
+                                        as1
+                                                or
+                                                        as2
+                                                        as3
+

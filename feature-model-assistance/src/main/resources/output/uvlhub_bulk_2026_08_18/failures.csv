@@ -189,8 +189,8 @@ dataset_58/uvl/Pizzeria_imports.uvl,input_model_load_error,java.util.EmptyStackE
 dataset_76/uvl/KubernetesFM.uvl,input_model_load_error,"java.lang.NumberFormatException: For input string: ""*"""
 dataset_78/uvl/MusicQuizz.uvl,unsupported_feature_types,"Boolean features are required; unsupported features: rondas (Integer), tiemporespuesta (Integer), server_address (String), total_songs (Integer), onfire_extra_points (Integer)"
 dataset_79/uvl/ClickerGame.uvl,input_model_load_error,java.lang.IllegalArgumentException: Cannot create attribute for type class java.lang.Long. Attribute already defined for type class java.lang.Boolean.
-dataset_8/uvl/automotive2_4.uvl,model_timeout,Model evaluation exceeded the timeout of 600 seconds
-dataset_9/uvl/automotive02_01.uvl,model_timeout,Model evaluation exceeded the timeout of 600 seconds
-dataset_9/uvl/automotive02_02.uvl,model_timeout,Model evaluation exceeded the timeout of 600 seconds
-dataset_9/uvl/automotive02_03.uvl,model_timeout,Model evaluation exceeded the timeout of 600 seconds
-dataset_9/uvl/automotive02_04.uvl,model_timeout,Model evaluation exceeded the timeout of 600 seconds
+dataset_8/uvl/automotive2_4.uvl,model_timeout,Skipped because this model previously exceeded the 600-second timeout
+dataset_9/uvl/automotive02_01.uvl,model_timeout,Skipped because this model previously exceeded the 600-second timeout
+dataset_9/uvl/automotive02_02.uvl,model_timeout,Skipped because this model previously exceeded the 600-second timeout
+dataset_9/uvl/automotive02_03.uvl,model_timeout,Skipped because this model previously exceeded the 600-second timeout
+dataset_9/uvl/automotive02_04.uvl,model_timeout,Skipped because this model previously exceeded the 600-second timeout

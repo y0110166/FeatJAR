@@ -13,6 +13,7 @@ import de.featjar.base.computation.Progress;
 import de.featjar.base.data.Pair;
 import de.featjar.base.data.Range;
 import de.featjar.base.data.Result;
+import de.featjar.feature.configuration.Configuration;
 import de.featjar.feature.model.*;
 import de.featjar.feature.model.io.tikz.TikzFeatureModelFormat;
 import de.featjar.feature.model.transformer.ComputeFormula;
@@ -25,6 +26,7 @@ import de.featjar.formula.assignment.Variables;
 import de.featjar.formula.assignment.conversion.ComputeBooleanClauseList;
 import de.featjar.formula.computation.ComputeCNFFormula;
 import de.featjar.formula.computation.ComputeNNFFormula;
+import de.featjar.formula.io.textual.BooleanAssignmentListTextFormat;
 import de.featjar.formula.structure.IExpression;
 import de.featjar.formula.structure.IFormula;
 import de.featjar.formula.structure.connective.Or;
@@ -40,10 +42,29 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 /**
+ * Type 2 AI: This file is the result of automated code generation, manual debugging and verification, endless
+ * prompt-and-fix cycles, and many iterations of conceptual changes.
  *
- * @author
+ * @author Knut Köhnlein
  */
 public class FeatureModelSimplifyerCommand extends ACommand {
+    enum ReductionPhase {
+        SATISFIABILITY_CHECK("simplification: checking satisfiability"),
+        ORIGINAL_CNF_CONSTRUCTION("simplification: constructing original CNF"),
+        REMOVAL_PLAN_COMPUTATION("simplification: computing removal plan"),
+        VARIABLE_PROJECTION("simplification: projecting removed variables"),
+        FEATURE_TREE_REBUILD("simplification: rebuilding feature tree"),
+        STRUCTURAL_MODEL_VALIDATION("simplification: validating structural model"),
+        PROJECTED_CONSTRAINT_ADDITION("simplification: adding projected constraints"),
+        REDUCED_MODEL_VALIDATION("simplification: validating reduced model");
+
+        private final String progressMessage;
+
+        ReductionPhase(String progressMessage) {
+            this.progressMessage = progressMessage;
+        }
+    }
+
     /*
     public static final Option<Path> INPUT_OPTION = Options.newOption("redundancies", Options.newChoiceOption())
             .setDescription("Path to input file(s)")
@@ -316,12 +337,12 @@ public class FeatureModelSimplifyerCommand extends ACommand {
                 .map(ComputeBooleanClauseList::new)
                 .compute();
 
-        // FeatJAR.log().message("Propositional representation of the input feature model:");
-        // FeatJAR.log().message(originalPropositionalRepresentation.print());
-        // FeatJAR.log().message("CNF clause list of the input feature model:");
-        // FeatJAR.log().message(new BooleanAssignmentListTextFormat().serialize(originalCnf).get());
-        // FeatJAR.log().message("NNF clause list of the input feature model:");
-        // FeatJAR.log().message(new BooleanAssignmentListTextFormat().serialize(nnfClauseList).get());
+        FeatJAR.log().message("Propositional representation of the input feature model:");
+        FeatJAR.log().message(originalPropositionalRepresentation.print());
+        FeatJAR.log().message("CNF clause list of the input feature model:");
+        FeatJAR.log().message(new BooleanAssignmentListTextFormat().serialize(originalCnf).get());
+        FeatJAR.log().message("NNF clause list of the input feature model:");
+        FeatJAR.log().message(new BooleanAssignmentListTextFormat().serialize(nnfClauseList).get());
 
     }
 
@@ -361,15 +382,33 @@ public class FeatureModelSimplifyerCommand extends ACommand {
             boolean simplifyAtomicSets,
             Consumer<String> progress,
             BiConsumer<Long, Long> projectionProgress) {
+        return reduceFeatureModel(
+                originalFeatureModel,
+                analyzer,
+                simplifyCoreAndDeadFeatures,
+                simplifyAtomicSets,
+                progress,
+                projectionProgress,
+                ignoredPhase -> {});
+    }
+
+    IFeatureModel reduceFeatureModel(
+            IFeatureModel originalFeatureModel,
+            FeatureModelAnalyzer analyzer,
+            boolean simplifyCoreAndDeadFeatures,
+            boolean simplifyAtomicSets,
+            Consumer<String> progress,
+            BiConsumer<Long, Long> projectionProgress,
+            Consumer<ReductionPhase> phaseStarted) {
         checkCancellation();
-        progress.accept("simplification: checking satisfiability");
+        startPhase(ReductionPhase.SATISFIABILITY_CHECK, progress, phaseStarted);
         if (!analyzer.isSatisfiable().orElseThrow()) {
             throw new IllegalArgumentException("Unsatisfiable feature models cannot be simplified");
         }
         checkCancellation();
 
         // FM -> PR_FM -> phi_FM
-        progress.accept("simplification: constructing original CNF");
+        startPhase(ReductionPhase.ORIGINAL_CNF_CONSTRUCTION, progress, phaseStarted);
         IFormula originalPropositionalRepresentation = propositionalRepresentation(originalFeatureModel);
         BooleanAssignmentList originalCnf = toCnf(originalPropositionalRepresentation);
         checkCancellation();
@@ -378,7 +417,7 @@ public class FeatureModelSimplifyerCommand extends ACommand {
         // This analyzer step computes core/dead features and atomic sets on
         // phi_FM, selects representatives from FM, creates the substitutions,
         // and applies them to a clone of PR_FM.
-        progress.accept("simplification: computing removal plan");
+        startPhase(ReductionPhase.REMOVAL_PLAN_COMPUTATION, progress, phaseStarted);
         FeatureModelAnalyzer.SimplificationResult simplification = analyzer.simplifyWithPlan(
                         simplifyCoreAndDeadFeatures, simplifyAtomicSets)
                 .get();
@@ -390,13 +429,13 @@ public class FeatureModelSimplifyerCommand extends ACommand {
         Set<String> survivingFeatureNames = determineSurvivorSet(reducedPropositionalRepresentation);
 
         // phi_projected = exists(V ∖ K).phi_FM
-        progress.accept("simplification: projecting removed variables");
+        startPhase(ReductionPhase.VARIABLE_PROJECTION, progress, phaseStarted);
         BooleanAssignmentList projectedCnf =
                 existentialProjection(originalCnf, survivingFeatureNames, projectionProgress);
         checkCancellation();
 
         // Construct the structural basis FM_prime.
-        progress.accept("simplification: rebuilding feature tree");
+        startPhase(ReductionPhase.FEATURE_TREE_REBUILD, progress, phaseStarted);
         IFeatureModel structuralModel = originalFeatureModel.clone();
         AtomicSetTreeIntegrator.integrate(structuralModel, atomicRepresentatives);
         removeFeaturesNotIn(structuralModel, survivingFeatureNames);
@@ -405,23 +444,29 @@ public class FeatureModelSimplifyerCommand extends ACommand {
         checkCancellation();
 
         // Encode FM_prime and add only projected clauses that it does not entail.
-        progress.accept("simplification: validating structural model");
+        startPhase(ReductionPhase.STRUCTURAL_MODEL_VALIDATION, progress, phaseStarted);
         IFormula structuralPropositionalRepresentation = propositionalRepresentation(structuralModel);
         BooleanAssignmentList structuralModelCnf = toCnf(structuralPropositionalRepresentation);
         requireEntailment(
                 projectedCnf, structuralModelCnf, "Structurally reduced model excludes a projected configuration");
         checkCancellation();
 
-        progress.accept("simplification: adding projected constraints");
+        startPhase(ReductionPhase.PROJECTED_CONSTRAINT_ADDITION, progress, phaseStarted);
         IFeatureModel reducedFeatureModel =
                 addMissingProjectedDependencies(structuralModel, projectedCnf, structuralModelCnf);
         checkCancellation();
-        progress.accept("simplification: validating reduced model");
+        startPhase(ReductionPhase.REDUCED_MODEL_VALIDATION, progress, phaseStarted);
         BooleanAssignmentList reducedModelCnf = toCnf(propositionalRepresentation(reducedFeatureModel));
         requireEntailment(projectedCnf, reducedModelCnf, "Reduced model excludes a projected configuration");
         requireEntailment(
                 reducedModelCnf, projectedCnf, "Reduced model admits a configuration absent from the projection");
         return reducedFeatureModel;
+    }
+
+    private static void startPhase(
+            ReductionPhase phase, Consumer<String> progress, Consumer<ReductionPhase> phaseStarted) {
+        progress.accept(phase.progressMessage);
+        phaseStarted.accept(phase);
     }
 
     private static void checkCancellation() {
@@ -430,13 +475,26 @@ public class FeatureModelSimplifyerCommand extends ACommand {
         }
     }
 
+    void printValidConfigurations(Path inputPath, FeatureModelAnalyzer analyzer, Consumer<String> output) {
+        List<Configuration> configurations = analyzer.allConfigurations().orElseThrow();
+        output.accept("VALID CONFIGURATIONS FOR " + inputPath + " (" + configurations.size() + "):");
+        for (int i = 0; i < configurations.size(); i++) {
+            Configuration configuration = configurations.get(i);
+            output.accept((i + 1)
+                    + ": selected="
+                    + configuration.getSelected()
+                    + ", deselected="
+                    + configuration.getDeselected());
+        }
+    }
+
     private void processSingleFile(
             Path inputPath, FeatJARWrapper featJARWrapper, OptionList optionParser, boolean isDirectoryProcessing) {
         final IFeatureModel featureModel =
                 featJARWrapper.loadFeatureModel(inputPath).get();
-        // System.out.println(featureModel);
         final TikzFeatureModelFormat tikzFeatureModelFormat = new TikzFeatureModelFormat();
         final FeatureModelAnalyzer analyzer = featJARWrapper.featureModelAnalyzer(featureModel);
+        printValidConfigurations(inputPath, analyzer, FeatJAR.log()::plainMessage);
         boolean coreDead = optionParser.get(CORE_DEAD_OPTION);
         boolean atomicSets = optionParser.get(ATOMIC_SETS_OPTION);
         IFeatureModel reducedFeatureModel = reduceFeatureModel(featureModel, analyzer, coreDead, atomicSets);

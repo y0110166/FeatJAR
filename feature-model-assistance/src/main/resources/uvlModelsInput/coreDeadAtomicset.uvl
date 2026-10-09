@@ -1,0 +1,25 @@
+features
+        Boolean root {abstract true}
+                mandatory
+                        Boolean core {abstract false}
+                                alternative
+                                        Boolean core1 {abstract false}
+                                        Boolean core2 {abstract false}
+                optional
+                        Boolean f1 {abstract false}
+                                or
+                                        Boolean dead1 {abstract false}
+                                                alternative
+                                                        Boolean dead11 {abstract false}
+                                                        Boolean dead12 {abstract false}
+                                        Boolean dead2 {abstract false}
+                                optional
+                                        Boolean as1 {abstract false}
+                        Boolean atomicSet {abstract false}
+                                or
+                                        Boolean as2 {abstract false}
+                                        Boolean as3 {abstract false}
+
+
+constraints
+        (core => !dead1) & (as1 <=> atomicSet)

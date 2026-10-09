@@ -1,0 +1,23 @@
+features
+        Boolean root {abstract true}
+                or
+                        Boolean c_core1 {abstract false}
+                                alternative
+                                        Boolean c_core1_1 {abstract false}
+                                        Boolean c_core1_2 {abstract false}
+                        Boolean c_core2 {abstract false}
+                optional
+                        Boolean o_core1 {abstract false}
+                        Boolean o_core2 {abstract false}
+                        Boolean dead {abstract false}
+                                alternative
+                                        Boolean dead1 {abstract false}
+                                        Boolean dead2 {abstract false}
+                        Boolean atomicSet {abstract false}
+                                or
+                                        Boolean as1 {abstract false}
+                                        Boolean as2 {abstract false}
+
+
+constraints
+        (core => !dead) & (c_core1 & atomicSet)

@@ -1,0 +1,8 @@
+features
+        root {abstract true}
+                optional
+                        f7
+                                alternative
+                                        f11
+                                        f12
+

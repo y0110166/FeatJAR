@@ -28,6 +28,7 @@ import de.featjar.base.data.Result;
 import de.featjar.base.data.identifier.Identifiers;
 import de.featjar.base.io.format.IFormat;
 import de.featjar.base.io.input.FileInputMapper;
+import de.featjar.base.io.input.StringInputMapper;
 import de.featjar.feature.model.FeatureModel;
 import de.featjar.feature.model.FeatureTree.Group;
 import de.featjar.feature.model.IFeature;
@@ -46,6 +47,7 @@ import de.featjar.formula.structure.connective.Or;
 import de.featjar.formula.structure.predicate.Literal;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
@@ -122,6 +124,22 @@ public class UVLFeatureModelFormatTest {
         String expected = new String(
                 Files.readAllBytes(Path.of("src", "test", "resources", "uvl", "featureModelSerializeResult.uvl")));
         Assertions.assertEquals(expected, featureModelString.get());
+    }
+
+    @Test
+    void serializesFeatureNamedLikeTypeKeywordAsQuotedIdentifier() {
+        FeatureModel model = new FeatureModel(Identifiers.newCounterIdentifier());
+        IFeatureTree rootTree = model.mutate().addFeatureTreeRoot(model.mutate().addFeature("root"));
+        rootTree.mutate().addFeatureBelow(model.mutate().addFeature("String"));
+        model.mutate().addConstraint(new Literal("String"));
+
+        UVLFeatureModelFormat format = new UVLFeatureModelFormat();
+        String serialized = format.serialize(model).orElseThrow();
+        Result<IFeatureModel> reparsed =
+                format.parse(new StringInputMapper(serialized, StandardCharsets.UTF_8, "uvl"));
+
+        Assertions.assertTrue(reparsed.isPresent(), () -> reparsed.getProblems().toString());
+        Assertions.assertTrue(reparsed.get().getFeature("String").isPresent());
     }
 
     @Test

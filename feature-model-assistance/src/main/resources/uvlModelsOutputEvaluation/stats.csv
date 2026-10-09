@@ -1,0 +1,11 @@
+input_file,output_file,original_features,simplified_features,feature_reduction_ratio,original_constraints,simplified_constraints,constraint_reduction_ratio,removed_core_features,removed_dead_features,removed_atomic_set_features
+coreDeadAtomicset-onlyCDremoved.uvl,coreDeadAtomicset-onlyCDremoved.uvl,4,4,0.000000,0,0,0.000000,0,0,0
+coreDeadAtomicset.uvl,coreDeadAtomicset.uvl,13,6,0.538462,1,0,1.000000,1,3,3
+simpleFeatureDiagram.uvl,simpleFeatureDiagram.uvl,7,3,0.571429,1,1,0.000000,3,1,0
+slicedModel_coreDeadAtomicset-onlyASremoved.uvl,slicedModel_coreDeadAtomicset-onlyASremoved.uvl,13,7,0.461538,1,1,0.000000,3,3,0
+testModel_atomicSet2.uvl,testModel_atomicSet2.uvl,6,4,0.333333,1,0,1.000000,0,0,2
+testModel_atomicSet3.uvl,testModel_atomicSet3.uvl,9,8,0.111111,1,7,-6.000000,0,0,1
+testModel_atomicSet4.uvl,testModel_atomicSet4.uvl,13,9,0.307692,1,3,-2.000000,2,1,1
+testModel_atomicSets.uvl,testModel_atomicSets.uvl,5,2,0.600000,1,0,1.000000,2,0,1
+testModel_core.uvl,testModel_core.uvl,8,7,0.125000,1,0,1.000000,1,0,0
+testModel_dead.uvl,testModel_dead.uvl,8,7,0.125000,1,2,-1.000000,0,1,0

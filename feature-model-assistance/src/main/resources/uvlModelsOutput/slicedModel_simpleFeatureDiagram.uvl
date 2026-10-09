@@ -1,0 +1,12 @@
+features
+        f1 {abstract true}
+                optional
+                        f2
+                                or
+                                        f3
+                                        f4
+                optional
+                        f6
+
+constraints
+        f2 => !(f6)

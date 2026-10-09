@@ -1,0 +1,22 @@
+features
+        root {abstract true}
+                optional
+                        c_core1_1
+                        c_core1_2
+                        c_core2
+                        o_core1
+                        o_core2
+                optional
+                        as1
+                        as2
+
+constraints
+        as1 | as2
+        !(c_core1_2) | !(c_core1_1) | !(o_core1) | c_core2
+        !(o_core1) | c_core2 | c_core1_1 | c_core1_2
+        !(c_core1_2) | !(c_core1_1) | !(o_core2) | c_core2
+        !(o_core2) | c_core2 | c_core1_1 | c_core1_2
+        !(c_core1_2) | !(c_core1_1) | !(root) | c_core2
+        !(root) | c_core2 | c_core1_1 | c_core1_2
+        !(c_core1_2) | !(c_core1_1)
+        c_core1_1 | c_core1_2

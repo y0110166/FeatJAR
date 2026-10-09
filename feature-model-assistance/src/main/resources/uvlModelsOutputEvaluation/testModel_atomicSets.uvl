@@ -1,0 +1,5 @@
+features
+        root {abstract true, de_featjar_base_data_name 'root'}
+                optional
+                        f8 {de_featjar_base_data_name 'f8'}
+

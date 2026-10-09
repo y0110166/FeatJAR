@@ -16,9 +16,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.EnumMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.CancellationException;
@@ -29,8 +31,15 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+import java.util.function.Supplier;
 import java.util.function.ToDoubleFunction;
 import java.util.stream.Stream;
+
+/*
+Type 2 AI: This file is the result of several iterations of automated code generation and manual debugging and verification.
+
+ * @author Knut Köhnlein
+ */
 
 /*
 Run argument (for me):
@@ -65,7 +74,7 @@ public class Evaluation extends ACommand {
     private static final String STATS_FILE_NAME = "stats.csv";
     private static final String STATS_META_FILE_NAME = "stats-meta.csv";
     private static final String FAILURES_FILE_NAME = "failures.csv";
-    private static final List<String> STATS_HEADER = List.of(
+    private static final List<String> MODEL_STATS_HEADER = List.of(
             "input_file",
             "output_file",
             "original_features",
@@ -77,12 +86,36 @@ public class Evaluation extends ACommand {
             "removed_core_features",
             "removed_dead_features",
             "removed_atomic_set_features",
-            "full_reduction",
-            "evaluation_time_run_1_seconds",
-            "evaluation_time_run_2_seconds",
-            "evaluation_time_run_3_seconds",
-            "evaluation_time_mean_seconds",
-            "evaluation_time_standard_deviation_seconds");
+            "full_reduction");
+    private static final List<String> STATS_HEADER = createStatisticsHeader();
+
+    private enum TimingMetric {
+        INPUT_MODEL_LOADING("input_model_loading"),
+        BOOLEAN_FEATURE_TYPE_VALIDATION("boolean_feature_type_validation"),
+        INITIAL_SATISFIABILITY_CHECK("initial_satisfiability_check"),
+        CORE_FEATURE_COMPUTATION("core_feature_computation"),
+        DEAD_FEATURE_COMPUTATION("dead_feature_computation"),
+        ATOMIC_SET_COMPUTATION("atomic_set_computation"),
+        REDUCTION("reduction"),
+        REDUCTION_SATISFIABILITY_CHECK("reduction_satisfiability_check"),
+        REDUCTION_ORIGINAL_CNF_CONSTRUCTION("reduction_original_cnf_construction"),
+        REDUCTION_REMOVAL_PLAN_COMPUTATION("reduction_removal_plan_computation"),
+        REDUCTION_VARIABLE_PROJECTION("reduction_variable_projection"),
+        REDUCTION_FEATURE_TREE_REBUILD("reduction_feature_tree_rebuild"),
+        REDUCTION_STRUCTURAL_MODEL_VALIDATION("reduction_structural_model_validation"),
+        REDUCTION_PROJECTED_CONSTRAINT_ADDITION("reduction_projected_constraint_addition"),
+        REDUCTION_REDUCED_MODEL_VALIDATION("reduction_reduced_model_validation"),
+        SIMPLIFIED_MODEL_STORAGE("simplified_model_storage"),
+        REDUCED_MODEL_RELOADING("reduced_model_reloading"),
+        STATISTICS_COMPUTATION("statistics_computation"),
+        EVALUATION("evaluation");
+
+        private final String csvPrefix;
+
+        TimingMetric(String csvPrefix) {
+            this.csvPrefix = csvPrefix;
+        }
+    }
 
     record Statistics(
             String inputFile,
@@ -97,17 +130,98 @@ public class Evaluation extends ACommand {
             int removedDeadFeatures,
             int removedAtomicSetFeatures,
             boolean fullReduction,
-            double evaluationTimeRun1Seconds,
-            double evaluationTimeRun2Seconds,
-            double evaluationTimeRun3Seconds,
-            double evaluationTimeMeanSeconds,
-            double evaluationTimeStandardDeviationSeconds) {}
+            Map<TimingMetric, TimingStatistics> timings) {
 
-    private record TimedEvaluation(Statistics statistics, double elapsedSeconds) {}
+        double evaluationTimeRun1Seconds() {
+            return timings.get(TimingMetric.EVALUATION).run1();
+        }
+
+        double evaluationTimeRun2Seconds() {
+            return timings.get(TimingMetric.EVALUATION).run2();
+        }
+
+        double evaluationTimeRun3Seconds() {
+            return timings.get(TimingMetric.EVALUATION).run3();
+        }
+
+        double evaluationTimeMeanSeconds() {
+            return timings.get(TimingMetric.EVALUATION).mean();
+        }
+
+        double evaluationTimeStandardDeviationSeconds() {
+            return timings.get(TimingMetric.EVALUATION).standardDeviation();
+        }
+    }
+
+    private record ModelStatistics(
+            String inputFile,
+            String outputFile,
+            int originalFeatures,
+            int simplifiedFeatures,
+            double featureReductionRatio,
+            int originalConstraints,
+            int simplifiedConstraints,
+            double constraintReductionRatio,
+            int removedCoreFeatures,
+            int removedDeadFeatures,
+            int removedAtomicSetFeatures,
+            boolean fullReduction) {}
+
+    private record TimedEvaluation(ModelStatistics statistics, Map<TimingMetric, Double> timings) {}
+
+    private record TimingStatistics(double run1, double run2, double run3, double mean, double standardDeviation) {}
 
     private record AggregateStatistics(double mean, double standardDeviation) {}
 
     private record EvaluationFailure(String inputFile, String reason, String message) {}
+
+    private static final class RunTimings {
+
+        private final EnumMap<TimingMetric, Double> elapsedSeconds = new EnumMap<>(TimingMetric.class);
+
+        private RunTimings() {
+            for (TimingMetric metric : TimingMetric.values()) {
+                elapsedSeconds.put(metric, 0.0);
+            }
+        }
+
+        private void record(TimingMetric metric, long elapsedNanos) {
+            elapsedSeconds.put(metric, nanosToSeconds(elapsedNanos));
+        }
+
+        private Map<TimingMetric, Double> snapshot() {
+            return Map.copyOf(elapsedSeconds);
+        }
+    }
+
+    private static final class ReductionPhaseTimer {
+
+        private final RunTimings timings;
+        private FeatureModelSimplifyerCommand.ReductionPhase currentPhase;
+        private long phaseStartedNanos;
+
+        private ReductionPhaseTimer(RunTimings timings) {
+            this.timings = timings;
+        }
+
+        private void start(FeatureModelSimplifyerCommand.ReductionPhase phase) {
+            long now = System.nanoTime();
+            finishCurrentPhase(now);
+            currentPhase = phase;
+            phaseStartedNanos = now;
+        }
+
+        private void finish() {
+            finishCurrentPhase(System.nanoTime());
+            currentPhase = null;
+        }
+
+        private void finishCurrentPhase(long now) {
+            if (currentPhase != null) {
+                timings.record(toTimingMetric(currentPhase), now - phaseStartedNanos);
+            }
+        }
+    }
 
     private static final class UnsatisfiableFeatureModelException extends IllegalArgumentException {
 
@@ -474,7 +588,8 @@ public class Evaluation extends ACommand {
             ProgressReporter progress)
             throws IOException {
         long startedNanos = System.nanoTime();
-        Statistics result = evaluateSingleFile(
+        RunTimings timings = new RunTimings();
+        ModelStatistics result = evaluateSingleFile(
                 featJARWrapper,
                 simplifier,
                 inputFile,
@@ -482,8 +597,10 @@ public class Evaluation extends ACommand {
                 relativeInputPath,
                 simplifyCoreAndDeadFeatures,
                 simplifyAtomicSets,
-                progress);
-        return new TimedEvaluation(result, nanosToSeconds(System.nanoTime() - startedNanos));
+                progress,
+                timings);
+        timings.record(TimingMetric.EVALUATION, System.nanoTime() - startedNanos);
+        return new TimedEvaluation(result, timings.snapshot());
     }
 
     private static Statistics withPerformanceStatistics(List<TimedEvaluation> runs) {
@@ -491,14 +608,18 @@ public class Evaluation extends ACommand {
             throw new IllegalArgumentException(
                     "Expected " + PERFORMANCE_RUNS + " performance runs, got " + runs.size());
         }
-        Statistics base = runs.get(runs.size() - 1).statistics();
-        double run1 = runs.get(0).elapsedSeconds();
-        double run2 = runs.get(1).elapsedSeconds();
-        double run3 = runs.get(2).elapsedSeconds();
-        double mean = (run1 + run2 + run3) / PERFORMANCE_RUNS;
-        double variance =
-                (squaredDifference(run1, mean) + squaredDifference(run2, mean) + squaredDifference(run3, mean))
-                        / PERFORMANCE_RUNS;
+        ModelStatistics base = runs.get(runs.size() - 1).statistics();
+        EnumMap<TimingMetric, TimingStatistics> timings = new EnumMap<>(TimingMetric.class);
+        for (TimingMetric metric : TimingMetric.values()) {
+            double run1 = runs.get(0).timings().get(metric);
+            double run2 = runs.get(1).timings().get(metric);
+            double run3 = runs.get(2).timings().get(metric);
+            double mean = (run1 + run2 + run3) / PERFORMANCE_RUNS;
+            double variance =
+                    (squaredDifference(run1, mean) + squaredDifference(run2, mean) + squaredDifference(run3, mean))
+                            / PERFORMANCE_RUNS;
+            timings.put(metric, new TimingStatistics(run1, run2, run3, mean, Math.sqrt(variance)));
+        }
         return new Statistics(
                 base.inputFile(),
                 base.outputFile(),
@@ -512,14 +633,10 @@ public class Evaluation extends ACommand {
                 base.removedDeadFeatures(),
                 base.removedAtomicSetFeatures(),
                 base.fullReduction(),
-                run1,
-                run2,
-                run3,
-                mean,
-                Math.sqrt(variance));
+                Map.copyOf(timings));
     }
 
-    private Statistics evaluateSingleFile(
+    private ModelStatistics evaluateSingleFile(
             FeatJARWrapper featJARWrapper,
             FeatureModelSimplifyerCommand simplifier,
             Path inputFile,
@@ -527,18 +644,25 @@ public class Evaluation extends ACommand {
             Path relativeInputPath,
             boolean simplifyCoreAndDeadFeatures,
             boolean simplifyAtomicSets,
-            ProgressReporter progress)
+            ProgressReporter progress,
+            RunTimings timings)
             throws IOException {
         progress.attachCurrentThread();
         progress.stage("loading input model");
-        IFeatureModel inputModel = loadInputFeatureModel(featJARWrapper, inputFile);
+        IFeatureModel inputModel = measure(
+                timings, TimingMetric.INPUT_MODEL_LOADING, () -> loadInputFeatureModel(featJARWrapper, inputFile));
         checkCancellation();
         progress.stage("validating Boolean feature types");
-        requireBooleanFeatureTypes(inputModel);
+        measure(timings, TimingMetric.BOOLEAN_FEATURE_TYPE_VALIDATION, () -> {
+            requireBooleanFeatureTypes(inputModel);
+            return null;
+        });
         checkCancellation();
         FeatureModelAnalyzer analyzer = featJARWrapper.featureModelAnalyzer(inputModel);
         progress.stage("checking satisfiability");
-        if (!analyzer.isSatisfiable().orElseThrow()) {
+        boolean satisfiable = measure(timings, TimingMetric.INITIAL_SATISFIABILITY_CHECK, () -> analyzer.isSatisfiable()
+                .orElseThrow());
+        if (!satisfiable) {
             throw new UnsatisfiableFeatureModelException();
         }
         checkCancellation();
@@ -547,48 +671,71 @@ public class Evaluation extends ACommand {
             progress.stage("computing core features");
         }
         Set<String> coreFeatures = simplifyCoreAndDeadFeatures
-                ? new LinkedHashSet<>(analyzer.core().orElseThrow())
+                ? measure(
+                        timings,
+                        TimingMetric.CORE_FEATURE_COMPUTATION,
+                        () -> new LinkedHashSet<>(analyzer.core().orElseThrow()))
                 : Set.of();
         checkCancellation();
         if (simplifyCoreAndDeadFeatures) {
             progress.stage("computing dead features");
         }
         Set<String> deadFeatures = simplifyCoreAndDeadFeatures
-                ? new LinkedHashSet<>(analyzer.dead().orElseThrow())
+                ? measure(
+                        timings,
+                        TimingMetric.DEAD_FEATURE_COMPUTATION,
+                        () -> new LinkedHashSet<>(analyzer.dead().orElseThrow()))
                 : Set.of();
         checkCancellation();
         if (simplifyAtomicSets) {
             progress.stage("computing atomic sets");
         }
-        Set<String> atomicSetFeatures = simplifyAtomicSets ? collectAtomicSetFeatures(analyzer) : Set.of();
+        Set<String> atomicSetFeatures = simplifyAtomicSets
+                ? measure(timings, TimingMetric.ATOMIC_SET_COMPUTATION, () -> collectAtomicSetFeatures(analyzer))
+                : Set.of();
         checkCancellation();
 
         progress.stage("simplifying feature model");
-        IFeatureModel simplifiedModel = simplifier.reduceFeatureModel(
-                inputModel,
-                analyzer,
-                simplifyCoreAndDeadFeatures,
-                simplifyAtomicSets,
-                progress::stage,
-                progress::projectionProgress);
+        ReductionPhaseTimer reductionPhaseTimer = new ReductionPhaseTimer(timings);
+        long reductionStartedNanos = System.nanoTime();
+        IFeatureModel simplifiedModel;
+        try {
+            simplifiedModel = simplifier.reduceFeatureModel(
+                    inputModel,
+                    analyzer,
+                    simplifyCoreAndDeadFeatures,
+                    simplifyAtomicSets,
+                    progress::stage,
+                    progress::projectionProgress,
+                    reductionPhaseTimer::start);
+        } finally {
+            reductionPhaseTimer.finish();
+            timings.record(TimingMetric.REDUCTION, System.nanoTime() - reductionStartedNanos);
+        }
         progress.stage("storing simplified UVL");
-        featJARWrapper.storeFeatureModel(simplifiedModel, outputFile);
+        long storageStartedNanos = System.nanoTime();
+        try {
+            featJARWrapper.storeFeatureModel(simplifiedModel, outputFile);
+        } finally {
+            timings.record(TimingMetric.SIMPLIFIED_MODEL_STORAGE, System.nanoTime() - storageStartedNanos);
+        }
         checkCancellation();
 
-        // Reload both files so the statistics describe the persisted UVL models.
-        progress.stage("reloading persisted models");
-        IFeatureModel reloadedInputModel = loadFeatureModel(featJARWrapper, inputFile);
-        IFeatureModel reloadedSimplifiedModel = loadFeatureModel(featJARWrapper, outputFile);
+        // Reload the output so its statistics describe the persisted reduced UVL model.
+        progress.stage("reloading reduced model");
+        IFeatureModel reloadedSimplifiedModel = measure(
+                timings, TimingMetric.REDUCED_MODEL_RELOADING, () -> loadFeatureModel(featJARWrapper, outputFile));
         progress.stage("computing statistics");
-        Set<String> removedFeatures = featureNames(reloadedInputModel);
+        long statisticsStartedNanos = System.nanoTime();
+        Set<String> removedFeatures = featureNames(inputModel);
         removedFeatures.removeAll(featureNames(reloadedSimplifiedModel));
 
-        int originalFeatureCount = reloadedInputModel.getNumberOfFeatures();
+        int originalFeatureCount = inputModel.getNumberOfFeatures();
         int simplifiedFeatureCount = reloadedSimplifiedModel.getNumberOfFeatures();
-        int originalConstraintCount = reloadedInputModel.getConstraints().size();
+        int originalConstraintCount = inputModel.getConstraints().size();
         int simplifiedConstraintCount = reloadedSimplifiedModel.getConstraints().size();
 
-        Statistics statistics = new Statistics(
+        ModelStatistics statistics = new ModelStatistics(
                 toPortablePath(relativeInputPath),
                 toPortablePath(relativeInputPath),
                 originalFeatureCount,
@@ -600,14 +747,19 @@ public class Evaluation extends ACommand {
                 intersectionSize(removedFeatures, coreFeatures),
                 intersectionSize(removedFeatures, deadFeatures),
                 intersectionSize(removedFeatures, atomicSetFeatures),
-                simplifiedFeatureCount < originalFeatureCount && simplifiedConstraintCount < originalConstraintCount,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0);
+                simplifiedFeatureCount < originalFeatureCount && simplifiedConstraintCount < originalConstraintCount);
+        timings.record(TimingMetric.STATISTICS_COMPUTATION, System.nanoTime() - statisticsStartedNanos);
         progress.complete();
         return statistics;
+    }
+
+    private static <T> T measure(RunTimings timings, TimingMetric metric, Supplier<T> operation) {
+        long startedNanos = System.nanoTime();
+        try {
+            return operation.get();
+        } finally {
+            timings.record(metric, System.nanoTime() - startedNanos);
+        }
     }
 
     private static void checkCancellation() {
@@ -684,30 +836,57 @@ public class Evaluation extends ACommand {
         return originalCount == 0 ? 0.0 : (double) (originalCount - simplifiedCount) / originalCount;
     }
 
+    private static List<String> createStatisticsHeader() {
+        List<String> header = new ArrayList<>(MODEL_STATS_HEADER);
+        for (TimingMetric metric : TimingMetric.values()) {
+            header.add(metric.csvPrefix + "_time_run_1_seconds");
+            header.add(metric.csvPrefix + "_time_run_2_seconds");
+            header.add(metric.csvPrefix + "_time_run_3_seconds");
+            header.add(metric.csvPrefix + "_time_mean_seconds");
+            header.add(metric.csvPrefix + "_time_standard_deviation_seconds");
+        }
+        return List.copyOf(header);
+    }
+
+    private static TimingMetric toTimingMetric(FeatureModelSimplifyerCommand.ReductionPhase phase) {
+        return switch (phase) {
+            case SATISFIABILITY_CHECK -> TimingMetric.REDUCTION_SATISFIABILITY_CHECK;
+            case ORIGINAL_CNF_CONSTRUCTION -> TimingMetric.REDUCTION_ORIGINAL_CNF_CONSTRUCTION;
+            case REMOVAL_PLAN_COMPUTATION -> TimingMetric.REDUCTION_REMOVAL_PLAN_COMPUTATION;
+            case VARIABLE_PROJECTION -> TimingMetric.REDUCTION_VARIABLE_PROJECTION;
+            case FEATURE_TREE_REBUILD -> TimingMetric.REDUCTION_FEATURE_TREE_REBUILD;
+            case STRUCTURAL_MODEL_VALIDATION -> TimingMetric.REDUCTION_STRUCTURAL_MODEL_VALIDATION;
+            case PROJECTED_CONSTRAINT_ADDITION -> TimingMetric.REDUCTION_PROJECTED_CONSTRAINT_ADDITION;
+            case REDUCED_MODEL_VALIDATION -> TimingMetric.REDUCTION_REDUCED_MODEL_VALIDATION;
+        };
+    }
+
     private static void writeStatistics(Path statisticsFile, List<Statistics> statistics) throws IOException {
         StringBuilder csv = new StringBuilder();
         appendCSVRow(csv, STATS_HEADER);
         for (Statistics row : statistics) {
-            appendCSVRow(
-                    csv,
-                    List.of(
-                            row.inputFile(),
-                            row.outputFile(),
-                            Integer.toString(row.originalFeatures()),
-                            Integer.toString(row.simplifiedFeatures()),
-                            formatRatio(row.featureReductionRatio()),
-                            Integer.toString(row.originalConstraints()),
-                            Integer.toString(row.simplifiedConstraints()),
-                            formatRatio(row.constraintReductionRatio()),
-                            Integer.toString(row.removedCoreFeatures()),
-                            Integer.toString(row.removedDeadFeatures()),
-                            Integer.toString(row.removedAtomicSetFeatures()),
-                            Boolean.toString(row.fullReduction()),
-                            formatRatio(row.evaluationTimeRun1Seconds()),
-                            formatRatio(row.evaluationTimeRun2Seconds()),
-                            formatRatio(row.evaluationTimeRun3Seconds()),
-                            formatRatio(row.evaluationTimeMeanSeconds()),
-                            formatRatio(row.evaluationTimeStandardDeviationSeconds())));
+            List<String> fields = new ArrayList<>(STATS_HEADER.size());
+            fields.add(row.inputFile());
+            fields.add(row.outputFile());
+            fields.add(Integer.toString(row.originalFeatures()));
+            fields.add(Integer.toString(row.simplifiedFeatures()));
+            fields.add(formatRatio(row.featureReductionRatio()));
+            fields.add(Integer.toString(row.originalConstraints()));
+            fields.add(Integer.toString(row.simplifiedConstraints()));
+            fields.add(formatRatio(row.constraintReductionRatio()));
+            fields.add(Integer.toString(row.removedCoreFeatures()));
+            fields.add(Integer.toString(row.removedDeadFeatures()));
+            fields.add(Integer.toString(row.removedAtomicSetFeatures()));
+            fields.add(Boolean.toString(row.fullReduction()));
+            for (TimingMetric metric : TimingMetric.values()) {
+                TimingStatistics timing = row.timings().get(metric);
+                fields.add(formatRatio(timing.run1()));
+                fields.add(formatRatio(timing.run2()));
+                fields.add(formatRatio(timing.run3()));
+                fields.add(formatRatio(timing.mean()));
+                fields.add(formatRatio(timing.standardDeviation()));
+            }
+            appendCSVRow(csv, fields);
         }
         Files.writeString(statisticsFile, csv, StandardCharsets.UTF_8);
     }
@@ -724,7 +903,11 @@ public class Evaluation extends ACommand {
         appendAggregateRow(csv, "removed_core_features", statistics, Statistics::removedCoreFeatures);
         appendAggregateRow(csv, "removed_dead_features", statistics, Statistics::removedDeadFeatures);
         appendAggregateRow(csv, "removed_atomic_set_features", statistics, Statistics::removedAtomicSetFeatures);
-        appendAggregateRow(csv, "evaluation_time_mean_seconds", statistics, Statistics::evaluationTimeMeanSeconds);
+        for (TimingMetric metric : TimingMetric.values()) {
+            appendAggregateRow(csv, metric.csvPrefix + "_time_mean_seconds", statistics, row -> row.timings()
+                    .get(metric)
+                    .mean());
+        }
         long fullReductionCount =
                 statistics.stream().filter(Statistics::fullReduction).count();
         appendCSVRow(csv, List.of("full_reduction", "", "", Long.toString(fullReductionCount)));

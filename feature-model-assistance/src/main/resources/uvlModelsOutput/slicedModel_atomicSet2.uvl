@@ -1,0 +1,13 @@
+features
+        root {abstract true}
+                optional
+                        f13
+                optional
+                        f11
+                        f12
+
+constraints
+        !(f12) | !(f11) | !(root) | f13
+        !(root) | f13 | f11 | f12
+        !(f12) | !(f13) | !(root)
+        !(f11) | !(f13) | !(root)

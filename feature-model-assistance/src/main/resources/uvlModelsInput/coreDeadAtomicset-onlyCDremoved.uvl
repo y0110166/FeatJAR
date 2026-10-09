@@ -1,0 +1,9 @@
+features
+        Boolean root {abstract true}
+                optional
+                        Boolean f1 {abstract false}
+                                or
+                                        Boolean dead1 {abstract false}
+                                        Boolean dead2 {abstract false}
+
+

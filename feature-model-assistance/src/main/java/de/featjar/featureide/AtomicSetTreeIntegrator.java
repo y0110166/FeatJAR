@@ -27,6 +27,11 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
+/*
+ * Type 2 AI: This file is the result of automated code generation.
+ *
+ * @author Knut Köhnlein
+ */
 /**
  * Conservatively transfers children of positively equivalent atomic-set
  * members to their designated representative.

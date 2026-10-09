@@ -1,0 +1,24 @@
+features
+        root {abstract true}
+                mandatory
+                        core
+                                or
+                                        c_core1
+                                                optional
+                                                        c_core1_1
+                                        c_core2
+                                optional
+                                        o_core1
+                                        o_core2
+                optional
+                        dead
+                                alternative
+                                        dead1
+                                        dead2
+                        atomicSet
+                                or
+                                        as1
+                                        as2
+
+constraints
+        (core => !(dead)) & (c_core1 & atomicSet)

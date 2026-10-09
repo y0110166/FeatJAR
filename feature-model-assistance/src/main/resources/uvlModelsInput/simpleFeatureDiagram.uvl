@@ -1,18 +1,18 @@
 features
-        Boolean f1 {name 'f1', abstract true}
+        Boolean f1 {abstract true}
                 optional
-                        Boolean f2 {name 'f2', abstract false}
+                        Boolean f2
                                 or
-                                        Boolean f3 {name 'f3', abstract false}
-                                        Boolean f4 {name 'f4', abstract false}
+                                        Boolean f3 {abstract false}
+                                        Boolean f4 {abstract false}
                 mandatory
-                        Boolean f5 {name 'f5', abstract true}
+                        Boolean f5 {abstract true}
                                 alternative
-                                        Boolean f6 {name 'f6', abstract false}
-                                        Boolean f7 {name 'f7', abstract false}
+                                        Boolean f6 {abstract false}
+                                        Boolean f7 {abstract false}
 
 
 
 
 constraints
-        (f2 & !f6)
+        (f2 => !f6)

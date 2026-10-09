@@ -107,6 +107,7 @@ public class CNFSlicer extends AComputation<BooleanAssignmentList> {
 
         // Initialize lists and sets
         createClauseLists();
+        checkCancel();
 
         if (!prepareHeuristics()) {
             return Result.of(new BooleanAssignmentList(orgCNF));
@@ -115,6 +116,7 @@ public class CNFSlicer extends AComputation<BooleanAssignmentList> {
         progress.setTotalSteps(heuristic.size());
 
         while (heuristic.hasNext()) {
+            checkCancel();
             final DirtyFeature nextFeature = heuristic.next();
             if (nextFeature == null) {
                 break;
@@ -185,6 +187,7 @@ public class CNFSlicer extends AComputation<BooleanAssignmentList> {
 
     private void createClauseLists() {
         for (final BooleanAssignment sortedIntegerList : orgCNF) {
+            checkCancel();
             addNewClause(DirtyClause.createClause(sortedIntegerList.get()));
         }
 
@@ -231,8 +234,12 @@ public class CNFSlicer extends AComputation<BooleanAssignmentList> {
     private void resolution(DirtyFeature nextFeature) {
         final int curFeatureID = nextFeature.getId();
         for (int i = dirtyListPosIndex; i < dirtyListNegIndex; i++) {
+            checkCancel();
             final int[] posOrChildren = dirtyClauseList.get(i).get();
             for (int j = dirtyListNegIndex; j < dirtyClauseList.size(); j++) {
+                if ((j & 1023) == 0) {
+                    checkCancel();
+                }
                 final int[] negOrChildren = dirtyClauseList.get(j).get();
                 final int[] newChildren = new int[posOrChildren.length + negOrChildren.length];
 
@@ -297,6 +304,7 @@ public class CNFSlicer extends AComputation<BooleanAssignmentList> {
 
             newDirtyClauseList.subList(0, newDirtyListDelIndex).sort(lengthComparator);
             for (int i = newDirtyListDelIndex - 1; i >= 0; --i) {
+                checkCancel();
                 final DirtyClause curClause = newDirtyClauseList.get(i);
                 if (isRedundant(solver, curClause)) {
                     dr++;
@@ -313,6 +321,7 @@ public class CNFSlicer extends AComputation<BooleanAssignmentList> {
         newCleanClauseList.sort(lengthComparator);
 
         for (int i = newCleanClauseList.size() - 1; i >= 0; --i) {
+            checkCancel();
             final DirtyClause clause = newCleanClauseList.get(i);
 
             if (isRedundant(newSolver, clause)) {
@@ -339,6 +348,7 @@ public class CNFSlicer extends AComputation<BooleanAssignmentList> {
 
             // SAT Relevant
             for (int i = dirtyListPosIndex - 1; i >= 0; --i) {
+                checkCancel();
                 final DirtyClause mainClause = dirtyClauseList.get(i);
                 if (isRedundant(solver, mainClause)) {
                     dr++;

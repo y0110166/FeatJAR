@@ -1,0 +1,8 @@
+features
+        root {abstract true}
+                optional
+                        f1
+                                or
+                                        dead1
+                                        dead2
+

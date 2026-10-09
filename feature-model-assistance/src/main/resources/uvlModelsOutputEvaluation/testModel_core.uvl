@@ -1,0 +1,12 @@
+features
+        root {abstract true}
+                optional
+                        f2
+                                alternative
+                                        f3
+                                        f4
+                optional
+                        f5
+                        f6
+                        f7
+
