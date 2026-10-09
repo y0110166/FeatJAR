@@ -1,0 +1,50 @@
+features
+        "Fit App" {abstract true}
+                optional
+                        Map
+                                alternative
+                                        GymsNearby
+                                        TestResultsGyms
+                optional
+                        UserSettings
+                                or
+                                        ChangeUsername
+                                        ChangeEmail
+                                        ChangePassword
+                optional
+                        GymSpaceManagement
+                                alternative
+                                        ManageSpaces
+                                                or
+                                                        CallCleanRoomService
+                                                        CreateSessionForUsers
+                                        BookClass
+                optional
+                        Register
+                                alternative
+                                        User
+                                        Admin
+                        Login
+                        Free
+                optional
+                        CardioSetting
+                        YogaSetting
+                        MuscleGainSetting
+
+constraints
+        UserSettings => User | Admin
+        ManageSpaces => Admin
+        BookClass => User | Admin
+        Login => User | Admin
+        !(TestResultsGyms) | CardioSetting | YogaSetting | MuscleGainSetting
+        !("Fit App") | CardioSetting | YogaSetting | MuscleGainSetting
+        !(TestResultsGyms) | Free | User
+        !(MuscleGainSetting) | !(YogaSetting) | !(TestResultsGyms)
+        !(YogaSetting) | !(CardioSetting) | !(TestResultsGyms)
+        !(MuscleGainSetting) | !(CardioSetting) | !(TestResultsGyms)
+        !(CardioSetting) | Free | User
+        !(YogaSetting) | Free | User
+        !("Fit App") | Free | User
+        !(MuscleGainSetting) | !(YogaSetting) | !("Fit App")
+        !(YogaSetting) | !(CardioSetting) | !("Fit App")
+        !(MuscleGainSetting) | !(CardioSetting) | !("Fit App")

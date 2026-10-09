@@ -1,0 +1,49 @@
+features
+        PropellerConfiguration {abstract true}
+                optional
+                        two
+                        three
+                        four
+                        clockwise
+                        square
+                        rounded
+                        swept
+                        Taper_ratio
+                        small_1_5mm
+                optional
+                        symmetrical
+                        thin
+                        medium
+                        thick
+
+constraints
+        !(swept) | !(rounded) | !(square)
+        !(rounded) | !(square)
+        !(swept) | !(square)
+        !(swept) | !(rounded)
+        !(symmetrical) | thin | medium | thick
+        !(PropellerConfiguration) | thin | medium | thick
+        !(thick) | !(thin) | !(symmetrical)
+        !(medium) | !(thin) | !(symmetrical)
+        !(thick) | !(medium) | !(symmetrical)
+        !(thick) | !(medium) | !(thin)
+        !(thick) | !(thin) | !(PropellerConfiguration)
+        !(medium) | !(thin) | !(PropellerConfiguration)
+        !(thick) | !(medium) | !(PropellerConfiguration)
+        !(Taper_ratio) | two | three | four
+        !(Taper_ratio) | square | rounded | swept
+        !(two) | square | rounded | swept
+        !(four) | square | rounded | swept
+        !(clockwise) | two | three | four
+        !(clockwise) | square | rounded | swept
+        !(PropellerConfiguration) | two | three | four
+        !(PropellerConfiguration) | square | rounded | swept
+        !(four) | !(three) | !(Taper_ratio)
+        !(three) | !(two) | !(Taper_ratio)
+        !(four) | !(two) | !(Taper_ratio)
+        !(clockwise) | !(four) | !(three)
+        !(clockwise) | !(three) | !(two)
+        !(clockwise) | !(four) | !(two)
+        !(four) | !(three) | !(PropellerConfiguration)
+        !(three) | !(two) | !(PropellerConfiguration)
+        !(four) | !(two) | !(PropellerConfiguration)

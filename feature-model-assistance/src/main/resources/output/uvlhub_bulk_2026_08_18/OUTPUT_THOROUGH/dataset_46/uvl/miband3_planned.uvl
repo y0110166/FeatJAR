@@ -1,0 +1,23 @@
+features
+        SmartWatch {abstract true}
+                optional
+                        CapacityButton
+                                optional
+                                        TouchScreen
+                optional
+                        ContactlessPayment
+                optional
+                        MovementFilter
+                        HeartRateSensor
+                optional
+                        BLEv40
+                        BLEv42
+                        BT40
+                        NFC
+
+constraints
+        ContactlessPayment => NFC
+        !(BLEv42) | !(BLEv40) | !(SmartWatch) | BT40
+        !(SmartWatch) | BT40 | BLEv40 | BLEv42
+        !(BLEv42) | !(BT40) | !(SmartWatch)
+        !(BLEv40) | !(BT40) | !(SmartWatch)

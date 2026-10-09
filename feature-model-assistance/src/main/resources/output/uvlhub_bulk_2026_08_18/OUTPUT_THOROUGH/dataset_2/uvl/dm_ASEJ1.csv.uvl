@@ -1,0 +1,211 @@
+features
+        VIRTUAL_ROOT {abstract true}
+                or
+                        Strands
+                                alternative
+                                        Strands_7_0
+                                        Strands_6_0
+                                        Strands_5_0
+                                        Strands_4_0
+                                        Strands_3_0
+                                        Strands_2_0
+                                        Strands_31_0
+                                        Strands_30_0
+                                        Strands_29_0
+                                        Strands_28_0
+                                        Strands_27_0
+                                        Strands_26_0
+                                        Strands_25_0
+                                        Strands_24_0
+                                        Strands_23_0
+                                        Strands_22_0
+                                        Strands_21_0
+                                        Strands_20_0
+                                        Strands_19_0
+                                        Strands_18_0
+                                        Strands_17_0
+                                        Strands_16_0
+                                        Strands_15_0
+                                        Strands_14_0
+                                        Strands_13_0
+                                        Strands_12_0
+                                        Strands_11_0
+                                        Strands_10_0
+                                        Strands_9_0
+                                        Strands_8_0
+                                        Strands_100_0
+                                        Strands_96_0
+                                        Strands_97_0
+                                        Strands_98_0
+                                        Strands_99_0
+                                        Strands_92_0
+                                        Strands_93_0
+                                        Strands_94_0
+                                        Strands_95_0
+                                        Strands_88_0
+                                        Strands_89_0
+                                        Strands_90_0
+                                        Strands_91_0
+                                        Strands_84_0
+                                        Strands_85_0
+                                        Strands_86_0
+                                        Strands_87_0
+                                        Strands_80_0
+                                        Strands_81_0
+                                        Strands_82_0
+                                        Strands_83_0
+                                        Strands_76_0
+                                        Strands_77_0
+                                        Strands_78_0
+                                        Strands_79_0
+                                        Strands_72_0
+                                        Strands_73_0
+                                        Strands_74_0
+                                        Strands_75_0
+                                        Strands_68_0
+                                        Strands_69_0
+                                        Strands_70_0
+                                        Strands_71_0
+                                        Strands_64_0
+                                        Strands_65_0
+                                        Strands_66_0
+                                        Strands_67_0
+                                        Strands_62_0
+                                        Strands_63_0
+                                        Strands_60_0
+                                        Strands_61_0
+                                        Strands_58_0
+                                        Strands_59_0
+                                        Strands_56_0
+                                        Strands_57_0
+                                        Strands_54_0
+                                        Strands_55_0
+                                        Strands_52_0
+                                        Strands_53_0
+                                        Strands_50_0
+                                        Strands_51_0
+                                        Strands_48_0
+                                        Strands_49_0
+                                        Strands_46_0
+                                        Strands_47_0
+                                        Strands_44_0
+                                        Strands_45_0
+                                        Strands_42_0
+                                        Strands_43_0
+                                        Strands_40_0
+                                        Strands_41_0
+                                        Strands_38_0
+                                        Strands_39_0
+                                        Strands_36_0
+                                        Strands_37_0
+                                        Strands_34_0
+                                        Strands_35_0
+                                        Strands_32_0
+                                        Strands_33_0
+                                        Strands_1_0
+                        Modes
+                                or
+                                        top
+                                        horizontal
+                                        bottom
+                                        vertical
+                        UI
+                        TopFeeding3D
+
+constraints
+        Strands_7_0 => !(top)
+        Strands_6_0 => !(top)
+        Strands_5_0 => !(top)
+        Strands_31_0 => !(top)
+        Strands_30_0 => !(top)
+        Strands_29_0 => !(top)
+        Strands_28_0 => !(top)
+        Strands_27_0 => !(top)
+        Strands_26_0 => !(top)
+        Strands_25_0 => !(top)
+        Strands_24_0 => !(top)
+        Strands_23_0 => !(top)
+        Strands_22_0 => !(top)
+        Strands_21_0 => !(top)
+        Strands_20_0 => !(top)
+        Strands_19_0 => !(top)
+        Strands_18_0 => !(top)
+        Strands_17_0 => !(top)
+        Strands_16_0 => !(top)
+        Strands_15_0 => !(top)
+        Strands_14_0 => !(top)
+        Strands_13_0 => !(top)
+        Strands_12_0 => !(top)
+        Strands_11_0 => !(top)
+        Strands_10_0 => !(top)
+        Strands_9_0 => !(top)
+        Strands_8_0 => !(top)
+        Strands_100_0 => !(top)
+        Strands_96_0 => !(top)
+        Strands_97_0 => !(top)
+        Strands_98_0 => !(top)
+        Strands_99_0 => !(top)
+        Strands_92_0 => !(top)
+        Strands_93_0 => !(top)
+        Strands_94_0 => !(top)
+        Strands_95_0 => !(top)
+        Strands_88_0 => !(top)
+        Strands_89_0 => !(top)
+        Strands_90_0 => !(top)
+        Strands_91_0 => !(top)
+        Strands_84_0 => !(top)
+        Strands_85_0 => !(top)
+        Strands_86_0 => !(top)
+        Strands_87_0 => !(top)
+        Strands_80_0 => !(top)
+        Strands_81_0 => !(top)
+        Strands_82_0 => !(top)
+        Strands_83_0 => !(top)
+        Strands_76_0 => !(top)
+        Strands_77_0 => !(top)
+        Strands_78_0 => !(top)
+        Strands_79_0 => !(top)
+        Strands_72_0 => !(top)
+        Strands_73_0 => !(top)
+        Strands_74_0 => !(top)
+        Strands_75_0 => !(top)
+        Strands_68_0 => !(top)
+        Strands_69_0 => !(top)
+        Strands_70_0 => !(top)
+        Strands_71_0 => !(top)
+        Strands_64_0 => !(top)
+        Strands_65_0 => !(top)
+        Strands_66_0 => !(top)
+        Strands_67_0 => !(top)
+        Strands_62_0 => !(top)
+        Strands_63_0 => !(top)
+        Strands_60_0 => !(top)
+        Strands_61_0 => !(top)
+        Strands_58_0 => !(top)
+        Strands_59_0 => !(top)
+        Strands_56_0 => !(top)
+        Strands_57_0 => !(top)
+        Strands_54_0 => !(top)
+        Strands_55_0 => !(top)
+        Strands_52_0 => !(top)
+        Strands_53_0 => !(top)
+        Strands_50_0 => !(top)
+        Strands_51_0 => !(top)
+        Strands_48_0 => !(top)
+        Strands_49_0 => !(top)
+        Strands_46_0 => !(top)
+        Strands_47_0 => !(top)
+        Strands_44_0 => !(top)
+        Strands_45_0 => !(top)
+        Strands_42_0 => !(top)
+        Strands_43_0 => !(top)
+        Strands_40_0 => !(top)
+        Strands_41_0 => !(top)
+        Strands_38_0 => !(top)
+        Strands_39_0 => !(top)
+        Strands_36_0 => !(top)
+        Strands_37_0 => !(top)
+        Strands_34_0 => !(top)
+        Strands_35_0 => !(top)
+        Strands_32_0 => !(top)
+        Strands_33_0 => !(top)

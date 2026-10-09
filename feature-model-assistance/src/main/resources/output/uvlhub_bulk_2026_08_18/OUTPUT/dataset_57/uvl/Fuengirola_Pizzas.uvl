@@ -1,0 +1,86 @@
+features
+        Pizzas {abstract true, de_featjar_base_data_Units {size 'cm', Price 'euro'}}
+                optional
+                        "Garlic bread"
+                optional
+                        Medium {de_featjar_base_data_size 30, de_featjar_base_data_Price 6.5}
+                        Big {de_featjar_base_data_size 32, de_featjar_base_data_Price 7.5}
+                        Familiar {de_featjar_base_data_size 40, de_featjar_base_data_Price 11.5}
+                optional
+                        "Tomato sauce"
+                        Salami
+                        Ham
+                        Mushrooms
+                        "4 cheeses"
+                        Onion
+                        "Black olives"
+                        Tuna
+                        Pineapple
+                        "Roasted chicken meat"
+                        "Roasted beef meat"
+                        "Bell pepper"
+                        Chicken
+                        Shrimps
+                        Spinach
+                        "Minced chicken"
+                        "Kebab meat"
+                        Pepperoni
+                        Cream
+                        "Yogurt sauce"
+                        Turkey
+                        Egg
+                        Anchovies
+                        Capers
+
+constraints
+        !(Pizzas) | Medium | Big | Familiar
+        !(Familiar) | !(Big) | !(Pizzas)
+        !(Big) | !(Medium) | !(Pizzas)
+        !(Familiar) | !(Medium) | !(Pizzas)
+        !(Cream) | !("Garlic bread")
+        !(Cream) | "Tomato sauce"
+        !("Kebab meat") | !("Garlic bread")
+        !("Kebab meat") | "Tomato sauce"
+        !("Minced chicken") | !("Garlic bread")
+        !("Minced chicken") | "Tomato sauce"
+        !(Spinach) | !("Garlic bread")
+        !(Spinach) | "Tomato sauce"
+        !(Shrimps) | !("Garlic bread")
+        !(Shrimps) | "Tomato sauce"
+        !(Chicken) | !("Garlic bread")
+        !(Chicken) | "Tomato sauce"
+        !("Bell pepper") | !("Garlic bread")
+        !("Bell pepper") | "Tomato sauce"
+        !("Roasted beef meat") | !("Garlic bread")
+        !("Roasted beef meat") | "Tomato sauce"
+        !("Roasted chicken meat") | !("Garlic bread")
+        !("Roasted chicken meat") | "Tomato sauce"
+        !(Pineapple) | !("Garlic bread")
+        !(Pineapple) | "Tomato sauce"
+        !(Tuna) | !("Garlic bread")
+        !(Tuna) | "Tomato sauce"
+        !("Black olives") | !("Garlic bread")
+        !("Black olives") | "Tomato sauce"
+        !(Onion) | !("Garlic bread")
+        !(Onion) | "Tomato sauce"
+        !("4 cheeses") | !("Garlic bread")
+        !("4 cheeses") | "Tomato sauce"
+        !(Mushrooms) | !("Garlic bread")
+        !(Mushrooms) | "Tomato sauce"
+        !(Ham) | !("Garlic bread")
+        !(Ham) | "Tomato sauce"
+        !(Salami) | !("Garlic bread")
+        !(Salami) | "Tomato sauce"
+        !(Pepperoni) | !("Garlic bread")
+        !(Pepperoni) | "Tomato sauce"
+        !("Tomato sauce") | !("Garlic bread")
+        !("Yogurt sauce") | !("Garlic bread")
+        !("Yogurt sauce") | "Tomato sauce"
+        !(Turkey) | !("Garlic bread")
+        !(Turkey) | "Tomato sauce"
+        !(Egg) | !("Garlic bread")
+        !(Egg) | "Tomato sauce"
+        !(Capers) | !("Garlic bread")
+        !(Capers) | "Tomato sauce"
+        !(Anchovies) | !("Garlic bread")
+        !(Anchovies) | "Tomato sauce"

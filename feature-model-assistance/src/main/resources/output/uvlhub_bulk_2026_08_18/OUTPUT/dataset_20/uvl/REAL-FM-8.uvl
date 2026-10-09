@@ -1,0 +1,12 @@
+features
+        monitor_engine_system
+                optional
+                        colant
+                optional
+                        l_km
+                        distance
+                        type_of_driving
+                        drive
+
+constraints
+        !(monitor_engine_system) | distance | type_of_driving | drive

@@ -1,0 +1,92 @@
+features
+        Agile_Strategy {extended_ true, abstract true}
+                optional
+                        Project_Managing
+                                or
+                                        Plan
+                                                alternative
+                                                        Activities_Time_Resources
+                                                        Scope
+                                        Do
+                                                alternative
+                                                        Do_Months
+                                                        Do_Weeks
+                                                        Do_Days
+                                                        Do_Hours
+                                                        Do_Minutes
+                                        Check
+                                                or
+                                                        Objectives
+                                                        Software
+                                                        Services
+                                        Act
+                        Improving
+                                or
+                                        Outcome
+                                        Process
+                        Enabling
+                                or
+                                        User_Experience
+                                        Quality
+                                        Security
+                                        Availability
+                                        Continuity
+                                        Capacity
+                optional
+                        Business_Guarantee
+                        Business_Utility
+                        Certainty
+                        Effectiveness
+                        Efficiency
+                optional
+                        Doing_Months
+                        Doing_Weeks
+                        Doing_Days
+                        Doing_Hours
+                        Doing_Minutes
+                        Discovery
+                                or
+                                        Understand
+                                        Define
+                                        Ideate
+                                        Decide
+                                        Prototype
+                                        Validate
+                        Development
+                                or
+                                        Analysis_Design
+                                        Code
+                                        Build
+                                        Test
+                        Operations
+                                or
+                                        Release
+                                        Deploy
+                                        Operate
+                                        Monitor
+
+constraints
+        Certainty => Discovery
+        Business_Utility => Development
+        Business_Guarantee => Operations
+        Efficiency => Effectiveness
+        Effectiveness => Plan
+        Effectiveness => Check
+        Efficiency => Act
+        Discovery => Activities_Time_Resources
+        Development => Scope
+        Objectives => Discovery
+        Software => Development
+        Services => Operations
+        !(Agile_Strategy) | Doing_Months | Doing_Weeks | Doing_Days | Doing_Hours | Doing_Minutes
+        !(Agile_Strategy) | Business_Guarantee | Business_Utility | Certainty | Effectiveness | Efficiency
+        !(Doing_Minutes) | !(Doing_Hours) | !(Agile_Strategy)
+        !(Doing_Hours) | !(Doing_Days) | !(Agile_Strategy)
+        !(Doing_Minutes) | !(Doing_Days) | !(Agile_Strategy)
+        !(Doing_Days) | !(Doing_Months) | !(Agile_Strategy)
+        !(Doing_Hours) | !(Doing_Months) | !(Agile_Strategy)
+        !(Doing_Minutes) | !(Doing_Months) | !(Agile_Strategy)
+        !(Doing_Days) | !(Doing_Weeks) | !(Agile_Strategy)
+        !(Doing_Hours) | !(Doing_Weeks) | !(Agile_Strategy)
+        !(Doing_Minutes) | !(Doing_Weeks) | !(Agile_Strategy)
+        !(Doing_Weeks) | !(Doing_Months) | !(Agile_Strategy)

@@ -1,0 +1,208 @@
+features
+        "_id_0"
+                optional
+                        opticaldrive
+                                alternative
+                                        cddvdrw
+                                        dvdromdriveanddvdrw
+                                        dvdrwandcdrwcombo
+                                        bluraydisc
+                optional
+                        mininotebooks
+                        inspironlaptops
+                        studiolaptops
+                        xpslaptops
+                        adamo
+                        studioxpslaptops
+                optional
+                        windowsvista64bit
+                        windowsxphome
+                        ubuntulinux
+                        "_id_2_48"
+                        "_id_2_49"
+                optional
+                        hd500gb
+                        hd320gb
+                        hd250gb
+                        hd160gb
+                        hd120gb
+                        hd80gb
+                optional
+                        ultralight
+                        light
+                        desktopreplacement
+                optional
+                        morethan4g
+                        mem4gb
+                        mem3gb
+                        mem2gb
+                        mem1gb
+                optional
+                        intelcore2duo
+                        intelpentiumdualcore
+                        intelceleron
+                optional
+                        lessthanus400
+                        us400us800
+                        us800us1200
+                        morethanus1200
+
+constraints
+        xpslaptops => !(dvdrwandcdrwcombo)
+        xpslaptops => !(mem2gb)
+        xpslaptops => !(hd80gb)
+        xpslaptops => !(dvdromdriveanddvdrw)
+        xpslaptops => !(hd120gb)
+        xpslaptops => !(ubuntulinux)
+        xpslaptops => !(hd160gb)
+        xpslaptops => !(intelceleron)
+        xpslaptops => !(intelpentiumdualcore)
+        xpslaptops => !(mem1gb)
+        adamo => !(ubuntulinux)
+        adamo => !(hd500gb)
+        adamo => !(hd320gb)
+        xpslaptops => !(lessthanus400)
+        adamo => !(windowsxphome)
+        adamo => !(hd160gb)
+        adamo => !(hd250gb)
+        adamo => !(hd80gb)
+        adamo => !(hd120gb)
+        inspironlaptops => !(morethan4g)
+        inspironlaptops => !(mem1gb)
+        inspironlaptops => !(ultralight)
+        inspironlaptops => !(desktopreplacement)
+        studiolaptops => !(windowsxphome)
+        inspironlaptops => !(morethanus1200)
+        studiolaptops => !(ubuntulinux)
+        studiolaptops => !(hd160gb)
+        studiolaptops => !(hd120gb)
+        studiolaptops => !(hd80gb)
+        studiolaptops => !(morethan4g)
+        studiolaptops => !(mem2gb)
+        studiolaptops => !(mem1gb)
+        studiolaptops => !(intelceleron)
+        studiolaptops => !(lessthanus400)
+        studiolaptops => !(morethanus1200)
+        xpslaptops => !(windowsxphome)
+        studioxpslaptops => !(bluraydisc)
+        studioxpslaptops => !(dvdrwandcdrwcombo)
+        studioxpslaptops => !(dvdromdriveanddvdrw)
+        studioxpslaptops => !(hd80gb)
+        inspironlaptops => !(bluraydisc)
+        inspironlaptops => !(dvdrwandcdrwcombo)
+        inspironlaptops => !(dvdromdriveanddvdrw)
+        inspironlaptops => !(windowsxphome)
+        inspironlaptops => !(windowsvista64bit)
+        mininotebooks => !(morethanus1200)
+        inspironlaptops => !(hd80gb)
+        inspironlaptops => !(hd120gb)
+        inspironlaptops => !(ubuntulinux)
+        studioxpslaptops => !(morethanus1200)
+        mininotebooks => !(intelpentiumdualcore)
+        mininotebooks => !(intelcore2duo)
+        mininotebooks => !(us800us1200)
+        mininotebooks => !(intelceleron)
+        mininotebooks => !(light)
+        mininotebooks => !(bluraydisc)
+        mininotebooks => !(morethan4g)
+        mininotebooks => !(desktopreplacement)
+        mininotebooks => !(mem3gb)
+        mininotebooks => !(mem4gb)
+        adamo => !(bluraydisc)
+        studioxpslaptops => !(desktopreplacement)
+        adamo => !(dvdrwandcdrwcombo)
+        studioxpslaptops => !(morethan4g)
+        adamo => !(dvdromdriveanddvdrw)
+        adamo => !(cddvdrw)
+        adamo => !(desktopreplacement)
+        adamo => !(light)
+        studioxpslaptops => !(us400us800)
+        studioxpslaptops => !(lessthanus400)
+        adamo => !(morethan4g)
+        studioxpslaptops => !(intelceleron)
+        studioxpslaptops => !(intelpentiumdualcore)
+        adamo => !(intelpentiumdualcore)
+        studioxpslaptops => !(mem1gb)
+        adamo => !(intelceleron)
+        studioxpslaptops => !(mem2gb)
+        adamo => !(mem3gb)
+        adamo => !(mem1gb)
+        studioxpslaptops => !(mem3gb)
+        adamo => !(lessthanus400)
+        mininotebooks => !(hd250gb)
+        mininotebooks => !(hd320gb)
+        adamo => !(us800us1200)
+        mininotebooks => !(hd500gb)
+        adamo => !(us400us800)
+        mininotebooks => !(dvdrwandcdrwcombo)
+        mininotebooks => !(dvdromdriveanddvdrw)
+        mininotebooks => !(cddvdrw)
+        studioxpslaptops => !(windowsxphome)
+        studioxpslaptops => !(ubuntulinux)
+        studioxpslaptops => !(hd250gb)
+        mininotebooks => !(windowsvista64bit)
+        studioxpslaptops => !(hd160gb)
+        studioxpslaptops => !(hd120gb)
+        !("_id_0") | ultralight | light | desktopreplacement
+        !(desktopreplacement) | !(ultralight) | !("_id_0")
+        !(light) | !(ultralight) | !("_id_0")
+        !(desktopreplacement) | !(light) | !("_id_0")
+        !(inspironlaptops) | !("_id_0") | intelcore2duo | intelpentiumdualcore | intelceleron
+        !(xpslaptops) | !("_id_0") | intelcore2duo | intelpentiumdualcore | intelceleron
+        !(studiolaptops) | !("_id_0") | intelcore2duo | intelpentiumdualcore | intelceleron
+        !(adamo) | !("_id_0") | intelcore2duo | intelpentiumdualcore | intelceleron
+        !(studioxpslaptops) | !("_id_0") | intelcore2duo | intelpentiumdualcore | intelceleron
+        !(intelpentiumdualcore) | !(intelcore2duo) | !("_id_0")
+        !(intelceleron) | !(intelcore2duo) | !("_id_0")
+        !(intelceleron) | !(intelpentiumdualcore) | !("_id_0")
+        !("_id_0") | lessthanus400 | us400us800 | us800us1200 | morethanus1200
+        !(morethanus1200) | !(us400us800) | !("_id_0")
+        !(morethanus1200) | !(lessthanus400) | !("_id_0")
+        !(us800us1200) | !(us400us800) | !("_id_0")
+        !(us400us800) | !(lessthanus400) | !("_id_0")
+        !(morethanus1200) | !(us800us1200) | !("_id_0")
+        !(us800us1200) | !(lessthanus400) | !("_id_0")
+        !("_id_0") | windowsvista64bit | windowsxphome | ubuntulinux | "_id_2_48" | "_id_2_49"
+        !("_id_2_49") | !(windowsxphome) | !("_id_0")
+        !("_id_2_48") | !(windowsxphome) | !("_id_0")
+        !(ubuntulinux) | !(windowsxphome) | !("_id_0")
+        !("_id_2_49") | !(windowsvista64bit) | !("_id_0")
+        !("_id_2_48") | !(windowsvista64bit) | !("_id_0")
+        !(ubuntulinux) | !(windowsvista64bit) | !("_id_0")
+        !("_id_2_49") | !(ubuntulinux) | !("_id_0")
+        !("_id_2_48") | !(ubuntulinux) | !("_id_0")
+        !("_id_2_49") | !("_id_2_48") | !("_id_0")
+        !(windowsxphome) | !(windowsvista64bit) | !("_id_0")
+        !("_id_0") | morethan4g | mem4gb | mem3gb | mem2gb | mem1gb
+        !(mem2gb) | !(morethan4g) | !("_id_0")
+        !(mem1gb) | !(mem2gb) | !("_id_0")
+        !(mem1gb) | !(mem4gb) | !("_id_0")
+        !(mem1gb) | !(morethan4g) | !("_id_0")
+        !(mem3gb) | !(mem4gb) | !("_id_0")
+        !(mem2gb) | !(mem4gb) | !("_id_0")
+        !(mem2gb) | !(mem3gb) | !("_id_0")
+        !(mem1gb) | !(mem3gb) | !("_id_0")
+        !(mem3gb) | !(morethan4g) | !("_id_0")
+        !(mem4gb) | !(morethan4g) | !("_id_0")
+        !("_id_0") | mininotebooks | inspironlaptops | studiolaptops | xpslaptops | adamo | studioxpslaptops
+        !(studioxpslaptops) | !(inspironlaptops) | !("_id_0")
+        !(studioxpslaptops) | !(studiolaptops) | !("_id_0")
+        !(studioxpslaptops) | !(xpslaptops) | !("_id_0")
+        !(studiolaptops) | !(inspironlaptops) | !("_id_0")
+        !(adamo) | !(xpslaptops) | !("_id_0")
+        !(xpslaptops) | !(studiolaptops) | !("_id_0")
+        !(xpslaptops) | !(inspironlaptops) | !("_id_0")
+        !(studioxpslaptops) | !("_id_0") | hd500gb | hd320gb | hd250gb | hd160gb | hd120gb | hd80gb
+        !(mininotebooks) | !("_id_0") | hd500gb | hd320gb | hd250gb | hd160gb | hd120gb | hd80gb
+        !(xpslaptops) | !("_id_0") | hd500gb | hd320gb | hd250gb | hd160gb | hd120gb | hd80gb
+        !(studiolaptops) | !("_id_0") | hd500gb | hd320gb | hd250gb | hd160gb | hd120gb | hd80gb
+        !(inspironlaptops) | !("_id_0") | hd500gb | hd320gb | hd250gb | hd160gb | hd120gb | hd80gb
+        !(hd250gb) | !(hd320gb) | !("_id_0")
+        !(hd250gb) | !(hd500gb) | !("_id_0")
+        !(hd160gb) | !(hd320gb) | !("_id_0")
+        !(hd160gb) | !(hd250gb) | !("_id_0")
+        !(hd120gb) | !(hd160gb) | !("_id_0")
+        !(hd80gb) | !(hd120gb) | !("_id_0")
+        !(hd80gb) | !(hd160gb) | !("_id_0")
+        !(hd160gb) | !(hd500gb) | !("_id_0")
+        !(hd320gb) | !(hd500gb) | !("_id_0")

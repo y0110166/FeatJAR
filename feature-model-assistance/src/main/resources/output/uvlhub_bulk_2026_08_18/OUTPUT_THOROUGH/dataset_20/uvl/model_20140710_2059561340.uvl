@@ -1,0 +1,44 @@
+features
+        strategy_mobile_game
+                optional
+                        connectivity
+                                or
+                                        network
+                                                alternative
+                                                        edge
+                                                        hspa
+                                                        lte
+                                                        wifi
+                                        bluetooth
+                optional
+                        sound
+                                optional
+                                        vibration
+                                alternative
+                                        "128kbps"
+                                        "192kbps"
+                                        "256kbps"
+                optional
+                        global_scoreboard
+                optional
+                        low
+                        medium
+                        high
+                        "2d"
+                        "40fps"
+                        "50fps"
+                        "60fps"
+                optional
+                        real_time
+
+constraints
+        global_scoreboard => network
+        !(strategy_mobile_game) | low | medium | high
+        !(high) | !(low) | !(strategy_mobile_game)
+        !(medium) | !(low) | !(strategy_mobile_game)
+        !(high) | !(medium) | !(strategy_mobile_game)
+        !(strategy_mobile_game) | "40fps" | "50fps" | "60fps"
+        !("60fps") | !("50fps") | !("40fps")
+        !("60fps") | !("50fps") | !(strategy_mobile_game)
+        !("50fps") | !("40fps") | !(strategy_mobile_game)
+        !("60fps") | !("40fps") | !(strategy_mobile_game)

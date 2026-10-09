@@ -1,0 +1,35 @@
+features
+        kwic
+                optional
+                        file
+                        console
+                optional
+                        implicit
+                        shift_processing
+                                optional
+                                        noise_words
+                                alternative
+                                        each_line
+                                        all_lines
+                optional
+                        descendant
+                        sensitive
+                optional
+                        shared_data
+                        adt
+                        implicit_invocation
+                        pipe_and_filter
+
+constraints
+        pipe_and_filter => all_lines
+        !(kwic) | file | console
+        !(kwic) | shared_data | adt | implicit_invocation | pipe_and_filter
+        !(pipe_and_filter) | !(adt) | !(kwic)
+        !(adt) | !(shared_data) | !(kwic)
+        !(implicit_invocation) | !(shared_data) | !(kwic)
+        !(pipe_and_filter) | !(shared_data) | !(kwic)
+        !(implicit_invocation) | !(adt) | !(kwic)
+        !(pipe_and_filter) | !(implicit_invocation) | !(kwic)
+        !(all_lines) | !(implicit) | !(kwic)
+        !(noise_words) | !(implicit) | !(kwic)
+        !(shift_processing) | !(implicit) | !(kwic)

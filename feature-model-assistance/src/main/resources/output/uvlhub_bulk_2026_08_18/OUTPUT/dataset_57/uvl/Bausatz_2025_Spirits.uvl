@@ -1,0 +1,24 @@
+features
+        Spirits {abstract true, de_featjar_base_data_Volume {unit 'cl', value '2'}}
+                alternative
+                        Absinth
+                        Aperol {de_featjar_base_data_Allergen {Sulphites true}}
+                        Averna {de_featjar_base_data_Allergen {Sulphites true}}
+                        Bacardi
+                        "Captain Morgan"
+                        "Exakt Vodka"
+                        Gin
+                        "Havana Club"
+                        Jagermeister
+                        "Jim Beam Bourbon" {de_featjar_base_data_Allergen {Gluten true}}
+                        "Jim Beam Honey" {de_featjar_base_data_Allergen {Gluten true}}
+                        Malibu
+                        "Martini Bianco" {de_featjar_base_data_Allergen {Sulphites true}}
+                        "Martini Rosso" {de_featjar_base_data_Allergen {Sulphites true}}
+                        Ramazotti
+                        "SOURZ Apple"
+                        "SOURZ Blackcurrant"
+                        "Tequila Gold"
+                        "Triple sec"
+                        Whiskey {de_featjar_base_data_Allergen {Gluten true, Sulphites true}, de_featjar_base_data_note 'Jack Daniels'}
+

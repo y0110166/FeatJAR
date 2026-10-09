@@ -1,0 +1,44 @@
+features
+        SmartWatch {abstract true}
+                optional
+                        CapacityButton
+                        TouchScreen
+                optional
+                        ContactlessPayment
+                optional
+                        MovementFilter
+                        Gyroscope
+                        Infrared
+                        HeartRateSensor
+                optional
+                        BLEv40
+                        BLEv42
+                        BT40
+
+constraints
+        MovementFilter => !(HeartRateSensor) & BLEv40
+        !(BT40) | !(TouchScreen)
+        !(Infrared) | HeartRateSensor
+        !(ContactlessPayment) | TouchScreen
+        !(Infrared) | ContactlessPayment
+        !(BT40) | !(CapacityButton)
+        !(Gyroscope) | !(CapacityButton) | BT40
+        CapacityButton | Gyroscope | BT40
+        !(SmartWatch) | HeartRateSensor | MovementFilter | BT40
+        !(BLEv42) | !(BLEv40) | !(SmartWatch) | BT40
+        !(BLEv40) | HeartRateSensor | MovementFilter
+        !(BLEv40) | !(BT40) | !(SmartWatch)
+        !(BLEv42) | HeartRateSensor | MovementFilter
+        !(BLEv42) | !(BT40) | !(SmartWatch)
+        !(CapacityButton) | !(SmartWatch) | TouchScreen | BT40 | BLEv40 | BLEv42
+        !(BLEv42) | !(ContactlessPayment) | !(SmartWatch) | CapacityButton | Infrared | BT40
+        !(BLEv42) | !(Infrared) | !(CapacityButton) | !(SmartWatch) | BT40
+        !(SmartWatch) | TouchScreen | BT40 | BLEv40 | BLEv42
+        !(BLEv42) | !(SmartWatch) | TouchScreen | CapacityButton | BT40
+        !(BLEv40) | !(Gyroscope) | !(SmartWatch) | TouchScreen | BT40
+        !(BLEv40) | !(TouchScreen) | !(SmartWatch) | BT40 | BLEv42
+        !(BLEv42) | !(Infrared) | !(SmartWatch) | BT40
+        !(BLEv42) | !(SmartWatch) | CapacityButton | BT40
+        !(CapacityButton) | !(TouchScreen) | BT40 | BLEv42
+        !(ContactlessPayment) | !(TouchScreen) | Infrared | BLEv42
+        !(Gyroscope) | TouchScreen

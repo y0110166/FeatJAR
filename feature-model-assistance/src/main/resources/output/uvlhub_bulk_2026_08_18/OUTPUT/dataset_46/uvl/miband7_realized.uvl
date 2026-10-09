@@ -1,0 +1,50 @@
+features
+        SmartWatch {abstract true}
+                optional
+                        CapacityButton
+                        TouchScreen
+                optional
+                        ContactlessPayment
+                optional
+                        MovementFilter
+                        Gyroscope
+                        Infrared
+                        HeartRateSensor
+                                optional
+                                        Photoplethysmogram
+                        SpO2
+                optional
+                        BLEv40
+                        BLEv42
+                        BLEv52
+                        BT40
+
+constraints
+        MovementFilter => !(HeartRateSensor) & BLEv40
+        !(Infrared) | Photoplethysmogram
+        !(Photoplethysmogram) | !(ContactlessPayment) | Infrared
+        !(Infrared) | ContactlessPayment
+        !(Infrared) | TouchScreen
+        !(ContactlessPayment) | TouchScreen
+        !(BT40) | !(CapacityButton)
+        CapacityButton | Gyroscope | BT40
+        !(Gyroscope) | !(CapacityButton) | BT40
+        !(CapacityButton) | !(TouchScreen) | BT40 | BLEv42
+        TouchScreen | CapacityButton | BT40
+        !(Photoplethysmogram) | !(CapacityButton) | BT40
+        !(Photoplethysmogram) | TouchScreen
+        !(Gyroscope) | TouchScreen
+        !(CapacityButton) | !(SmartWatch) | BT40 | BLEv40 | BLEv42 | BLEv52
+        !(BLEv52) | !(TouchScreen) | CapacityButton | BT40 | BLEv42
+        !(BLEv40) | !(TouchScreen) | CapacityButton | BT40 | BLEv42
+        !(BLEv42) | !(BLEv40) | CapacityButton | BT40
+        !(BLEv52) | !(BLEv42) | CapacityButton | BT40
+        !(BLEv52) | !(BLEv42) | !(SmartWatch) | BT40
+        !(BLEv42) | !(SmartWatch) | CapacityButton | BT40
+        !(BLEv42) | !(BLEv40) | !(SmartWatch) | BT40
+        !(BLEv52) | !(BLEv40) | !(SmartWatch) | BT40
+        !(SmartWatch) | HeartRateSensor | MovementFilter | BT40
+        !(BT40) | !(TouchScreen) | !(SmartWatch) | BLEv42
+        !(BLEv40) | !(BT40) | !(SmartWatch)
+        !(BLEv42) | !(BT40) | !(SmartWatch)
+        !(BLEv52) | !(BT40) | !(SmartWatch)

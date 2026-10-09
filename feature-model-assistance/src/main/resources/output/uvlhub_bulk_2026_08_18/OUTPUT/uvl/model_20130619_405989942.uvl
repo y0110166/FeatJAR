@@ -1,0 +1,11 @@
+features
+        "_r"
+                optional
+                        "_r_1"
+                                optional
+                                        "_r_1_2_3_4_5"
+                optional
+                        "_r_6"
+                optional
+                        "_r_7_8_9_10_11"
+

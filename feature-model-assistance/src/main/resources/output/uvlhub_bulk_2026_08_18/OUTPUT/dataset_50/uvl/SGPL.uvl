@@ -1,0 +1,174 @@
+features
+        "Smart Governance Platform"
+                optional
+                        "Multi-Tenant"
+                        "Graphical User Interface"
+                                or
+                                        "Web Platform"
+                                        "Mobile App"
+                optional
+                        Assessment
+                                or
+                                        "Results Assessment"
+                                        "Stakeholder Assessment"
+                        "Technical Capabilities" {abstract true}
+                                optional
+                                        "DA Support"
+                                        "IR Capability"
+                                        "KM Support"
+                                        "DM Support"
+                                                or
+                                                        "Individual DM"
+                                                        "Group DM"
+                                                        Consensus
+                                                        "Automated DM"
+                                        "AI Capability"
+                                        "Learning Capability"
+                        Guarantees {abstract true}
+                                optional
+                                        Transparency
+                                        "Ethics Control"
+                                        "Legal Control"
+                optional
+                        Organization
+                        Collaborator
+                        "Smart Agent"
+                        Event
+                        Open
+                        Restricted
+                        Census
+                        "Collaborator Type"
+                        Delegation
+                        Representation
+                        Anonymous
+                        "Decision Type" {abstract true}
+                                optional
+                                        Mandatory
+                                        Binding
+                                        Weighted
+                                alternative
+                                        Simple
+                                        Multiple
+                                        "Multiple Ordered"
+                        "Assessment Stage"
+                        Notification
+                        "Process Type" {abstract true}
+                                alternative
+                                        "Urban Process"
+                                        "Urban Project"
+                                        Proposal {abstract true}
+                                                alternative
+                                                        "Policy Proposal"
+                                                        "Normative Proposal"
+                                                        "Otherl Proposal"
+                                        Deliberation
+                                        "Instrument Making" {abstract true}
+                                                alternative
+                                                        "Policy Making"
+                                                        "Normative Making"
+                                                        Budgeting
+                                        "Solution Implementation"
+                                        Consultation {abstract true}
+                                                alternative
+                                                        Survey
+                                                        "Citizen Forum"
+                                                        "Participatory Consultation"
+                                                                optional
+                                                                        Referendum
+                                        "Assessment Process"
+                        Debate
+                        Meeting
+                        Agile
+                        Qualified
+                        "Multi-Level"
+                        "Multi-Organization"
+                        "Data-Driven"
+                        "Project-Oriented"
+                        "Networked Processess"
+                        "Smart Assistance"
+                        "E-Notification"
+                        "E-Census"
+                        "E-Voting"
+                        "E-Collaboration"
+                        "External Services"
+                                optional
+                                        "Meeting Service"
+                                        "Messaging Service"
+                                        "E-Mail Service"
+                        "Urban Process Services"
+                        "Urban Project Services"
+
+constraints
+        "Urban Project Services" => "Project-Oriented"
+        "Multi-Organization" => "Multi-Tenant" & "Networked Processess"
+        "Data-Driven" => "DA Support"
+        "Smart Assistance" => "AI Capability" & "DM Support"
+        "DA Support" => "AI Capability"
+        "KM Support" => "AI Capability"
+        "Learning Capability" => "AI Capability" & "DM Support"
+        "Ethics Control" => "KM Support"
+        "Legal Control" => "KM Support"
+        "Urban Process Services" => "Urban Project Services"
+        Qualified => Weighted
+        Referendum => Binding
+        Transparency => Notification
+        Deliberation | "Participatory Consultation" => Debate
+        Deliberation | Consultation => Event | Organization
+        "Assessment Process" => "Assessment Stage"
+        !("Assessment Stage") | Assessment
+        !(Weighted) | "DM Support"
+        !(Binding) | "DM Support"
+        !(Proposal) | "DM Support"
+        !(Proposal) | "Decision Type"
+        !(Budgeting) | "DM Support"
+        !(Budgeting) | "Decision Type"
+        !("Assessment Stage") | "DM Support"
+        !("Assessment Stage") | "Decision Type"
+        !(Mandatory) | "DM Support"
+        !("Decision Type") | "DM Support"
+        !("External Services") | Organization | Collaborator | "Smart Agent" | Event
+        !("Smart Assistance") | Organization | Collaborator | "Smart Agent" | Event
+        !("E-Census") | Organization | Collaborator | "Smart Agent" | Event
+        !(Meeting) | Organization | Collaborator | "Smart Agent" | Event
+        !(Debate) | Organization | Collaborator | "Smart Agent" | Event
+        !("Process Type") | Organization | Collaborator | "Smart Agent" | Event
+        !(Notification) | Organization | Collaborator | "Smart Agent" | Event
+        !("Assessment Stage") | Organization | Collaborator | "Smart Agent" | Event
+        !("Urban Project Services") | Organization | Collaborator | "Smart Agent" | Event
+        !("E-Voting") | Organization | Collaborator | "Smart Agent" | Event
+        !("Smart Governance Platform") | Organization | Collaborator | "Smart Agent" | Event
+        !("External Services") | Open | Restricted | Census | "Collaborator Type"
+        !("Assessment Stage") | Open | Restricted | Census | "Collaborator Type"
+        !("Urban Project Services") | Open | Restricted | Census | "Collaborator Type"
+        !("E-Voting") | Open | Restricted | Census | "Collaborator Type"
+        !("Smart Governance Platform") | Open | Restricted | Census | "Collaborator Type"
+        !("External Services") | !(Census) | !(Restricted)
+        !("External Services") | !("Collaborator Type") | !(Open)
+        !("External Services") | !("Collaborator Type") | !(Census)
+        !("External Services") | !(Census) | !(Open)
+        !("External Services") | !("Collaborator Type") | !(Restricted)
+        !("External Services") | !(Restricted) | !(Open)
+        !(Census) | !(Restricted) | !("Assessment Stage")
+        !("Collaborator Type") | !(Open) | !("Assessment Stage")
+        !("Collaborator Type") | !(Census) | !("Assessment Stage")
+        !(Census) | !(Open) | !("Assessment Stage")
+        !("Collaborator Type") | !(Restricted) | !("Assessment Stage")
+        !(Restricted) | !(Open) | !("Assessment Stage")
+        !(Census) | !(Restricted) | !("Urban Project Services")
+        !("Collaborator Type") | !(Open) | !("Urban Project Services")
+        !("Collaborator Type") | !(Census) | !("Urban Project Services")
+        !(Census) | !(Open) | !("Urban Project Services")
+        !("Collaborator Type") | !(Restricted) | !("Urban Project Services")
+        !(Restricted) | !(Open) | !("Urban Project Services")
+        !("E-Voting") | !(Census) | !(Restricted)
+        !("E-Voting") | !("Collaborator Type") | !(Open)
+        !("E-Voting") | !("Collaborator Type") | !(Census)
+        !("E-Voting") | !(Census) | !(Open)
+        !("E-Voting") | !("Collaborator Type") | !(Restricted)
+        !("E-Voting") | !(Restricted) | !(Open)
+        !(Census) | !(Restricted) | !("Smart Governance Platform")
+        !("Collaborator Type") | !(Open) | !("Smart Governance Platform")
+        !("Collaborator Type") | !(Census) | !("Smart Governance Platform")
+        !(Census) | !(Open) | !("Smart Governance Platform")
+        !("Collaborator Type") | !(Restricted) | !("Smart Governance Platform")
+        !(Restricted) | !(Open) | !("Smart Governance Platform")

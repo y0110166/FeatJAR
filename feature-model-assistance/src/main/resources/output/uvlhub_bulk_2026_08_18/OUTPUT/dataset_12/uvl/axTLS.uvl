@@ -1,0 +1,90 @@
+features
+        root
+                optional
+                        CONFIG_AXTLSWRAP
+                        CONFIG_SSL_TEST
+                        CONFIG_OPENSSL_COMPATIBLE
+                        CONFIG_PERFORMANCE_TESTING
+                        CONFIG_HTTP_DIRECTORIES
+                        CONFIG_HTTP_VERBOSE
+                        CONFIG_BIGINT_CHECK_ON
+                        HAVE_DOT_CONFIG
+                        CONFIG_BIGINT_SLIDING_WINDOW
+                        CONFIG_USE_DEV_URANDOM
+                        CONFIG_HTTP_HAS_IPV6
+                        CONFIG_SSL_ENABLE_V23_HANDSHAKE
+                        CONFIG_HTTP_STATIC_BUILD
+                        CONFIG_SSL_USE_PKCS12
+                        CONFIG_HTTP_IS_DAEMON
+                        CONFIG_BIGINT_CRT
+                        CONFIG_SAMPLES
+                                optional
+                                        CONFIG_JAVA_SAMPLES
+                                        CONFIG_VBNET_SAMPLES
+                                        CONFIG_PERL_SAMPLES
+                                        CONFIG_CSHARP_SAMPLES
+                                        CONFIG_LUA_SAMPLES
+                                        CONFIG_C_SAMPLES
+                        CONFIG_HTTP_HAS_AUTHORIZATION
+                        CONFIG_SSL_CTX_MUTEXING
+                        CONFIG_AXHTTPD
+                optional
+                        CONFIG_VISUAL_STUDIO_7_0
+                optional
+                        CONFIG_BIGINT_CLASSICAL
+                        CONFIG_BIGINT_MONTGOMERY
+                        CONFIG_BIGINT_BARRETT
+                optional
+                        CONFIG_PLATFORM_LINUX
+                optional
+                        CONFIG_SSL_PROT_LOW
+                        CONFIG_SSL_PROT_MEDIUM
+                        CONFIG_SSL_PROT_HIGH
+                optional
+                        CONFIG_SSL_CERT_VERIFICATION
+                        CONFIG_SSL_ENABLE_CLIENT
+                        CONFIG_SSL_FULL_MODE
+                optional
+                        CONFIG_JAVA_HOME
+                optional
+                        SQU_KARATSUBA_THRESH
+                optional
+                        CONFIG_LUA_CORE
+                optional
+                        CONFIG_HTTP_USER
+                optional
+                        CONFIG_CSHARP_BINDINGS
+                        CONFIG_VBNET_BINDINGS
+                optional
+                        CONFIG_HTTP_CGI_EXTENSIONS
+                                optional
+                                        CONFIG_HTTP_LUA_CGI_LAUNCHER
+                                                optional
+                                                        CONFIG_HTTP_BUILD_LUA
+                optional
+                        CONFIG_PERL_LIB
+
+constraints
+        CONFIG_SAMPLES & CONFIG_CSHARP_BINDINGS | (!(CONFIG_SAMPLES) | CONFIG_CSHARP_SAMPLES) & (!(CONFIG_CSHARP_SAMPLES) | CONFIG_SAMPLES & CONFIG_CSHARP_BINDINGS)
+        CONFIG_SAMPLES & CONFIG_VBNET_BINDINGS | (!(CONFIG_SAMPLES) | CONFIG_VBNET_SAMPLES) & (!(CONFIG_VBNET_SAMPLES) | CONFIG_SAMPLES & CONFIG_VBNET_BINDINGS)
+        !(CONFIG_SSL_TEST) | CONFIG_SSL_FULL_MODE
+        !(root) | CONFIG_CSHARP_BINDINGS | CONFIG_VBNET_BINDINGS
+        !(root) | CONFIG_SSL_CERT_VERIFICATION | CONFIG_SSL_ENABLE_CLIENT | CONFIG_SSL_FULL_MODE
+        !(CONFIG_SSL_FULL_MODE) | !(CONFIG_SSL_CERT_VERIFICATION) | !(root)
+        !(CONFIG_SSL_ENABLE_CLIENT) | !(CONFIG_SSL_CERT_VERIFICATION) | !(root)
+        !(CONFIG_SSL_FULL_MODE) | !(CONFIG_SSL_ENABLE_CLIENT) | !(root)
+        !(CONFIG_SAMPLES) | CONFIG_PERL_LIB | CONFIG_PERL_SAMPLES
+        !(CONFIG_SAMPLES) | CONFIG_LUA_CORE | CONFIG_LUA_SAMPLES
+        !(CONFIG_SAMPLES) | CONFIG_JAVA_HOME | CONFIG_JAVA_SAMPLES
+        !(CONFIG_PERL_SAMPLES) | CONFIG_PERL_LIB
+        !(CONFIG_LUA_SAMPLES) | CONFIG_LUA_CORE
+        !(CONFIG_JAVA_SAMPLES) | CONFIG_JAVA_HOME
+        !(root) | CONFIG_BIGINT_CLASSICAL | CONFIG_BIGINT_MONTGOMERY | CONFIG_BIGINT_BARRETT
+        !(CONFIG_BIGINT_BARRETT) | !(CONFIG_BIGINT_MONTGOMERY) | !(CONFIG_BIGINT_CLASSICAL)
+        !(CONFIG_BIGINT_MONTGOMERY) | !(CONFIG_BIGINT_CLASSICAL) | !(root)
+        !(CONFIG_BIGINT_BARRETT) | !(CONFIG_BIGINT_CLASSICAL) | !(root)
+        !(CONFIG_BIGINT_BARRETT) | !(CONFIG_BIGINT_MONTGOMERY) | !(root)
+        !(root) | CONFIG_SSL_PROT_LOW | CONFIG_SSL_PROT_MEDIUM | CONFIG_SSL_PROT_HIGH
+        !(CONFIG_SSL_PROT_MEDIUM) | !(CONFIG_SSL_PROT_LOW) | !(root)
+        !(CONFIG_SSL_PROT_HIGH) | !(CONFIG_SSL_PROT_LOW) | !(root)
+        !(CONFIG_SSL_PROT_HIGH) | !(CONFIG_SSL_PROT_MEDIUM) | !(root)

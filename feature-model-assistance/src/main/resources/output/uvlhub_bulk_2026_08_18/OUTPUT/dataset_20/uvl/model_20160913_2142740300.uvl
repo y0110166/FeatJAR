@@ -1,0 +1,85 @@
+features
+        Taller1Computadores
+                optional
+                        Pantalla
+                                optional
+                                        P14
+                                        P17
+                                        P24
+                                optional
+                                        Tecnologia
+                                                or
+                                                        T3D
+                                                        T4K
+                optional
+                        PlantaPoder
+                optional
+                        Mesa
+                        Portatil
+                        Servidor
+                                alternative
+                                        WindowsServer
+                                        RedHat
+                                        OSXServer
+                optional
+                        Dell
+                        Toshiba
+                        Lenovo
+                        Apple
+                        Clon
+                optional
+                        Intel
+                        TarjetaGrafica
+                                alternative
+                                        NVIDIA
+                                        ATI
+                optional
+                        Windows10
+                        Fedora
+                        OSXYosemite
+
+constraints
+        Lenovo => !(OSXServer)
+        Clon => !(OSXYosemite)
+        Clon => !(OSXServer)
+        Portatil => !(T4K)
+        Portatil => !(T3D)
+        Dell => !(OSXYosemite)
+        Dell => !(OSXServer)
+        Toshiba => !(OSXYosemite)
+        Toshiba => !(OSXServer)
+        Lenovo => !(OSXYosemite)
+        Clon => !(Portatil)
+        Portatil => Pantalla
+        !(Servidor) | !(Portatil) | !(Mesa)
+        !(Servidor) | !(Mesa)
+        !(Servidor) | !(Portatil)
+        !(Taller1Computadores) | Mesa | Portatil | Servidor
+        !(Portatil) | !(Mesa) | !(Taller1Computadores)
+        !(Mesa) | Windows10 | Fedora | OSXYosemite
+        !(Portatil) | Windows10 | Fedora | OSXYosemite
+        !(OSXYosemite) | !(OSXServer) | !(Taller1Computadores)
+        !(OSXYosemite) | !(Servidor) | !(Taller1Computadores)
+        !(Windows10) | !(OSXServer) | !(Taller1Computadores)
+        !(Windows10) | !(Servidor) | !(Taller1Computadores)
+        !(Fedora) | !(OSXServer) | !(Taller1Computadores)
+        !(Fedora) | !(Servidor) | !(Taller1Computadores)
+        !(OSXYosemite) | !(Fedora) | !(Windows10)
+        !(OSXYosemite) | !(Windows10) | !(Mesa)
+        !(Fedora) | !(Windows10) | !(Mesa)
+        !(OSXYosemite) | !(Fedora) | !(Mesa)
+        !(OSXYosemite) | !(Windows10) | !(Portatil)
+        !(Fedora) | !(Windows10) | !(Portatil)
+        !(OSXYosemite) | !(Fedora) | !(Portatil)
+        !(Taller1Computadores) | Dell | Toshiba | Lenovo | Apple | Clon
+        !(Clon) | !(Toshiba) | !(Dell)
+        !(Clon) | !(Toshiba) | !(Taller1Computadores)
+        !(Apple) | !(Lenovo) | !(Taller1Computadores)
+        !(Apple) | !(Toshiba) | !(Taller1Computadores)
+        !(Clon) | !(Dell) | !(Taller1Computadores)
+        !(Toshiba) | !(Dell) | !(Taller1Computadores)
+        !(Clon) | !(Apple) | !(Taller1Computadores)
+        !(Clon) | !(Lenovo) | !(Taller1Computadores)
+        !(Apple) | !(Dell) | !(Taller1Computadores)
+        !(Lenovo) | !(Toshiba) | !(Taller1Computadores)
+        !(Lenovo) | !(Dell) | !(Taller1Computadores)

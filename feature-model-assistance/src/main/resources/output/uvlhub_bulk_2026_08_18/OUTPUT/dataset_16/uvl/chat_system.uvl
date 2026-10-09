@@ -1,0 +1,16 @@
+features
+        Chat
+                optional
+                        "Data Storage"
+                        "Media Player"
+                optional
+                        "Peer 2 Peer"
+                optional
+                        Text
+                        Video
+                        Audio
+
+constraints
+        Video | Audio => "Media Player"
+        !(Chat) | "Data Storage" | "Peer 2 Peer"
+        !(Chat) | Text | Video | Audio

@@ -1,0 +1,27 @@
+features
+        "FAME-DBMS"
+                optional
+                        Debug_Logging
+                optional
+                        "Nut/OS"
+                optional
+                        Static
+                        Dynamic
+                        LRU
+                        LFU
+                        In_Memory
+                optional
+                        Get
+                        Put
+                        Delete
+                        "B+_Tree"
+
+constraints
+        !(Dynamic) | !(Static) | !("FAME-DBMS") | In_Memory
+        !("FAME-DBMS") | In_Memory | Static | Dynamic
+        !(Dynamic) | !(In_Memory) | !("FAME-DBMS")
+        !(Static) | !(In_Memory) | !("FAME-DBMS")
+        !(LFU) | !(LRU) | !("FAME-DBMS") | In_Memory
+        !("FAME-DBMS") | In_Memory | LRU | LFU
+        !(LRU) | !(In_Memory) | !("FAME-DBMS")
+        !(LFU) | !(In_Memory) | !("FAME-DBMS")

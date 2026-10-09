@@ -1,0 +1,23 @@
+features
+        VisualizationSoftware {abstract true}
+                optional
+                        DataAnalysis {abstract true}
+                optional
+                        pgfplots
+                        matplotlib
+                        ggplot2
+                        d3
+
+constraints
+        !(VisualizationSoftware) | DataAnalysis | pgfplots | d3
+        !(DataAnalysis) | matplotlib | ggplot2
+        !(d3) | !(ggplot2) | !(pgfplots)
+        !(d3) | !(ggplot2) | !(matplotlib)
+        !(ggplot2) | !(matplotlib) | !(pgfplots)
+        !(d3) | !(matplotlib) | !(pgfplots)
+        !(ggplot2) | !(pgfplots)
+        !(d3) | !(ggplot2)
+        !(d3) | !(pgfplots)
+        !(matplotlib) | !(pgfplots)
+        !(d3) | !(matplotlib)
+        !(ggplot2) | !(matplotlib)

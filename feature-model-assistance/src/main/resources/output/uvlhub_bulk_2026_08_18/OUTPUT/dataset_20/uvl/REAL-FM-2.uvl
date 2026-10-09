@@ -1,0 +1,42 @@
+features
+        weather_station
+                optional
+                        alarm
+                                or
+                                        freeze_point
+                                        storm_alert
+                optional
+                        pressure
+                        temperature
+                        wind_speed
+                optional
+                        internet
+                        demo
+                        external_services
+                optional
+                        text
+                        web_server
+                        file
+                        xml
+                        html
+                        plain_text
+                        english
+
+constraints
+        freeze_point => temperature
+        text => !(xml)
+        !(weather_station) | pressure | temperature | wind_speed
+        !(weather_station) | internet | demo | external_services
+        !(external_services) | !(internet) | !(weather_station)
+        !(demo) | !(internet) | !(weather_station)
+        !(external_services) | !(demo) | !(weather_station)
+        !(plain_text) | !(html) | !(xml)
+        !(html) | !(xml)
+        !(plain_text) | !(html)
+        !(plain_text) | !(xml)
+        !(web_server) | xml | html | plain_text
+        !(weather_station) | xml | html | plain_text
+        !(weather_station) | text | web_server | file
+        !(file) | !(text) | !(weather_station)
+        !(web_server) | !(text) | !(weather_station)
+        !(file) | !(web_server) | !(weather_station)

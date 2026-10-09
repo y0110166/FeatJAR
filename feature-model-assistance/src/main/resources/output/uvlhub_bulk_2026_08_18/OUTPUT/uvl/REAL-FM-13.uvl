@@ -1,0 +1,23 @@
+features
+        tecom
+                optional
+                        ipvoice
+                                alternative
+                                        swpack1
+                                        swpack2
+                optional
+                        messaging
+                                optional
+                                        upgrade_swpack
+                optional
+                        large
+                        medium
+                        small
+
+constraints
+        swpack1 => !(upgrade_swpack)
+        ipvoice => !(upgrade_swpack)
+        !(tecom) | large | medium | small
+        !(medium) | !(large) | !(tecom)
+        !(small) | !(large) | !(tecom)
+        !(small) | !(medium) | !(tecom)

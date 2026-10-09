@@ -1,0 +1,13 @@
+features
+        Movies_App
+                optional
+                        GPS
+                                optional
+                                        "Built-In"
+                optional
+                        Thin
+                optional
+                        Local
+                optional
+                        Wifi
+

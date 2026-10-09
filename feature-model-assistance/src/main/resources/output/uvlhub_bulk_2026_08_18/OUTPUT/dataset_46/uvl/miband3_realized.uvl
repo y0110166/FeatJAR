@@ -1,0 +1,21 @@
+features
+        SmartWatch {abstract true}
+                optional
+                        CapacityButton
+                                optional
+                                        TouchScreen
+                                alternative
+                                        BLEv40
+                                        BLEv42
+                optional
+                        ContactlessPayment
+                optional
+                        MovementFilter
+                        HeartRateSensor
+                optional
+                        NFC
+
+constraints
+        MovementFilter => !(HeartRateSensor) & BLEv40
+        ContactlessPayment => NFC
+        !(CapacityButton) | !(SmartWatch) | HeartRateSensor | MovementFilter

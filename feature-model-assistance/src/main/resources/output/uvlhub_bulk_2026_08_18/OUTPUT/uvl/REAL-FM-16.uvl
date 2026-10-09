@@ -1,0 +1,38 @@
+features
+        dvs
+                optional
+                        network_hw
+                                optional
+                                        modem
+                                optional
+                                        ethernet
+                optional
+                        client_pc
+                                optional
+                                        "_network"
+                optional
+                        handheld
+                optional
+                        telephone
+                                optional
+                                        sms
+                        email
+                                optional
+                                        web
+                                        wap
+                        edit
+                                optional
+                                        add_music
+                        slides
+                        audio
+                optional
+                        network
+                        irda_port
+                optional
+                        on_demand
+
+constraints
+        handheld => irda_port
+        add_music => audio
+        !(wap) | network_hw
+        !(email) | network_hw

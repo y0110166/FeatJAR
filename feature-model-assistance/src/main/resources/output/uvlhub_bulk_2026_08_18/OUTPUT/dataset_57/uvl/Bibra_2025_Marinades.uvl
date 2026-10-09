@@ -1,0 +1,10 @@
+features
+        Marinades {abstract true}
+                alternative
+                        "Soy sauce and sesame oil" {de_featjar_base_data_vegan true}
+                        Sriracha {de_featjar_base_data_spicy true, de_featjar_base_data_vegan true}
+                        Sojasabi {de_featjar_base_data_vegan true}
+                        Ponzu {de_featjar_base_data_vegan true}
+                        Kimchi {de_featjar_base_data_spicy true, de_featjar_base_data_vegan true}
+                        Teriyaki
+

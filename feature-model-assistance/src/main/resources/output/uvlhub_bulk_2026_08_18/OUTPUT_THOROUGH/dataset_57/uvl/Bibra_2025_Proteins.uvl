@@ -1,0 +1,19 @@
+features
+        Proteins {abstract true}
+                alternative
+                        Chicken
+                        "Teriyaki chicken"
+                        Tofu {de_featjar_base_data_vegan true}
+                        "Canned tuna"
+                        Heura {de_featjar_base_data_Price 1.0, de_featjar_base_data_vegan true}
+                        "Kimchi chicken" {de_featjar_base_data_spicy true}
+                        "Curry chicken"
+                        "Beetroot falafel" {de_featjar_base_data_vegan true}
+                        "Sriracha tofu" {de_featjar_base_data_spicy true, de_featjar_base_data_vegan true}
+                        "Confit duck" {de_featjar_base_data_Price 1.0}
+                        "Marinated tuna"
+                        "Marinated salmon"
+                        "Ponzu-marinated salmon" {de_featjar_base_data_Price 1.0}
+                        "Flambeed teriyaki salmon" {de_featjar_base_data_Price 2.0}
+                        "Tuna marinated in soy and sesame oil" {de_featjar_base_data_Price 1.0}
+

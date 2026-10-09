@@ -1,0 +1,32 @@
+features
+        CDODConsistency
+                optional
+                        EmptyOMValidInstanceOD
+                        AllObjectsShownOD
+                        AllLinksShownOD
+                        AllAttributesShownOD
+                        AllTypesShownOD
+                        StrictOD
+                optional
+                        AllAttributesShownCD
+                        AllClassesShownCD
+                        CDSemantics_33_34_35
+                        CDSemantics_33_34_36
+                        CDSemantics_33_34_37
+                        CDSemantics_33_34_39
+
+constraints
+        !(AllAttributesShownCD) | !(CDODConsistency) | AllTypesShownOD | AllClassesShownCD
+        !(AllObjectsShownOD) | !(CDODConsistency) | AllTypesShownOD | AllClassesShownCD
+        !(StrictOD) | !(CDODConsistency) | AllTypesShownOD | AllClassesShownCD
+        !(EmptyOMValidInstanceOD) | !(CDODConsistency) | AllTypesShownOD | AllClassesShownCD
+        !(AllAttributesShownOD) | !(CDODConsistency) | AllTypesShownOD | AllClassesShownCD
+        !(AllLinksShownOD) | !(CDODConsistency) | AllObjectsShownOD
+        !(CDODConsistency) | AllTypesShownOD | AllClassesShownCD
+        !(CDODConsistency) | CDSemantics_33_34_35 | CDSemantics_33_34_36 | CDSemantics_33_34_37 | CDSemantics_33_34_39
+        !(CDSemantics_33_34_39) | !(CDSemantics_33_34_37) | !(CDODConsistency)
+        !(CDSemantics_33_34_39) | !(CDSemantics_33_34_35) | !(CDODConsistency)
+        !(CDSemantics_33_34_39) | !(CDSemantics_33_34_36) | !(CDODConsistency)
+        !(CDSemantics_33_34_37) | !(CDSemantics_33_34_36) | !(CDODConsistency)
+        !(CDSemantics_33_34_37) | !(CDSemantics_33_34_35) | !(CDODConsistency)
+        !(CDSemantics_33_34_36) | !(CDSemantics_33_34_35) | !(CDODConsistency)

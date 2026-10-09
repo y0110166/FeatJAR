@@ -1,0 +1,33 @@
+features
+        Ingredients {abstract true}
+                alternative
+                        Bacon
+                        Ham
+                        Chorizo
+                        "Serrano ham"
+                        Beef
+                        Chicken
+                        Peppers
+                        Onion
+                        Mushrooms
+                        "Lamb's lettuce"
+                        "Fresh tomato"
+                        Egg {de_featjar_base_data_Alergens {Eggs true}}
+                        Anchovies
+                        Capers
+                        Olives
+                        Tuna {de_featjar_base_data_Alergens {Fish true}}
+                        Pineapple
+                        Parmesan
+                        Gorgonzola
+                        Emmental
+                        "Barbecue sauce" {de_featjar_base_data_Alergens {Nuts true}}
+                        "Carbonara sauce" {de_featjar_base_data_Alergens {Eggs true}}
+                        Cream
+                        "Fresh longaniza"
+                        Rocket
+                        Eggplant
+                        "Caramelized onion"
+                        Spinach
+                        Pepperoni
+

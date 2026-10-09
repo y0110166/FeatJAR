@@ -1,0 +1,31 @@
+features
+        MedievalCastle {de_featjar_base_data_root true}
+                optional
+                        Assault
+                                or
+                                        CombatCar
+                                        Archers
+                optional
+                        BasicCastle
+                        MediumCastle
+                        CompleteCastle
+                optional
+                        Knights
+                        Prison
+                        Drawbridge
+                        FantasyCastle
+                                optional
+                                        Dragon
+                                optional
+                                        Wizard
+
+constraints
+        Assault => !(BasicCastle)
+        !(Drawbridge) | !(FantasyCastle) | !(MedievalCastle)
+        !(Prison) | !(FantasyCastle) | !(MedievalCastle)
+        !(Knights) | !(FantasyCastle) | !(MedievalCastle)
+        !(MedievalCastle) | BasicCastle | MediumCastle | CompleteCastle
+        !(CompleteCastle) | !(MediumCastle) | !(BasicCastle)
+        !(CompleteCastle) | !(MediumCastle) | !(MedievalCastle)
+        !(CompleteCastle) | !(BasicCastle) | !(MedievalCastle)
+        !(MediumCastle) | !(BasicCastle) | !(MedievalCastle)

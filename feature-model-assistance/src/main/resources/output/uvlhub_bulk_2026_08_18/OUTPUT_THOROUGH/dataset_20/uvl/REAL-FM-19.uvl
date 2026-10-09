@@ -1,0 +1,14 @@
+features
+        graph
+                optional
+                        increment_selection
+                        outline_moving
+                        moving_constraint
+                                alternative
+                                        horizontal_constraint
+                                        vertical_constraint
+                        compose
+                        up_layer
+                        select_do_undo_redo
+                        zoom_inout
+

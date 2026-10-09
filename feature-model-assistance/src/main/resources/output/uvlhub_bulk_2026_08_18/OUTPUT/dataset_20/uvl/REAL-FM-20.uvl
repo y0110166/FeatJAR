@@ -1,0 +1,63 @@
+features
+        thread
+                optional
+                        minimal_set
+                                optional
+                                        float_set
+                                        volatile_set
+                                alternative
+                                        integrated
+                                        separated
+                                optional
+                                        global_life
+                                                optional
+                                                        thread_schedule
+                                                                optional
+                                                                        thread_strategy_replugging
+                                                                        bundle_schedule
+                                                                                optional
+                                                                                        bundle_strategy_replugging
+                                                                                optional
+                                                                                        bundle_preemption
+                                                                                alternative
+                                                                                        bundle_fcfs
+                                                                                        bundle_lcfs
+                                                                        idle_control
+                                                                                alternative
+                                                                                        idle_guard
+                                                                                        idle_panic
+                                                                                        idle_user
+                                                                        query_schedule
+                                                                optional
+                                                                        thread_preemption
+                                                                                optional
+                                                                                        non_preemptable_threads
+                                                                                optional
+                                                                                        scheduler_lockable
+                                                                optional
+                                                                        thread_fcfs
+                                                                        thread_lcfs
+                                                                optional
+                                                                        priority_behaviour
+                                                                                optional
+                                                                                        schedule_same_priority
+                                                                                alternative
+                                                                                        priority_cooperative
+                                                                                        priority_preemptive
+                                                                                alternative
+                                                                                        priority_16
+                                                                                        priority_32
+                                                                                        priority_8
+                        single
+
+constraints
+        !(global_life) | !(single) | !(thread)
+        !(minimal_set) | !(single) | !(thread)
+        !(thread_strategy_replugging) | thread_fcfs | thread_lcfs | priority_16 | priority_32 | priority_8
+        !(thread_schedule) | thread_fcfs | thread_lcfs | priority_16 | priority_32 | priority_8
+        !(priority_behaviour) | !(thread_strategy_replugging) | !(thread_fcfs)
+        !(priority_behaviour) | !(thread_strategy_replugging) | !(thread_lcfs)
+        !(thread_strategy_replugging) | !(thread_lcfs) | !(thread_fcfs)
+        !(priority_behaviour) | !(thread_fcfs) | !(thread_schedule)
+        !(priority_behaviour) | !(thread_lcfs) | !(thread_schedule)
+        !(thread_lcfs) | !(thread_fcfs) | !(thread_schedule)

@@ -1,0 +1,5 @@
+features
+        SmartWatch {abstract true}
+                optional
+                        HeartRateSensor
+

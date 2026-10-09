@@ -1,0 +1,26 @@
+features
+        FinTrackSPL
+                optional
+                        CheckingAccount
+                        SavingsAccount
+                        CashAccount
+                        CreditCardAccount
+                optional
+                        LightTheme
+                        DarkTheme
+                        SystemTheme
+                        EUR
+                optional
+                        CustomCategories
+                optional
+                        CategoryBudgets
+                optional
+                        SavingsGoals
+
+constraints
+        !(FinTrackSPL) | CheckingAccount | SavingsAccount | CashAccount | CreditCardAccount
+        !(FinTrackSPL) | LightTheme | DarkTheme | SystemTheme
+        !(SystemTheme) | !(DarkTheme) | !(FinTrackSPL)
+        !(DarkTheme) | !(LightTheme) | !(FinTrackSPL)
+        !(SystemTheme) | !(LightTheme) | !(FinTrackSPL)
+        !(CategoryBudgets) | CustomCategories

@@ -1,0 +1,70 @@
+features
+        DelayBlock
+                optional
+                        rootFeature
+                                optional
+                                        d_input
+                                optional
+                                        res_input
+                                optional
+                                        ic_input
+                                optional
+                                        e_input
+                optional
+                        d_parameter
+                optional
+                        ic_parameter
+                optional
+                        sem
+                        sem_reset
+                        sem_enable
+                        sem_reset_enable
+                        sem_variable_delay
+                        sem_reset_variable_delay
+                        sem_reset_enable_variable_delay
+
+constraints
+        sem => d_parameter
+        !(ic_input) | !(ic_parameter)
+        !(sem_variable_delay) | !(d_parameter)
+        !(sem_variable_delay) | rootFeature
+        !(sem_variable_delay) | d_input
+        !(sem_reset_variable_delay) | !(d_parameter)
+        !(sem_reset_variable_delay) | rootFeature
+        !(sem_reset_variable_delay) | d_input
+        !(d_input) | !(d_parameter)
+        !(sem_reset_enable_variable_delay) | !(d_parameter)
+        !(sem_reset_enable_variable_delay) | rootFeature
+        !(sem_reset_enable_variable_delay) | d_input
+        !(sem_reset_enable_variable_delay) | !(sem_variable_delay)
+        !(sem_reset_enable_variable_delay) | e_input
+        !(sem_reset_enable_variable_delay) | !(sem_reset_variable_delay)
+        !(sem_reset_enable_variable_delay) | !(sem_reset)
+        !(sem_variable_delay) | !(sem_reset_enable)
+        !(sem_reset_enable) | rootFeature
+        !(sem_reset_enable) | !(sem)
+        !(sem_reset_enable) | e_input
+        !(sem_reset_variable_delay) | !(sem_reset_enable)
+        !(sem_reset_enable) | !(sem_reset)
+        !(sem_variable_delay) | !(e_input)
+        !(sem) | !(e_input)
+        !(sem_reset_variable_delay) | !(e_input)
+        !(sem_reset) | !(e_input)
+        !(sem_variable_delay) | !(sem_enable)
+        !(sem_enable) | rootFeature
+        !(sem_enable) | !(sem)
+        !(sem_enable) | e_input
+        !(sem_reset_enable) | res_input
+        !(sem_reset_enable) | !(sem_enable)
+        !(sem_variable_delay) | !(res_input)
+        !(sem_enable) | !(res_input)
+        !(sem) | !(res_input)
+        !(sem_reset_variable_delay) | !(sem_variable_delay)
+        !(sem_reset_variable_delay) | res_input
+        !(sem_reset_enable_variable_delay) | res_input
+        !(sem_variable_delay) | !(sem_reset)
+        !(sem_reset) | rootFeature
+        !(sem_reset) | res_input
+        !(DelayBlock) | sem | sem_reset | sem_enable | sem_reset_enable | sem_variable_delay | sem_reset_variable_delay | sem_reset_enable_variable_delay
+        !(sem_reset_enable_variable_delay) | !(sem_reset_enable) | !(DelayBlock)
+        !(sem_reset_variable_delay) | !(sem_reset) | !(DelayBlock)

@@ -1,0 +1,64 @@
+features
+        web_portal
+                optional
+                        add_services
+                                optional
+                                        site_search
+                                                optional
+                                                        images
+                                                optional
+                                                        html
+                                                                optional
+                                                                        dynamic
+                                optional
+                                        basic
+                                                optional
+                                                        advanced
+                                optional
+                                        reports
+                                                optional
+                                                        ban_flash
+                                                        popups
+                                                        keyword
+                optional
+                        persistence
+                                alternative
+                                        xml
+                                        database
+                optional
+                        ri
+                                or
+                                        data_storage
+                                        data_transfer
+                                        user_auth
+                optional
+                        performance
+                                alternative
+                                        ms
+                                        sec
+                                        min
+                optional
+                        logging
+                                alternative
+                                        db
+                                        file
+                        protocol
+                                or
+                                        nttp
+                                        ftp
+                                        https
+                        active
+                                or
+                                        asp
+                                        php
+                                        jsp
+                                        cgi
+
+constraints
+        data_transfer => https
+        db => database
+        https => !(ms)
+        file => ftp
+        dynamic => active
+        !(keyword) | site_search
+        !(keyword) | html

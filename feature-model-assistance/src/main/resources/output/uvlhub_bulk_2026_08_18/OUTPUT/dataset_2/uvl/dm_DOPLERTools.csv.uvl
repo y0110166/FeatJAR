@@ -1,0 +1,77 @@
+features
+        VIRTUAL_ROOT {abstract true}
+                or
+                        ALL
+                        DK
+                                optional
+                                        DK_builder
+                                        DK_merger
+                                        DK_metamodelling
+                                        DK_rulelang_editor
+                        DK_modelconverter
+                        CW_resolution_height
+                                optional
+                                        CW_resolution_height_1024_0
+                                        CW_resolution_height_768_0
+                                        CW_resolution_height_600_0
+                                        CW_resolution_height_1200_0
+                                        CW_resolution_height_1080_0
+                                        CW_resolution_height_1050_0
+                        ProprietaryTools
+                        CW_resolution_width
+                                optional
+                                        CW_resolution_width_1600_0
+                                        CW_resolution_width_1024_0
+                                        CW_resolution_width_800_0
+                                        CW_resolution_width_1280_0
+                                        CW_resolution_width_1900_0
+                                        CW_resolution_width_1400_0
+                        SERVER
+                        DK_sharepoint
+                        CW
+                                optional
+                                        CW_authentication
+                                        CW_autogenerate
+                                        CW_decisionboard
+                                        CW_documenation
+                                        CW_flatfilegenerator
+                                        CW_views
+                                                or
+                                                        Table_based
+                                                        Tree_based
+                                                        Graph_based
+                                        CW_requirementsView
+                                        CW_sharepoint
+                                        CW_wordgenerator
+                                                optional
+                                                        CW_wordgenerator_wordAddIn
+                                        CW_guidance
+                                                alternative
+                                                        "After first selection"
+                                                        Always
+                                        CW_resolution
+                                                alternative
+                                                        "1400x1050"
+                                                        "800x600"
+                                                        "1280x1024"
+                                                        "1900x1080"
+                                                        "1024x768"
+                                                        "1600x1200"
+                        PK
+
+constraints
+        ALL => CW
+        ALL => DK
+        ALL => PK
+        "1600x1200" => CW_resolution_width_1600_0
+        "1024x768" => CW_resolution_width_1024_0
+        "1280x1024" => CW_resolution_height_1024_0
+        "800x600" => CW_resolution_width_800_0
+        "1024x768" => CW_resolution_height_768_0
+        "1280x1024" => CW_resolution_width_1280_0
+        "800x600" => CW_resolution_height_600_0
+        "1900x1080" => CW_resolution_width_1900_0
+        "1600x1200" => CW_resolution_height_1200_0
+        "1900x1080" => CW_resolution_height_1080_0
+        "1400x1050" => CW_resolution_height_1050_0
+        "1400x1050" => CW_resolution_width_1400_0

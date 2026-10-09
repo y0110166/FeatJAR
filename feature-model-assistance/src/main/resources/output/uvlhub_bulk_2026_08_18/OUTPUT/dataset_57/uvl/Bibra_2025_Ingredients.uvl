@@ -1,0 +1,30 @@
+features
+        Ingredients {abstract true}
+                alternative
+                        "Organic tomato"
+                        "Cherry tomatoes"
+                        Cucumber
+                        "Grated carrot"
+                        "Red onion"
+                        "Caramelized onion"
+                        Broccoli
+                        "Pickled onion"
+                        "Sweet corn"
+                        Walnuts
+                        "Muscat raisins"
+                        "Pumpkin seeds"
+                        Dates
+                        Wakame
+                        Edamame
+                        Pear
+                        "Green apple"
+                        "Boiled egg"
+                        "Aged cheese"
+                        "Parmesan cheese"
+                        "Goat cheese"
+                        "Goat cheese medallion" {de_featjar_base_data_Price 0.75}
+                        "Torched goat cheese medallion" {de_featjar_base_data_Price 0.75}
+                        Avocado {de_featjar_base_data_Price 0.75}
+                        Mango {de_featjar_base_data_Price 0.75}
+                        "Semi-dried tomato" {de_featjar_base_data_Price 0.75}
+

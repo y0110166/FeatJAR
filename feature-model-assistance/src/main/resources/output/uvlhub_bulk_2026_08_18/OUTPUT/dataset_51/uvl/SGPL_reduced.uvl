@@ -1,0 +1,59 @@
+features
+        "Smart Governance Platform" {de_featjar_base_data_extended__ true, de_featjar_base_data_featureDescription__ 'Reduced SGPL'}
+                optional
+                        "Multi-Tenant"
+                        "Graphical User Interface"
+                                or
+                                        "Web Platform"
+                                        "Mobile App"
+                optional
+                        "Technical Capabilities" {abstract true}
+                                optional
+                                        "DA Support"
+                                        "IR Capability"
+                                        "KM Support"
+                        Guarantees {abstract true}
+                                optional
+                                        Transparency
+                optional
+                        Organization
+                        Collaborator
+                        Event
+                        Open
+                        Restricted
+                        Census
+                        Delegation
+                        Anonymous
+                        "Decision Stage"
+                        Notification
+                        "Process Type" {abstract true}
+                                alternative
+                                        Proposal {abstract true}
+                                                alternative
+                                                        "Policy Proposal"
+                                                        "Normative Proposal"
+                                                        "Otherl Proposal"
+                                        Deliberation
+                                        "Instrument Making" {abstract true}
+                                                alternative
+                                                        "Policy Making"
+                                                        "Normative Making"
+                                                        Budgeting
+                                        Consultation {abstract true}
+                                                alternative
+                                                        Survey
+                                                        "Citizen Forum"
+                                                        "Participatory Consultation"
+                        Debate
+                        Meeting
+
+constraints
+        Proposal | Budgeting => "Decision Stage"
+        Deliberation | Consultation => Event | Organization
+        Deliberation | "Participatory Consultation" => Debate
+        Transparency => Notification
+        !("Smart Governance Platform") | Organization | Collaborator | Event
+        !("Smart Governance Platform") | Open | Restricted | Census
+        !(Census) | !(Restricted) | !("Smart Governance Platform")
+        !(Restricted) | !(Open) | !("Smart Governance Platform")
+        !(Census) | !(Open) | !("Smart Governance Platform")

@@ -1,0 +1,32 @@
+features
+        Module
+                optional
+                        SpinningRadar
+                optional
+                        HeadOnTargeting
+                        LinearTargeting
+                        MouseTargeting
+                optional
+                        NoMovement
+                optional
+                        WeakestSelectEnemy
+                        StrongestSelectEnemy
+                        ClosestSelectEnemy
+                optional
+                        MaximumPowerGun
+                        CeaseFireGun
+                        MouseClickGun
+
+constraints
+        !(Module) | HeadOnTargeting | LinearTargeting | MouseTargeting
+        !(MouseTargeting) | !(LinearTargeting) | !(Module)
+        !(LinearTargeting) | !(HeadOnTargeting) | !(Module)
+        !(MouseTargeting) | !(HeadOnTargeting) | !(Module)
+        !(Module) | MaximumPowerGun | CeaseFireGun | MouseClickGun
+        !(MouseClickGun) | !(CeaseFireGun) | !(Module)
+        !(CeaseFireGun) | !(MaximumPowerGun) | !(Module)
+        !(MouseClickGun) | !(MaximumPowerGun) | !(Module)
+        !(Module) | WeakestSelectEnemy | StrongestSelectEnemy | ClosestSelectEnemy
+        !(ClosestSelectEnemy) | !(StrongestSelectEnemy) | !(Module)
+        !(ClosestSelectEnemy) | !(WeakestSelectEnemy) | !(Module)
+        !(StrongestSelectEnemy) | !(WeakestSelectEnemy) | !(Module)

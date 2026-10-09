@@ -1,0 +1,25 @@
+features
+        Dashboard
+                optional
+                        Size
+                        Color
+                        Position
+                        Opacity
+                        Shape
+                        Area
+                        Line
+                        Bar
+                        Circle
+
+constraints
+        !(Dashboard) | Size | Color | Position | Opacity | Shape
+        !(Dashboard) | Area | Line | Bar | Circle
+        !(Circle) | !(Line) | !(Area)
+        !(Circle) | !(Bar) | !(Area)
+        !(Bar) | !(Line) | !(Area)
+        !(Circle) | !(Line) | !(Dashboard)
+        !(Circle) | !(Area) | !(Dashboard)
+        !(Circle) | !(Bar) | !(Dashboard)
+        !(Line) | !(Area) | !(Dashboard)
+        !(Bar) | !(Line) | !(Dashboard)
+        !(Bar) | !(Area) | !(Dashboard)

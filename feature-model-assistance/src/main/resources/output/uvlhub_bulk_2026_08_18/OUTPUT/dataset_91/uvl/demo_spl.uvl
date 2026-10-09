@@ -1,0 +1,5 @@
+features
+        demo_spl
+                optional
+                        signup {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_signup'}
+

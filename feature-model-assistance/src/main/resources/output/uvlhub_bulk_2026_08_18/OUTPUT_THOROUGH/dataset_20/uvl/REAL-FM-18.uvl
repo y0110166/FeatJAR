@@ -1,0 +1,61 @@
+features
+        doc_gen
+                optional
+                        cobol
+                                alternative
+                                        ibm_cobol
+                                        microfocus_cobol
+                        jcl
+                        sql
+                        delphi
+                        progress
+                        version_mngt
+                        subsystems
+                optional
+                        english
+                        dutch
+                        static
+                        program_page
+                                or
+                                        annotation_section
+                                        activation_section
+                                        entities_section
+                                        parameters_section
+                        copybook_page
+                        statistics_page
+                                alternative
+                                        with_history
+                                        without_history
+                        indexes
+                        search_page
+                        subsystem_page
+                        source_page
+                        source_difference
+                        visualizations
+                                or
+                                        perform_graph
+                                        conditional_perform_graph
+                                        jcl_graph
+                                        subsystem_graph
+                                        overview_graph
+                optional
+                        db2
+                        oracle
+                        mysql
+
+constraints
+        subsystem_page => subsystems
+        subsystem_graph => subsystems
+        source_difference => version_mngt
+        perform_graph => cobol
+        conditional_perform_graph => cobol
+        jcl_graph => jcl
+        static => !(annotation_section)
+        static => !(search_page)
+        !(doc_gen) | cobol | jcl | sql | delphi | progress
+        !(doc_gen) | english | dutch
+        !(doc_gen) | program_page | copybook_page | statistics_page | indexes | search_page | subsystem_page | source_page | source_difference
+        !(doc_gen) | db2 | oracle | mysql
+        !(mysql) | !(oracle) | !(doc_gen)
+        !(mysql) | !(db2) | !(doc_gen)
+        !(oracle) | !(db2) | !(doc_gen)

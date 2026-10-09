@@ -1,0 +1,40 @@
+features
+        insurance_product
+                optional
+                        corporation
+                        realty
+                        movable_property
+                        person
+                optional
+                        illness
+                        life
+                        unemployment
+                        damage
+                        loss
+                optional
+                        service
+                        own_risk
+                optional
+                        direct
+                optional
+                        "_person"
+                        payee_corporation
+
+constraints
+        corporation => !(illness)
+        person => !(damage)
+        loss => movable_property
+        corporation => payee_corporation
+        !(insurance_product) | "_person" | payee_corporation
+        !(insurance_product) | illness | life | unemployment | damage | loss
+        !(insurance_product) | corporation | realty | movable_property | person
+        !(person) | !(movable_property) | !(realty)
+        !(person) | !(movable_property) | !(corporation)
+        !(movable_property) | !(realty) | !(corporation)
+        !(person) | !(realty) | !(corporation)
+        !(movable_property) | !(corporation) | !(insurance_product)
+        !(person) | !(movable_property) | !(insurance_product)
+        !(movable_property) | !(realty) | !(insurance_product)
+        !(person) | !(corporation) | !(insurance_product)
+        !(person) | !(realty) | !(insurance_product)
+        !(realty) | !(corporation) | !(insurance_product)

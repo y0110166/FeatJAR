@@ -1,0 +1,21 @@
+features
+        "_r"
+                optional
+                        "_r_3"
+                                or
+                                        "_r_3_4_5"
+                                        "_r_3_4_10"
+                optional
+                        "_r_17"
+                                alternative
+                                        "_r_17_18_19"
+                                        "_r_17_18_25"
+                or
+                        "_r_22_23"
+                        "_r_22_26"
+                optional
+                        "_r_27_28"
+
+constraints
+        "_r_3" => "_r_17"
+        "_r_3_4_10" => "_r_17_18_25"

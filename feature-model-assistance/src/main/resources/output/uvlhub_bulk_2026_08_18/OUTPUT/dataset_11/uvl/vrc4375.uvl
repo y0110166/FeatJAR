@@ -1,0 +1,2213 @@
+features
+        root
+                optional
+                        CYGPKG_IO
+                                optional
+                                        CYGDBG_IO_INIT
+                                optional
+                                        CYGPKG_IO_NFILE
+                                optional
+                                        CYGOPT_IO_SERIAL_SUPPORT_NONBLOCKING
+                                        CYGINT_IO_SERIAL_BLOCK_TRANSFER
+                                        CYGOPT_IO_SERIAL_SUPPORT_LINE_STATUS
+                                        CYGDAT_IO_SERIAL_FLOW_CONTROL_DEFAULT
+                                                optional
+                                                        CYGOPT_IO_SERIAL_FLOW_CONTROL_HW
+                                                optional
+                                                        CYGDAT_IO_SERIAL_FLOW_CONTROL_XON_CHAR
+                                        CYGDAT_IO_SERIAL_TTY_CONSOLE
+                                                optional
+                                                        CYGPKG_IO_SERIAL_HALDIAG
+                                                        CYGPKG_IO_SERIAL_TTY_TTYDIAG
+                                                optional
+                                                        CYGDAT_IO_SERIAL_TTY_TTY0_DEV
+                                                optional
+                                                        CYGDAT_IO_SERIAL_TTY_TTY1_DEV
+                                                optional
+                                                        CYGDAT_IO_SERIAL_TTY_TTY2_DEV
+                                                optional
+                                                        CYGDAT_IO_SERIAL_TTY_TTY3_DEV
+                                        CYGINT_IO_SERIAL_TERMIOS_TERMIOS_TTY
+                                        CYGBLD_IO_SERIAL_TERMIOS_TERMIOS_TTY
+                                        CYGDAT_IO_SERIAL_TERMIOS_TERMIOS0_DEV
+                                        CYGDAT_IO_SERIAL_TERMIOS_TERMIOS1_DEV
+                                        CYGDAT_IO_SERIAL_TERMIOS_TERMIOS2_DEV
+                                        CYGDAT_IO_SERIAL_TERMIOS_TERMIOS3_DEV
+                                        CYGSEM_IO_SERIAL_TERMIOS_USE_SIGNALS
+                                        CYGPKG_IO_SERIAL_DEVICES
+                                                optional
+                                                        CYGPKG_IO_SERIAL_MIPS_VRC437X_CFLAGS_ADD
+                                                                optional
+                                                                        CYGDAT_IO_SERIAL_MIPS_VRC437X_SERIAL0_NAME
+                                                                optional
+                                                                        CYGDAT_IO_SERIAL_MIPS_VRC437X_SERIAL1_NAME
+                                                                optional
+                                                                        CYGPRI_SER_TEST_SER_DEV
+                                        CYGBLD_IO_SERIAL_EXTRA_TESTS
+                                        CYGPKG_IO_SERIAL_SELECT_SUPPORT
+                                        CYGINT_IO_SERIAL_TEST_SKIP_9600
+                                optional
+                                        CYGNUM_IO_ETH_DRIVERS_SG_LIST_SIZE
+                                                optional
+                                                        CYGPKG_IO_ETH_DRIVERS_NET
+                                                                optional
+                                                                        CYGPKG_IO_ETH_DRIVERS_WARN_NO_MBUFS
+                                                                        CYGPKG_IO_ETH_DRIVERS_SIMULATED_FAILURES
+                                                                                optional
+                                                                                        CYGPKG_IO_ETH_DRIVERS_SIMULATE_DROP_RX
+                                                                                        CYGPKG_IO_ETH_DRIVERS_SIMULATE_CORRUPT_RX
+                                                                                        CYGPKG_IO_ETH_DRIVERS_SIMULATE_DROP_TX
+                                                                                        CYGPKG_IO_ETH_DRIVERS_SIMULATE_LINE_CUT
+                                                        CYGINT_IO_ETH_INT_SUPPORT_REQUIRED
+                                                optional
+                                                        CYGDBG_IO_ETH_DRIVERS_DEBUG_VERBOSITY
+                                                optional
+                                                        CYGNUM_IO_ETH_DRIVERS_NUM_PKT
+                                                                optional
+                                                                        CYGSEM_IO_ETH_DRIVERS_PASS_PACKETS
+                                                optional
+                                                        CYGDBG_DEVS_ETH_INTEL_I21143_CHATTER
+                                                        CYGNUM_DEVS_ETH_INTEL_I21143_DEV_COUNT
+                                                optional
+                                                        CYGINT_DEVS_ETH_INTEL_I21143_REQUIRED
+                                optional
+                                        CYGPKG_POWER_CFLAGS_ADD
+                                                optional
+                                                        CYGIMP_POWER_PROVIDE_STRINGS
+                                                        CYGIMP_POWER_PROVIDE_POLICY_DATA
+                                                optional
+                                                        CYGNUM_POWER_THREAD_STACKSIZE
+                                optional
+                                        CYGPKG_IO_PCI_CFLAGS_ADD
+                                                optional
+                                                        CYGPKG_IO_PCI_DEBUG
+                                                        CYGPKG_IO_PCI_CONFIGURE_INTLINE
+                        CYGPKG_LIBC
+                                optional
+                                        CYGPKG_LIBC_I18N_CFLAGS_ADD
+                                                optional
+                                                        CYGINT_LIBC_I18N_MB_REQUIRED
+                                                        CYGFUN_LIBC_I18N_LOCALE_C_SJIS
+                                                        CYGFUN_LIBC_I18N_LOCALE_C_JIS
+                                                        CYGFUN_LIBC_I18N_LOCALE_C_EUCJP
+                                                        CYGPKG_LIBC_I18N_NEWLIB_CTYPE
+                                                        CYGSEM_LIBC_I18N_PER_THREAD_MB
+                                                        CYGNUM_LIBC_I18N_MAX_LOCALE_NAME_SIZE
+                                                        CYGIMP_LIBC_I18N_CTYPE_INLINES
+                                optional
+                                        CYGPKG_LIBC_SETJMP_CFLAGS_ADD
+                                optional
+                                        CYGDAT_LIBC_ARGUMENTS
+                                                optional
+                                                        CYGSEM_LIBC_STARTUP_MAIN_INITCONTEXT
+                                                        CYGSEM_LIBC_STARTUP_MAIN_OTHER
+                                                        CYGINT_LIBC_STARTUP_EXTERNAL_INVOKE_MAIN_POSSIBLE
+                                                        CYGINT_LIBC_STARTUP_MAIN_NO_STACK_SIZE
+                                                        CYGNUM_LIBC_MAIN_DEFAULT_STACK_SIZE
+                                                        CYGSEM_LIBC_EXIT_CALLS_FFLUSH
+                                                        CYGSEM_LIBC_EXIT_STOPS_SYSTEM
+                                                optional
+                                                        CYGNUM_LIBC_MAIN_THREAD_PRIORITY
+                                                                optional
+                                                                        CYGSEM_LIBC_MAIN_STACK_FROM_SYSTEM
+                                                optional
+                                                        CYGNUM_LIBC_ATEXIT_HANDLERS
+                                optional
+                                        FOPEN_MAX
+                                                optional
+                                                        CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT
+                                                        CYGSEM_LIBC_STDIO_SCANF_FLOATING_POINT
+                                                        CYGIMP_LIBC_STDIO_INLINES
+                                                        BUFSIZ
+                                                        CYGFUN_LIBC_STDIO_ungetc
+                                                        CYGPKG_LIBC_STDIO_OPEN
+                                                                optional
+                                                                        CYGFUN_LIBC_STDIO_OPEN_POSIX_FDFUNCS
+                                                        CYGDAT_LIBC_STDIO_DEFAULT_CONSOLE
+                                                        CYGFUN_LIBC_STDIO_LONGLONG
+                                                        CYGSEM_LIBC_STDIO_THREAD_SAFE_STREAMS
+                                                        CYGPKG_LIBC_STDIO_FILEIO
+                                                optional
+                                                        CYGNUM_LIBC_STDIO_BUFSIZE
+                                                                optional
+                                                                        CYGSEM_LIBC_STDIO_DYNAMIC_SETVBUF
+                                                                        CYGSEM_LIBC_STDIO_SETVBUF_MALLOC
+                                optional
+                                        CYGNUM_LIBC_BSEARCH_TRACE_LEVEL
+                                                optional
+                                                        CYGIMP_LIBC_STDLIB_INLINE_ABS
+                                                        CYGIMP_LIBC_STDLIB_INLINE_DIV
+                                                        CYGIMP_LIBC_STDLIB_INLINE_ATOX
+                                                        CYGSEM_LIBC_PER_THREAD_RAND
+                                                        CYGIMP_LIBC_RAND_SIMPLEST_alt {abstract true}
+                                                                alternative
+                                                                        CYGIMP_LIBC_RAND_KNUTH1
+                                                                        CYGIMP_LIBC_RAND_SIMPLE1
+                                                                        CYGIMP_LIBC_RAND_SIMPLEST
+                                                        CYGFUN_LIBC_strtod
+                                                        CYGFUN_LIBC_STDLIB_CONV_LONGLONG
+                                optional
+                                        CYGNUM_LIBC_STRING_STRTOK_TRACE_LEVEL
+                                                optional
+                                                        CYGSEM_LIBC_STRING_PER_THREAD_STRTOK
+                                                        CYGIMP_LIBC_STRING_INLINES
+                                                        CYGIMP_LIBC_STRING_PREFER_SMALL_TO_FAST
+                                                        CYGFUN_LIBC_STRING_BSD_FUNCS
+                                                        CYGFUN_LIBC_STRING_STRDUP
+                                optional
+                                        CYGNUM_LIBC_TIME_CLOCK_TRACE_LEVEL
+                                                optional
+                                                        CYGIMP_LIBC_TIME_ASCTIME_INLINE
+                                                        CYGIMP_LIBC_TIME_CTIME_INLINE
+                                                        CYGIMP_LIBC_TIME_DIFFTIME_INLINE
+                                                        CYGIMP_LIBC_TIME_GMTIME_INLINE
+                                                        CYGIMP_LIBC_TIME_LOCALTIME_INLINE
+                                                        CYGIMP_LIBC_TIME_MKTIME_INLINE
+                                                        CYGIMP_LIBC_TIME_ASCTIME_R_INLINE
+                                                        CYGIMP_LIBC_TIME_CTIME_R_INLINE
+                                                        CYGIMP_LIBC_TIME_GMTIME_R_INLINE
+                                                        CYGIMP_LIBC_TIME_LOCALTIME_R_INLINE
+                                                        CYGSEM_LIBC_TIME_CLOCK_WORKING
+                                                        CYGSEM_LIBC_TIME_TIME_WORKING
+                                                        CYGSEM_LIBC_TIME_SETTIME_WORKING
+                                                        CYGFUN_LIBC_TIME_POSIX
+                                                        CYGFUN_LIBC_TIME_SUS_EXTNS
+                        CYGPKG_FS_ROM
+                                optional
+                                        CYGBLD_FS_ROMFS_MK_ROMFS
+                                        CYGPKG_FS_ROM_RET_DIRENT_DTYPE
+                                optional
+                                        CYGPKG_FS_ROM_TESTS
+                        CYGPKG_BLOCK_LIB
+                                optional
+                                        CYGIMP_BLOCK_LIB_STATISTICS
+                optional
+                        CYGBLD_GLOBAL_CFLAGS
+                        CYGBLD_BUILD_GDB_STUBS
+                        CYGBLD_BUILD_COMMON_GDB_STUBS
+                optional
+                        CYGINT_HAL_PLF_IF_INIT
+                                optional
+                                        CYGSEM_HAL_ENABLE_ICACHE_ON_STARTUP
+                                        CYGFUN_HAL_COMMON_KERNEL_SUPPORT
+                                        CYGPKG_HAL_EXCEPTIONS
+                                                optional
+                                                        CYGSEM_KERNEL_EXCEPTIONS_DECODE
+                                                        CYGSEM_KERNEL_EXCEPTIONS_GLOBAL
+                                        CYGSEM_HAL_STOP_CONSTRUCTORS_ON_FLAG
+                                        CYGSEM_HAL_INSTALL_MMU_TABLES
+                                        CYGSEM_HAL_STATIC_MMU_TABLES
+                                        CYGDBG_HAL_COMMON_CONTEXT_SAVE_MINIMUM
+                                        CYGIMP_HAL_COMMON_INTERRUPTS_USE_INTERRUPT_STACK
+                                        CYGSEM_HAL_COMMON_INTERRUPTS_ALLOW_NESTING
+                                        CYGDBG_HAL_COMMON_INTERRUPTS_SAVE_MINIMUM_CONTEXT
+                                        CYGIMP_HAL_COMMON_INTERRUPTS_CHAIN
+                                        CYGIMP_HAL_COMMON_INTERRUPTS_IGNORE_SPURIOUS
+                                        CYGDBG_HAL_DEBUG_GDB_INCLUDE_STUBS
+                                        CYGDBG_HAL_DEBUG_GDB_BREAK_SUPPORT
+                                        CYGDBG_HAL_DEBUG_GDB_THREAD_SUPPORT
+                                        CYGSEM_HAL_VIRTUAL_VECTOR_SUPPORT
+                                                optional
+                                                        CYGSEM_HAL_VIRTUAL_VECTOR_INHERIT_CONSOLE
+                                                        CYGPRI_HAL_VIRTUAL_VECTOR_DEBUG_CHANNEL_CONFIGURABLE
+                                                        CYGPRI_HAL_VIRTUAL_VECTOR_CONSOLE_CHANNEL_CONFIGURABLE
+                                                        CYGSEM_HAL_VIRTUAL_VECTOR_INIT_WHOLE_TABLE
+                                                        CYGSEM_HAL_VIRTUAL_VECTOR_CLAIM_DEFAULT
+                                                        CYGSEM_HAL_VIRTUAL_VECTOR_CLAIM_RESET
+                                                        CYGSEM_HAL_VIRTUAL_VECTOR_CLAIM_VERSION
+                                                        CYGSEM_HAL_VIRTUAL_VECTOR_CLAIM_DELAY_US
+                                                        CYGSEM_HAL_VIRTUAL_VECTOR_CLAIM_DATA
+                                                        CYGSEM_HAL_VIRTUAL_VECTOR_CLAIM_COMMS
+                                                        CYGSEM_HAL_VIRTUAL_VECTOR_DIAG
+                                        CYGSEM_HAL_USE_ROM_MONITOR
+                                        CYGSEM_HAL_ROM_MONITOR
+                                        CYGINT_HAL_TESTS_NO_CACHES
+                                optional
+                                        CYGSEM_HAL_DCACHE_STARTUP_MODE
+                                optional
+                                        CYGSEM_HAL_DIAG_MANGLER
+                                optional
+                                        CYGBLD_HAL_LINKER_GROUPED_LIBS_DEFAULT
+                        CYGPKG_HAL_BUILD_COMPILER_TESTS
+                        CYGHWR_HAL_MIPS_CPU_FREQ
+                                optional
+                                        CYGHWR_HAL_MIPS_64BIT
+                                        CYGHWR_HAL_MIPS_FPU
+                                        CYGHWR_HAL_MIPS_FPU_64BIT
+                                        CYGSEM_HAL_MIPS_EMULATE_UNIMPLEMENTED_FPU_OPS
+                                        CYGINT_HAL_MIPS_STUB_REPRESENT_32BIT_AS_64BIT
+                                        CYGPKG_HAL_MIPS_VR4300_VRC437X
+                                                optional
+                                                        CYGSEM_HAL_MIPS_VR4300_VRC437X_DIAG_ACKS_INT_0
+                                optional
+                                        CYG_HAL_STARTUP
+                                                optional
+                                                        CYGPKG_HAL_MIPS_LSBFIRST
+                                                        CYGNUM_HAL_VIRTUAL_VECTOR_DEBUG_CHANNEL
+                                                        CYGNUM_HAL_VIRTUAL_VECTOR_CONSOLE_CHANNEL
+                                                optional
+                                                        CYGHWR_MEMORY_LAYOUT_LDI
+                optional
+                        CYGPKG_INFRA_CFLAGS_ADD
+                                optional
+                                        CYGSEM_START_UITRON_COMPATIBILITY
+                                        CYGIMP_INFRA_PREFER_SMALL_TO_FAST_MEMCPY
+                                        CYGIMP_INFRA_PREFER_SMALL_TO_FAST_MEMSET
+                                        CYGFUN_INFRA_EMPTY_DELETE_FUNCTIONS
+                                        CYGNUM_INFRA_EMPTY_DELETE_THRESHOLD
+                                        CYGFUN_INFRA_DUMMY_ABORT
+                                        CYGSEM_INFRA_RESET_ON_TEST_EXIT
+                                        CYGFUN_INFRA_DUMMY_STRLEN
+                                        CYGBLD_INFRA_CFLAGS_WARNINGS_AS_ERRORS
+                                        CYGBLD_INFRA_CFLAGS_PIPE
+                                optional
+                                        CYGDBG_USE_ASSERTS
+                                                optional
+                                                        CYGDBG_INFRA_DEBUG_PRECONDITIONS
+                                                        CYGDBG_INFRA_DEBUG_POSTCONDITIONS
+                                                        CYGDBG_INFRA_DEBUG_LOOP_INVARIANTS
+                                                        CYGDBG_INFRA_DEBUG_ASSERT_MESSAGE
+                                        CYGDBG_USE_TRACING
+                                                optional
+                                                        CYGDBG_INFRA_DEBUG_FUNCTION_REPORTS
+                                                        CYGDBG_INFRA_DEBUG_TRACE_MESSAGE
+                                        CYGINT_INFRA_DEBUG_TRACE_IMPL
+                                        CYGDBG_INFRA_DEBUG_TRACE_ASSERT_NULL
+                                        CYGDBG_INFRA_DEBUG_TRACE_ASSERT_SIMPLE
+                                        CYGDBG_INFRA_DEBUG_TRACE_ASSERT_FANCY
+                                        CYGDBG_INFRA_DEBUG_TRACE_ASSERT_BUFFER
+                                                optional
+                                                        CYGDBG_INFRA_DEBUG_TRACE_BUFFER_SIZE
+                                                        CYGDBG_INFRA_DEBUG_TRACE_BUFFER_WRAP
+                                                        CYGDBG_INFRA_DEBUG_TRACE_BUFFER_HALT
+                                                        CYGDBG_INFRA_DEBUG_TRACE_BUFFER_PRINT
+                                                        CYGDBG_INFRA_DEBUG_TRACE_BUFFER_PRINT_ON_ASSERT
+                                        CYGDBG_INFRA_DEBUG_FUNCTION_PSEUDOMACRO
+                optional
+                        CYGINT_KERNEL_SCHEDULER
+                                optional
+                                        CYGIMP_KERNEL_SCHED_SORTED_QUEUES
+                                        CYGFUN_KERNEL_API_C
+                                        CYGVAR_KERNEL_COUNTERS_CLOCK
+                                        CYGIMP_KERNEL_COUNTERS_SORT_LIST
+                                        CYGVAR_KERNEL_COUNTERS_CLOCK_LATENCY
+                                        CYGVAR_KERNEL_COUNTERS_CLOCK_DSR_LATENCY
+                                        CYGDBG_KERNEL_DEBUG_GDB_THREAD_SUPPORT
+                                        CYGIMP_MBOX_USE_MBOXT_PLAIN
+                                        CYGMFN_KERNEL_SYNCH_MBOXT_PUT_CAN_WAIT
+                                        CYGMFN_KERNEL_SYNCH_CONDVAR_TIMED_WAIT
+                                        CYGMFN_KERNEL_SYNCH_CONDVAR_WAIT_MUTEX
+                                        CYGIMP_KERNEL_SYNCH_MQUEUE_NOT_INLINE
+                                        CYGFUN_KERNEL_THREADS_TIMER
+                                        CYGVAR_KERNEL_THREADS_NAME
+                                        CYGVAR_KERNEL_THREADS_LIST
+                                        CYGFUN_KERNEL_THREADS_STACK_LIMIT
+                                        CYGFUN_KERNEL_THREADS_STACK_MEASUREMENT
+                                                optional
+                                                        CYGDBG_KERNEL_THREADS_STACK_MEASUREMENT_VERBOSE_EXIT
+                                        CYGIMP_IDLE_THREAD_YIELD
+                                optional
+                                        CYGIMP_KERNEL_COUNTERS_SINGLE_LIST
+                                alternative
+                                        CYGSEM_KERNEL_SCHED_BITMAP
+                                        CYGSEM_KERNEL_SCHED_MLQUEUE
+                                optional
+                                        CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+                                optional
+                                        CYGINT_KERNEL_INTERRUPTS_DSRS
+                                                optional
+                                                        CYGIMP_KERNEL_INTERRUPTS_DSRS_LIST
+                                                                optional
+                                                                        CYGSEM_KERNEL_INTERRUPTS_DSRS_LIST_FIFO
+                                                optional
+                                                        CYGNUM_KERNEL_INTERRUPTS_DSRS_TABLE_SIZE
+                                        CYGIMP_KERNEL_INTERRUPTS_CHAIN
+                                optional
+                                        CYGNUM_KERNEL_THREADS_STACK_CHECK_DATA_SIZE
+                                                optional
+                                                        CYGFUN_KERNEL_ALL_THREADS_STACK_CHECKING
+                                optional
+                                        CYGNUM_KERNEL_THREADS_DATA_MAX
+                                optional
+                                        CYGNUM_KERNEL_THREADS_DESTRUCTORS
+                                                optional
+                                                        CYGSEM_KERNEL_THREADS_DESTRUCTORS_PER_THREAD
+                                optional
+                                        CYGNUM_KERNEL_INSTRUMENT_BUFFER_SIZE
+                                                optional
+                                                        CYGVAR_KERNEL_INSTRUMENT_EXTERNAL_BUFFER
+                                                        CYGDBG_KERNEL_INSTRUMENT_BUFFER_WRAP
+                                                        CYGDBG_KERNEL_INSTRUMENT_FLAGS
+                                                        CYGDBG_KERNEL_INSTRUMENT_SCHED
+                                                        CYGDBG_KERNEL_INSTRUMENT_THREAD
+                                                        CYGDBG_KERNEL_INSTRUMENT_INTR
+                                                        CYGDBG_KERNEL_INSTRUMENT_MUTEX
+                                                        CYGDBG_KERNEL_INSTRUMENT_CONDVAR
+                                                        CYGDBG_KERNEL_INSTRUMENT_BINSEM
+                                                        CYGDBG_KERNEL_INSTRUMENT_CNTSEM
+                                                        CYGDBG_KERNEL_INSTRUMENT_MBOXT
+                                                        CYGDBG_KERNEL_INSTRUMENT_CLOCK
+                                                        CYGDBG_KERNEL_INSTRUMENT_ALARM
+                                                        CYGDBG_KERNEL_INSTRUMENT_SMP
+                                                        CYGDBG_KERNEL_INSTRUMENT_USER
+                                                        CYGDBG_KERNEL_INSTRUMENT_MSGS
+                                                                optional
+                                                                        CYGDBG_KERNEL_INSTRUMENT_MSGS_BUILD_HEADERFILE
+                                                                        CYGDBG_KERNEL_INSTRUMENT_BUILD_HOST_DUMP
+                        CYGNUM_KERNEL_SCHED_TIMESLICE_TICKS
+                                optional
+                                        CYGSEM_KERNEL_SCHED_TIMESLICE_ENABLE
+                        CYGSEM_KERNEL_SCHED_ASR_SUPPORT
+                                optional
+                                        CYGSEM_KERNEL_SCHED_ASR_GLOBAL
+                                        CYGSEM_KERNEL_SCHED_ASR_DATA_GLOBAL
+                optional
+                        CYGNUM_MEMALLOC_FALLBACK_MALLOC_POOL_SIZE
+                                optional
+                                        CYGDBG_MEMALLOC_ALLOCATOR_DLMALLOC_DEBUG
+                                        CYGIMP_MEMALLOC_ALLOCATOR_DLMALLOC_THREADAWARE
+                                        CYGIMP_MEMALLOC_ALLOCATOR_DLMALLOC_SAFE_MULTIPLE
+                                        CYGIMP_MEMALLOC_ALLOCATOR_DLMALLOC_USE_MEMCPY
+                                        CYGSEM_MEMALLOC_ALLOCATOR_FIXED_THREADAWARE
+                                        CYGSEM_MEMALLOC_ALLOCATOR_SEPMETA_THREADAWARE
+                                        CYGSEM_MEMALLOC_ALLOCATOR_VARIABLE_THREADAWARE
+                                        CYGSEM_MEMALLOC_ALLOCATOR_VARIABLE_COALESCE
+                                        CYGFUN_MEMALLOC_KAPI
+                                        CYGSEM_MEMALLOC_MALLOC_ZERO_RETURNS_NULL
+                                        CYGSEM_MEMALLOC_INVOKE_OUT_OF_MEMORY
+                                optional
+                                        CYGBLD_MEMALLOC_MALLOC_IMPLEMENTATION_HEADER
+                                                optional
+                                                        CYGBLD_MEMALLOC_MALLOC_EXTERNAL_HEAP_H
+                                                        CYGBLD_MEMALLOC_MALLOC_EXTERNAL_JOIN_H
+                                                alternative
+                                                        CYGIMP_MEMALLOC_MALLOC_DLMALLOC
+                                                        CYGIMP_MEMALLOC_MALLOC_VARIABLE_SIMPLE
+                optional
+                        CYGBLD_ISO_ASSERT_HEADER
+                        CYGBLD_ISO_STAT_DEFS_HEADER
+                        CYGINT_ISO_DIRENT
+                                optional
+                                        CYGBLD_ISO_CTYPE_HEADER
+                                        CYGBLD_ISO_DLFCN_HEADER
+                                        CYGBLD_ISO_ERRNO_CODES_HEADER
+                                        CYGBLD_ISO_ERRNO_HEADER
+                                        CYGBLD_ISO_BSDTYPES_HEADER
+                                        CYGBLD_ISO_POSIX_LIMITS_HEADER
+                                        CYGBLD_ISO_OPEN_MAX_HEADER
+                                        CYGBLD_ISO_LINK_MAX_HEADER
+                                        CYGBLD_ISO_NAME_MAX_HEADER
+                                        CYGBLD_ISO_PATH_MAX_HEADER
+                                        CYGBLD_ISO_LOCALE_HEADER
+                                        CYGBLD_ISO_MQUEUE_HEADER
+                                        CYGNUM_ISO_MQUEUE_OPEN_MAX
+                                        CYGNUM_ISO_MQUEUE_PRIO_MAX
+                                        CYGINT_ISO_DNS
+                                        CYGBLD_ISO_DNS_HEADER
+                                        CYGINT_ISO_NETDB_PROTO
+                                        CYGBLD_ISO_NETDB_PROTO_HEADER
+                                        CYGINT_ISO_NETDB_SERV
+                                        CYGBLD_ISO_NETDB_SERV_HEADER
+                                        CYGBLD_ISO_OFLAG_HEADER
+                                        CYGBLD_ISO_FCNTL_HEADER
+                                        CYGBLD_ISO_OPEN_HEADER
+                                        CYGBLD_ISO_PTHREADTYPES_HEADER
+                                        CYGBLD_ISO_PMUTEXTYPES_HEADER
+                                        CYGBLD_ISO_SSIZE_T_HEADER
+                                        CYGBLD_ISO_FSTYPES_HEADER
+                                        CYGBLD_ISO_SCHEDTYPES_HEADER
+                                        CYGINT_ISO_PTHREAD_IMPL
+                                        CYGBLD_ISO_PTHREAD_IMPL_HEADER
+                                        CYGINT_ISO_PTHREAD_MUTEX
+                                        CYGBLD_ISO_PTHREAD_MUTEX_HEADER
+                                        CYGBLD_ISO_SCHED_IMPL_HEADER
+                                        CYGINT_ISO_SELECT
+                                        CYGBLD_ISO_SELECT_HEADER
+                                        CYGINT_ISO_POLL
+                                        CYGBLD_ISO_POLL_HEADER
+                                        CYGBLD_ISO_SEMAPHORES_HEADER
+                                        CYGBLD_ISO_SETJMP_HEADER
+                                        CYGBLD_ISO_SIGSETJMP_HEADER
+                                        CYGBLD_ISO_SIGNAL_NUMBERS_HEADER
+                                        CYGBLD_ISO_SIGNAL_IMPL_HEADER
+                                        CYGINT_ISO_STDIO_FILETYPES
+                                        CYGBLD_ISO_STDIO_FILETYPES_HEADER
+                                        CYGINT_ISO_STDIO_STREAMS
+                                        CYGBLD_ISO_STDIO_STREAMS_HEADER
+                                        CYGINT_ISO_STDIO_FILEOPS
+                                        CYGBLD_ISO_STDIO_FILEOPS_HEADER
+                                        CYGINT_ISO_STDIO_FILEACCESS
+                                        CYGBLD_ISO_STDIO_FILEACCESS_HEADER
+                                        CYGINT_ISO_STDIO_FORMATTED_IO
+                                        CYGBLD_ISO_STDIO_FORMATTED_IO_HEADER
+                                        CYGINT_ISO_STDIO_CHAR_IO
+                                        CYGBLD_ISO_STDIO_CHAR_IO_HEADER
+                                        CYGINT_ISO_STDIO_DIRECT_IO
+                                        CYGBLD_ISO_STDIO_DIRECT_IO_HEADER
+                                        CYGINT_ISO_STDIO_FILEPOS
+                                        CYGBLD_ISO_STDIO_FILEPOS_HEADER
+                                        CYGINT_ISO_STDIO_ERROR
+                                        CYGBLD_ISO_STDIO_ERROR_HEADER
+                                        CYGINT_ISO_STDIO_POSIX_FDFUNCS
+                                        CYGBLD_ISO_STDIO_POSIX_FDFUNCS_HEADER
+                                        CYGBLD_ISO_STDLIB_STRCONV_HEADER
+                                        CYGBLD_ISO_STDLIB_STRCONV_FLOAT_HEADER
+                                        CYGBLD_ISO_RAND_HEADER
+                                        CYGBLD_ISO_MALLOC_HEADER
+                                        CYGBLD_ISO_MALLINFO_HEADER
+                                        CYGBLD_ISO_EXIT_HEADER
+                                        CYGBLD_ISO_STDLIB_ENVIRON_HEADER
+                                        CYGBLD_ISO_STDLIB_SYSTEM_HEADER
+                                        CYGBLD_ISO_BSEARCH_HEADER
+                                        CYGBLD_ISO_QSORT_HEADER
+                                        CYGBLD_ISO_STDLIB_ABS_HEADER
+                                        CYGBLD_ISO_STDLIB_DIV_HEADER
+                                        CYGBLD_ISO_STDLIB_MB_CUR_MAX_HEADER
+                                        CYGBLD_ISO_STDLIB_MULTIBYTE_HEADER
+                                        CYGINT_ISO_STRERROR
+                                        CYGBLD_ISO_STRERROR_HEADER
+                                        CYGBLD_ISO_MEMCPY_HEADER
+                                        CYGBLD_ISO_MEMSET_HEADER
+                                        CYGINT_ISO_STRTOK_R
+                                        CYGBLD_ISO_STRTOK_R_HEADER
+                                        CYGINT_ISO_STRING_LOCALE_FUNCS
+                                        CYGBLD_ISO_STRING_LOCALE_FUNCS_HEADER
+                                        CYGINT_ISO_STRING_BSD_FUNCS
+                                        CYGBLD_ISO_STRING_BSD_FUNCS_HEADER
+                                        CYGINT_ISO_STRING_MEMFUNCS
+                                        CYGBLD_ISO_STRING_MEMFUNCS_HEADER
+                                        CYGINT_ISO_STRING_STRFUNCS
+                                        CYGBLD_ISO_STRING_STRFUNCS_HEADER
+                                        CYGBLD_ISO_TERMIOS_HEADER
+                                        CYGBLD_ISO_TIME_T_HEADER
+                                        CYGBLD_ISO_CLOCK_T_HEADER
+                                        CYGBLD_ISO_STRUCTTIMEVAL_HEADER
+                                        CYGBLD_ISO_FNMATCH_HEADER
+                                        CYGINT_ISO_POSIX_TIMER_TYPES
+                                        CYGBLD_ISO_POSIX_TIMER_TYPES_HEADER
+                                        CYGINT_ISO_POSIX_CLOCK_TYPES
+                                        CYGBLD_ISO_POSIX_CLOCK_TYPES_HEADER
+                                        CYGINT_ISO_C_TIME_TYPES
+                                        CYGBLD_ISO_C_TIME_TYPES_HEADER
+                                        CYGINT_ISO_POSIX_TIMERS
+                                        CYGBLD_ISO_POSIX_TIMERS_HEADER
+                                        CYGINT_ISO_POSIX_CLOCKS
+                                        CYGBLD_ISO_POSIX_CLOCKS_HEADER
+                                        CYGINT_ISO_C_CLOCK_FUNCS
+                                        CYGBLD_ISO_C_CLOCK_FUNCS_HEADER
+                                        CYGINT_ISO_TZSET
+                                        CYGBLD_ISO_TZSET_HEADER
+                                        CYGINT_ISO_POSIX_TIMER_OPS
+                                        CYGBLD_ISO_POSIX_TIMER_OPS_HEADER
+                                        CYGINT_ISO_POSIX_SLEEP
+                                        CYGBLD_ISO_POSIX_SLEEP_HEADER
+                                        CYGBLD_ISO_UTSNAME_HEADER
+                        CYGBLD_ISO_DIRENT_HEADER
+                optional
+                        CYGNUM_LIBM_X_TLOSS
+                                optional
+                                        CYGFUN_LIBM_SVID3_scalb
+                                        CYGSYM_LIBM_NO_XOPEN_SVID_NAMESPACE_POLLUTION
+                                        CYGSEM_LIBM_USE_STDERR
+                                        CYGSEM_LIBM_THREAD_SAFE_COMPAT_MODE
+                                        CYGSEM_LIBM_THREAD_SAFE_GAMMA_FUNCTIONS
+                                        CYGPKG_LIBM_TRACE
+                                                optional
+                                                        CYGNUM_LIBM_COMPATMODE_TRACE_LEVEL
+                                                        CYGNUM_LIBM_SIGNGAM_TRACE_LEVEL
+                                optional
+                                        CYGSEM_LIBM_COMPAT_IEEE_ONLY
+                                optional
+                                        CYGNUM_LIBM_COMPAT_DEFAULT
+                optional
+                        CYGPKG_POSIX_PTHREAD_MUTEX
+                        CYGPKG_POSIX_SCHED
+                                optional
+                                        POSIX_PRIORITY_SCHEDULING
+                        CYGPKG_POSIX_PTHREAD
+                                optional
+                                        CYGPKG_POSIX_PTHREAD_REQUIREMENTS
+                                        CYGPKG_POSIX_PTHREAD_FEATURES
+                                                optional
+                                                        POSIX_THREADS
+                                                        POSIX_THREAD_PRIORITY_SCHEDULING
+                                                        POSIX_THREAD_ATTR_STACKADDR
+                                                        POSIX_THREAD_ATTR_STACKSIZE
+                                                        POSIX_THREAD_PROCESS_SHARED
+                                optional
+                                        CYGNUM_POSIX_PTHREAD_DESTRUCTOR_ITERATIONS
+                                optional
+                                        CYGNUM_POSIX_MAIN_DEFAULT_PRIORITY
+                        CYGPKG_POSIX_CLOCKS
+                        CYGPKG_POSIX_TIMERS
+                        CYGPKG_POSIX_SEMAPHORES
+                        CYGNUM_POSIX_MQUEUE_OPEN_MAX
+                                optional
+                                        CYGIMP_POSIX_MQUEUE_VALIDATE_DESCRIPTOR
+                                        CYGFUN_POSIX_MQUEUE_NOTIFY
+                        CYG_POSIX_UTSNAME_LENGTH
+                        CYGPKG_POSIX_TESTS
+                optional
+                        CYGINT_UITRON_CONFORMANCE
+                                optional
+                                        CYGSEM_UITRON_ISRFUNCS_TRY_IMMEDIATE_EXECUTION
+                                alternative
+                                        CYGIMP_UITRON_LOOSE_CONFORMANCE
+                                        CYGIMP_UITRON_STRICT_CONFORMANCE
+                                optional
+                                        CYGNUM_UITRON_TASKS_INITIALLY
+                        CYGIMP_UITRON_INLINE_FUNCS
+                        CYGIMP_UITRON_CPP_OUTLINE_FUNCS
+                        CYGSEM_UITRON_BAD_PARAMS_RETURN_ERRORS
+                        CYGSEM_UITRON_PARAMS_NULL_IS_GOOD_PTR
+                        CYGNUM_UITRON_SEMAS
+                                optional
+                                        CYGNUM_UITRON_SEMAS_INITIALLY
+                                optional
+                                        CYGDAT_UITRON_SEMA_INITIALIZERS
+                        CYGNUM_UITRON_MBOXES
+                                optional
+                                        CYGNUM_UITRON_MBOXES_INITIALLY
+                        CYGNUM_UITRON_FLAGS
+                                optional
+                                        CYGNUM_UITRON_FLAGS_INITIALLY
+                        CYGNUM_UITRON_MEMPOOLFIXED
+                                optional
+                                        CYGNUM_UITRON_MEMPOOLFIXED_INITIALLY
+                        CYGNUM_UITRON_MEMPOOLVAR
+                                optional
+                                        CYGNUM_UITRON_MEMPOOLVAR_INITIALLY
+                        CYGSEM_UITRON_TIME_IS_MILLISECONDS
+                        CYGNUM_UITRON_ALARMS
+                        CYGNUM_UITRON_CYCLICS
+                optional
+                        CYGINT_WATCHDOG_HW_IMPLEMENTATIONS
+                                optional
+                                        CYGPKG_WATCHDOG_EMULATE
+                                        CYGIMP_WATCHDOG_NONE
+                        CYGSEM_WATCHDOG_RESETS_ON_TIMEOUT
+                        CYGPKG_IO_WATCHDOG_BUILD_INTERACTIVE_TEST
+                optional
+                        CYGINT_WALLCLOCK_HW_IMPLEMENTATIONS
+                                alternative
+                                        CYGIMP_WALLCLOCK_NONE
+                                        CYGPKG_WALLCLOCK_EMULATE
+                        CYGSEM_WALLCLOCK_SET_GET_MODE
+                optional
+                        CYGPKG_ERROR_CFLAGS_ADD
+                                optional
+                                        CYGPKG_ERROR_STRERROR
+                                optional
+                                        CYGNUM_ERROR_ERRNO_TRACE_LEVEL
+                                                optional
+                                                        CYGSEM_ERROR_PER_THREAD_ERRNO
+                optional
+                        CYGNUM_FILEIO_NFILE
+                                optional
+                                        CYGFUN_IO_FILEIO_SELECT
+                                        CYGPKG_IO_FILEIO_DEVFS_SUPPORT
+                                        CYGPKG_IO_FILEIO_SOCKET_SUPPORT
+                                        CYGNUM_FILEIO_NFD
+                                        CYGNUM_FILEIO_MTAB_MAX
+                                        CYGPKG_IO_FILEIO_TRACK_CWD
+                                        CYGSEM_FILEIO_INFO_DISK_USAGE
+                                        CYGPKG_FILEIO_FNMATCH
+                                        CYGPKG_FILEIO_DIRENT_DTYPE
+                                optional
+                                        CYGNUM_IO_FILEIO_MAX_INODE_CACHE_DEAD
+                optional
+                        CYGPKG_NET_DRIVER_FRAMEWORK
+                                optional
+                                        CYGOPT_NET_FREEBSD_STACK_ACCEPT_UNICAST
+                                        CYGPKG_NET_BUILD_HW_TESTS
+                                        CYGPKG_NET_TESTS_USE_RT_TEST_HARNESS
+                                        CYGPKG_NET_FREEBSD_INET
+                                                optional
+                                                        CYGPKG_NET_FREEBSD_INET6
+                                                        CYGPKG_NET_FREEBSD_IPSEC
+                                                        CYGPKG_NET_FREEBSD_IPSEC6
+                                                        CYGPKG_NET_FREEBSD_SYSCTL
+                                                        CYGPKG_NET_RANDOM_PORTS
+                                        CYGPKG_NET_FREEBSD_LOGGING
+                                        CYGPKG_NET_FORCE_SERIAL_CONSOLE
+                                        CYGPKG_NET_MEM_USAGE
+                                        CYGPKG_NET_MEMPOOL_SIZE
+                                        CYGPKG_NET_MBUFS_SIZE
+                                        CYGPKG_NET_CLUSTERS_SIZE
+                                        CYGPKG_NET_MAXSOCKETS
+                                optional
+                                        CYGNUM_NET_FAST_THREAD_TICKLE_DEVS_DELAY
+                        CYGPKG_NET_INET
+                                optional
+                                        CYGPKG_NET_INET6
+                                        CYGPKG_NET_IPSEC
+                                        CYGSEM_NET_ROUTING
+                                        CYGSEM_NET_RANDOMID
+                        CYGPKG_NET_TFTPD_THREAD_PRIORITY
+                                optional
+                                        CYGPKG_NET_TFTP_FILE_ACCESS
+                                optional
+                                        CYGPKG_NET_TFTPD_CLIENT_BIG_PACKET_SIZE
+                                optional
+                                        CYGNUM_NET_TFTPD_MULTITHREADED_PORTS
+                        CYGPKG_NET_DHCP_THREAD_STACK_SIZE
+                                optional
+                                        CYGOPT_NET_DHCP_DHCP_THREAD
+                                        CYGPKG_NET_DHCP_THREAD_PRIORITY
+                                        CYGOPT_NET_DHCP_PARM_REQ_LIST_REPLACE
+                                        CYGOPT_NET_DHCP_PARM_REQ_LIST_ADDITIONAL
+                                        CYGOPT_NET_DHCP_OPTION_DHCP_CLIENTID_MAC
+                                optional
+                                        CYGNUM_NET_DHCP_OPTION_HOST_NAME_LEN
+                        CYGPKG_NET_IPV6_ROUTING
+                                optional
+                                        CYGINT_NET_IPV6_ROUTING_THREAD_PERIOD
+                        CYGPKG_NET_DEBUG
+                                optional
+                                        CYGDBG_NET_DHCP_CHATTER
+                        CYGDBG_NET_TIMING_STATS
+                        CYGDBG_NET_SHOW_MBUFS
+                        CYGHWR_NET_DRIVER_ETH0
+                        CYGHWR_NET_DRIVER_ETH0_SETUP
+                                optional
+                                        CYGHWR_NET_DRIVER_ETH0_BOOTP
+                                                optional
+                                                        CYGHWR_NET_DRIVER_ETH0_DHCP
+                                                        CYGHWR_NET_DRIVER_ETH0_BOOTP_SHOW
+                                optional
+                                        CYGDAT_DEVS_ETH_MIPS_VRC4375_ETH0_ESA
+                                optional
+                                        CYGHWR_NET_DRIVER_ETH0_ADDRS_IP
+                        CYGHWR_NET_DRIVER_ETH0_IPV6_PREFIX
+                        CYGHWR_NET_DRIVER_ETH1
+                        CYGDAT_NET_SNMPAGENT_SYS_CONTACT
+                                optional
+                                        CYGSEM_SNMPAGENT_TESTS_PROMISCUOUS
+                                        CYGSEM_SNMPAGENT_TESTS_SNMPv3
+                                        CYGPKG_SNMPAGENT_V3_SUPPORT
+                        CYGPKG_SNMPLIB_CFLAGS_ADD
+                                optional
+                                        CYGDBG_NET_SNMPLIB_DEBUG
+                                        CYGPKG_SNMPLIB_FILESYSTEM_SUPPORT
+                                                optional
+                                                        CYGPKG_SNMPLIB_PERSISTENT_FILESYSTEM
+                        CYGNUM_HTTPD_SERVER_PORT
+                                optional
+                                        CYGNUM_HTTPD_THREAD_PRIORITY
+                                        CYGNUM_HTTPD_SERVER_AUTO_START
+                                        CYGPKG_HTTPD_MONITOR
+                        CYGNUM_NET_FTPCLIENT_BUFSIZE
+                        CYGPKG_PPP_DEFAULT_DIALUP_NUMBER
+                                optional
+                                        CYGOPT_PPP_NS_NEGOTIATE
+                                        CYGOPT_PPP_DNS_CONFIGURE
+                                        CYGPKT_PPP_WORKAROUNDS_START_FLAG
+                                        CYGPKG_PPP_DEBUG_WARN_ONLY
+                                        CYGPKG_PPP_PAP
+                                        CYGPKG_PPP_CHAP
+                                        CYGPKG_PPP_COMPRESSION
+                                                optional
+                                                        PPP_BSDCOMP
+                                                        PPP_DEFLATE
+                                                        PPP_INHIBIT_OLD_VJ_COMPRESSION
+                                        CYGPKG_PPP_TESTS
+                                        CYGPKG_PPP_TESTS_ALL
+                                        CYGBLD_PPP_WINDOWS_TELNET_APP
+                                optional
+                                        CYGNUM_PPP_CHAT_ABORTS_MAX
+                                optional
+                                        CYGDAT_PPP_TEST_BAUD_RATES
+                optional
+                        CYGNUM_NS_DNS_GETADDRINFO_ADDRESSES
+                                optional
+                                        CYGPKG_NS_DNS_BUILD
+                                        CYGOPT_NS_DNS_FIRST_FAMILY
+                                        CYGPKG_NS_DNS_TESTS_LUNN
+                                        CYGPKG_NS_DNS_TESTS_ELSIS
+                                optional
+                                        CYGDAT_NS_DNS_DEFAULT_SERVER
+                                optional
+                                        CYGDAT_NS_DNS_DOMAINNAME_NAME
+                optional
+                        CYGPKG_CRC_TESTS
+                optional
+                        CYGPKG_CPULOAD_TESTS
+                optional
+                        CYGPKG_NET_SNTP_UNICAST
+                                optional
+                                        CYGNUM_NET_SNTP_UNICAST_MAXDHCP
+                        CYGPKG_NET_SNTP_TESTS
+                optional
+                        CYGHWR_IO_FLASH_DEVICE
+                        CYGHWR_IO_FLASH_BLOCK_LOCKING
+                        CYGHWR_IO_FLASH_INDIRECT_READS
+                        CYGHWR_IO_FLASH_DEVICE_NEEDS_CACHE_HANDLED
+                        CYGHWR_IO_FLASH_DEVICE_LEGACY
+                        CYGSEM_IO_FLASH_READ_INDIRECT
+                        CYGSEM_IO_FLASH_CHATTER
+                        CYGSEM_IO_FLASH_VERIFY_PROGRAM
+                        CYGSEM_IO_FLASH_SOFT_WRITE_PROTECT
+                        CYGNUM_IO_FLASH_BLOCK_DEVICES
+                                optional
+                                        CYGFUN_IO_FLASH_BLOCK_FROM_FIS
+                                        CYGFUN_IO_FLASH_BLOCK_FROM_DEVOFFSET
+                        CYGSEM_IO_FLASH_LEGACY_API
+                        CYGPKG_IO_FLASH_BLOCK_DEVICE_LEGACY
+                                optional
+                                        CYGDAT_IO_FLASH_BLOCK_DEVICE_NAME_1
+                                                optional
+                                                        CYGNUM_IO_FLASH_BLOCK_ABSOLUTE_START_1
+                                                        CYGNUM_IO_FLASH_BLOCK_ABSOLUTE_LENGTH_1
+                                                optional
+                                                        CYGNUM_IO_FLASH_BLOCK_OFFSET_1
+                                optional
+                                        CYGDAT_IO_FLASH_BLOCK_DEVICE_NAME_2
+                                                optional
+                                                        CYGNUM_IO_FLASH_BLOCK_ABSOLUTE_START_2
+                                                        CYGNUM_IO_FLASH_BLOCK_ABSOLUTE_LENGTH_2
+                                                optional
+                                                        CYGNUM_IO_FLASH_BLOCK_OFFSET_2
+                        CYGINT_DEVS_FLASH_AMD_AM29XXXXX_REQUIRED
+                                optional
+                                        CYGHWR_DEVS_FLASH_AMD_AM29F002T
+                                        CYGHWR_DEVS_FLASH_AMD_AM29F010
+                                        CYGHWR_DEVS_FLASH_AMD_AM29LV128
+                                        CYGHWR_DEVS_FLASH_AMD_MX29LV128
+                                        CYGHWR_DEVS_FLASH_AMD_AM29LV160
+                                        CYGHWR_DEVS_FLASH_AMD_AM29PL160
+                                        CYGHWR_DEVS_FLASH_AMD_AM29LV320D
+                                        CYGHWR_DEVS_FLASH_ST_M29W320D
+                                        CYGHWR_DEVS_FLASH_AMD_AM29LV200
+                                        CYGHWR_DEVS_FLASH_ST_M29W200B
+                                        CYGHWR_DEVS_FLASH_AMD_AM29LV640
+                                        CYGHWR_DEVS_FLASH_AMD_AM29DL322D
+                                        CYGHWR_DEVS_FLASH_AMD_AM29DL323D
+                                        CYGHWR_DEVS_FLASH_AMD_AM29DL324D
+                                        CYGHWR_DEVS_FLASH_AMD_AM29LV400
+                                        CYGHWR_DEVS_FLASH_AMD_AM29DL640D
+                                        CYGHWR_DEVS_FLASH_AMD_AM29F800
+                                        CYGHWR_DEVS_FLASH_AMD_AM29LV800
+                                        CYGHWR_DEVS_FLASH_AMD_TC58FVB800
+                                        CYGHWR_DEVS_FLASH_AMD_AM29LV081B
+                                        CYGHWR_DEVS_FLASH_AMD_AM29LV017D
+                                        CYGHWR_DEVS_FLASH_AMD_AM29LV033C
+                                        CYGHWR_DEVS_FLASH_AMD_AM29LV065D
+                                        CYGHWR_DEVS_FLASH_AMD_AM29LV256
+                                        CYGHWR_DEVS_FLASH_AMD_S29GL064M
+                                        CYGHWR_DEVS_FLASH_AMD_S29PL032J
+                                        CYGHWR_DEVS_FLASH_AMD_S29PL064J
+                                        CYGHWR_DEVS_FLASH_AMD_S29PL127J
+                                        CYGHWR_DEVS_FLASH_AMD_S29GL128N
+                                        CYGHWR_DEVS_FLASH_AMD_S29GL256N
+                                        CYGHWR_DEVS_FLASH_AMD_S29GL512N
+                                        CYGHWR_DEVS_FLASH_AMD_S29GL128M
+                optional
+                        CYGPKG_FS_RAM_TESTS
+                                optional
+                                        CYGPKG_FS_RAM_RET_DIRENT_DTYPE
+                                optional
+                                        CYGNUM_RAMFS_REALLOC_INCREMENT
+                                optional
+                                        CYGNUM_RAMFS_BLOCK_SIZE
+                                                optional
+                                                        CYGNUM_FS_RAM_BLOCKS_ARRAY_SIZE
+                                                                optional
+                                                                        CYGPKG_FS_RAM_BLOCKS_ARRAY_EXTERN
+                optional
+                        CYGOPT_FS_JFFS2_DEBUG
+                                optional
+                                        CYGOPT_FS_JFFS2_WRITE
+                                        CYGPKG_FS_JFFS2_CFLAGS_ADD
+                                        CYGPKG_FS_JFFS2_RET_DIRENT_DTYPE
+                                optional
+                                        CYGNUM_JFFS2_GC_THREAD_STACK_SIZE
+                                optional
+                                        CYGOPT_FS_JFFS2_COMPRESS_CMODE
+                                                optional
+                                                        CYGOPT_FS_JFFS2_COMPRESS_ZLIB
+                                                        CYGOPT_FS_JFFS2_COMPRESS_RTIME
+                                                        CYGOPT_FS_JFFS2_COMPRESS_RUBIN
+                optional
+                        CYGNUM_LINUX_COMPAT_PAGE_SIZE_EXPONENT
+                optional
+                        CYGPKG_COMPRESS_ZLIB_TESTS
+                                optional
+                                        CYGSEM_COMPRESS_ZLIB_DEFLATE_MAKES_GZIP
+                                        CYGFUN_COMPRESS_ZLIB_GZIO
+                optional
+                        CYGNUM_VNC_SERVER_PORT
+                                optional
+                                        CYGNUM_VNC_SERVER_PIXEL_RGB332
+                                        CYGNUM_VNC_SERVER_PIXEL_BGR233
+                                        CYGNUM_VNC_SERVER_PIXEL_RGB555
+                                        CYGNUM_VNC_SERVER_PIXEL_RGB565
+                                        CYGNUM_VNC_SERVER_PIXEL_TRUECOLOR0888
+                                        CYGNUM_VNC_SERVER_INCLUDE_VNC_PRINTF
+                                        CYGNUM_VNC_SERVER_USE_CORRE_ENCODING
+                                                optional
+                                                        CYGNUM_VNC_SERVER_CORRE_ENCODING_HACK
+                                        CYGNUM_VNC_SERVER_PRIORITY
+                                optional
+                                        CYGNUM_VNC_SERVER_MOUSE_EVENTS
+                                optional
+                                        CYGNUM_VNC_SERVER_KEYBOARD_EVENTS
+                optional
+                        CYGPKG_IO_DISK_CFLAGS_ADD
+                                optional
+                                        CYGPKG_IO_DISK_DEVICES
+                                        CYGDBG_IO_DISK_DEBUG
+                optional
+                        CYGNUM_FS_FAT_NODE_HASH_TABLE_SIZE
+                                optional
+                                        CYGNUM_FS_FAT_NODE_POOL_SIZE
+                                        CYGDBG_FS_FAT_NODE_CACHE_EXTRA_CHECKS
+                                        CYGCFG_FS_FAT_USE_ATTRIBUTES
+                                        CYGPKG_FS_FAT_RET_DIRENT_DTYPE
+                                optional
+                                        CYGDAT_DEVS_DISK_TEST_DEVICE
+
+constraints
+        CYGDBG_INFRA_DEBUG_TRACE_ASSERT_BUFFER & CYGDBG_USE_TRACING => CYGDBG_INFRA_DEBUG_TRACE_BUFFER_SIZE
+        (CYGPKG_LIBM_TRACE & CYGSEM_LIBM_THREAD_SAFE_COMPAT_MODE => CYGNUM_LIBM_COMPATMODE_TRACE_LEVEL) & (CYGPKG_LIBM_TRACE & CYGSEM_LIBM_THREAD_SAFE_GAMMA_FUNCTIONS => CYGNUM_LIBM_SIGNGAM_TRACE_LEVEL)
+        CYGBLD_BUILD_GDB_STUBS => !(CYGDBG_HAL_COMMON_CONTEXT_SAVE_MINIMUM)
+        CYGBLD_BUILD_GDB_STUBS => !(CYGDBG_HAL_COMMON_INTERRUPTS_SAVE_MINIMUM_CONTEXT)
+        CYGBLD_BUILD_GDB_STUBS => !(CYGDBG_HAL_DEBUG_GDB_THREAD_SUPPORT)
+        CYGBLD_BUILD_GDB_STUBS => !(CYGDBG_HAL_DEBUG_GDB_BREAK_SUPPORT)
+        CYGBLD_BUILD_GDB_STUBS => CYGDBG_HAL_DEBUG_GDB_INCLUDE_STUBS
+        CYGBLD_BUILD_GDB_STUBS => CYGBLD_BUILD_COMMON_GDB_STUBS
+        CYGBLD_BUILD_GDB_STUBS => CYGSEM_HAL_ROM_MONITOR
+        CYGBLD_BUILD_GDB_STUBS => CYG_HAL_STARTUP
+        CYGBLD_BUILD_COMMON_GDB_STUBS => CYGDBG_HAL_DEBUG_GDB_INCLUDE_STUBS
+        CYGSEM_HAL_STATIC_MMU_TABLES => CYGSEM_HAL_INSTALL_MMU_TABLES
+        CYGDBG_HAL_DEBUG_GDB_INCLUDE_STUBS => !(CYGSEM_HAL_VIRTUAL_VECTOR_DIAG) | CYGSEM_HAL_VIRTUAL_VECTOR_CLAIM_COMMS
+        CYGDBG_HAL_DEBUG_GDB_INCLUDE_STUBS => !(CYGDBG_HAL_COMMON_CONTEXT_SAVE_MINIMUM)
+        CYGDBG_HAL_DEBUG_GDB_INCLUDE_STUBS => !(CYGDBG_HAL_COMMON_INTERRUPTS_SAVE_MINIMUM_CONTEXT)
+        CYGDBG_HAL_DEBUG_GDB_INCLUDE_STUBS => !(CYGSEM_HAL_USE_ROM_MONITOR)
+        CYGDBG_HAL_DEBUG_GDB_BREAK_SUPPORT => CYGDBG_HAL_DEBUG_GDB_INCLUDE_STUBS
+        CYGDBG_HAL_DEBUG_GDB_THREAD_SUPPORT => CYGSEM_HAL_ROM_MONITOR | CYGDBG_KERNEL_DEBUG_GDB_THREAD_SUPPORT
+        CYGSEM_HAL_VIRTUAL_VECTOR_INHERIT_CONSOLE => CYGSEM_HAL_USE_ROM_MONITOR
+        CYGSEM_HAL_VIRTUAL_VECTOR_INIT_WHOLE_TABLE => CYGSEM_HAL_VIRTUAL_VECTOR_CLAIM_COMMS
+        CYGSEM_HAL_VIRTUAL_VECTOR_INIT_WHOLE_TABLE => CYGSEM_HAL_VIRTUAL_VECTOR_CLAIM_DATA
+        CYGSEM_HAL_VIRTUAL_VECTOR_INIT_WHOLE_TABLE => CYGSEM_HAL_VIRTUAL_VECTOR_CLAIM_DELAY_US
+        CYGSEM_HAL_VIRTUAL_VECTOR_INIT_WHOLE_TABLE => CYGSEM_HAL_VIRTUAL_VECTOR_CLAIM_RESET
+        CYGSEM_HAL_VIRTUAL_VECTOR_CLAIM_DEFAULT => !(CYGSEM_HAL_VIRTUAL_VECTOR_INIT_WHOLE_TABLE)
+        CYGSEM_HAL_USE_ROM_MONITOR => CYG_HAL_STARTUP
+        CYGSEM_HAL_ROM_MONITOR => CYG_HAL_STARTUP | CYG_HAL_STARTUP
+        CYGNUM_HAL_VIRTUAL_VECTOR_DEBUG_CHANNEL => CYGPRI_HAL_VIRTUAL_VECTOR_DEBUG_CHANNEL_CONFIGURABLE
+        CYGNUM_HAL_VIRTUAL_VECTOR_CONSOLE_CHANNEL => CYGPRI_HAL_VIRTUAL_VECTOR_CONSOLE_CHANNEL_CONFIGURABLE
+        CYGOPT_IO_SERIAL_FLOW_CONTROL_HW => CYGOPT_IO_SERIAL_SUPPORT_LINE_STATUS
+        CYGBLD_IO_SERIAL_TERMIOS_TERMIOS_TTY => CYGINT_IO_SERIAL_TERMIOS_TERMIOS_TTY
+        CYGPKG_IO_SERIAL_SELECT_SUPPORT => CYGFUN_IO_FILEIO_SELECT
+        CYGPKG_IO_ETH_DRIVERS_NET => CYGINT_ISO_STRING_STRFUNCS
+        CYGDBG_USE_ASSERTS => CYGINT_INFRA_DEBUG_TRACE_IMPL & (CYGDBG_INFRA_DEBUG_TRACE_ASSERT_SIMPLE & !(CYGDBG_INFRA_DEBUG_TRACE_ASSERT_FANCY) | CYGDBG_INFRA_DEBUG_TRACE_ASSERT_FANCY & !(CYGDBG_INFRA_DEBUG_TRACE_ASSERT_NULL))
+        CYGDBG_USE_TRACING => CYGINT_INFRA_DEBUG_TRACE_IMPL & (CYGDBG_INFRA_DEBUG_TRACE_ASSERT_SIMPLE & !(CYGDBG_INFRA_DEBUG_TRACE_ASSERT_FANCY) | CYGDBG_INFRA_DEBUG_TRACE_ASSERT_FANCY & !(CYGDBG_INFRA_DEBUG_TRACE_ASSERT_NULL))
+        CYGDBG_INFRA_DEBUG_TRACE_BUFFER_SIZE => CYGDBG_USE_TRACING
+        CYGDBG_INFRA_DEBUG_TRACE_BUFFER_WRAP => CYGDBG_USE_TRACING
+        CYGDBG_INFRA_DEBUG_TRACE_BUFFER_HALT => CYGDBG_USE_TRACING
+        CYGDBG_INFRA_DEBUG_TRACE_BUFFER_PRINT => CYGDBG_USE_TRACING
+        CYGDBG_INFRA_DEBUG_TRACE_BUFFER_PRINT_ON_ASSERT => CYGDBG_USE_TRACING
+        CYGFUN_INFRA_DUMMY_STRLEN => !(CYGINT_ISO_STRING_STRFUNCS)
+        CYGBLD_INFRA_CFLAGS_WARNINGS_AS_ERRORS => CYGBLD_GLOBAL_CFLAGS
+        CYGBLD_INFRA_CFLAGS_PIPE => CYGBLD_GLOBAL_CFLAGS
+        CYGIMP_KERNEL_INTERRUPTS_CHAIN => CYGIMP_HAL_COMMON_INTERRUPTS_CHAIN
+        CYGINT_KERNEL_SCHEDULER => CYGINT_KERNEL_SCHEDULER & (CYGSEM_KERNEL_SCHED_BITMAP & !(CYGSEM_KERNEL_SCHED_MLQUEUE) | CYGSEM_KERNEL_SCHED_MLQUEUE & !(CYGSEM_KERNEL_SCHED_BITMAP))
+        CYGVAR_KERNEL_COUNTERS_CLOCK_LATENCY => CYGVAR_KERNEL_COUNTERS_CLOCK
+        CYGVAR_KERNEL_COUNTERS_CLOCK_DSR_LATENCY => CYGVAR_KERNEL_COUNTERS_CLOCK_LATENCY
+        CYGFUN_KERNEL_THREADS_TIMER => CYGVAR_KERNEL_COUNTERS_CLOCK
+        CYGFUN_KERNEL_ALL_THREADS_STACK_CHECKING => CYGVAR_KERNEL_THREADS_LIST
+        CYGMFN_KERNEL_SYNCH_CONDVAR_TIMED_WAIT => CYGFUN_KERNEL_THREADS_TIMER
+        CYGDBG_KERNEL_INSTRUMENT_CLOCK => CYGVAR_KERNEL_COUNTERS_CLOCK
+        CYGDBG_KERNEL_INSTRUMENT_ALARM => CYGVAR_KERNEL_COUNTERS_CLOCK
+        CYGDBG_KERNEL_INSTRUMENT_SMP => CYGVAR_KERNEL_COUNTERS_CLOCK
+        CYGDBG_KERNEL_DEBUG_GDB_THREAD_SUPPORT => CYGDBG_HAL_DEBUG_GDB_THREAD_SUPPORT
+        CYGDBG_KERNEL_DEBUG_GDB_THREAD_SUPPORT => CYGVAR_KERNEL_THREADS_LIST
+        CYGDBG_MEMALLOC_ALLOCATOR_DLMALLOC_DEBUG => CYGDBG_USE_ASSERTS
+        CYGIMP_MEMALLOC_ALLOCATOR_DLMALLOC_USE_MEMCPY => CYGINT_ISO_STRING_MEMFUNCS
+        CYGIMP_MEMALLOC_MALLOC_VARIABLE_SIMPLE => CYGSEM_MEMALLOC_ALLOCATOR_VARIABLE_COALESCE
+        CYGIMP_MEMALLOC_MALLOC_VARIABLE_SIMPLE => CYGBLD_MEMALLOC_MALLOC_IMPLEMENTATION_HEADER
+        CYGIMP_MEMALLOC_MALLOC_DLMALLOC => CYGBLD_MEMALLOC_MALLOC_IMPLEMENTATION_HEADER
+        CYGINT_LIBC_I18N_MB_REQUIRED => CYGBLD_ISO_STDLIB_MB_CUR_MAX_HEADER
+        CYGPKG_LIBC_I18N_NEWLIB_CTYPE => CYGBLD_ISO_CTYPE_HEADER
+        CYGIMP_LIBC_I18N_CTYPE_INLINES => CYGBLD_ISO_CTYPE_HEADER
+        CYGSEM_LIBC_STARTUP_MAIN_OTHER => CYGINT_LIBC_STARTUP_EXTERNAL_INVOKE_MAIN_POSSIBLE
+        CYGNUM_LIBC_MAIN_DEFAULT_STACK_SIZE => !(CYGINT_LIBC_STARTUP_MAIN_NO_STACK_SIZE)
+        CYGSEM_LIBC_EXIT_CALLS_FFLUSH => CYGINT_ISO_STDIO_FILEACCESS
+        CYGSEM_LIBC_STDIO_SETVBUF_MALLOC => CYGSEM_LIBC_STDIO_DYNAMIC_SETVBUF
+        CYGFUN_LIBC_STDIO_OPEN_POSIX_FDFUNCS => CYGPKG_LIBC_STDIO_FILEIO
+        CYGFUN_LIBC_STDIO_LONGLONG => CYGFUN_LIBC_STDLIB_CONV_LONGLONG
+        CYGPKG_LIBC_STDIO_FILEIO => CYGSEM_LIBC_STDIO_DYNAMIC_SETVBUF
+        CYGIMP_LIBC_STDLIB_INLINE_ABS => CYGBLD_ISO_STDLIB_ABS_HEADER
+        CYGIMP_LIBC_STDLIB_INLINE_DIV => CYGBLD_ISO_STDLIB_DIV_HEADER
+        CYGIMP_LIBC_STDLIB_INLINE_ATOX => CYGBLD_ISO_STDLIB_STRCONV_HEADER
+        CYGFUN_LIBC_STRING_BSD_FUNCS => CYGBLD_ISO_STRING_BSD_FUNCS_HEADER
+        CYGSEM_LIBC_TIME_CLOCK_WORKING => CYGVAR_KERNEL_COUNTERS_CLOCK
+        CYGSEM_LIBC_TIME_CLOCK_WORKING => CYGFUN_KERNEL_THREADS_TIMER
+        CYGFUN_LIBC_TIME_POSIX => CYGINT_ISO_STRING_BSD_FUNCS
+        CYGIMP_LIBC_TIME_ASCTIME_R_INLINE => CYGFUN_LIBC_TIME_POSIX
+        CYGIMP_LIBC_TIME_CTIME_R_INLINE => CYGFUN_LIBC_TIME_POSIX
+        CYGIMP_LIBC_TIME_GMTIME_R_INLINE => CYGFUN_LIBC_TIME_POSIX
+        CYGIMP_LIBC_TIME_LOCALTIME_R_INLINE => CYGFUN_LIBC_TIME_POSIX
+        CYGSEM_LIBM_USE_STDERR => !(CYGSEM_LIBM_COMPAT_IEEE_ONLY)
+        CYGSEM_LIBM_THREAD_SAFE_COMPAT_MODE => !(CYGSEM_LIBM_COMPAT_IEEE_ONLY)
+        CYGPKG_LIBM_TRACE => CYGDBG_USE_TRACING
+        CYGNUM_LIBM_COMPATMODE_TRACE_LEVEL => CYGSEM_LIBM_THREAD_SAFE_COMPAT_MODE
+        CYGNUM_LIBM_SIGNGAM_TRACE_LEVEL => CYGSEM_LIBM_THREAD_SAFE_GAMMA_FUNCTIONS
+        CYGPKG_POSIX_SCHED => CYGPKG_POSIX_CLOCKS
+        POSIX_PRIORITY_SCHEDULING => CYGSEM_KERNEL_SCHED_MLQUEUE
+        CYGPKG_POSIX_PTHREAD_REQUIREMENTS => CYGBLD_ISO_PTHREAD_IMPL_HEADER
+        CYGPKG_POSIX_PTHREAD_REQUIREMENTS => CYGBLD_ISO_PTHREADTYPES_HEADER
+        CYGPKG_POSIX_PTHREAD_REQUIREMENTS => CYGFUN_KERNEL_THREADS_STACK_LIMIT
+        CYGPKG_POSIX_PTHREAD_REQUIREMENTS => !(CYGSEM_KERNEL_SCHED_ASR_DATA_GLOBAL)
+        CYGPKG_POSIX_PTHREAD_REQUIREMENTS => CYGSEM_KERNEL_SCHED_ASR_GLOBAL
+        CYGPKG_POSIX_PTHREAD_REQUIREMENTS => CYGSEM_KERNEL_SCHED_ASR_SUPPORT
+        CYGPKG_POSIX_PTHREAD_REQUIREMENTS => CYGSEM_KERNEL_SCHED_TIMESLICE_ENABLE
+        CYGPKG_POSIX_PTHREAD_REQUIREMENTS => CYGPKG_POSIX_SCHED
+        POSIX_THREAD_PRIORITY_SCHEDULING => POSIX_THREADS
+        POSIX_THREAD_PRIORITY_SCHEDULING => CYGSEM_KERNEL_SCHED_MLQUEUE
+        CYGPKG_POSIX_CLOCKS => CYGVAR_KERNEL_COUNTERS_CLOCK
+        CYGPKG_POSIX_CLOCKS => CYGBLD_ISO_STRUCTTIMEVAL_HEADER
+        CYGPKG_POSIX_CLOCKS => CYGBLD_ISO_POSIX_CLOCKS_HEADER
+        CYGPKG_POSIX_CLOCKS => CYGBLD_ISO_POSIX_CLOCK_TYPES_HEADER
+        CYGPKG_POSIX_TIMERS => CYGINT_ISO_POSIX_CLOCKS
+        CYGPKG_POSIX_TIMERS => CYGPKG_POSIX_PTHREAD
+        CYGPKG_POSIX_TIMERS => CYGVAR_KERNEL_COUNTERS_CLOCK
+        CYGPKG_POSIX_TIMERS => CYGBLD_ISO_POSIX_TIMERS_HEADER
+        CYGPKG_POSIX_TIMERS => CYGBLD_ISO_POSIX_TIMER_TYPES_HEADER
+        CYGPKG_POSIX_SEMAPHORES => CYGBLD_ISO_SEMAPHORES_HEADER
+        CYGINT_UITRON_CONFORMANCE => CYGINT_UITRON_CONFORMANCE & (CYGIMP_UITRON_LOOSE_CONFORMANCE & !(CYGIMP_UITRON_STRICT_CONFORMANCE) | CYGIMP_UITRON_STRICT_CONFORMANCE & !(CYGIMP_UITRON_LOOSE_CONFORMANCE))
+        CYGIMP_UITRON_STRICT_CONFORMANCE => !(CYGIMP_MBOX_USE_MBOXT_PLAIN)
+        CYGIMP_UITRON_STRICT_CONFORMANCE => CYGFUN_KERNEL_THREADS_TIMER
+        CYGIMP_UITRON_STRICT_CONFORMANCE => CYGSEM_KERNEL_SCHED_MLQUEUE
+        CYGIMP_UITRON_STRICT_CONFORMANCE => CYGVAR_KERNEL_COUNTERS_CLOCK
+        CYGSEM_UITRON_TIME_IS_MILLISECONDS => CYGVAR_KERNEL_COUNTERS_CLOCK
+        CYGPKG_WATCHDOG_EMULATE => CYGVAR_KERNEL_COUNTERS_CLOCK
+        CYGPKG_ERROR_STRERROR => CYGBLD_ISO_STRERROR_HEADER
+        CYGPKG_IO_FILEIO_DEVFS_SUPPORT => CYGPKG_IO
+        CYGPKG_FILEIO_FNMATCH => CYGBLD_ISO_FNMATCH_HEADER
+        CYGPKG_NET_DHCP_THREAD_PRIORITY => CYGOPT_NET_DHCP_DHCP_THREAD
+        CYGOPT_NET_DHCP_PARM_REQ_LIST_REPLACE => CYGOPT_NET_DHCP_DHCP_THREAD
+        CYGOPT_NET_DHCP_PARM_REQ_LIST_ADDITIONAL => CYGOPT_NET_DHCP_DHCP_THREAD
+        CYGOPT_NET_DHCP_OPTION_DHCP_CLIENTID_MAC => CYGOPT_NET_DHCP_DHCP_THREAD
+        CYGPKG_NET_IPV6_ROUTING => CYGPKG_NET_INET6
+        CYGHWR_NET_DRIVER_ETH0_IPV6_PREFIX => CYGPKG_NET_INET6
+        CYGPKG_NET_FREEBSD_INET => CYGPKG_NET_INET
+        CYGPKG_NET_FREEBSD_INET6 => CYGPKG_NET_INET6
+        CYGPKG_NET_FREEBSD_IPSEC6 => CYGPKG_NET_FREEBSD_IPSEC
+        CYGPKG_NET_FREEBSD_IPSEC6 => CYGPKG_NET_INET6
+        CYGSEM_SNMPAGENT_TESTS_SNMPv3 => CYGPKG_SNMPAGENT_V3_SUPPORT
+        CYGPKG_NS_DNS_BUILD => CYGSEM_KERNEL_THREADS_DESTRUCTORS_PER_THREAD
+        CYGPKG_NS_DNS_BUILD => CYGINT_ISO_STRING_STRFUNCS
+        CYGPKG_NS_DNS_BUILD => CYGBLD_ISO_DNS_HEADER
+        CYGOPT_NS_DNS_FIRST_FAMILY => CYGPKG_NET_INET6
+        CYGHWR_IO_FLASH_DEVICE => CYGHWR_IO_FLASH_DEVICE
+        CYGSEM_IO_FLASH_READ_INDIRECT => !(CYGSEM_IO_FLASH_VERIFY_PROGRAM)
+        CYGSEM_IO_FLASH_READ_INDIRECT => CYGHWR_IO_FLASH_DEVICE_LEGACY
+        CYGFUN_IO_FLASH_BLOCK_FROM_FIS => CYGSEM_HAL_VIRTUAL_VECTOR_SUPPORT
+        CYGPKG_IO_FLASH_BLOCK_DEVICE_LEGACY => CYGPKG_IO
+        CYGNUM_IO_FLASH_BLOCK_ABSOLUTE_LENGTH_1 => CYGNUM_IO_FLASH_BLOCK_ABSOLUTE_LENGTH_1
+        CYGNUM_IO_FLASH_BLOCK_ABSOLUTE_LENGTH_2 => CYGNUM_IO_FLASH_BLOCK_ABSOLUTE_LENGTH_2
+        CYGPKG_FS_RAM_RET_DIRENT_DTYPE => CYGPKG_FILEIO_DIRENT_DTYPE
+        CYGPKG_FS_ROM_RET_DIRENT_DTYPE => CYGPKG_FILEIO_DIRENT_DTYPE
+        CYGPKG_FS_JFFS2_RET_DIRENT_DTYPE => CYGPKG_FILEIO_DIRENT_DTYPE
+        CYGFUN_COMPRESS_ZLIB_GZIO => CYGINT_ISO_STDIO_FILEACCESS
+        CYGFUN_COMPRESS_ZLIB_GZIO => CYGINT_ISO_STDIO_FORMATTED_IO
+        CYGFUN_COMPRESS_ZLIB_GZIO => CYGINT_ISO_STRING_STRFUNCS
+        CYGFUN_COMPRESS_ZLIB_GZIO => CYGINT_ISO_STDIO_FILEPOS
+        CYGPKG_FS_FAT_RET_DIRENT_DTYPE => CYGPKG_FILEIO_DIRENT_DTYPE
+        (CYGINT_ISO_STDIO_POSIX_FDFUNCS => CYGFUN_LIBC_STDIO_OPEN_POSIX_FDFUNCS) & CYGFUN_LIBC_STDIO_OPEN_POSIX_FDFUNCS => CYGINT_ISO_STDIO_POSIX_FDFUNCS
+        (CYGINT_ISO_STRERROR => CYGPKG_ERROR_STRERROR) & CYGPKG_ERROR_STRERROR => CYGINT_ISO_STRERROR
+        (CYGINT_ISO_STRING_BSD_FUNCS => CYGFUN_LIBC_STRING_BSD_FUNCS) & CYGFUN_LIBC_STRING_BSD_FUNCS => CYGINT_ISO_STRING_BSD_FUNCS
+        (CYGINT_ISO_POSIX_TIMER_TYPES => CYGPKG_POSIX_TIMERS) & CYGPKG_POSIX_TIMERS => CYGINT_ISO_POSIX_TIMER_TYPES
+        (CYGINT_ISO_POSIX_CLOCK_TYPES => CYGPKG_POSIX_CLOCKS) & CYGPKG_POSIX_CLOCKS => CYGINT_ISO_POSIX_CLOCK_TYPES
+        (CYGINT_ISO_POSIX_TIMERS => CYGPKG_POSIX_TIMERS) & CYGPKG_POSIX_TIMERS => CYGINT_ISO_POSIX_TIMERS
+        (CYGINT_ISO_POSIX_CLOCKS => CYGPKG_POSIX_CLOCKS) & CYGPKG_POSIX_CLOCKS => CYGINT_ISO_POSIX_CLOCKS
+        (CYGINT_ISO_PTHREAD_IMPL => CYGPKG_POSIX_PTHREAD_REQUIREMENTS) & CYGPKG_POSIX_PTHREAD_REQUIREMENTS => CYGINT_ISO_PTHREAD_IMPL
+        (CYGINT_ISO_PTHREAD_MUTEX => CYGPKG_POSIX_PTHREAD_MUTEX) & CYGPKG_POSIX_PTHREAD_MUTEX => CYGINT_ISO_PTHREAD_MUTEX
+        (CYGINT_ISO_POSIX_TIMER_OPS => CYGPKG_POSIX_TIMERS) & CYGPKG_POSIX_TIMERS => CYGINT_ISO_POSIX_TIMER_OPS
+        (CYGINT_ISO_POSIX_SLEEP => CYGPKG_POSIX_CLOCKS) & CYGPKG_POSIX_CLOCKS => CYGINT_ISO_POSIX_SLEEP
+        (CYGINT_ISO_SELECT => CYGFUN_IO_FILEIO_SELECT) & CYGFUN_IO_FILEIO_SELECT => CYGINT_ISO_SELECT
+        (CYGINT_ISO_DNS => CYGPKG_NS_DNS_BUILD) & CYGPKG_NS_DNS_BUILD => CYGINT_ISO_DNS
+        (CYGINT_LIBC_I18N_MB_REQUIRED => CYGFUN_LIBC_I18N_LOCALE_C_SJIS | CYGFUN_LIBC_I18N_LOCALE_C_JIS) & (CYGFUN_LIBC_I18N_LOCALE_C_SJIS | CYGFUN_LIBC_I18N_LOCALE_C_JIS) => CYGINT_LIBC_I18N_MB_REQUIRED
+        (CYGINT_LIBC_STARTUP_MAIN_NO_STACK_SIZE => CYGSEM_LIBC_STARTUP_MAIN_INITCONTEXT) & CYGSEM_LIBC_STARTUP_MAIN_INITCONTEXT => CYGINT_LIBC_STARTUP_MAIN_NO_STACK_SIZE
+        (CYGHWR_IO_FLASH_DEVICE_NEEDS_CACHE_HANDLED => CYGHWR_IO_FLASH_DEVICE_LEGACY) & CYGHWR_IO_FLASH_DEVICE_LEGACY => CYGHWR_IO_FLASH_DEVICE_NEEDS_CACHE_HANDLED
+        !(CYGDBG_FS_FAT_NODE_CACHE_EXTRA_CHECKS) | CYGDBG_USE_ASSERTS
+        !(CYGPKG_IO_ETH_DRIVERS_NET) | CYGINT_IO_ETH_INT_SUPPORT_REQUIRED
+        !(CYGPKG_NET_BUILD_HW_TESTS) | CYGHWR_NET_DRIVER_ETH0_SETUP
+        !(CYGPRI_SER_TEST_SER_DEV) | CYGDAT_IO_SERIAL_MIPS_VRC437X_SERIAL0_NAME
+        !(CYGPKG_FS_ROM_TESTS) | CYGINT_ISO_STDIO_FORMATTED_IO
+        !(CYGPKG_FS_ROM_TESTS) | CYGINT_ISO_STRERROR
+        !(CYGPKG_FS_ROM_TESTS) | CYGBLD_FS_ROMFS_MK_ROMFS
+        !(CYGINT_DEVS_FLASH_AMD_AM29XXXXX_REQUIRED) | CYGPKG_HAL_MIPS_VR4300_VRC437X
+        !(CYGDAT_NS_DNS_DOMAINNAME_NAME) | CYGPKG_NS_DNS_BUILD
+        !(CYGDAT_NS_DNS_DEFAULT_SERVER) | CYGPKG_NS_DNS_BUILD
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGPKG_IO
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGINT_ISO_STRING_MEMFUNCS
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGINT_ISO_STDIO_FORMATTED_IO
+        !(CYGNUM_NET_DHCP_OPTION_HOST_NAME_LEN) | CYGOPT_NET_DHCP_DHCP_THREAD
+        !(CYGPKG_NET_TFTPD_CLIENT_BIG_PACKET_SIZE) | CYGINT_ISO_STDIO_FORMATTED_IO
+        !(CYGNUM_UITRON_CYCLICS) | CYGVAR_KERNEL_COUNTERS_CLOCK
+        !(CYGNUM_UITRON_ALARMS) | CYGVAR_KERNEL_COUNTERS_CLOCK
+        !(CYG_POSIX_UTSNAME_LENGTH) | CYGBLD_ISO_UTSNAME_HEADER
+        !(CYGNUM_POSIX_MAIN_DEFAULT_PRIORITY) | CYGINT_LIBC_STARTUP_EXTERNAL_INVOKE_MAIN_POSSIBLE
+        !(CYGNUM_POSIX_MAIN_DEFAULT_PRIORITY) | CYGSEM_LIBC_STARTUP_MAIN_OTHER
+        !(CYGPKG_LIBC_SETJMP_CFLAGS_ADD) | CYGBLD_ISO_SETJMP_HEADER
+        !(CYGSEM_HAL_DIAG_MANGLER) | CYGSEM_HAL_VIRTUAL_VECTOR_DIAG
+        !(CYGSEM_HAL_VIRTUAL_VECTOR_INHERIT_CONSOLE) | !(CYGSEM_HAL_DIAG_MANGLER)
+        !(CYGDBG_DEVS_ETH_INTEL_I21143_CHATTER) | CYGINT_DEVS_ETH_INTEL_I21143_REQUIRED
+        !(CYGDBG_DEVS_ETH_INTEL_I21143_CHATTER) | CYGNUM_DEVS_ETH_INTEL_I21143_DEV_COUNT
+        !(CYGNUM_DEVS_ETH_INTEL_I21143_DEV_COUNT) | CYGINT_DEVS_ETH_INTEL_I21143_REQUIRED
+        !(CYGPKG_BLOCK_LIB) | CYGNUM_LINUX_COMPAT_PAGE_SIZE_EXPONENT
+        !(CYGPKG_BLOCK_LIB) | CYGNUM_MEMALLOC_FALLBACK_MALLOC_POOL_SIZE
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGNUM_MEMALLOC_FALLBACK_MALLOC_POOL_SIZE
+        !(CYGDAT_DEVS_ETH_MIPS_VRC4375_ETH0_ESA) | CYGHWR_NET_DRIVER_ETH0
+        !(CYGDAT_DEVS_ETH_MIPS_VRC4375_ETH0_ESA) | CYGINT_DEVS_ETH_INTEL_I21143_REQUIRED
+        !(CYGNUM_KERNEL_THREADS_STACK_CHECK_DATA_SIZE) | CYGDBG_USE_ASSERTS
+        !(CYGNUM_UITRON_MEMPOOLFIXED) | CYGNUM_MEMALLOC_FALLBACK_MALLOC_POOL_SIZE
+        !(CYGNUM_UITRON_MEMPOOLVAR) | CYGNUM_MEMALLOC_FALLBACK_MALLOC_POOL_SIZE
+        !(CYGNUM_ERROR_ERRNO_TRACE_LEVEL) | CYGBLD_ISO_ERRNO_HEADER
+        !(CYGHWR_NET_DRIVER_ETH0_SETUP) | CYGHWR_NET_DRIVER_ETH0_BOOTP | CYGHWR_NET_DRIVER_ETH0_ADDRS_IP
+        !(CYGHWR_NET_DRIVER_ETH0_ADDRS_IP) | !(CYGHWR_NET_DRIVER_ETH0_BOOTP)
+        !(CYGPKG_NET_SNTP_TESTS) | CYGSEM_LIBC_TIME_TIME_WORKING
+        !(CYGPKG_NET_SNTP_TESTS) | CYGSEM_LIBC_TIME_SETTIME_WORKING
+        !(CYGPKG_NET_SNTP_UNICAST) | CYGSEM_LIBC_TIME_TIME_WORKING
+        !(CYGPKG_NET_SNTP_UNICAST) | CYGSEM_LIBC_TIME_SETTIME_WORKING
+        !(CYGPKG_NET_SNTP_UNICAST) | CYGPKG_NET_SNTP_TESTS
+        !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT) | CYGINT_ISO_STRING_MEMFUNCS
+        !(CYGNUM_LIBM_COMPAT_DEFAULT) | CYGPKG_LIBC
+        !(CYGPKG_IO_DISK_DEVICES) | CYGPKG_IO
+        !(CYGPKG_IO_DISK_CFLAGS_ADD) | CYGPKG_IO
+        !(CYGNUM_KERNEL_INTERRUPTS_DSRS_TABLE_SIZE) | !(CYGIMP_KERNEL_INTERRUPTS_DSRS_LIST) | !(CYGINT_KERNEL_INTERRUPTS_DSRS)
+        !(CYGINT_KERNEL_INTERRUPTS_DSRS) | CYGIMP_KERNEL_INTERRUPTS_DSRS_LIST | CYGNUM_KERNEL_INTERRUPTS_DSRS_TABLE_SIZE
+        !(CYGIMP_KERNEL_INTERRUPTS_CHAIN) | CYGINT_KERNEL_INTERRUPTS_DSRS
+        !(CYGVAR_KERNEL_COUNTERS_CLOCK) | CYGINT_KERNEL_INTERRUPTS_DSRS
+        !(CYGDAT_IO_FLASH_BLOCK_DEVICE_NAME_1) | CYGNUM_IO_FLASH_BLOCK_ABSOLUTE_START_1 | CYGNUM_IO_FLASH_BLOCK_OFFSET_1
+        !(CYGNUM_IO_FLASH_BLOCK_OFFSET_1) | !(CYGNUM_IO_FLASH_BLOCK_ABSOLUTE_START_1)
+        !(CYGNUM_IO_FLASH_BLOCK_OFFSET_1) | !(CYGNUM_IO_FLASH_BLOCK_ABSOLUTE_LENGTH_1)
+        !(CYGPKG_POSIX_TIMERS) | CYGPKG_HAL_EXCEPTIONS
+        !(CYGPKG_POSIX_TIMERS) | CYGBLD_ISO_SIGSETJMP_HEADER
+        !(CYGPKG_POSIX_TIMERS) | CYGBLD_ISO_SIGNAL_NUMBERS_HEADER
+        !(CYGPKG_POSIX_TIMERS) | CYGBLD_ISO_SIGNAL_IMPL_HEADER
+        !(CYGFUN_POSIX_MQUEUE_NOTIFY) | CYGPKG_HAL_EXCEPTIONS
+        !(CYGFUN_POSIX_MQUEUE_NOTIFY) | CYGPKG_POSIX_TIMERS
+        !(CYGPKG_NET_INET6) | CYGPKG_IO
+        !(CYGPKG_NET_INET6) | CYGNUM_IO_ETH_DRIVERS_SG_LIST_SIZE
+        !(CYGDAT_IO_SERIAL_FLOW_CONTROL_DEFAULT) | CYGOPT_IO_SERIAL_FLOW_CONTROL_HW | CYGDAT_IO_SERIAL_FLOW_CONTROL_XON_CHAR
+        !(CYGDBG_INFRA_DEBUG_TRACE_ASSERT_NULL) | CYGINT_INFRA_DEBUG_TRACE_IMPL
+        !(CYGDBG_INFRA_DEBUG_TRACE_ASSERT_SIMPLE) | CYGINT_INFRA_DEBUG_TRACE_IMPL
+        !(CYGDBG_INFRA_DEBUG_TRACE_ASSERT_FANCY) | CYGINT_INFRA_DEBUG_TRACE_IMPL
+        !(CYGDBG_INFRA_DEBUG_TRACE_ASSERT_BUFFER) | CYGINT_INFRA_DEBUG_TRACE_IMPL
+        !(CYGDBG_INFRA_DEBUG_FUNCTION_PSEUDOMACRO) | CYGINT_INFRA_DEBUG_TRACE_IMPL
+        !(CYGNUM_INFRA_EMPTY_DELETE_THRESHOLD) | CYGINT_INFRA_DEBUG_TRACE_IMPL
+        !(CYGPKG_NET_TFTPD_CLIENT_BIG_PACKET_SIZE) | CYGPKG_NET_INET
+        !(CYGPKG_NET_TFTPD_THREAD_PRIORITY) | CYGPKG_NET_INET
+        !(CYGFUN_IO_FLASH_BLOCK_FROM_FIS) | CYGPKG_IO
+        !(CYGFUN_IO_FLASH_BLOCK_FROM_DEVOFFSET) | CYGPKG_IO
+        !(CYGNUM_IO_FLASH_BLOCK_DEVICES) | CYGPKG_IO
+        !(CYGDAT_IO_FLASH_BLOCK_DEVICE_NAME_2) | CYGNUM_IO_FLASH_BLOCK_ABSOLUTE_START_2 | CYGNUM_IO_FLASH_BLOCK_OFFSET_2
+        !(CYGNUM_IO_FLASH_BLOCK_OFFSET_2) | !(CYGNUM_IO_FLASH_BLOCK_ABSOLUTE_LENGTH_2)
+        !(CYGNUM_IO_FLASH_BLOCK_OFFSET_2) | !(CYGNUM_IO_FLASH_BLOCK_ABSOLUTE_START_2)
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGNUM_LIBM_X_TLOSS
+        !(CYGSEM_LIBC_STDIO_SCANF_FLOATING_POINT) | CYGNUM_LIBM_X_TLOSS
+        !(CYGFUN_LIBC_strtod) | CYGNUM_LIBM_X_TLOSS
+        !(CYGINT_WATCHDOG_HW_IMPLEMENTATIONS) | CYGPKG_WATCHDOG_EMULATE | CYGIMP_WATCHDOG_NONE
+        !(CYGIMP_WATCHDOG_NONE) | !(CYGPKG_WATCHDOG_EMULATE) | !(CYGINT_WATCHDOG_HW_IMPLEMENTATIONS)
+        !(CYGSEM_WATCHDOG_RESETS_ON_TIMEOUT) | CYGPKG_WATCHDOG_EMULATE | CYGIMP_WATCHDOG_NONE
+        !(CYGPKG_IO_WATCHDOG_BUILD_INTERACTIVE_TEST) | CYGPKG_WATCHDOG_EMULATE | CYGIMP_WATCHDOG_NONE
+        !(CYGFUN_COMPRESS_ZLIB_GZIO) | CYGPKG_CRC_TESTS
+        !(CYGSEM_COMPRESS_ZLIB_DEFLATE_MAKES_GZIP) | CYGPKG_CRC_TESTS
+        !(CYGOPT_FS_JFFS2_COMPRESS_ZLIB) | CYGPKG_CRC_TESTS
+        !(CYGOPT_FS_JFFS2_COMPRESS_ZLIB) | CYGPKG_COMPRESS_ZLIB_TESTS
+        !(CYGPKG_COMPRESS_ZLIB_TESTS) | CYGPKG_CRC_TESTS
+        !(CYGPKG_NET_FREEBSD_IPSEC) | CYGPKG_CRC_TESTS
+        !(CYGPKG_NET_FREEBSD_IPSEC) | CYGPKG_COMPRESS_ZLIB_TESTS
+        !(CYGPKG_IO_SERIAL_MIPS_VRC437X_CFLAGS_ADD) | CYGPKG_HAL_MIPS_VR4300_VRC437X
+        !(CYGSEM_KERNEL_SCHED_ASR_SUPPORT) | CYGINT_KERNEL_SCHEDULER
+        !(CYGIMP_UITRON_STRICT_CONFORMANCE) | !(CYGNUM_KERNEL_SCHED_TIMESLICE_TICKS)
+        !(CYGNUM_KERNEL_SCHED_TIMESLICE_TICKS) | !(CYGSEM_KERNEL_SCHED_BITMAP)
+        !(CYGNUM_KERNEL_SCHED_TIMESLICE_TICKS) | CYGVAR_KERNEL_COUNTERS_CLOCK
+        !(CYGIMP_UITRON_STRICT_CONFORMANCE) | !(POSIX_THREADS)
+        !(POSIX_THREADS) | CYGNUM_KERNEL_SCHED_TIMESLICE_TICKS
+        !(CYGPKG_ERROR_STRERROR) | CYGBLD_ISO_ERRNO_CODES_HEADER
+        !(CYGNUM_ERROR_ERRNO_TRACE_LEVEL) | CYGBLD_ISO_ERRNO_CODES_HEADER
+        !(CYGPKG_IO) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGPKG_IO) | CYGBLD_ISO_ERRNO_CODES_HEADER
+        !(CYGPKG_BLOCK_LIB) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGPKG_BLOCK_LIB) | CYGBLD_ISO_ERRNO_CODES_HEADER
+        !(CYGPKG_ERROR_CFLAGS_ADD) | CYGBLD_ISO_ERRNO_CODES_HEADER
+        !(CYGDAT_IO_SERIAL_TTY_CONSOLE) | CYGINT_IO_SERIAL_BLOCK_TRANSFER
+        !(CYGOPT_IO_SERIAL_SUPPORT_NONBLOCKING) | CYGINT_IO_SERIAL_BLOCK_TRANSFER
+        !(CYGOPT_IO_SERIAL_SUPPORT_LINE_STATUS) | CYGINT_IO_SERIAL_BLOCK_TRANSFER
+        !(CYGPKG_IO_SERIAL_DEVICES) | CYGINT_IO_SERIAL_BLOCK_TRANSFER
+        !(CYGBLD_IO_SERIAL_EXTRA_TESTS) | CYGINT_IO_SERIAL_BLOCK_TRANSFER
+        !(CYGPKG_IO_SERIAL_SELECT_SUPPORT) | CYGINT_IO_SERIAL_BLOCK_TRANSFER
+        !(CYGDAT_IO_SERIAL_FLOW_CONTROL_DEFAULT) | CYGINT_IO_SERIAL_BLOCK_TRANSFER
+        !(CYGINT_IO_SERIAL_TEST_SKIP_9600) | CYGINT_IO_SERIAL_BLOCK_TRANSFER
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGINT_ISO_STDIO_FORMATTED_IO
+        !(CYGSEM_WALLCLOCK_SET_GET_MODE) | CYGIMP_WALLCLOCK_NONE | CYGPKG_WALLCLOCK_EMULATE
+        !(CYGSEM_LIBC_TIME_SETTIME_WORKING) | CYGIMP_WALLCLOCK_NONE | CYGPKG_WALLCLOCK_EMULATE
+        !(CYGSEM_LIBC_TIME_TIME_WORKING) | CYGIMP_WALLCLOCK_NONE | CYGPKG_WALLCLOCK_EMULATE
+        !(CYGNUM_FS_FAT_NODE_POOL_SIZE) | CYGPKG_BLOCK_LIB
+        !(CYGCFG_FS_FAT_USE_ATTRIBUTES) | CYGPKG_BLOCK_LIB
+        !(CYGDAT_DEVS_DISK_TEST_DEVICE) | CYGPKG_BLOCK_LIB
+        !(CYGPKG_FS_FAT_RET_DIRENT_DTYPE) | CYGPKG_BLOCK_LIB
+        !(CYGNUM_FS_FAT_NODE_HASH_TABLE_SIZE) | CYGPKG_BLOCK_LIB
+        !(CYG_HAL_STARTUP) | !(CYGPRI_HAL_VIRTUAL_VECTOR_CONSOLE_CHANNEL_CONFIGURABLE) | CYGNUM_HAL_VIRTUAL_VECTOR_CONSOLE_CHANNEL
+        !(CYGINT_DEVS_ETH_INTEL_I21143_REQUIRED) | !(CYGPRI_HAL_VIRTUAL_VECTOR_CONSOLE_CHANNEL_CONFIGURABLE) | CYGNUM_HAL_VIRTUAL_VECTOR_CONSOLE_CHANNEL
+        !(CYG_HAL_STARTUP) | CYGPKG_HAL_MIPS_VR4300_VRC437X
+        !(CYGINT_DEVS_ETH_INTEL_I21143_REQUIRED) | CYG_HAL_STARTUP
+        !(CYGFUN_POSIX_MQUEUE_NOTIFY) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGFUN_POSIX_MQUEUE_NOTIFY) | CYGPKG_POSIX_CLOCKS
+        !(CYGFUN_POSIX_MQUEUE_NOTIFY) | CYGINT_ISO_PTHREAD_MUTEX
+        !(CYGIMP_POSIX_MQUEUE_VALIDATE_DESCRIPTOR) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGIMP_POSIX_MQUEUE_VALIDATE_DESCRIPTOR) | CYGPKG_POSIX_CLOCKS
+        !(CYGIMP_POSIX_MQUEUE_VALIDATE_DESCRIPTOR) | CYGINT_ISO_PTHREAD_MUTEX
+        !(CYGNUM_POSIX_MQUEUE_OPEN_MAX) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGNUM_POSIX_MQUEUE_OPEN_MAX) | CYGPKG_POSIX_CLOCKS
+        !(CYGNUM_POSIX_MQUEUE_OPEN_MAX) | CYGINT_ISO_PTHREAD_MUTEX
+        !(CYGPKG_FS_RAM_TESTS) | CYGNUM_RAMFS_REALLOC_INCREMENT | CYGNUM_RAMFS_BLOCK_SIZE
+        !(CYGNUM_RAMFS_BLOCK_SIZE) | !(CYGNUM_RAMFS_REALLOC_INCREMENT) | !(CYGPKG_FS_RAM_TESTS)
+        !(CYGPKG_FS_RAM_TESTS) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGINT_IO_SERIAL_TERMIOS_TERMIOS_TTY) | CYGINT_IO_SERIAL_BLOCK_TRANSFER
+        !(CYGDAT_IO_SERIAL_TERMIOS_TERMIOS0_DEV) | CYGINT_IO_SERIAL_TERMIOS_TERMIOS_TTY
+        !(CYGDAT_IO_SERIAL_TERMIOS_TERMIOS1_DEV) | CYGINT_IO_SERIAL_TERMIOS_TERMIOS_TTY
+        !(CYGDAT_IO_SERIAL_TERMIOS_TERMIOS2_DEV) | CYGINT_IO_SERIAL_TERMIOS_TERMIOS_TTY
+        !(CYGSEM_IO_SERIAL_TERMIOS_USE_SIGNALS) | CYGINT_IO_SERIAL_TERMIOS_TERMIOS_TTY
+        !(CYGDAT_IO_SERIAL_TERMIOS_TERMIOS3_DEV) | CYGINT_IO_SERIAL_TERMIOS_TERMIOS_TTY
+        !(CYGVAR_KERNEL_COUNTERS_CLOCK) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE) | !(CYGIMP_KERNEL_COUNTERS_SINGLE_LIST) | !(CYGVAR_KERNEL_COUNTERS_CLOCK)
+        !(CYGIMP_KERNEL_COUNTERS_SORT_LIST) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE) | !(CYGIMP_KERNEL_COUNTERS_SINGLE_LIST) | !(CYGIMP_KERNEL_COUNTERS_SORT_LIST)
+        !(CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE) | !(CYGIMP_KERNEL_COUNTERS_SINGLE_LIST)
+        !(CYGSEM_HAL_STOP_CONSTRUCTORS_ON_FLAG) | CYGNUM_LIBC_MAIN_THREAD_PRIORITY | CYGPKG_POSIX_PTHREAD
+        !(CYGSEM_HAL_STOP_CONSTRUCTORS_ON_FLAG) | CYGSEM_LIBC_STARTUP_MAIN_OTHER | CYGNUM_LIBC_MAIN_THREAD_PRIORITY
+        !(CYGHWR_NET_DRIVER_ETH0_SETUP) | CYGINT_DEVS_ETH_INTEL_I21143_REQUIRED | CYGHWR_NET_DRIVER_ETH0_BOOTP
+        !(CYGHWR_NET_DRIVER_ETH0_SETUP) | CYGHWR_NET_DRIVER_ETH0 | CYGHWR_NET_DRIVER_ETH0_BOOTP
+        !(CYGHWR_NET_DRIVER_ETH0_IPV6_PREFIX) | CYGHWR_NET_DRIVER_ETH0_SETUP
+        !(CYGHWR_NET_DRIVER_ETH0_IPV6_PREFIX) | CYGINT_DEVS_ETH_INTEL_I21143_REQUIRED
+        !(CYGHWR_NET_DRIVER_ETH0_IPV6_PREFIX) | CYGHWR_NET_DRIVER_ETH0
+        !(CYGHWR_NET_DRIVER_ETH0_BOOTP) | CYGINT_DEVS_ETH_INTEL_I21143_REQUIRED
+        !(CYGHWR_NET_DRIVER_ETH0_BOOTP) | CYGHWR_NET_DRIVER_ETH0
+        !(CYGPKG_HTTPD_MONITOR) | CYGINT_ISO_STDIO_FORMATTED_IO
+        !(CYGPKG_HTTPD_MONITOR) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_HTTPD_MONITOR) | CYGPKG_IO
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | CYGINT_ISO_STDIO_FORMATTED_IO
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | CYGPKG_IO
+        !(CYGNUM_HTTPD_THREAD_PRIORITY) | CYGINT_ISO_STDIO_FORMATTED_IO
+        !(CYGNUM_HTTPD_THREAD_PRIORITY) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGNUM_HTTPD_THREAD_PRIORITY) | CYGPKG_IO
+        !(CYGNUM_HTTPD_SERVER_PORT) | CYGINT_ISO_STDIO_FORMATTED_IO
+        !(CYGNUM_HTTPD_SERVER_PORT) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGNUM_HTTPD_SERVER_PORT) | CYGPKG_IO
+        !(CYGSEM_LIBM_THREAD_SAFE_COMPAT_MODE) | CYGNUM_KERNEL_THREADS_DATA_MAX
+        !(CYGSEM_LIBM_THREAD_SAFE_COMPAT_MODE) | CYGFUN_KERNEL_THREADS_STACK_LIMIT
+        !(CYGSEM_LIBC_I18N_PER_THREAD_MB) | CYGNUM_KERNEL_THREADS_DATA_MAX
+        !(CYGSEM_LIBC_I18N_PER_THREAD_MB) | CYGFUN_KERNEL_THREADS_STACK_LIMIT
+        !(CYGSEM_LIBM_THREAD_SAFE_GAMMA_FUNCTIONS) | CYGNUM_KERNEL_THREADS_DATA_MAX
+        !(CYGSEM_LIBM_THREAD_SAFE_GAMMA_FUNCTIONS) | CYGFUN_KERNEL_THREADS_STACK_LIMIT
+        !(CYGSEM_LIBC_PER_THREAD_RAND) | CYGNUM_KERNEL_THREADS_DATA_MAX
+        !(CYGSEM_LIBC_PER_THREAD_RAND) | CYGFUN_KERNEL_THREADS_STACK_LIMIT
+        !(CYGNUM_KERNEL_THREADS_DATA_MAX) | CYGFUN_KERNEL_THREADS_STACK_LIMIT
+        !(CYGSEM_ERROR_PER_THREAD_ERRNO) | CYGNUM_KERNEL_THREADS_DATA_MAX
+        !(POSIX_THREADS) | CYGNUM_KERNEL_THREADS_DATA_MAX
+        !(CYGSEM_LIBC_STRING_PER_THREAD_STRTOK) | CYGNUM_KERNEL_THREADS_DATA_MAX
+        !(CYGFUN_LIBC_STDLIB_CONV_LONGLONG) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGFUN_LIBC_strtod) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGIMP_LIBC_STDLIB_INLINE_DIV) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGIMP_LIBC_STDLIB_INLINE_ABS) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGIMP_LIBC_RAND_SIMPLEST_alt) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGNUM_LIBC_BSEARCH_TRACE_LEVEL) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_SNMPLIB_FILESYSTEM_SUPPORT) | CYGINT_ISO_STRING_MEMFUNCS
+        !(CYGPKG_SNMPLIB_FILESYSTEM_SUPPORT) | CYGINT_ISO_STDIO_FORMATTED_IO
+        !(CYGPKG_SNMPLIB_FILESYSTEM_SUPPORT) | CYGPKG_POSIX_TIMERS
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGINT_ISO_STRING_MEMFUNCS
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGPKG_POSIX_TIMERS
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGPKG_SNMPLIB_CFLAGS_ADD
+        !(CYGDBG_NET_SNMPLIB_DEBUG) | CYGINT_ISO_STRING_MEMFUNCS
+        !(CYGDBG_NET_SNMPLIB_DEBUG) | CYGINT_ISO_STDIO_FORMATTED_IO
+        !(CYGDBG_NET_SNMPLIB_DEBUG) | CYGPKG_POSIX_TIMERS
+        !(CYGPKG_SNMPLIB_CFLAGS_ADD) | CYGINT_ISO_STRING_MEMFUNCS
+        !(CYGPKG_SNMPLIB_CFLAGS_ADD) | CYGINT_ISO_STDIO_FORMATTED_IO
+        !(CYGPKG_SNMPLIB_CFLAGS_ADD) | CYGPKG_POSIX_TIMERS
+        !(CYGSYM_LIBM_NO_XOPEN_SVID_NAMESPACE_POLLUTION) | CYGPKG_LIBC | CYGSEM_LIBM_COMPAT_IEEE_ONLY
+        !(CYGSYM_LIBM_NO_XOPEN_SVID_NAMESPACE_POLLUTION) | CYGSEM_LIBM_COMPAT_IEEE_ONLY | CYGNUM_LIBM_COMPAT_DEFAULT
+        !(CYGNUM_LIBM_COMPAT_DEFAULT) | !(CYGSEM_LIBM_COMPAT_IEEE_ONLY) | !(CYGSYM_LIBM_NO_XOPEN_SVID_NAMESPACE_POLLUTION)
+        !(CYGFUN_LIBM_SVID3_scalb) | CYGPKG_LIBC | CYGSEM_LIBM_COMPAT_IEEE_ONLY
+        !(CYGFUN_LIBM_SVID3_scalb) | CYGSEM_LIBM_COMPAT_IEEE_ONLY | CYGNUM_LIBM_COMPAT_DEFAULT
+        !(CYGNUM_LIBM_COMPAT_DEFAULT) | !(CYGSEM_LIBM_COMPAT_IEEE_ONLY) | !(CYGFUN_LIBM_SVID3_scalb)
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGSEM_LIBM_COMPAT_IEEE_ONLY | CYGNUM_LIBM_COMPAT_DEFAULT
+        !(CYGNUM_LIBM_COMPAT_DEFAULT) | !(CYGSEM_LIBM_COMPAT_IEEE_ONLY) | !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT)
+        !(CYGNUM_LIBM_X_TLOSS) | CYGPKG_LIBC | CYGSEM_LIBM_COMPAT_IEEE_ONLY
+        !(CYGNUM_LIBM_X_TLOSS) | CYGSEM_LIBM_COMPAT_IEEE_ONLY | CYGNUM_LIBM_COMPAT_DEFAULT
+        !(CYGNUM_LIBM_COMPAT_DEFAULT) | !(CYGSEM_LIBM_COMPAT_IEEE_ONLY) | !(CYGNUM_LIBM_X_TLOSS)
+        !(CYGNUM_UITRON_MBOXES_INITIALLY) | CYGINT_UITRON_CONFORMANCE
+        !(CYGNUM_UITRON_SEMAS) | CYGINT_UITRON_CONFORMANCE
+        !(CYGNUM_UITRON_MEMPOOLFIXED) | CYGINT_UITRON_CONFORMANCE
+        !(CYGSEM_START_UITRON_COMPATIBILITY) | CYGINT_UITRON_CONFORMANCE
+        !(CYGNUM_UITRON_FLAGS) | CYGINT_UITRON_CONFORMANCE
+        !(CYGNUM_UITRON_CYCLICS) | CYGINT_UITRON_CONFORMANCE
+        !(CYGSEM_UITRON_TIME_IS_MILLISECONDS) | CYGINT_UITRON_CONFORMANCE
+        !(CYGNUM_UITRON_MBOXES) | CYGINT_UITRON_CONFORMANCE
+        !(CYGSEM_UITRON_PARAMS_NULL_IS_GOOD_PTR) | CYGINT_UITRON_CONFORMANCE
+        !(CYGSEM_UITRON_BAD_PARAMS_RETURN_ERRORS) | CYGINT_UITRON_CONFORMANCE
+        !(CYGIMP_UITRON_CPP_OUTLINE_FUNCS) | CYGINT_UITRON_CONFORMANCE
+        !(CYGIMP_UITRON_INLINE_FUNCS) | CYGINT_UITRON_CONFORMANCE
+        !(CYGNUM_UITRON_MEMPOOLVAR) | CYGINT_UITRON_CONFORMANCE
+        !(CYGNUM_UITRON_ALARMS) | CYGINT_UITRON_CONFORMANCE
+        !(CYGBLD_ISO_BSEARCH_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_STDLIB_ENVIRON_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGPKG_LIBC_STDIO_OPEN) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_STDLIB_STRCONV_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_STDLIB_ABS_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGFUN_LIBC_STRING_STRDUP) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_MALLINFO_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_STDLIB_SYSTEM_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGPKG_NS_DNS_BUILD) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_MALLOC_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_QSORT_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_EXIT_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_STDLIB_DIV_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_STDLIB_MULTIBYTE_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_STDLIB_MB_CUR_MAX_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_RAND_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGSEM_LIBC_STDIO_SCANF_FLOATING_POINT) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_STDLIB_STRCONV_FLOAT_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGDBG_HAL_COMMON_CONTEXT_SAVE_MINIMUM) | CYGPKG_INFRA_CFLAGS_ADD
+        !(CYGINT_HAL_PLF_IF_INIT) | CYGPKG_INFRA_CFLAGS_ADD
+        !(CYGPKG_HAL_BUILD_COMPILER_TESTS) | CYGPKG_INFRA_CFLAGS_ADD
+        !(CYGPKG_HAL_BUILD_COMPILER_TESTS) | CYGINT_HAL_PLF_IF_INIT
+        !(CYGHWR_HAL_MIPS_CPU_FREQ) | CYGPKG_INFRA_CFLAGS_ADD
+        !(CYGHWR_HAL_MIPS_CPU_FREQ) | CYGINT_HAL_PLF_IF_INIT
+        !(CYGOPT_NET_DHCP_DHCP_THREAD) | CYGNUM_IO_ETH_DRIVERS_SG_LIST_SIZE
+        !(CYGOPT_NET_DHCP_DHCP_THREAD) | CYGPKG_NET_INET
+        !(CYGNUM_NET_SNTP_UNICAST_MAXDHCP) | CYGNUM_IO_ETH_DRIVERS_SG_LIST_SIZE
+        !(CYGNUM_NET_SNTP_UNICAST_MAXDHCP) | CYGPKG_NET_INET
+        !(CYGNUM_NET_SNTP_UNICAST_MAXDHCP) | CYGPKG_NET_DHCP_THREAD_STACK_SIZE
+        !(CYGPKG_NET_DHCP_THREAD_STACK_SIZE) | CYGNUM_IO_ETH_DRIVERS_SG_LIST_SIZE
+        !(CYGPKG_NET_DHCP_THREAD_STACK_SIZE) | CYGPKG_NET_INET
+        !(CYGHWR_NET_DRIVER_ETH0_DHCP) | CYGPKG_NET_INET
+        !(CYGHWR_NET_DRIVER_ETH0_DHCP) | CYGPKG_NET_DHCP_THREAD_STACK_SIZE
+        !(CYGHWR_IO_FLASH_INDIRECT_READS) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGHWR_IO_FLASH_INDIRECT_READS) | CYGHWR_IO_FLASH_DEVICE
+        !(CYGNUM_IO_FLASH_BLOCK_DEVICES) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGNUM_IO_FLASH_BLOCK_DEVICES) | CYGHWR_IO_FLASH_DEVICE
+        !(CYGHWR_IO_FLASH_DEVICE) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGHWR_IO_FLASH_DEVICE_NEEDS_CACHE_HANDLED) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGHWR_IO_FLASH_DEVICE_NEEDS_CACHE_HANDLED) | CYGHWR_IO_FLASH_DEVICE
+        !(CYGPKG_IO_FLASH_BLOCK_DEVICE_LEGACY) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_IO_FLASH_BLOCK_DEVICE_LEGACY) | CYGHWR_IO_FLASH_DEVICE
+        !(CYGINT_DEVS_FLASH_AMD_AM29XXXXX_REQUIRED) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGINT_DEVS_FLASH_AMD_AM29XXXXX_REQUIRED) | CYGHWR_IO_FLASH_DEVICE
+        !(CYGSEM_IO_FLASH_CHATTER) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGSEM_IO_FLASH_CHATTER) | CYGHWR_IO_FLASH_DEVICE
+        !(CYGSEM_IO_FLASH_VERIFY_PROGRAM) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGSEM_IO_FLASH_VERIFY_PROGRAM) | CYGHWR_IO_FLASH_DEVICE
+        !(CYGHWR_IO_FLASH_BLOCK_LOCKING) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGHWR_IO_FLASH_BLOCK_LOCKING) | CYGHWR_IO_FLASH_DEVICE
+        !(CYGSEM_IO_FLASH_LEGACY_API) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGSEM_IO_FLASH_LEGACY_API) | CYGHWR_IO_FLASH_DEVICE
+        !(CYGSEM_IO_FLASH_SOFT_WRITE_PROTECT) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGSEM_IO_FLASH_SOFT_WRITE_PROTECT) | CYGHWR_IO_FLASH_DEVICE
+        !(CYGOPT_FS_JFFS2_DEBUG) | CYGNUM_LINUX_COMPAT_PAGE_SIZE_EXPONENT
+        !(CYGOPT_FS_JFFS2_DEBUG) | CYGNUM_IO_FILEIO_MAX_INODE_CACHE_DEAD
+        !(CYGOPT_FS_JFFS2_DEBUG) | CYGPKG_CRC_TESTS
+        !(CYGOPT_FS_JFFS2_DEBUG) | CYGNUM_IO_FLASH_BLOCK_DEVICES
+        !(CYGINT_DEVS_FLASH_AMD_AM29XXXXX_REQUIRED) | CYGHWR_IO_FLASH_DEVICE_LEGACY
+        !(CYGNUM_LIBC_STRING_STRTOK_TRACE_LEVEL) | CYGINT_ISO_STRTOK_R
+        !(CYGNUM_LIBC_STRING_STRTOK_TRACE_LEVEL) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGNUM_LIBC_STRING_STRTOK_TRACE_LEVEL) | CYGINT_ISO_STRING_MEMFUNCS
+        !(CYGNUM_LIBC_STRING_STRTOK_TRACE_LEVEL) | CYGINT_ISO_STRING_LOCALE_FUNCS
+        !(CYGNUM_LIBC_STRING_STRTOK_TRACE_LEVEL) | CYGBLD_ISO_STRTOK_R_HEADER
+        !(CYGNUM_LIBC_STRING_STRTOK_TRACE_LEVEL) | CYGBLD_ISO_STRING_STRFUNCS_HEADER
+        !(CYGNUM_LIBC_STRING_STRTOK_TRACE_LEVEL) | CYGBLD_ISO_STRING_MEMFUNCS_HEADER
+        !(CYGNUM_LIBC_STRING_STRTOK_TRACE_LEVEL) | CYGBLD_ISO_STRING_LOCALE_FUNCS_HEADER
+        !(CYGPKG_POSIX_TESTS) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGPKG_POSIX_TESTS) | CYGBLD_ISO_POSIX_LIMITS_HEADER
+        !(CYGPKG_POSIX_TESTS) | CYGIMP_KERNEL_SCHED_SORTED_QUEUES
+        !(CYGPKG_POSIX_TESTS) | CYGBLD_ISO_PMUTEXTYPES_HEADER
+        !(CYGPKG_POSIX_TESTS) | CYGBLD_ISO_PTHREAD_MUTEX_HEADER
+        !(CYGPKG_POSIX_PTHREAD) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGPKG_POSIX_PTHREAD) | CYGBLD_ISO_POSIX_LIMITS_HEADER
+        !(CYGPKG_POSIX_PTHREAD) | CYGIMP_KERNEL_SCHED_SORTED_QUEUES
+        !(CYGPKG_POSIX_PTHREAD) | CYGBLD_ISO_PMUTEXTYPES_HEADER
+        !(CYGPKG_POSIX_PTHREAD) | CYGPKG_POSIX_TESTS
+        !(CYGPKG_POSIX_PTHREAD_MUTEX) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGPKG_POSIX_PTHREAD_MUTEX) | CYGBLD_ISO_POSIX_LIMITS_HEADER
+        !(CYGPKG_POSIX_PTHREAD_MUTEX) | CYGIMP_KERNEL_SCHED_SORTED_QUEUES
+        !(CYGPKG_POSIX_PTHREAD_MUTEX) | CYGBLD_ISO_PMUTEXTYPES_HEADER
+        !(CYGPKG_POSIX_PTHREAD_MUTEX) | CYGPKG_POSIX_TESTS
+        !(CYGPKG_POSIX_CLOCKS) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGPKG_POSIX_CLOCKS) | CYGBLD_ISO_POSIX_LIMITS_HEADER
+        !(CYGPKG_POSIX_CLOCKS) | CYGIMP_KERNEL_SCHED_SORTED_QUEUES
+        !(CYGPKG_POSIX_CLOCKS) | CYGBLD_ISO_PMUTEXTYPES_HEADER
+        !(CYGPKG_POSIX_CLOCKS) | CYGPKG_POSIX_TESTS
+        !(CYG_POSIX_UTSNAME_LENGTH) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYG_POSIX_UTSNAME_LENGTH) | CYGBLD_ISO_POSIX_LIMITS_HEADER
+        !(CYG_POSIX_UTSNAME_LENGTH) | CYGIMP_KERNEL_SCHED_SORTED_QUEUES
+        !(CYG_POSIX_UTSNAME_LENGTH) | CYGBLD_ISO_PMUTEXTYPES_HEADER
+        !(CYG_POSIX_UTSNAME_LENGTH) | CYGPKG_POSIX_TESTS
+        !(CYGPKG_POSIX_SEMAPHORES) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGPKG_POSIX_SEMAPHORES) | CYGBLD_ISO_POSIX_LIMITS_HEADER
+        !(CYGPKG_POSIX_SEMAPHORES) | CYGIMP_KERNEL_SCHED_SORTED_QUEUES
+        !(CYGPKG_POSIX_SEMAPHORES) | CYGBLD_ISO_PMUTEXTYPES_HEADER
+        !(CYGPKG_POSIX_SEMAPHORES) | CYGPKG_POSIX_TESTS
+        !(CYGINT_NET_IPV6_ROUTING_THREAD_PERIOD) | CYGBLD_ISO_POSIX_LIMITS_HEADER
+        !(CYGINT_NET_IPV6_ROUTING_THREAD_PERIOD) | CYGIMP_KERNEL_SCHED_SORTED_QUEUES
+        !(CYGINT_NET_IPV6_ROUTING_THREAD_PERIOD) | CYGBLD_ISO_PMUTEXTYPES_HEADER
+        !(CYGINT_NET_IPV6_ROUTING_THREAD_PERIOD) | CYGPKG_POSIX_TESTS
+        !(CYGPKG_NET_MEM_USAGE) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_NET_MEM_USAGE) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_NET_MEM_USAGE) | CYGPKG_IO
+        !(CYGPKG_NET_MAXSOCKETS) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_NET_MAXSOCKETS) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_NET_MAXSOCKETS) | CYGPKG_IO
+        !(CYGPKG_NET_FREEBSD_INET) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_NET_FREEBSD_INET) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_NET_FREEBSD_INET) | CYGPKG_IO
+        !(CYGPKG_NET_CLUSTERS_SIZE) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_NET_CLUSTERS_SIZE) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_NET_CLUSTERS_SIZE) | CYGPKG_IO
+        !(CYGPKG_NET_MBUFS_SIZE) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_NET_MBUFS_SIZE) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_NET_MBUFS_SIZE) | CYGPKG_IO
+        !(CYGPKG_NET_MEMPOOL_SIZE) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_NET_MEMPOOL_SIZE) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_NET_MEMPOOL_SIZE) | CYGPKG_IO
+        !(CYGOPT_NET_FREEBSD_STACK_ACCEPT_UNICAST) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGOPT_NET_FREEBSD_STACK_ACCEPT_UNICAST) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGOPT_NET_FREEBSD_STACK_ACCEPT_UNICAST) | CYGPKG_IO
+        !(CYGPKG_NET_FREEBSD_LOGGING) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_NET_FREEBSD_LOGGING) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_NET_FREEBSD_LOGGING) | CYGPKG_IO
+        !(CYGPKG_NET_FORCE_SERIAL_CONSOLE) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_NET_FORCE_SERIAL_CONSOLE) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_NET_FORCE_SERIAL_CONSOLE) | CYGPKG_IO
+        !(CYGNUM_NET_FAST_THREAD_TICKLE_DEVS_DELAY) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGNUM_NET_FAST_THREAD_TICKLE_DEVS_DELAY) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGNUM_NET_FAST_THREAD_TICKLE_DEVS_DELAY) | CYGPKG_IO
+        !(CYGSEM_HAL_STOP_CONSTRUCTORS_ON_FLAG) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE | CYGPKG_POSIX_PTHREAD
+        !(CYGDBG_KERNEL_INSTRUMENT_CNTSEM) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGDBG_KERNEL_INSTRUMENT_CONDVAR) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGDBG_KERNEL_INSTRUMENT_MUTEX) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGMFN_KERNEL_SYNCH_CONDVAR_WAIT_MUTEX) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGNUM_UITRON_SEMAS) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGIMP_MBOX_USE_MBOXT_PLAIN) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGDBG_KERNEL_INSTRUMENT_MBOXT) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGSEM_MEMALLOC_ALLOCATOR_FIXED_THREADAWARE) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGSEM_KERNEL_EXCEPTIONS_DECODE) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGPKG_CPULOAD_TESTS) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGSEM_KERNEL_SCHED_BITMAP) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGFUN_KERNEL_API_C) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGFUN_HAL_COMMON_KERNEL_SUPPORT) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGNUM_KERNEL_THREADS_DESTRUCTORS) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGNUM_JFFS2_GC_THREAD_STACK_SIZE) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGFUN_KERNEL_THREADS_STACK_MEASUREMENT) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGFUN_KERNEL_THREADS_STACK_LIMIT) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGSEM_UITRON_ISRFUNCS_TRY_IMMEDIATE_EXECUTION) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGVAR_KERNEL_THREADS_LIST) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGIMP_MEMALLOC_ALLOCATOR_DLMALLOC_THREADAWARE) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGNUM_UITRON_MEMPOOLFIXED) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGNUM_UITRON_FLAGS) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGIMP_KERNEL_INTERRUPTS_DSRS_LIST) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGSEM_LIBC_EXIT_STOPS_SYSTEM) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGPKG_WALLCLOCK_EMULATE) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGVAR_KERNEL_THREADS_NAME) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGDBG_KERNEL_INSTRUMENT_THREAD) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGFUN_IO_FILEIO_SELECT) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGIMP_IDLE_THREAD_YIELD) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGNUM_UITRON_TASKS_INITIALLY) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGPKG_IO_FILEIO_SOCKET_SUPPORT) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGSEM_START_UITRON_COMPATIBILITY) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGNUM_LIBC_MAIN_THREAD_PRIORITY) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGIMP_KERNEL_SYNCH_MQUEUE_NOT_INLINE) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGNUM_KERNEL_INTERRUPTS_DSRS_TABLE_SIZE) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGMFN_KERNEL_SYNCH_MBOXT_PUT_CAN_WAIT) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGNUM_KERNEL_THREADS_STACK_CHECK_DATA_SIZE) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGSEM_KERNEL_EXCEPTIONS_GLOBAL) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGNUM_UITRON_MBOXES_INITIALLY) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGINT_UITRON_CONFORMANCE) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGSEM_KERNEL_SCHED_MLQUEUE) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGSEM_MEMALLOC_ALLOCATOR_VARIABLE_THREADAWARE) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGSEM_LIBC_STDIO_THREAD_SAFE_STREAMS) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGFUN_MEMALLOC_KAPI) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGNUM_POWER_THREAD_STACKSIZE) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGSEM_MEMALLOC_ALLOCATOR_SEPMETA_THREADAWARE) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGPKG_HAL_EXCEPTIONS) | CYGIMP_KERNEL_COUNTERS_SINGLE_LIST | CYGNUM_KERNEL_COUNTERS_MULTI_LIST_SIZE
+        !(CYGPKG_PPP_TESTS_ALL) | CYGOPT_IO_SERIAL_FLOW_CONTROL_HW | CYGDAT_IO_SERIAL_FLOW_CONTROL_XON_CHAR
+        !(CYGPKG_PPP_TESTS) | CYGOPT_IO_SERIAL_FLOW_CONTROL_HW | CYGDAT_IO_SERIAL_FLOW_CONTROL_XON_CHAR
+        !(CYGBLD_PPP_WINDOWS_TELNET_APP) | CYGOPT_IO_SERIAL_FLOW_CONTROL_HW | CYGDAT_IO_SERIAL_FLOW_CONTROL_XON_CHAR
+        !(CYGOPT_PPP_DNS_CONFIGURE) | CYGOPT_IO_SERIAL_FLOW_CONTROL_HW | CYGDAT_IO_SERIAL_FLOW_CONTROL_XON_CHAR
+        !(CYGPKG_PPP_PAP) | CYGOPT_IO_SERIAL_FLOW_CONTROL_HW | CYGDAT_IO_SERIAL_FLOW_CONTROL_XON_CHAR
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGOPT_IO_SERIAL_FLOW_CONTROL_HW | CYGDAT_IO_SERIAL_FLOW_CONTROL_XON_CHAR
+        !(CYGPKG_PPP_TESTS_ALL) | CYGPKG_POSIX_CLOCKS
+        !(CYGPKG_PPP_TESTS_ALL) | CYGOPT_IO_SERIAL_SUPPORT_NONBLOCKING
+        !(CYGPKG_PPP_TESTS_ALL) | CYGPKG_IO_SERIAL_DEVICES
+        !(CYGPKG_PPP_TESTS) | CYGPKG_POSIX_CLOCKS
+        !(CYGPKG_PPP_TESTS) | CYGOPT_IO_SERIAL_SUPPORT_NONBLOCKING
+        !(CYGPKG_PPP_TESTS) | CYGPKG_IO_SERIAL_DEVICES
+        !(CYGBLD_PPP_WINDOWS_TELNET_APP) | CYGPKG_POSIX_CLOCKS
+        !(CYGBLD_PPP_WINDOWS_TELNET_APP) | CYGOPT_IO_SERIAL_SUPPORT_NONBLOCKING
+        !(CYGBLD_PPP_WINDOWS_TELNET_APP) | CYGPKG_IO_SERIAL_DEVICES
+        !(CYGOPT_PPP_DNS_CONFIGURE) | CYGPKG_POSIX_CLOCKS
+        !(CYGOPT_PPP_DNS_CONFIGURE) | CYGOPT_IO_SERIAL_SUPPORT_NONBLOCKING
+        !(CYGOPT_PPP_DNS_CONFIGURE) | CYGPKG_IO_SERIAL_DEVICES
+        !(CYGPKG_PPP_PAP) | CYGPKG_POSIX_CLOCKS
+        !(CYGPKG_PPP_PAP) | CYGOPT_IO_SERIAL_SUPPORT_NONBLOCKING
+        !(CYGPKG_PPP_PAP) | CYGPKG_IO_SERIAL_DEVICES
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGPKG_POSIX_CLOCKS
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGOPT_IO_SERIAL_SUPPORT_NONBLOCKING
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGPKG_IO_SERIAL_DEVICES
+        !(CYGPKG_FS_ROM_TESTS) | !(CYGSEM_LIBC_STARTUP_MAIN_OTHER) | !(CYGSEM_HAL_STOP_CONSTRUCTORS_ON_FLAG) | CYGPKG_POSIX_PTHREAD
+        !(CYGPKG_FS_ROM_TESTS) | !(CYGSEM_HAL_STOP_CONSTRUCTORS_ON_FLAG) | CYGSEM_LIBC_STARTUP_MAIN_INITCONTEXT | CYGPKG_POSIX_PTHREAD
+        !(CYGSEM_LIBC_STARTUP_MAIN_OTHER) | !(CYGDAT_LIBC_ARGUMENTS) | !(CYGSEM_HAL_STOP_CONSTRUCTORS_ON_FLAG) | CYGPKG_POSIX_PTHREAD
+        !(CYGDAT_LIBC_ARGUMENTS) | !(CYGSEM_HAL_STOP_CONSTRUCTORS_ON_FLAG) | CYGSEM_LIBC_STARTUP_MAIN_INITCONTEXT | CYGPKG_POSIX_PTHREAD
+        !(CYGNUM_LIBC_MAIN_THREAD_PRIORITY) | !(CYGSEM_HAL_STOP_CONSTRUCTORS_ON_FLAG) | CYGSEM_LIBC_STARTUP_MAIN_INITCONTEXT | CYGSEM_LIBC_STARTUP_MAIN_OTHER
+        !(CYGNUM_POSIX_MAIN_DEFAULT_PRIORITY) | !(CYGNUM_LIBC_MAIN_THREAD_PRIORITY) | !(CYGSEM_LIBC_STARTUP_MAIN_OTHER)
+        !(CYGPKG_FS_ROM_TESTS) | !(CYGNUM_LIBC_MAIN_THREAD_PRIORITY) | !(CYGSEM_LIBC_STARTUP_MAIN_OTHER)
+        !(CYGPKG_FS_ROM_TESTS) | !(CYGNUM_LIBC_MAIN_THREAD_PRIORITY) | CYGSEM_LIBC_STARTUP_MAIN_INITCONTEXT
+        !(CYGPKG_FS_ROM_TESTS) | CYGSEM_LIBC_STARTUP_MAIN_INITCONTEXT | CYGSEM_LIBC_STARTUP_MAIN_OTHER
+        !(CYGNUM_LIBC_MAIN_THREAD_PRIORITY) | !(CYGSEM_LIBC_STARTUP_MAIN_OTHER) | !(CYGDAT_LIBC_ARGUMENTS)
+        !(CYGNUM_LIBC_MAIN_THREAD_PRIORITY) | !(CYGDAT_LIBC_ARGUMENTS) | CYGSEM_LIBC_STARTUP_MAIN_INITCONTEXT
+        !(CYGDAT_LIBC_ARGUMENTS) | CYGSEM_LIBC_STARTUP_MAIN_INITCONTEXT | CYGSEM_LIBC_STARTUP_MAIN_OTHER
+        !(CYGIMP_LIBC_TIME_LOCALTIME_R_INLINE) | CYGINT_ISO_C_CLOCK_FUNCS
+        !(CYGIMP_LIBC_TIME_LOCALTIME_R_INLINE) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGIMP_LIBC_TIME_LOCALTIME_R_INLINE) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGIMP_LIBC_TIME_LOCALTIME_R_INLINE) | CYGBLD_ISO_C_CLOCK_FUNCS_HEADER
+        !(CYGIMP_LIBC_TIME_LOCALTIME_R_INLINE) | CYGBLD_ISO_C_TIME_TYPES_HEADER
+        !(CYGIMP_LIBC_TIME_CTIME_INLINE) | CYGINT_ISO_C_CLOCK_FUNCS
+        !(CYGIMP_LIBC_TIME_CTIME_INLINE) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGIMP_LIBC_TIME_CTIME_INLINE) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGIMP_LIBC_TIME_CTIME_INLINE) | CYGBLD_ISO_C_CLOCK_FUNCS_HEADER
+        !(CYGIMP_LIBC_TIME_CTIME_INLINE) | CYGBLD_ISO_C_TIME_TYPES_HEADER
+        !(CYGIMP_LIBC_TIME_GMTIME_INLINE) | CYGINT_ISO_C_CLOCK_FUNCS
+        !(CYGIMP_LIBC_TIME_GMTIME_INLINE) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGIMP_LIBC_TIME_GMTIME_INLINE) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGIMP_LIBC_TIME_GMTIME_INLINE) | CYGBLD_ISO_C_CLOCK_FUNCS_HEADER
+        !(CYGIMP_LIBC_TIME_GMTIME_INLINE) | CYGBLD_ISO_C_TIME_TYPES_HEADER
+        !(CYGFUN_LIBC_TIME_SUS_EXTNS) | CYGINT_ISO_C_CLOCK_FUNCS
+        !(CYGFUN_LIBC_TIME_SUS_EXTNS) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGFUN_LIBC_TIME_SUS_EXTNS) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGFUN_LIBC_TIME_SUS_EXTNS) | CYGBLD_ISO_C_CLOCK_FUNCS_HEADER
+        !(CYGFUN_LIBC_TIME_SUS_EXTNS) | CYGBLD_ISO_C_TIME_TYPES_HEADER
+        !(CYGIMP_LIBC_TIME_ASCTIME_INLINE) | CYGINT_ISO_C_CLOCK_FUNCS
+        !(CYGIMP_LIBC_TIME_ASCTIME_INLINE) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGIMP_LIBC_TIME_ASCTIME_INLINE) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGIMP_LIBC_TIME_ASCTIME_INLINE) | CYGBLD_ISO_C_CLOCK_FUNCS_HEADER
+        !(CYGIMP_LIBC_TIME_ASCTIME_INLINE) | CYGBLD_ISO_C_TIME_TYPES_HEADER
+        !(CYGIMP_LIBC_TIME_DIFFTIME_INLINE) | CYGINT_ISO_C_CLOCK_FUNCS
+        !(CYGIMP_LIBC_TIME_DIFFTIME_INLINE) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGIMP_LIBC_TIME_DIFFTIME_INLINE) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGIMP_LIBC_TIME_DIFFTIME_INLINE) | CYGBLD_ISO_C_CLOCK_FUNCS_HEADER
+        !(CYGIMP_LIBC_TIME_DIFFTIME_INLINE) | CYGBLD_ISO_C_TIME_TYPES_HEADER
+        !(CYGFUN_LIBC_TIME_POSIX) | CYGINT_ISO_C_CLOCK_FUNCS
+        !(CYGFUN_LIBC_TIME_POSIX) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGFUN_LIBC_TIME_POSIX) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGFUN_LIBC_TIME_POSIX) | CYGBLD_ISO_C_CLOCK_FUNCS_HEADER
+        !(CYGFUN_LIBC_TIME_POSIX) | CYGBLD_ISO_C_TIME_TYPES_HEADER
+        !(CYGIMP_LIBC_TIME_MKTIME_INLINE) | CYGINT_ISO_C_CLOCK_FUNCS
+        !(CYGIMP_LIBC_TIME_MKTIME_INLINE) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGIMP_LIBC_TIME_MKTIME_INLINE) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGIMP_LIBC_TIME_MKTIME_INLINE) | CYGBLD_ISO_C_CLOCK_FUNCS_HEADER
+        !(CYGIMP_LIBC_TIME_MKTIME_INLINE) | CYGBLD_ISO_C_TIME_TYPES_HEADER
+        !(CYGIMP_LIBC_TIME_LOCALTIME_INLINE) | CYGINT_ISO_C_CLOCK_FUNCS
+        !(CYGIMP_LIBC_TIME_LOCALTIME_INLINE) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGIMP_LIBC_TIME_LOCALTIME_INLINE) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGIMP_LIBC_TIME_LOCALTIME_INLINE) | CYGBLD_ISO_C_CLOCK_FUNCS_HEADER
+        !(CYGIMP_LIBC_TIME_LOCALTIME_INLINE) | CYGBLD_ISO_C_TIME_TYPES_HEADER
+        !(CYGSEM_LIBC_TIME_TIME_WORKING) | CYGINT_ISO_C_CLOCK_FUNCS
+        !(CYGSEM_LIBC_TIME_TIME_WORKING) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGSEM_LIBC_TIME_TIME_WORKING) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGSEM_LIBC_TIME_TIME_WORKING) | CYGBLD_ISO_C_CLOCK_FUNCS_HEADER
+        !(CYGSEM_LIBC_TIME_TIME_WORKING) | CYGBLD_ISO_C_TIME_TYPES_HEADER
+        !(CYGSEM_LIBC_TIME_CLOCK_WORKING) | CYGINT_ISO_C_CLOCK_FUNCS
+        !(CYGSEM_LIBC_TIME_CLOCK_WORKING) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGSEM_LIBC_TIME_CLOCK_WORKING) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGSEM_LIBC_TIME_CLOCK_WORKING) | CYGBLD_ISO_C_CLOCK_FUNCS_HEADER
+        !(CYGSEM_LIBC_TIME_CLOCK_WORKING) | CYGBLD_ISO_C_TIME_TYPES_HEADER
+        !(CYGNUM_LIBC_TIME_CLOCK_TRACE_LEVEL) | CYGINT_ISO_C_CLOCK_FUNCS
+        !(CYGNUM_LIBC_TIME_CLOCK_TRACE_LEVEL) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGNUM_LIBC_TIME_CLOCK_TRACE_LEVEL) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGNUM_LIBC_TIME_CLOCK_TRACE_LEVEL) | CYGBLD_ISO_C_CLOCK_FUNCS_HEADER
+        !(CYGNUM_LIBC_TIME_CLOCK_TRACE_LEVEL) | CYGBLD_ISO_C_TIME_TYPES_HEADER
+        !(CYGFUN_INFRA_DUMMY_ABORT) | !(CYGSEM_HAL_STOP_CONSTRUCTORS_ON_FLAG) | CYGSEM_LIBC_STARTUP_MAIN_OTHER
+        !(CYGSEM_HAL_STOP_CONSTRUCTORS_ON_FLAG) | CYGINT_ISO_DIRENT | CYGSEM_LIBC_STARTUP_MAIN_OTHER
+        !(CYGBLD_ISO_SIGSETJMP_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_NAME_MAX_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_POSIX_TIMER_OPS_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGINT_ISO_NETDB_SERV) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_UTSNAME_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_STRTOK_R_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGINT_ISO_STRING_LOCALE_FUNCS) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_PMUTEXTYPES_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_BSDTYPES_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_STRING_STRFUNCS_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGINT_ISO_C_CLOCK_FUNCS) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGINT_ISO_DIRENT) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_ASSERT_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_ASSERT_HEADER) | CYGINT_ISO_DIRENT
+        !(CYGDAT_LIBC_ARGUMENTS) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGDAT_LIBC_ARGUMENTS) | CYGINT_ISO_DIRENT
+        !(CYGSEM_COMPRESS_ZLIB_DEFLATE_MAKES_GZIP) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGSEM_COMPRESS_ZLIB_DEFLATE_MAKES_GZIP) | CYGINT_ISO_DIRENT
+        !(CYGPKG_LIBC_I18N_CFLAGS_ADD) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGPKG_LIBC_I18N_CFLAGS_ADD) | CYGINT_ISO_DIRENT
+        !(CYGPKG_COMPRESS_ZLIB_TESTS) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGPKG_COMPRESS_ZLIB_TESTS) | CYGINT_ISO_DIRENT
+        !(CYGBLD_ISO_STAT_DEFS_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_STAT_DEFS_HEADER) | CYGINT_ISO_DIRENT
+        !(CYGBLD_MEMALLOC_MALLOC_IMPLEMENTATION_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_MEMALLOC_MALLOC_IMPLEMENTATION_HEADER) | CYGINT_ISO_DIRENT
+        !(CYGBLD_ISO_DIRENT_HEADER) | !(CYGFUN_INFRA_DUMMY_ABORT)
+        !(CYGBLD_ISO_DIRENT_HEADER) | CYGINT_ISO_DIRENT
+        !(CYGPKG_FILEIO_DIRENT_DTYPE) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_FILEIO_DIRENT_DTYPE) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_FILEIO_DIRENT_DTYPE) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_FILEIO_DIRENT_DTYPE) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_FILEIO_DIRENT_DTYPE) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_FILEIO_DIRENT_DTYPE) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGPKG_FS_ROM) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_FS_ROM) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_FS_ROM) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_FS_ROM) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_IO_NFILE) | !(CYGPKG_FS_ROM)
+        !(CYGPKG_FS_ROM) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGPKG_FS_ROM) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_NET_MAXSOCKETS) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_NET_MAXSOCKETS) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_NET_MAXSOCKETS) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_NET_MAXSOCKETS) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_NET_MAXSOCKETS) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_NET_MAXSOCKETS) | CYGNUM_FILEIO_NFILE
+        !(CYGNUM_FS_FAT_NODE_HASH_TABLE_SIZE) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGNUM_FS_FAT_NODE_HASH_TABLE_SIZE) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGNUM_FS_FAT_NODE_HASH_TABLE_SIZE) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGNUM_FS_FAT_NODE_HASH_TABLE_SIZE) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGNUM_FS_FAT_NODE_HASH_TABLE_SIZE) | !(CYGPKG_IO_NFILE)
+        !(CYGNUM_FS_FAT_NODE_HASH_TABLE_SIZE) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_NET_MEM_USAGE) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_NET_MEM_USAGE) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_NET_MEM_USAGE) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_NET_MEM_USAGE) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_NET_MEM_USAGE) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_NET_MEM_USAGE) | CYGNUM_FILEIO_NFILE
+        !(CYGNUM_VNC_SERVER_KEYBOARD_EVENTS) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGNUM_VNC_SERVER_KEYBOARD_EVENTS) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGNUM_VNC_SERVER_KEYBOARD_EVENTS) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGNUM_VNC_SERVER_KEYBOARD_EVENTS) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGNUM_VNC_SERVER_KEYBOARD_EVENTS) | !(CYGPKG_IO_NFILE)
+        !(CYGNUM_VNC_SERVER_KEYBOARD_EVENTS) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGNUM_VNC_SERVER_KEYBOARD_EVENTS) | CYGNUM_FILEIO_NFILE
+        !(CYGINT_IO_SERIAL_TERMIOS_TERMIOS_TTY) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGINT_IO_SERIAL_TERMIOS_TERMIOS_TTY) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGINT_IO_SERIAL_TERMIOS_TERMIOS_TTY) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGINT_IO_SERIAL_TERMIOS_TERMIOS_TTY) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGINT_IO_SERIAL_TERMIOS_TERMIOS_TTY) | !(CYGPKG_IO_NFILE)
+        !(CYGINT_IO_SERIAL_TERMIOS_TERMIOS_TTY) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_LIBC_STDIO_FILEIO) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_LIBC_STDIO_FILEIO) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_LIBC_STDIO_FILEIO) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_LIBC_STDIO_FILEIO) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_LIBC_STDIO_FILEIO) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_LIBC_STDIO_FILEIO) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGPKG_LIBC_STDIO_FILEIO) | CYGNUM_FILEIO_NFILE
+        !(CYGNUM_FILEIO_NFD) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGNUM_FILEIO_NFD) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGNUM_FILEIO_NFD) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGNUM_FILEIO_NFD) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGNUM_FILEIO_NFD) | !(CYGPKG_IO_NFILE)
+        !(CYGNUM_FILEIO_NFD) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGNUM_FILEIO_MTAB_MAX) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGNUM_FILEIO_MTAB_MAX) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGNUM_FILEIO_MTAB_MAX) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGNUM_FILEIO_MTAB_MAX) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGNUM_FILEIO_MTAB_MAX) | !(CYGPKG_IO_NFILE)
+        !(CYGNUM_FILEIO_MTAB_MAX) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGPKG_NET_FREEBSD_INET) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_NET_FREEBSD_INET) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_NET_FREEBSD_INET) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_NET_FREEBSD_INET) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_NET_FREEBSD_INET) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_NET_FREEBSD_INET) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_IO_SERIAL_SELECT_SUPPORT) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_IO_SERIAL_SELECT_SUPPORT) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_IO_SERIAL_SELECT_SUPPORT) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_IO_SERIAL_SELECT_SUPPORT) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_IO_SERIAL_SELECT_SUPPORT) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_IO_FILEIO_TRACK_CWD) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_IO_FILEIO_TRACK_CWD) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_IO_FILEIO_TRACK_CWD) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_IO_FILEIO_TRACK_CWD) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_IO_FILEIO_TRACK_CWD) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_IO_FILEIO_TRACK_CWD) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGPKG_IO_FILEIO_DEVFS_SUPPORT) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_IO_FILEIO_DEVFS_SUPPORT) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_IO_FILEIO_DEVFS_SUPPORT) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_IO_FILEIO_DEVFS_SUPPORT) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_IO_FILEIO_DEVFS_SUPPORT) | !(CYGPKG_IO_NFILE)
+        !(CYGNUM_IO_FILEIO_MAX_INODE_CACHE_DEAD) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGNUM_IO_FILEIO_MAX_INODE_CACHE_DEAD) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGNUM_IO_FILEIO_MAX_INODE_CACHE_DEAD) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGNUM_IO_FILEIO_MAX_INODE_CACHE_DEAD) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGNUM_IO_FILEIO_MAX_INODE_CACHE_DEAD) | !(CYGPKG_IO_NFILE)
+        !(CYGNUM_IO_FILEIO_MAX_INODE_CACHE_DEAD) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGPKG_FS_RAM_TESTS) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_FS_RAM_TESTS) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_FS_RAM_TESTS) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_FS_RAM_TESTS) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_FS_RAM_TESTS) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_FS_RAM_TESTS) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_FILEIO_FNMATCH) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_FILEIO_FNMATCH) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_FILEIO_FNMATCH) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_FILEIO_FNMATCH) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_FILEIO_FNMATCH) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_FILEIO_FNMATCH) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGSEM_FILEIO_INFO_DISK_USAGE) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGSEM_FILEIO_INFO_DISK_USAGE) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGSEM_FILEIO_INFO_DISK_USAGE) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGSEM_FILEIO_INFO_DISK_USAGE) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGSEM_FILEIO_INFO_DISK_USAGE) | !(CYGPKG_IO_NFILE)
+        !(CYGSEM_FILEIO_INFO_DISK_USAGE) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGNUM_VNC_SERVER_MOUSE_EVENTS) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGNUM_VNC_SERVER_MOUSE_EVENTS) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGNUM_VNC_SERVER_MOUSE_EVENTS) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGNUM_VNC_SERVER_MOUSE_EVENTS) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGNUM_VNC_SERVER_MOUSE_EVENTS) | !(CYGPKG_IO_NFILE)
+        !(CYGNUM_VNC_SERVER_MOUSE_EVENTS) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGNUM_VNC_SERVER_MOUSE_EVENTS) | CYGNUM_FILEIO_NFILE
+        !(CYGFUN_IO_FILEIO_SELECT) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGFUN_IO_FILEIO_SELECT) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGFUN_IO_FILEIO_SELECT) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGFUN_IO_FILEIO_SELECT) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGFUN_IO_FILEIO_SELECT) | !(CYGPKG_IO_NFILE)
+        !(CYGFUN_IO_FILEIO_SELECT) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGNUM_FILEIO_NFILE) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGNUM_FILEIO_NFILE) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGNUM_FILEIO_NFILE) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGNUM_FILEIO_NFILE) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGNUM_FILEIO_NFILE) | !(CYGPKG_IO_NFILE)
+        !(CYGNUM_FILEIO_NFILE) | CYGPKG_ERROR_CFLAGS_ADD
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGINT_ISO_STDIO_FILETYPES
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGBLD_ISO_STDIO_FILEOPS_HEADER
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGBLD_ISO_STDIO_FILEACCESS_HEADER
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGBLD_ISO_STDIO_DIRECT_IO_HEADER
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGBLD_ISO_STDIO_FILETYPES_HEADER
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGBLD_ISO_STDIO_STREAMS_HEADER
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGINT_ISO_STDIO_STREAMS
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGINT_ISO_STDIO_FILEOPS
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGBLD_ISO_STDIO_FILEPOS_HEADER
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGINT_ISO_STDIO_ERROR
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGINT_ISO_STDIO_FORMATTED_IO
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGINT_ISO_STDIO_CHAR_IO
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGINT_ISO_STDIO_FILEPOS
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGINT_ISO_STDIO_DIRECT_IO
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGBLD_ISO_STDIO_ERROR_HEADER
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGBLD_ISO_STDIO_CHAR_IO_HEADER
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGINT_ISO_STDIO_FILEACCESS
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGPKG_LIBC_I18N_CFLAGS_ADD
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGINT_ISO_STRING_MEMFUNCS
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGBLD_ISO_STDIO_FORMATTED_IO_HEADER
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGINT_ISO_STRERROR
+        !(CYGFUN_LIBC_STDIO_ungetc) | CYGPKG_IO
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGINT_ISO_STDIO_FILETYPES
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGBLD_ISO_STDIO_FILEOPS_HEADER
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGBLD_ISO_STDIO_FILEACCESS_HEADER
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGBLD_ISO_STDIO_DIRECT_IO_HEADER
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGBLD_ISO_STDIO_FILETYPES_HEADER
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGBLD_ISO_STDIO_STREAMS_HEADER
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGINT_ISO_STDIO_STREAMS
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGINT_ISO_STDIO_FILEOPS
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGBLD_ISO_STDIO_FILEPOS_HEADER
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGINT_ISO_STDIO_ERROR
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGINT_ISO_STDIO_FORMATTED_IO
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGINT_ISO_STDIO_CHAR_IO
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGINT_ISO_STDIO_FILEPOS
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGINT_ISO_STDIO_DIRECT_IO
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGBLD_ISO_STDIO_ERROR_HEADER
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGBLD_ISO_STDIO_CHAR_IO_HEADER
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGINT_ISO_STDIO_FILEACCESS
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGPKG_LIBC_I18N_CFLAGS_ADD
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGINT_ISO_STRING_MEMFUNCS
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGBLD_ISO_STDIO_FORMATTED_IO_HEADER
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGINT_ISO_STRERROR
+        !(CYGSEM_LIBC_STDIO_PRINTF_FLOATING_POINT) | CYGPKG_IO
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGINT_ISO_STDIO_FILETYPES
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGBLD_ISO_STDIO_FILEOPS_HEADER
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGBLD_ISO_STDIO_FILEACCESS_HEADER
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGBLD_ISO_STDIO_DIRECT_IO_HEADER
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGBLD_ISO_STDIO_FILETYPES_HEADER
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGBLD_ISO_STDIO_STREAMS_HEADER
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGINT_ISO_STDIO_STREAMS
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGINT_ISO_STDIO_FILEOPS
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGBLD_ISO_STDIO_FILEPOS_HEADER
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGINT_ISO_STDIO_ERROR
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGINT_ISO_STDIO_FORMATTED_IO
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGINT_ISO_STDIO_CHAR_IO
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGINT_ISO_STDIO_FILEPOS
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGINT_ISO_STDIO_DIRECT_IO
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGBLD_ISO_STDIO_ERROR_HEADER
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGBLD_ISO_STDIO_CHAR_IO_HEADER
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGINT_ISO_STDIO_FILEACCESS
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGPKG_LIBC_I18N_CFLAGS_ADD
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGINT_ISO_STRING_MEMFUNCS
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGBLD_ISO_STDIO_FORMATTED_IO_HEADER
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGINT_ISO_STRERROR
+        !(CYGNUM_LIBC_STDIO_BUFSIZE) | CYGPKG_IO
+        !(FOPEN_MAX) | CYGINT_ISO_STDIO_FILETYPES
+        !(FOPEN_MAX) | CYGBLD_ISO_STDIO_FILEOPS_HEADER
+        !(FOPEN_MAX) | CYGBLD_ISO_STDIO_FILEACCESS_HEADER
+        !(FOPEN_MAX) | CYGBLD_ISO_STDIO_DIRECT_IO_HEADER
+        !(FOPEN_MAX) | CYGBLD_ISO_STDIO_FILETYPES_HEADER
+        !(FOPEN_MAX) | CYGBLD_ISO_STDIO_STREAMS_HEADER
+        !(FOPEN_MAX) | CYGINT_ISO_STDIO_STREAMS
+        !(FOPEN_MAX) | CYGINT_ISO_STDIO_FILEOPS
+        !(FOPEN_MAX) | CYGBLD_ISO_STDIO_FILEPOS_HEADER
+        !(FOPEN_MAX) | CYGINT_ISO_STDIO_ERROR
+        !(FOPEN_MAX) | CYGINT_ISO_STRING_STRFUNCS
+        !(FOPEN_MAX) | CYGINT_ISO_STDIO_FORMATTED_IO
+        !(FOPEN_MAX) | CYGINT_ISO_STDIO_CHAR_IO
+        !(FOPEN_MAX) | CYGINT_ISO_STDIO_FILEPOS
+        !(FOPEN_MAX) | CYGINT_ISO_STDIO_DIRECT_IO
+        !(FOPEN_MAX) | CYGBLD_ISO_STDIO_ERROR_HEADER
+        !(FOPEN_MAX) | CYGBLD_ISO_STDIO_CHAR_IO_HEADER
+        !(FOPEN_MAX) | CYGINT_ISO_STDIO_FILEACCESS
+        !(FOPEN_MAX) | CYGPKG_LIBC_I18N_CFLAGS_ADD
+        !(FOPEN_MAX) | CYGINT_ISO_STRING_MEMFUNCS
+        !(FOPEN_MAX) | CYGBLD_ISO_STDIO_FORMATTED_IO_HEADER
+        !(FOPEN_MAX) | CYGINT_ISO_STRERROR
+        !(FOPEN_MAX) | CYGPKG_IO
+        !(CYGSEM_LIBM_USE_STDERR) | CYGINT_ISO_STDIO_FILETYPES
+        !(CYGSEM_LIBM_USE_STDERR) | CYGBLD_ISO_STDIO_FILEOPS_HEADER
+        !(CYGSEM_LIBM_USE_STDERR) | CYGBLD_ISO_STDIO_FILEACCESS_HEADER
+        !(CYGSEM_LIBM_USE_STDERR) | CYGBLD_ISO_STDIO_DIRECT_IO_HEADER
+        !(CYGSEM_LIBM_USE_STDERR) | CYGBLD_ISO_STDIO_FILETYPES_HEADER
+        !(CYGSEM_LIBM_USE_STDERR) | CYGBLD_ISO_STDIO_STREAMS_HEADER
+        !(CYGSEM_LIBM_USE_STDERR) | CYGINT_ISO_STDIO_STREAMS
+        !(CYGSEM_LIBM_USE_STDERR) | CYGINT_ISO_STDIO_FILEOPS
+        !(CYGSEM_LIBM_USE_STDERR) | CYGBLD_ISO_STDIO_FILEPOS_HEADER
+        !(CYGSEM_LIBM_USE_STDERR) | FOPEN_MAX
+        !(CYGHWR_NET_DRIVER_ETH1) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGHWR_NET_DRIVER_ETH1) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGHWR_NET_DRIVER_ETH1) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGHWR_NET_DRIVER_ETH1) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGHWR_NET_DRIVER_ETH1) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGHWR_NET_DRIVER_ETH1) | CYGINT_ISO_NETDB_SERV
+        !(CYGHWR_NET_DRIVER_ETH1) | CYGPKG_IO
+        !(CYGHWR_NET_DRIVER_ETH1) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGHWR_NET_DRIVER_ETH1) | !(CYGPKG_IO_NFILE)
+        !(CYGHWR_NET_DRIVER_ETH1) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGHWR_NET_DRIVER_ETH1) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGHWR_NET_DRIVER_ETH1) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGHWR_NET_DRIVER_ETH1) | CYGINT_ISO_NETDB_PROTO
+        !(CYGHWR_NET_DRIVER_ETH1) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGHWR_NET_DRIVER_ETH1) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGHWR_NET_DRIVER_ETH1) | CYGNUM_FILEIO_NFILE
+        !(CYGHWR_NET_DRIVER_ETH1) | CYGINT_ISO_STRERROR
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | CYGINT_ISO_NETDB_SERV
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | !(CYGPKG_IO_NFILE)
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | CYGINT_ISO_NETDB_PROTO
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | CYGNUM_FILEIO_NFILE
+        !(CYGNUM_HTTPD_SERVER_AUTO_START) | CYGINT_ISO_STRERROR
+        !(CYGPKG_PPP_TESTS_ALL) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_PPP_TESTS_ALL) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_PPP_TESTS_ALL) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_PPP_TESTS_ALL) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_PPP_TESTS_ALL) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_PPP_TESTS_ALL) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_PPP_TESTS_ALL) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_PPP_TESTS_ALL) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_PPP_TESTS_ALL) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGPKG_PPP_TESTS_ALL) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_PPP_TESTS_ALL) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGPKG_PPP_TESTS_ALL) | CYGINT_ISO_NETDB_PROTO
+        !(CYGPKG_PPP_TESTS_ALL) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGPKG_PPP_TESTS_ALL) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGPKG_PPP_TESTS_ALL) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_PPP_TESTS_ALL) | CYGINT_ISO_STRERROR
+        !(CYGPKG_NET_MBUFS_SIZE) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_NET_MBUFS_SIZE) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_NET_MBUFS_SIZE) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_NET_MBUFS_SIZE) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_NET_MBUFS_SIZE) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_NET_MBUFS_SIZE) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_NET_MBUFS_SIZE) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_NET_MBUFS_SIZE) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGPKG_NET_MBUFS_SIZE) | CYGINT_ISO_NETDB_PROTO
+        !(CYGPKG_NET_MBUFS_SIZE) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGPKG_NET_MBUFS_SIZE) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGPKG_NET_MBUFS_SIZE) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_NET_MBUFS_SIZE) | CYGINT_ISO_STRERROR
+        !(CYGPKG_NET_BUILD_HW_TESTS) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_NET_BUILD_HW_TESTS) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_NET_BUILD_HW_TESTS) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_NET_BUILD_HW_TESTS) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_NET_BUILD_HW_TESTS) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_NET_BUILD_HW_TESTS) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_NET_BUILD_HW_TESTS) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_NET_BUILD_HW_TESTS) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_NET_BUILD_HW_TESTS) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_NET_BUILD_HW_TESTS) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGPKG_NET_BUILD_HW_TESTS) | CYGINT_ISO_NETDB_PROTO
+        !(CYGPKG_NET_BUILD_HW_TESTS) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGPKG_NET_BUILD_HW_TESTS) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGPKG_NET_BUILD_HW_TESTS) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_NET_BUILD_HW_TESTS) | CYGINT_ISO_STRERROR
+        !(CYGPKG_NET_DEBUG) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_NET_DEBUG) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_NET_DEBUG) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_NET_DEBUG) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_NET_DEBUG) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_NET_DEBUG) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_NET_DEBUG) | CYGPKG_IO
+        !(CYGPKG_NET_DEBUG) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_NET_DEBUG) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_NET_DEBUG) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGPKG_NET_DEBUG) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_NET_DEBUG) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGPKG_NET_DEBUG) | CYGINT_ISO_NETDB_PROTO
+        !(CYGPKG_NET_DEBUG) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGPKG_NET_DEBUG) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGPKG_NET_DEBUG) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_NET_DEBUG) | CYGINT_ISO_STRERROR
+        !(CYGHWR_NET_DRIVER_ETH0) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGHWR_NET_DRIVER_ETH0) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGHWR_NET_DRIVER_ETH0) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGHWR_NET_DRIVER_ETH0) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGHWR_NET_DRIVER_ETH0) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGHWR_NET_DRIVER_ETH0) | CYGINT_ISO_NETDB_SERV
+        !(CYGHWR_NET_DRIVER_ETH0) | CYGPKG_IO
+        !(CYGHWR_NET_DRIVER_ETH0) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGHWR_NET_DRIVER_ETH0) | !(CYGPKG_IO_NFILE)
+        !(CYGHWR_NET_DRIVER_ETH0) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGHWR_NET_DRIVER_ETH0) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGHWR_NET_DRIVER_ETH0) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGHWR_NET_DRIVER_ETH0) | CYGINT_ISO_NETDB_PROTO
+        !(CYGHWR_NET_DRIVER_ETH0) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGHWR_NET_DRIVER_ETH0) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGHWR_NET_DRIVER_ETH0) | CYGNUM_FILEIO_NFILE
+        !(CYGHWR_NET_DRIVER_ETH0) | CYGINT_ISO_STRERROR
+        !(CYGPKG_NET_MAXSOCKETS) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_NET_MAXSOCKETS) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_NET_MAXSOCKETS) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGPKG_NET_MAXSOCKETS) | CYGINT_ISO_NETDB_PROTO
+        !(CYGPKG_NET_MAXSOCKETS) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGPKG_NET_MAXSOCKETS) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGPKG_NET_MAXSOCKETS) | CYGINT_ISO_STRERROR
+        !(CYGPKG_NET_TESTS_USE_RT_TEST_HARNESS) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_NET_TESTS_USE_RT_TEST_HARNESS) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_NET_TESTS_USE_RT_TEST_HARNESS) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_NET_TESTS_USE_RT_TEST_HARNESS) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_NET_TESTS_USE_RT_TEST_HARNESS) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_NET_TESTS_USE_RT_TEST_HARNESS) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_NET_TESTS_USE_RT_TEST_HARNESS) | CYGPKG_IO
+        !(CYGPKG_NET_TESTS_USE_RT_TEST_HARNESS) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_NET_TESTS_USE_RT_TEST_HARNESS) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_NET_TESTS_USE_RT_TEST_HARNESS) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_NET_TESTS_USE_RT_TEST_HARNESS) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGPKG_NET_TESTS_USE_RT_TEST_HARNESS) | CYGINT_ISO_NETDB_PROTO
+        !(CYGPKG_NET_TESTS_USE_RT_TEST_HARNESS) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGPKG_NET_TESTS_USE_RT_TEST_HARNESS) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGPKG_NET_TESTS_USE_RT_TEST_HARNESS) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_NET_TESTS_USE_RT_TEST_HARNESS) | CYGINT_ISO_STRERROR
+        !(CYGPKG_NS_DNS_BUILD) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_NS_DNS_BUILD) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_NS_DNS_BUILD) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_NS_DNS_BUILD) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_NS_DNS_BUILD) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_NS_DNS_BUILD) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_NS_DNS_BUILD) | CYGPKG_IO
+        !(CYGPKG_NS_DNS_BUILD) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_NS_DNS_BUILD) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_NS_DNS_BUILD) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGPKG_NS_DNS_BUILD) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGPKG_NS_DNS_BUILD) | CYGINT_ISO_NETDB_PROTO
+        !(CYGPKG_NS_DNS_BUILD) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGPKG_NS_DNS_BUILD) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGPKG_NS_DNS_BUILD) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_NS_DNS_BUILD) | CYGINT_ISO_STRERROR
+        !(CYGNUM_HTTPD_SERVER_PORT) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGNUM_HTTPD_SERVER_PORT) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGNUM_HTTPD_SERVER_PORT) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGNUM_HTTPD_SERVER_PORT) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGNUM_HTTPD_SERVER_PORT) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGNUM_HTTPD_SERVER_PORT) | CYGINT_ISO_NETDB_SERV
+        !(CYGNUM_HTTPD_SERVER_PORT) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGNUM_HTTPD_SERVER_PORT) | !(CYGPKG_IO_NFILE)
+        !(CYGNUM_HTTPD_SERVER_PORT) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGNUM_HTTPD_SERVER_PORT) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGNUM_HTTPD_SERVER_PORT) | CYGINT_ISO_NETDB_PROTO
+        !(CYGNUM_HTTPD_SERVER_PORT) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGNUM_HTTPD_SERVER_PORT) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGNUM_HTTPD_SERVER_PORT) | CYGNUM_FILEIO_NFILE
+        !(CYGNUM_HTTPD_SERVER_PORT) | CYGINT_ISO_STRERROR
+        !(CYGNUM_NET_FAST_THREAD_TICKLE_DEVS_DELAY) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGNUM_NET_FAST_THREAD_TICKLE_DEVS_DELAY) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGNUM_NET_FAST_THREAD_TICKLE_DEVS_DELAY) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGNUM_NET_FAST_THREAD_TICKLE_DEVS_DELAY) | CYGINT_ISO_NETDB_SERV
+        !(CYGNUM_NET_FAST_THREAD_TICKLE_DEVS_DELAY) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGNUM_NET_FAST_THREAD_TICKLE_DEVS_DELAY) | !(CYGPKG_IO_NFILE)
+        !(CYGNUM_NET_FAST_THREAD_TICKLE_DEVS_DELAY) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGNUM_NET_FAST_THREAD_TICKLE_DEVS_DELAY) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGNUM_NET_FAST_THREAD_TICKLE_DEVS_DELAY) | CYGINT_ISO_NETDB_PROTO
+        !(CYGNUM_NET_FAST_THREAD_TICKLE_DEVS_DELAY) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGNUM_NET_FAST_THREAD_TICKLE_DEVS_DELAY) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGNUM_NET_FAST_THREAD_TICKLE_DEVS_DELAY) | CYGNUM_FILEIO_NFILE
+        !(CYGNUM_NET_FAST_THREAD_TICKLE_DEVS_DELAY) | CYGINT_ISO_STRERROR
+        !(CYGPKG_NET_MEM_USAGE) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_NET_MEM_USAGE) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_NET_MEM_USAGE) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGPKG_NET_MEM_USAGE) | CYGINT_ISO_NETDB_PROTO
+        !(CYGPKG_NET_MEM_USAGE) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGPKG_NET_MEM_USAGE) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGPKG_NET_MEM_USAGE) | CYGINT_ISO_STRERROR
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGINT_ISO_NETDB_PROTO
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_PPP_DEFAULT_DIALUP_NUMBER) | CYGINT_ISO_STRERROR
+        !(CYGDBG_NET_SHOW_MBUFS) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGDBG_NET_SHOW_MBUFS) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGDBG_NET_SHOW_MBUFS) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGDBG_NET_SHOW_MBUFS) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGDBG_NET_SHOW_MBUFS) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGDBG_NET_SHOW_MBUFS) | CYGINT_ISO_NETDB_SERV
+        !(CYGDBG_NET_SHOW_MBUFS) | CYGPKG_IO
+        !(CYGDBG_NET_SHOW_MBUFS) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGDBG_NET_SHOW_MBUFS) | !(CYGPKG_IO_NFILE)
+        !(CYGDBG_NET_SHOW_MBUFS) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGDBG_NET_SHOW_MBUFS) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGDBG_NET_SHOW_MBUFS) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGDBG_NET_SHOW_MBUFS) | CYGINT_ISO_NETDB_PROTO
+        !(CYGDBG_NET_SHOW_MBUFS) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGDBG_NET_SHOW_MBUFS) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGDBG_NET_SHOW_MBUFS) | CYGNUM_FILEIO_NFILE
+        !(CYGDBG_NET_SHOW_MBUFS) | CYGINT_ISO_STRERROR
+        !(CYGPKG_NET_INET) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_NET_INET) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_NET_INET) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_NET_INET) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_NET_INET) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_NET_INET) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_NET_INET) | CYGPKG_IO
+        !(CYGPKG_NET_INET) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_NET_INET) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_NET_INET) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGPKG_NET_INET) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_NET_INET) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGPKG_NET_INET) | CYGINT_ISO_NETDB_PROTO
+        !(CYGPKG_NET_INET) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGPKG_NET_INET) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGPKG_NET_INET) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_NET_INET) | CYGINT_ISO_STRERROR
+        !(CYGPKG_IO_FILEIO_SOCKET_SUPPORT) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_IO_FILEIO_SOCKET_SUPPORT) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_IO_FILEIO_SOCKET_SUPPORT) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_IO_FILEIO_SOCKET_SUPPORT) | CYGPKG_IO
+        !(CYGPKG_IO_FILEIO_SOCKET_SUPPORT) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_IO_FILEIO_SOCKET_SUPPORT) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGPKG_IO_FILEIO_SOCKET_SUPPORT) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGPKG_IO_FILEIO_SOCKET_SUPPORT) | CYGINT_ISO_NETDB_PROTO
+        !(CYGPKG_IO_FILEIO_SOCKET_SUPPORT) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGPKG_IO_FILEIO_SOCKET_SUPPORT) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGPKG_IO_FILEIO_SOCKET_SUPPORT) | CYGINT_ISO_STRERROR
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGINT_ISO_NETDB_SERV
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGPKG_IO
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | !(CYGPKG_IO_NFILE)
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGINT_ISO_NETDB_PROTO
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGNUM_FILEIO_NFILE
+        !(CYGDAT_NET_SNMPAGENT_SYS_CONTACT) | CYGINT_ISO_STRERROR
+        !(CYGPKG_NET_FORCE_SERIAL_CONSOLE) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_NET_FORCE_SERIAL_CONSOLE) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_NET_FORCE_SERIAL_CONSOLE) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_NET_FORCE_SERIAL_CONSOLE) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_NET_FORCE_SERIAL_CONSOLE) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_NET_FORCE_SERIAL_CONSOLE) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_NET_FORCE_SERIAL_CONSOLE) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_NET_FORCE_SERIAL_CONSOLE) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGPKG_NET_FORCE_SERIAL_CONSOLE) | CYGINT_ISO_NETDB_PROTO
+        !(CYGPKG_NET_FORCE_SERIAL_CONSOLE) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGPKG_NET_FORCE_SERIAL_CONSOLE) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGPKG_NET_FORCE_SERIAL_CONSOLE) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_NET_FORCE_SERIAL_CONSOLE) | CYGINT_ISO_STRERROR
+        !(CYGPKG_NET_CLUSTERS_SIZE) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_NET_CLUSTERS_SIZE) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_NET_CLUSTERS_SIZE) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_NET_CLUSTERS_SIZE) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_NET_CLUSTERS_SIZE) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_NET_CLUSTERS_SIZE) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_NET_CLUSTERS_SIZE) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_NET_CLUSTERS_SIZE) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGPKG_NET_CLUSTERS_SIZE) | CYGINT_ISO_NETDB_PROTO
+        !(CYGPKG_NET_CLUSTERS_SIZE) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGPKG_NET_CLUSTERS_SIZE) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGPKG_NET_CLUSTERS_SIZE) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_NET_CLUSTERS_SIZE) | CYGINT_ISO_STRERROR
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGINT_ISO_NETDB_SERV
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | !(CYGPKG_IO_NFILE)
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGINT_ISO_NETDB_PROTO
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGNUM_FILEIO_NFILE
+        !(CYGNUM_NET_FTPCLIENT_BUFSIZE) | CYGINT_ISO_STRERROR
+        !(CYGDBG_NET_TIMING_STATS) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGDBG_NET_TIMING_STATS) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGDBG_NET_TIMING_STATS) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGDBG_NET_TIMING_STATS) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGDBG_NET_TIMING_STATS) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGDBG_NET_TIMING_STATS) | CYGINT_ISO_NETDB_SERV
+        !(CYGDBG_NET_TIMING_STATS) | CYGPKG_IO
+        !(CYGDBG_NET_TIMING_STATS) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGDBG_NET_TIMING_STATS) | !(CYGPKG_IO_NFILE)
+        !(CYGDBG_NET_TIMING_STATS) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGDBG_NET_TIMING_STATS) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGDBG_NET_TIMING_STATS) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGDBG_NET_TIMING_STATS) | CYGINT_ISO_NETDB_PROTO
+        !(CYGDBG_NET_TIMING_STATS) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGDBG_NET_TIMING_STATS) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGDBG_NET_TIMING_STATS) | CYGNUM_FILEIO_NFILE
+        !(CYGDBG_NET_TIMING_STATS) | CYGINT_ISO_STRERROR
+        !(CYGPKG_NET_FREEBSD_LOGGING) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_NET_FREEBSD_LOGGING) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_NET_FREEBSD_LOGGING) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_NET_FREEBSD_LOGGING) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_NET_FREEBSD_LOGGING) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_NET_FREEBSD_LOGGING) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_NET_FREEBSD_LOGGING) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_NET_FREEBSD_LOGGING) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGPKG_NET_FREEBSD_LOGGING) | CYGINT_ISO_NETDB_PROTO
+        !(CYGPKG_NET_FREEBSD_LOGGING) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGPKG_NET_FREEBSD_LOGGING) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGPKG_NET_FREEBSD_LOGGING) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_NET_FREEBSD_LOGGING) | CYGINT_ISO_STRERROR
+        !(CYGPKG_NET_MEMPOOL_SIZE) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_NET_MEMPOOL_SIZE) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_NET_MEMPOOL_SIZE) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_NET_MEMPOOL_SIZE) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_NET_MEMPOOL_SIZE) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_NET_MEMPOOL_SIZE) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_NET_MEMPOOL_SIZE) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_NET_MEMPOOL_SIZE) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGPKG_NET_MEMPOOL_SIZE) | CYGINT_ISO_NETDB_PROTO
+        !(CYGPKG_NET_MEMPOOL_SIZE) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGPKG_NET_MEMPOOL_SIZE) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGPKG_NET_MEMPOOL_SIZE) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_NET_MEMPOOL_SIZE) | CYGINT_ISO_STRERROR
+        !(CYGPKG_NET_DRIVER_FRAMEWORK) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_NET_DRIVER_FRAMEWORK) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_NET_DRIVER_FRAMEWORK) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_NET_DRIVER_FRAMEWORK) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_NET_DRIVER_FRAMEWORK) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_NET_DRIVER_FRAMEWORK) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_NET_DRIVER_FRAMEWORK) | CYGPKG_IO
+        !(CYGPKG_NET_DRIVER_FRAMEWORK) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_NET_DRIVER_FRAMEWORK) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_NET_DRIVER_FRAMEWORK) | CYGINT_ISO_STRING_STRFUNCS
+        !(CYGPKG_NET_DRIVER_FRAMEWORK) | CYGBLD_ISO_NETDB_PROTO_HEADER
+        !(CYGPKG_NET_DRIVER_FRAMEWORK) | CYGINT_ISO_NETDB_PROTO
+        !(CYGPKG_NET_DRIVER_FRAMEWORK) | !(CYGNUM_IO_ETH_DRIVERS_NUM_PKT)
+        !(CYGPKG_NET_DRIVER_FRAMEWORK) | CYGINT_ISO_C_TIME_TYPES
+        !(CYGPKG_NET_DRIVER_FRAMEWORK) | CYGNUM_FILEIO_NFILE
+        !(CYGPKG_NET_DRIVER_FRAMEWORK) | CYGINT_ISO_STRERROR
+        !(CYGPKG_SNMPLIB_FILESYSTEM_SUPPORT) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_SNMPLIB_FILESYSTEM_SUPPORT) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_SNMPLIB_FILESYSTEM_SUPPORT) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_SNMPLIB_FILESYSTEM_SUPPORT) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_SNMPLIB_FILESYSTEM_SUPPORT) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_SNMPLIB_FILESYSTEM_SUPPORT) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_SNMPLIB_FILESYSTEM_SUPPORT) | CYGPKG_IO
+        !(CYGPKG_SNMPLIB_FILESYSTEM_SUPPORT) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_SNMPLIB_FILESYSTEM_SUPPORT) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_SNMPLIB_FILESYSTEM_SUPPORT) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGDBG_NET_SNMPLIB_DEBUG) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGDBG_NET_SNMPLIB_DEBUG) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGDBG_NET_SNMPLIB_DEBUG) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGDBG_NET_SNMPLIB_DEBUG) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGDBG_NET_SNMPLIB_DEBUG) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGDBG_NET_SNMPLIB_DEBUG) | CYGINT_ISO_NETDB_SERV
+        !(CYGDBG_NET_SNMPLIB_DEBUG) | CYGPKG_IO
+        !(CYGDBG_NET_SNMPLIB_DEBUG) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGDBG_NET_SNMPLIB_DEBUG) | !(CYGPKG_IO_NFILE)
+        !(CYGDBG_NET_SNMPLIB_DEBUG) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGPKG_NET_SNTP_TESTS) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_NET_SNTP_TESTS) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_NET_SNTP_TESTS) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_NET_SNTP_TESTS) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_NET_SNTP_TESTS) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_NET_SNTP_TESTS) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_NET_SNTP_TESTS) | CYGPKG_IO
+        !(CYGPKG_NET_SNTP_TESTS) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_NET_SNTP_TESTS) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_NET_SNTP_TESTS) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGNUM_VNC_SERVER_PORT) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGNUM_VNC_SERVER_PORT) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGNUM_VNC_SERVER_PORT) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGNUM_VNC_SERVER_PORT) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGNUM_VNC_SERVER_PORT) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGNUM_VNC_SERVER_PORT) | CYGINT_ISO_NETDB_SERV
+        !(CYGNUM_VNC_SERVER_PORT) | CYGPKG_IO
+        !(CYGNUM_VNC_SERVER_PORT) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGNUM_VNC_SERVER_PORT) | !(CYGPKG_IO_NFILE)
+        !(CYGNUM_VNC_SERVER_PORT) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGPKG_IO_ETH_DRIVERS_NET) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_IO_ETH_DRIVERS_NET) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_IO_ETH_DRIVERS_NET) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_IO_ETH_DRIVERS_NET) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_IO_ETH_DRIVERS_NET) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_IO_ETH_DRIVERS_NET) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_IO_ETH_DRIVERS_NET) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_IO_ETH_DRIVERS_NET) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_IO_ETH_DRIVERS_NET) | CYGPKG_NET_DRIVER_FRAMEWORK
+        !(CYGPKG_SNMPLIB_CFLAGS_ADD) | CYGBLD_ISO_NAME_MAX_HEADER
+        !(CYGPKG_SNMPLIB_CFLAGS_ADD) | CYGBLD_ISO_OPEN_MAX_HEADER
+        !(CYGPKG_SNMPLIB_CFLAGS_ADD) | CYGINT_ISO_STRING_BSD_FUNCS
+        !(CYGPKG_SNMPLIB_CFLAGS_ADD) | CYGBLD_ISO_BSDTYPES_HEADER
+        !(CYGPKG_SNMPLIB_CFLAGS_ADD) | CYGBLD_ISO_DIRENT_HEADER
+        !(CYGPKG_SNMPLIB_CFLAGS_ADD) | CYGINT_ISO_NETDB_SERV
+        !(CYGPKG_SNMPLIB_CFLAGS_ADD) | CYGPKG_IO
+        !(CYGPKG_SNMPLIB_CFLAGS_ADD) | CYGBLD_ISO_NETDB_SERV_HEADER
+        !(CYGPKG_SNMPLIB_CFLAGS_ADD) | !(CYGPKG_IO_NFILE)
+        !(CYGPKG_SNMPLIB_CFLAGS_ADD) | CYGPKG_NET_DRIVER_FRAMEWORK

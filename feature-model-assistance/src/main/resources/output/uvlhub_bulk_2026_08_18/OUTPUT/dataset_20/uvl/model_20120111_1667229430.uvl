@@ -1,0 +1,29 @@
+features
+        "_r"
+                optional
+                        "_r_3"
+                                alternative
+                                        "_r_3_30_31"
+                                        "_r_3_30_32"
+                optional
+                        "_r_40"
+                                alternative
+                                        "_r_40_41_42"
+                                        "_r_40_41_43"
+                optional
+                        "_r_1_5_8"
+                optional
+                        "_r_2_16"
+                                alternative
+                                        "_r_2_16_21_22"
+                                                alternative
+                                                        "_r_2_16_21_22_24_25"
+                                                        "_r_2_16_21_22_24_26"
+                                        "_r_2_16_21_23"
+                        "_r_2_17_27_28"
+                optional
+                        "_r_4_35_36_37"
+
+constraints
+        "_r_3_30_31" => "_r_40_41_43"
+        "_r_3_30_32" => "_r_40_41_42"

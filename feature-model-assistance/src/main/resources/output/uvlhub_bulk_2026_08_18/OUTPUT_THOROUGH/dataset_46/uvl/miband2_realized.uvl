@@ -1,0 +1,17 @@
+features
+        SmartWatch {abstract true}
+                optional
+                        CapacityButton
+                optional
+                        MovementFilter
+                        HeartRateSensor
+                optional
+                        BLEv40
+                        BLEv42
+                        BT40
+
+constraints
+        !(SmartWatch) | BT40 | BLEv40 | BLEv42
+        !(BLEv42) | !(BLEv40) | !(SmartWatch) | BT40
+        !(BLEv40) | !(BT40) | !(SmartWatch)
+        !(BLEv42) | !(BT40) | !(SmartWatch)

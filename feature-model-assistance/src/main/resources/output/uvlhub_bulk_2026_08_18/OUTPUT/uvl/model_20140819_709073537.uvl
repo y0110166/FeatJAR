@@ -1,0 +1,25 @@
+features
+        "_r"
+                optional
+                        "_r_3_25"
+                optional
+                        "_r_5_43"
+                        "_r_5_44"
+                optional
+                        "_r_6_55"
+                optional
+                        "_r_7_16"
+                                optional
+                                        "_r_7_19"
+                                        "_r_7_20"
+                                        "_r_7_21"
+                                        "_r_7_22"
+                optional
+                        "_r_8_37"
+                                optional
+                                        "_r_8_36"
+                optional
+                        "_r_10_48"
+                                optional
+                                        "_r_10_49"
+

@@ -1,0 +1,21 @@
+features
+        Onlineshop {abstract true}
+                optional
+                        UserManagement {abstract true}
+                                or
+                                        Orders
+                                        Security
+                                        Payments
+                                        Wishlist
+                optional
+                        "Debit Card"
+                optional
+                        Categories
+                        Sort
+                        Search
+
+constraints
+        Search => Security
+        Security => !(Payments)
+        Payments => !(Security)
+        Sort | Search

@@ -1,0 +1,81 @@
+features
+        "_r0"
+                optional
+                        "_r3"
+                                optional
+                                        "_r4"
+                        "_r5"
+                                alternative
+                                        "_r6"
+                                        "_r7"
+                                        "_r8"
+                        "_r9"
+                                alternative
+                                        "_r10"
+                                        "_r11"
+                                        "_r12"
+                                        "_r13"
+                        "_r14"
+                                optional
+                                        "_r15"
+                                                optional
+                                                        "_r16"
+                                                optional
+                                                        "_r25"
+                                                                optional
+                                                                        "_r43"
+                                                                alternative
+                                                                        "_r26"
+                                                                        "_r27"
+                                                                        "_r28"
+                                                                        "_r29"
+                                                                        "_r30"
+                                                                alternative
+                                                                        "_r32"
+                                                                        "_r33"
+                                                                        "_r34"
+                                                                        "_r35"
+                                                                        "_r36"
+                                                                        "_r37"
+                                                                        "_r38"
+                                                                        "_r39"
+                                                                        "_r40"
+                                                                        "_r41"
+                                                                        "_r42"
+                                                                alternative
+                                                                        "_r18"
+                                                                        "_r19"
+                                                                        "_r20"
+                                                                        "_r21"
+                                                                                alternative
+                                                                                        "_r22"
+                                                                                        "_r23"
+                                                                                        "_r24"
+                        "_r65"
+                                optional
+                                        "_r66"
+                                                optional
+                                                        "_r67"
+                                                                optional
+                                                                        "_r68"
+                                                                                optional
+                                                                                        "_r69"
+                        "_r75"
+                                optional
+                                        "_r76"
+                                optional
+                                        "_r77"
+                        "_r80"
+                        "_r81"
+                        "_r82"
+
+constraints
+        !("_r0") | "_r80" | "_r81" | "_r82"
+        !("_r82") | !("_r80") | !("_r0")
+        !("_r81") | !("_r80") | !("_r0")
+        !("_r82") | !("_r81") | !("_r0")
+        !("_r15") | "_r16" | "_r18" | "_r19" | "_r20" | "_r21"
+        !("_r18") | !("_r16") | !("_r15")
+        !("_r19") | !("_r16") | !("_r15")
+        !("_r20") | !("_r16") | !("_r15")
+        !("_r21") | !("_r16") | !("_r15")

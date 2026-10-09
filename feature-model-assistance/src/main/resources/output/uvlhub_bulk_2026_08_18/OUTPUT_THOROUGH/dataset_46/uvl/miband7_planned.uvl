@@ -1,0 +1,47 @@
+features
+        SmartWatch {abstract true}
+                optional
+                        ScreenType {abstract true}
+                                optional
+                                        TouchScreen
+                                                optional
+                                                        FullColor
+                                optional
+                                        CapacityButton
+                                optional
+                                        CapacitivitySensing
+                optional
+                        ContactlessPayment
+                optional
+                        MovementFilter
+                        Gyroscope
+                        Infrared
+                        Microphone
+                        ProximitySensor
+                        HeartRateSensor
+                                optional
+                                        Photoplethysmogram
+                        SpO2
+                optional
+                        NFC
+                        BLEv40
+                        BLEv42
+                        BLEv50
+                        BLEv52
+                        BT40
+
+constraints
+        ContactlessPayment => NFC
+        !(ScreenType) | CapacityButton | CapacitivitySensing
+        !(CapacitivitySensing) | !(CapacityButton) | !(ScreenType)
+        !(SmartWatch) | BT40 | BLEv40 | BLEv42 | BLEv50 | BLEv52
+        !(BLEv52) | !(BLEv40) | !(SmartWatch) | BT40
+        !(BLEv52) | !(BLEv42) | !(SmartWatch) | BT40
+        !(BLEv52) | !(BLEv50) | !(SmartWatch) | BT40
+        !(BLEv42) | !(BLEv40) | !(SmartWatch) | BT40
+        !(BLEv50) | !(BLEv42) | !(SmartWatch) | BT40
+        !(BLEv50) | !(BLEv40) | !(SmartWatch) | BT40
+        !(BLEv50) | !(BT40) | !(SmartWatch)
+        !(BLEv42) | !(BT40) | !(SmartWatch)
+        !(BLEv52) | !(BT40) | !(SmartWatch)
+        !(BLEv40) | !(BT40) | !(SmartWatch)

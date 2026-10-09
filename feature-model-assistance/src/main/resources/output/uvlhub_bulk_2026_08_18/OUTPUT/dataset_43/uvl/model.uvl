@@ -1,0 +1,18 @@
+features
+        smartwatch {abstract true}
+                optional
+                        payment
+                        gps
+                        "sports tracking"
+                                or
+                                        running
+                                        skiing
+                                        hiking
+                optional
+                        touch
+                optional
+                        basic
+
+constraints
+        "sports tracking" => gps
+        !(payment) | !(smartwatch) | touch

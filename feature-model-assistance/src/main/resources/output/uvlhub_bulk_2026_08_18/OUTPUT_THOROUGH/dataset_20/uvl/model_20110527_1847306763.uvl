@@ -1,0 +1,91 @@
+features
+        "_r0"
+                optional
+                        "_r1"
+                optional
+                        "_r9"
+                optional
+                        "_r10"
+                optional
+                        "_r11"
+                optional
+                        "_r24"
+                optional
+                        "_r4"
+                        "_r5"
+                        "_r6"
+                        "_r7"
+                optional
+                        "_r14"
+                        "_r15"
+                                alternative
+                                        "_r55"
+                                        "_r56"
+                                        "_r57"
+                        "_r17"
+                                optional
+                                        "_r22"
+                                optional
+                                        "_r18"
+                                                alternative
+                                                        "_r19"
+                                                        "_r20"
+                optional
+                        "_r27"
+                        "_r31"
+                        "_r32"
+                        "_r35"
+                        "_r36"
+                        "_r37"
+                        "_r38"
+                        "_r40"
+                        "_r41"
+                        "_r42"
+                        "_r43"
+                        "_r45"
+                                optional
+                                        "_r46"
+                                optional
+                                        "_r47"
+                                optional
+                                        "_r48"
+                                optional
+                                        "_r49"
+                                optional
+                                        "_r50"
+                                optional
+                                        "_r51"
+                                optional
+                                        "_r45_63"
+                        "_r52"
+                        "_r53"
+                        "_r59"
+                        "_r60"
+
+constraints
+        "_r37" => "_r5"
+        "_r59" => "_r32"
+        "_r40" => "_r5"
+        "_r40" => "_r11"
+        "_r1" => "_r11"
+        "_r36" => "_r7"
+        "_r38" => "_r11"
+        "_r1" => "_r52"
+        "_r41" => "_r6"
+        "_r10" => "_r45_63"
+        "_r45" => "_r5"
+        "_r10" => "_r52"
+        "_r9" => "_r38"
+        "_r35" => "_r11"
+        "_r42" => "_r4"
+        "_r38" => "_r5"
+        "_r9" => "_r10"
+        "_r43" => "_r11"
+        "_r53" => "_r6"
+        "_r37" => "_r11"
+        "_r10" => "_r11"
+        "_r36" => "_r11"
+        "_r31" => "_r4"
+        "_r52" => "_r5"
+        !("_r15") | "_r17"
+        !("_r15") | "_r5"

@@ -1,0 +1,71 @@
+features
+        fitness_app {abstract true}
+                optional
+                        side_menu
+                                optional
+                                        alert_sound
+                                        choosable_metrics
+                                optional
+                                        image_side_menu
+                                        profile
+                                                alternative
+                                                        aws_server
+                                                        azure_server
+                optional
+                        local_data
+                                alternative
+                                        room
+                                        sqlite
+                                        shared_preferences
+                optional
+                        location
+                        accelerometer
+                        gyroscope
+                        watch_sensors
+                optional
+                        running_man_logo
+                optional
+                        calculate_steps
+                        calculate_calories
+                        calculate_speed
+                        calculate_distance
+                        image_home
+                        app_title
+                        intensity_bar
+                        light_training
+                        list_trainings
+                        delete_trainings
+                        send_by_mail
+                        share_to_other_apps
+                        background_white
+                        background_green
+                        background_blue
+                        white_button
+                        green_button
+                        blue_button
+
+constraints
+        running_man_logo => list_trainings
+        background_white => !(white_button)
+        white_button => !(background_white)
+        !(calculate_calories) | intensity_bar
+        !(side_menu) | alert_sound | choosable_metrics
+        !(fitness_app) | watch_sensors | location | accelerometer | gyroscope
+        !(location) | !(watch_sensors) | !(fitness_app)
+        !(accelerometer) | !(watch_sensors) | !(fitness_app)
+        !(gyroscope) | !(watch_sensors) | !(fitness_app)
+        !(side_menu) | image_side_menu | profile
+        !(image_home) | intensity_bar | calculate_steps | calculate_calories | calculate_speed | calculate_distance
+        !(app_title) | intensity_bar | calculate_steps | calculate_calories | calculate_speed | calculate_distance
+        !(fitness_app) | local_data | aws_server | azure_server
+        !(fitness_app) | intensity_bar | calculate_steps | calculate_calories | calculate_speed | calculate_distance
+        !(fitness_app) | list_trainings | delete_trainings
+        !(fitness_app) | send_by_mail | share_to_other_apps
+        !(fitness_app) | background_white | background_green | background_blue
+        !(background_blue) | !(background_white) | !(fitness_app)
+        !(background_blue) | !(background_green) | !(fitness_app)
+        !(background_green) | !(background_white) | !(fitness_app)
+        !(fitness_app) | white_button | green_button | blue_button
+        !(blue_button) | !(white_button) | !(fitness_app)
+        !(blue_button) | !(green_button) | !(fitness_app)
+        !(green_button) | !(white_button) | !(fitness_app)

@@ -1,0 +1,58 @@
+features
+        VisualComponents {abstract true}
+                optional
+                        Position {abstract true}
+                                optional
+                                        Position2D {abstract true}
+                        Form {abstract true}
+                                or
+                                        Shape {abstract true}
+                                                alternative
+                                                        CircleMark
+                                                        SquareMark
+                                                        TriangleMark
+                                                        PlusMark
+                                                        CrossMark
+                                        Length {abstract true}
+                                        Width {abstract true}
+                                        Size {abstract true}
+                                        Orientation {abstract true}
+                        Color {abstract true}
+                                optional
+                                        Hue {abstract true}
+                                                alternative
+                                                        Gray
+                                                        Blue
+                                                        Orange
+                                                        Green
+                                                        Pink
+                                                        Red
+                                                        Brown
+                                                        Purple
+                                                        Yellow
+                                        Intensity {abstract true}
+                                                alternative
+                                                        Light
+                                                        Medium
+                                                        DarkBright
+                optional
+                        Scales {abstract true}
+                                optional
+                                        XLogarithmic
+                                        YLogarithmic
+                        GridLines {abstract true}
+                        Annotations {abstract true}
+                        Legend {abstract true}
+                                alternative
+                                        SouthWest
+                                        SouthEast
+                                        NorthWest
+                                        NorthEast
+                                        OuterNorthEast
+                optional
+                        Axes {abstract true}
+                                optional
+                                        XAxis
+                                        YAxis
+                                        AxesPos {abstract true}
+

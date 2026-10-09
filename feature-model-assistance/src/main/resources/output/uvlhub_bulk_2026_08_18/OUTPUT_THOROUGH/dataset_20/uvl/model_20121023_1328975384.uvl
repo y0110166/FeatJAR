@@ -1,0 +1,17 @@
+features
+        "_r"
+                optional
+                        "_r_21"
+                optional
+                        "_r_22_23"
+                optional
+                        "_r_22_24_26"
+                optional
+                        "_r_22_25_27"
+                                optional
+                                        "_r_22_25_28"
+                                        "_r_22_25_29"
+                                        "_r_22_25_30"
+
+constraints
+        !("_r") | "_r_22_23" | "_r_22_24_26" | "_r_22_25_27"

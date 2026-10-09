@@ -1,0 +1,14 @@
+features
+        "_r"
+                optional
+                        "_r_45"
+                optional
+                        "_r_46"
+                optional
+                        "_r_47"
+                optional
+                        "_r_35_36_39"
+                        "_r_35_36_43"
+
+constraints
+        "_r_35_36_39" => "_r_45"

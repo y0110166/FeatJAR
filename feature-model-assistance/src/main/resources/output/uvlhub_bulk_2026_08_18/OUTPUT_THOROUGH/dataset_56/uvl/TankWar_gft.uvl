@@ -1,0 +1,52 @@
+features
+        TankWar
+                optional
+                        Tools
+                                or
+                                        Beschleunigung
+                                        einfrieren
+                                        Bombe
+                                        Energie
+                                        Feuerkraft
+                                        Mars
+                optional
+                        explodieren
+                optional
+                        Record
+                                alternative
+                                        Re_fuer_PC
+                                        Re_fuer_Handy
+                optional
+                        Soundeffekt
+                                alternative
+                                        Sound_fuer_pc
+                                        Sound_fuer_Handy
+                optional
+                        PC
+                optional
+                        M_240
+                        M_600
+                        M_780
+                        Image
+                                optional
+                                        fuer_PC
+                                optional
+                                        fuer_Handy
+                                optional
+                                        IMG_tool
+                optional
+                        EN
+                optional
+                        USA_M1Abrams
+                        Germany_Leopard
+                        China_Type99
+                optional
+                        Easy
+
+constraints
+        !(TankWar) | M_240 | M_600 | M_780
+        !(TankWar) | USA_M1Abrams | Germany_Leopard | China_Type99
+        !(M_780) | !(M_600) | !(M_240)
+        !(M_780) | !(M_240) | !(TankWar)
+        !(M_600) | !(M_240) | !(TankWar)
+        !(M_780) | !(M_600) | !(TankWar)

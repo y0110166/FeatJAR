@@ -1,0 +1,161 @@
+features
+        Module
+                optional
+                        SpinningRadar
+                        TheInfinityLockRadar
+                        WidthLock
+                        TurnMultiplierLock
+                        LazyLock
+                        SpotlightLock
+                        FancyRadar
+                        FactorLock
+                        MouseRadar
+                optional
+                        HeadOnTargeting
+                        LinearTargeting
+                        MouseTargeting
+                optional
+                        NoMovement
+                optional
+                        WeakestSelectEnemy
+                        StrongestSelectEnemy
+                        ClosestSelectEnemy
+                optional
+                        MaximumPowerGun
+                        CeaseFireGun
+                        MouseClickGun
+
+constraints
+        !(Module) | HeadOnTargeting | LinearTargeting | MouseTargeting
+        !(MouseTargeting) | !(HeadOnTargeting) | !(Module)
+        !(LinearTargeting) | !(HeadOnTargeting) | !(Module)
+        !(MouseTargeting) | !(LinearTargeting) | !(Module)
+        !(Module) | MaximumPowerGun | CeaseFireGun | MouseClickGun
+        !(MouseClickGun) | !(CeaseFireGun) | !(Module)
+        !(CeaseFireGun) | !(MaximumPowerGun) | !(Module)
+        !(MouseClickGun) | !(MaximumPowerGun) | !(Module)
+        !(Module) | WeakestSelectEnemy | StrongestSelectEnemy | ClosestSelectEnemy
+        !(ClosestSelectEnemy) | !(StrongestSelectEnemy) | !(Module)
+        !(StrongestSelectEnemy) | !(WeakestSelectEnemy) | !(Module)
+        !(ClosestSelectEnemy) | !(WeakestSelectEnemy) | !(Module)
+        !(Module) | SpinningRadar | TheInfinityLockRadar | WidthLock | TurnMultiplierLock | LazyLock | SpotlightLock | FancyRadar | FactorLock | MouseRadar
+        !(MouseRadar) | !(TheInfinityLockRadar) | !(SpinningRadar)
+        !(MouseRadar) | !(WidthLock) | !(SpinningRadar)
+        !(MouseRadar) | !(WidthLock) | !(TheInfinityLockRadar)
+        !(WidthLock) | !(TheInfinityLockRadar) | !(SpinningRadar)
+        !(MouseRadar) | !(TurnMultiplierLock) | !(SpinningRadar)
+        !(MouseRadar) | !(TurnMultiplierLock) | !(TheInfinityLockRadar)
+        !(MouseRadar) | !(TurnMultiplierLock) | !(WidthLock)
+        !(TurnMultiplierLock) | !(TheInfinityLockRadar) | !(SpinningRadar)
+        !(TurnMultiplierLock) | !(WidthLock) | !(TheInfinityLockRadar)
+        !(TurnMultiplierLock) | !(WidthLock) | !(SpinningRadar)
+        !(MouseRadar) | !(LazyLock) | !(SpinningRadar)
+        !(MouseRadar) | !(LazyLock) | !(TheInfinityLockRadar)
+        !(MouseRadar) | !(LazyLock) | !(WidthLock)
+        !(MouseRadar) | !(LazyLock) | !(TurnMultiplierLock)
+        !(LazyLock) | !(TurnMultiplierLock) | !(SpinningRadar)
+        !(LazyLock) | !(TheInfinityLockRadar) | !(SpinningRadar)
+        !(LazyLock) | !(WidthLock) | !(TheInfinityLockRadar)
+        !(LazyLock) | !(TurnMultiplierLock) | !(WidthLock)
+        !(LazyLock) | !(WidthLock) | !(SpinningRadar)
+        !(LazyLock) | !(TurnMultiplierLock) | !(TheInfinityLockRadar)
+        !(SpotlightLock) | !(LazyLock) | !(SpinningRadar)
+        !(MouseRadar) | !(SpotlightLock) | !(SpinningRadar)
+        !(SpotlightLock) | !(LazyLock) | !(TheInfinityLockRadar)
+        !(MouseRadar) | !(SpotlightLock) | !(TheInfinityLockRadar)
+        !(SpotlightLock) | !(LazyLock) | !(WidthLock)
+        !(MouseRadar) | !(SpotlightLock) | !(WidthLock)
+        !(SpotlightLock) | !(LazyLock) | !(TurnMultiplierLock)
+        !(MouseRadar) | !(SpotlightLock) | !(TurnMultiplierLock)
+        !(SpotlightLock) | !(TurnMultiplierLock) | !(SpinningRadar)
+        !(SpotlightLock) | !(TheInfinityLockRadar) | !(SpinningRadar)
+        !(SpotlightLock) | !(WidthLock) | !(TheInfinityLockRadar)
+        !(SpotlightLock) | !(TurnMultiplierLock) | !(WidthLock)
+        !(SpotlightLock) | !(WidthLock) | !(SpinningRadar)
+        !(MouseRadar) | !(SpotlightLock) | !(LazyLock)
+        !(SpotlightLock) | !(TurnMultiplierLock) | !(TheInfinityLockRadar)
+        !(FancyRadar) | !(LazyLock) | !(SpinningRadar)
+        !(FancyRadar) | !(SpotlightLock) | !(SpinningRadar)
+        !(MouseRadar) | !(FancyRadar) | !(SpinningRadar)
+        !(FancyRadar) | !(LazyLock) | !(TheInfinityLockRadar)
+        !(FancyRadar) | !(SpotlightLock) | !(TheInfinityLockRadar)
+        !(MouseRadar) | !(FancyRadar) | !(TheInfinityLockRadar)
+        !(FancyRadar) | !(LazyLock) | !(WidthLock)
+        !(FancyRadar) | !(SpotlightLock) | !(WidthLock)
+        !(MouseRadar) | !(FancyRadar) | !(WidthLock)
+        !(FancyRadar) | !(LazyLock) | !(TurnMultiplierLock)
+        !(FancyRadar) | !(SpotlightLock) | !(TurnMultiplierLock)
+        !(MouseRadar) | !(FancyRadar) | !(TurnMultiplierLock)
+        !(FancyRadar) | !(TurnMultiplierLock) | !(SpinningRadar)
+        !(MouseRadar) | !(FancyRadar) | !(SpotlightLock)
+        !(FancyRadar) | !(SpotlightLock) | !(LazyLock)
+        !(FancyRadar) | !(TheInfinityLockRadar) | !(SpinningRadar)
+        !(FancyRadar) | !(WidthLock) | !(TheInfinityLockRadar)
+        !(FancyRadar) | !(TurnMultiplierLock) | !(WidthLock)
+        !(FancyRadar) | !(WidthLock) | !(SpinningRadar)
+        !(MouseRadar) | !(FancyRadar) | !(LazyLock)
+        !(FancyRadar) | !(TurnMultiplierLock) | !(TheInfinityLockRadar)
+        !(FactorLock) | !(LazyLock) | !(SpinningRadar)
+        !(FactorLock) | !(SpotlightLock) | !(SpinningRadar)
+        !(FactorLock) | !(FancyRadar) | !(SpinningRadar)
+        !(MouseRadar) | !(FactorLock) | !(SpinningRadar)
+        !(FactorLock) | !(LazyLock) | !(TheInfinityLockRadar)
+        !(FactorLock) | !(SpotlightLock) | !(TheInfinityLockRadar)
+        !(FactorLock) | !(FancyRadar) | !(TheInfinityLockRadar)
+        !(MouseRadar) | !(FactorLock) | !(TheInfinityLockRadar)
+        !(FactorLock) | !(LazyLock) | !(WidthLock)
+        !(FactorLock) | !(SpotlightLock) | !(WidthLock)
+        !(FactorLock) | !(FancyRadar) | !(WidthLock)
+        !(MouseRadar) | !(FactorLock) | !(WidthLock)
+        !(FactorLock) | !(LazyLock) | !(TurnMultiplierLock)
+        !(FactorLock) | !(SpotlightLock) | !(TurnMultiplierLock)
+        !(FactorLock) | !(FancyRadar) | !(TurnMultiplierLock)
+        !(MouseRadar) | !(FactorLock) | !(TurnMultiplierLock)
+        !(FactorLock) | !(TurnMultiplierLock) | !(SpinningRadar)
+        !(MouseRadar) | !(FactorLock) | !(SpotlightLock)
+        !(FactorLock) | !(FancyRadar) | !(SpotlightLock)
+        !(FactorLock) | !(SpotlightLock) | !(LazyLock)
+        !(FactorLock) | !(TheInfinityLockRadar) | !(SpinningRadar)
+        !(FactorLock) | !(WidthLock) | !(TheInfinityLockRadar)
+        !(MouseRadar) | !(FactorLock) | !(FancyRadar)
+        !(FactorLock) | !(TurnMultiplierLock) | !(WidthLock)
+        !(FactorLock) | !(WidthLock) | !(SpinningRadar)
+        !(FactorLock) | !(FancyRadar) | !(LazyLock)
+        !(MouseRadar) | !(FactorLock) | !(LazyLock)
+        !(FactorLock) | !(TurnMultiplierLock) | !(TheInfinityLockRadar)
+        !(FactorLock) | !(FancyRadar) | !(Module)
+        !(LazyLock) | !(SpinningRadar) | !(Module)
+        !(SpotlightLock) | !(SpinningRadar) | !(Module)
+        !(FancyRadar) | !(SpinningRadar) | !(Module)
+        !(FactorLock) | !(SpinningRadar) | !(Module)
+        !(MouseRadar) | !(SpinningRadar) | !(Module)
+        !(LazyLock) | !(TheInfinityLockRadar) | !(Module)
+        !(SpotlightLock) | !(TheInfinityLockRadar) | !(Module)
+        !(FancyRadar) | !(TheInfinityLockRadar) | !(Module)
+        !(FactorLock) | !(TheInfinityLockRadar) | !(Module)
+        !(MouseRadar) | !(TheInfinityLockRadar) | !(Module)
+        !(LazyLock) | !(WidthLock) | !(Module)
+        !(SpotlightLock) | !(WidthLock) | !(Module)
+        !(FancyRadar) | !(WidthLock) | !(Module)
+        !(FactorLock) | !(WidthLock) | !(Module)
+        !(MouseRadar) | !(WidthLock) | !(Module)
+        !(LazyLock) | !(TurnMultiplierLock) | !(Module)
+        !(SpotlightLock) | !(TurnMultiplierLock) | !(Module)
+        !(FancyRadar) | !(TurnMultiplierLock) | !(Module)
+        !(FactorLock) | !(TurnMultiplierLock) | !(Module)
+        !(MouseRadar) | !(TurnMultiplierLock) | !(Module)
+        !(TurnMultiplierLock) | !(SpinningRadar) | !(Module)
+        !(MouseRadar) | !(FactorLock) | !(Module)
+        !(MouseRadar) | !(SpotlightLock) | !(Module)
+        !(FactorLock) | !(SpotlightLock) | !(Module)
+        !(FancyRadar) | !(SpotlightLock) | !(Module)
+        !(SpotlightLock) | !(LazyLock) | !(Module)
+        !(TheInfinityLockRadar) | !(SpinningRadar) | !(Module)
+        !(FactorLock) | !(LazyLock) | !(Module)
+        !(WidthLock) | !(TheInfinityLockRadar) | !(Module)
+        !(MouseRadar) | !(FancyRadar) | !(Module)
+        !(TurnMultiplierLock) | !(WidthLock) | !(Module)
+        !(WidthLock) | !(SpinningRadar) | !(Module)
+        !(FancyRadar) | !(LazyLock) | !(Module)
+        !(MouseRadar) | !(LazyLock) | !(Module)
+        !(TurnMultiplierLock) | !(TheInfinityLockRadar) | !(Module)

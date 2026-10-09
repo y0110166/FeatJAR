@@ -1,0 +1,57 @@
+features
+        "AquaIA: crops"
+                optional
+                        Lettuce
+                optional
+                        Sandy
+                        SandyLoam
+                        Silty
+                        ClayLoam
+                        Clay
+                        LowerThreshold14C
+                        LowerThreshold15C
+                        LowerThreshold16C
+                        UpperThreshold29C
+                        UpperThreshold30C
+                        UpperThreshold28C
+                        Distance50cm
+                        DripperFlowRate1p6Lh
+                        Today
+                optional
+                        SGDD
+                        Coverage
+                        Kc
+                        ETc
+                        WaterBalance
+                        DeficitIrrigation
+                optional
+                        ETo
+                        Precipitation
+                        SoilPotential
+                        WeatherForecast
+
+constraints
+        Coverage => SGDD
+        Kc => Coverage & ETo
+        ETc => Kc
+        WaterBalance => ETc & Precipitation
+        DeficitIrrigation => WaterBalance & SoilPotential
+        !("AquaIA: crops") | LowerThreshold14C | LowerThreshold15C | LowerThreshold16C
+        !(LowerThreshold15C) | !(LowerThreshold14C) | !("AquaIA: crops")
+        !(LowerThreshold16C) | !(LowerThreshold15C) | !("AquaIA: crops")
+        !(LowerThreshold16C) | !(LowerThreshold14C) | !("AquaIA: crops")
+        !("AquaIA: crops") | UpperThreshold29C | UpperThreshold30C | UpperThreshold28C
+        !(UpperThreshold30C) | !(UpperThreshold29C) | !("AquaIA: crops")
+        !(UpperThreshold28C) | !(UpperThreshold30C) | !("AquaIA: crops")
+        !(UpperThreshold28C) | !(UpperThreshold29C) | !("AquaIA: crops")
+        !("AquaIA: crops") | Sandy | SandyLoam | Silty | ClayLoam | Clay
+        !(Clay) | !(Sandy) | !("AquaIA: crops")
+        !(SandyLoam) | !(Sandy) | !("AquaIA: crops")
+        !(ClayLoam) | !(Sandy) | !("AquaIA: crops")
+        !(ClayLoam) | !(Silty) | !("AquaIA: crops")
+        !(Silty) | !(Sandy) | !("AquaIA: crops")
+        !(Clay) | !(ClayLoam) | !("AquaIA: crops")
+        !(Clay) | !(Silty) | !("AquaIA: crops")
+        !(Clay) | !(SandyLoam) | !("AquaIA: crops")
+        !(ClayLoam) | !(SandyLoam) | !("AquaIA: crops")
+        !(Silty) | !(SandyLoam) | !("AquaIA: crops")

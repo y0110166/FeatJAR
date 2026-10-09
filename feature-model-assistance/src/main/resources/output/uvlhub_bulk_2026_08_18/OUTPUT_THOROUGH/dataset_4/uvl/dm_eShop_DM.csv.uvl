@@ -1,0 +1,23 @@
+features
+        VIRTUAL_ROOT {abstract true}
+                or
+                        OnlineShop
+                        Categories
+                        Payment
+                                alternative
+                                        DebitCard
+                                        CreditCard
+                        Search
+                        UserManagement
+                                or
+                                        Orders
+                                        Security
+                                        Payments
+                                        Wishlist
+                        Sort
+
+constraints
+        Search => Security
+        Search | Sort
+        Payments => !(Security)
+        Security => !(Payments)

@@ -1,0 +1,38 @@
+features
+        VIRTUAL_ROOT {abstract true}
+                or
+                        SV_Solution
+                                alternative
+                                        BMD
+                                        BMDCRM
+                        CV_Documents
+                                or
+                                        "scan new"
+                                        "import external"
+                                        archive
+                                        "read existing"
+                        CV_Claims
+                                or
+                                        journal
+                                        "task manager"
+                        SV
+                                alternative
+                                        "Particular Packages"
+                                        Solution
+                        CV_Customer
+                                or
+                                        mail
+                                        phone
+                        CV
+                                or
+                                        "Document Management"
+                                        "Claims Management"
+                                        "Customer Management"
+                        SV_Particular_Package
+                                or
+                                        Organizer
+                                        "Label Printing"
+                                        Else
+                                        Docs
+                                        "Standard Letter"
+

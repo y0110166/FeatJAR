@@ -1,0 +1,14 @@
+features
+        SmartWatch {abstract true}
+                optional
+                        CapacityButton
+                                alternative
+                                        BLEv40
+                                        BLEv42
+                optional
+                        MovementFilter
+                        HeartRateSensor
+
+constraints
+        MovementFilter => !(HeartRateSensor) & BLEv40
+        !(CapacityButton) | !(SmartWatch) | HeartRateSensor | MovementFilter

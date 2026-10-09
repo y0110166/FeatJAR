@@ -1,0 +1,28 @@
+features
+        sample_splent_app
+                optional
+                        redis {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_redis'}
+                optional
+                        mail {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_mail'}
+                optional
+                        confirmemail {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_confirmemail'}
+                optional
+                        profile {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_profile'}
+                optional
+                        reset {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_reset'}
+                optional
+                        admin {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_admin'}
+                optional
+                        mailhog {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_mailhog'}
+                optional
+                        phpmyadmin {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_phpmyadmin'}
+                optional
+                        nginx {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_nginx'}
+                optional
+                        session_redis {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_session_redis'}
+
+constraints
+        confirmemail => mail
+        reset => mail
+        mailhog => mail
+        session_redis => redis

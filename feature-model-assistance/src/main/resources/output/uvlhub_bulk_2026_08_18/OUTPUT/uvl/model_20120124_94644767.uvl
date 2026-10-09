@@ -1,0 +1,18 @@
+features
+        "_r"
+                optional
+                        "_r_1"
+                optional
+                        "_r_2"
+                optional
+                        "_r_9"
+                optional
+                        "_r_3_4_5"
+                        "_r_3_4_6"
+                        "_r_3_4_7"
+                        "_r_3_4_8"
+                optional
+                        "_r_12_13"
+
+constraints
+        !("_r") | "_r_3_4_5" | "_r_3_4_6" | "_r_3_4_7" | "_r_3_4_8"

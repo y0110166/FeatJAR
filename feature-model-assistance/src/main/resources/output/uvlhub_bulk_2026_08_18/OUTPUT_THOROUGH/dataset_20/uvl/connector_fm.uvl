@@ -1,0 +1,30 @@
+features
+        Connector
+                optional
+                        Synchronous
+                                optional
+                                        Timeout
+                        Asynchronous
+                                alternative
+                                        Polling
+                                                alternative
+                                                        Blocking
+                                                        "Non-blocking"
+                                        Callback
+                        Sender
+                                alternative
+                                        Pull
+                                                or
+                                                        Queued
+                                                        "Non-Queued"
+                                        Push
+                optional
+                        CAN
+
+constraints
+        !(Asynchronous) | !(Synchronous)
+        !(Connector) | Synchronous | Asynchronous | Pull | Push
+        !(Pull) | !(Synchronous) | !(Connector)
+        !(Pull) | !(Asynchronous) | !(Connector)
+        !(Push) | !(Synchronous) | !(Connector)
+        !(Push) | !(Asynchronous) | !(Connector)

@@ -1,0 +1,34 @@
+features
+        Stack
+                optional
+                        Size
+                                optional
+                                        Dynamic
+                                optional
+                                        Value
+                optional
+                        Optimization
+                                alternative
+                                        Speed
+                                        Memory_Usage
+                optional
+                        Counter
+                optional
+                        Additional_Features
+                                or
+                                        Thread_Safety
+                                        Bounds_Check
+                                        Type_Check
+                optional
+                        "Integer"
+                        Float
+                        "String"
+
+constraints
+        !(Value) | !(Dynamic) | !(Size)
+        !(Size) | Dynamic | Value
+        !(Stack) | "Integer" | Float | "String"
+        !("String") | !(Float) | !("Integer")
+        !("String") | !(Float) | !(Stack)
+        !("String") | !("Integer") | !(Stack)
+        !(Float) | !("Integer") | !(Stack)

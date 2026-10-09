@@ -1,0 +1,47 @@
+features
+        SmartWatch {abstract true}
+                optional
+                        CapacityButton
+                        TouchScreen
+                optional
+                        ContactlessPayment
+                optional
+                        MovementFilter
+                        Gyroscope
+                        Infrared
+                        HeartRateSensor
+                                optional
+                                        Photoplethysmogram
+                optional
+                        BLEv40
+                        BLEv42
+                        BT40
+
+constraints
+        MovementFilter => !(HeartRateSensor) & BLEv40
+        !(Infrared) | Photoplethysmogram
+        !(Photoplethysmogram) | !(ContactlessPayment) | Infrared
+        !(Infrared) | ContactlessPayment
+        !(Infrared) | TouchScreen
+        !(ContactlessPayment) | TouchScreen
+        !(BT40) | !(CapacityButton)
+        CapacityButton | Gyroscope | BT40
+        !(Gyroscope) | !(CapacityButton) | BT40
+        !(BLEv42) | !(BLEv40) | !(SmartWatch) | BT40
+        !(SmartWatch) | HeartRateSensor | MovementFilter | BT40
+        !(BLEv42) | HeartRateSensor | MovementFilter
+        !(BLEv42) | !(BT40) | !(SmartWatch)
+        !(BLEv40) | HeartRateSensor | MovementFilter
+        !(BLEv40) | !(BT40) | !(SmartWatch)
+        !(BLEv40) | !(TouchScreen) | !(SmartWatch) | BT40 | BLEv42
+        !(CapacityButton) | !(SmartWatch) | BT40 | BLEv40 | BLEv42
+        !(SmartWatch) | TouchScreen | BT40 | BLEv40 | BLEv42
+        !(BLEv42) | !(SmartWatch) | CapacityButton | BT40
+        !(BLEv40) | !(SmartWatch) | CapacityButton | BT40
+        !(TouchScreen) | HeartRateSensor | MovementFilter | BLEv42
+        !(BT40) | !(TouchScreen) | !(SmartWatch) | BLEv42
+        !(BLEv42) | !(Photoplethysmogram) | !(SmartWatch) | BT40
+        !(BLEv40) | !(Photoplethysmogram) | !(SmartWatch) | BT40
+        !(Gyroscope) | HeartRateSensor | MovementFilter
+        !(BT40) | !(Gyroscope) | !(SmartWatch)
+        !(BT40) | !(Photoplethysmogram) | !(SmartWatch)

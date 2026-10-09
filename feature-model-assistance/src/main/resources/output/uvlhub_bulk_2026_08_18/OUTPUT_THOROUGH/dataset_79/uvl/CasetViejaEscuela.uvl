@@ -1,0 +1,12 @@
+features
+        CasetViejaEscuela {abstract true}
+                optional
+                        ModoCompleto {abstract true}
+                        ModoNormal {abstract true}
+                        ModoSimple {abstract true}
+
+constraints
+        !(ModoSimple) | !(ModoNormal)
+        !(ModoSimple) | !(ModoCompleto)
+        !(ModoNormal) | !(ModoCompleto)
+        !(CasetViejaEscuela) | ModoCompleto | ModoNormal | ModoSimple

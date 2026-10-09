@@ -1,0 +1,22 @@
+features
+        jplug
+                optional
+                        model_code_synch
+                        compiler
+                                or
+                                        javac
+                                        mvc
+                optional
+                        sdi
+                optional
+                        java
+                                optional
+                                        qt
+                optional
+                        uml
+                                optional
+                                        petri_net
+
+constraints
+        !(java) | !(sdi)
+        !(model_code_synch) | uml

@@ -1,0 +1,11 @@
+features
+        "_r"
+                optional
+                        "_r_5_6_7"
+                        "_r_5_6_27"
+                        "_r_5_29_30"
+                optional
+                        "_r_19_32_34"
+
+constraints
+        !("_r") | "_r_5_6_7" | "_r_5_6_27"

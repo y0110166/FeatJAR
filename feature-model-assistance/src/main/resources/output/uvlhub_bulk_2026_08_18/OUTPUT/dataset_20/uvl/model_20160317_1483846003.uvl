@@ -1,0 +1,44 @@
+features
+        "_r"
+                optional
+                        "_r_49"
+                optional
+                        "_r_56"
+                                optional
+                                        "_r_56_57"
+                                optional
+                                        "_r_56_58"
+                                optional
+                                        "_r_56_59"
+                                                optional
+                                                        "_r_56_59_60"
+                                                optional
+                                                        "_r_56_59_61"
+                                                optional
+                                                        "_r_56_59_62"
+                optional
+                        "_r_1_20_22"
+                        "_r_1_20_23"
+                        "_r_1_20_24"
+                        "_r_1_20_25"
+                        "_r_1_20_26"
+                optional
+                        "_r_30_35"
+                        "_r_30_36"
+                        "_r_30_38"
+                        "_r_30_39"
+                        "_r_30_40"
+                                optional
+                                        "_r_30_40_48"
+                optional
+                        "_r_43_47"
+                optional
+                        "_r_50_55"
+                optional
+                        "_r_66_69_70"
+                        "_r_66_69_71"
+                        "_r_66_69_72"
+                        "_r_66_69_73"
+
+constraints
+        !("_r") | "_r_66_69_70" | "_r_66_69_71" | "_r_66_69_72" | "_r_66_69_73"

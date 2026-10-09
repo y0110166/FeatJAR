@@ -1,0 +1,25 @@
+features
+        editor_config
+                optional
+                        minutes
+                        backup_onchange
+                        file_bak
+                        file_bak_ext
+                        file_ext_bak
+                optional
+                        associated_file_ext
+                                optional
+                                        remove_blank_lines
+                                        spell_check
+                                        dos_unix_conversion
+                                optional
+                                        ext
+                                optional
+                                        syntax_definition_file
+
+constraints
+        !(editor_config) | file_bak | file_bak_ext | file_ext_bak
+        !(file_ext_bak) | !(file_bak_ext) | !(file_bak)
+        !(file_ext_bak) | !(file_bak_ext) | !(editor_config)
+        !(file_ext_bak) | !(file_bak) | !(editor_config)
+        !(file_bak_ext) | !(file_bak) | !(editor_config)

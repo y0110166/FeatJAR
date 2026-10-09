@@ -1,0 +1,86 @@
+features
+        ArcadeGame {de_featjar_base_data_extended__ true}
+                optional
+                        CheckPreviousBestScore
+                        SaveScore
+                optional
+                        SpritePair
+                        Velocity
+                                or
+                                        Paddle
+                                                or
+                                                        TopPaddle
+                                                        BottomPaddle
+                                        Puck
+                                        BowlingBall
+                                        BowlingPin
+                        StationarySprite
+                                optional
+                                        Wall
+                                                or
+                                                        Leftpong
+                                                        Rightpont
+                                                        Leftbrickles
+                                                        Rightbrickles
+                                or
+                                        Brick
+                                        BrickPile
+                                        Ceilingbrickles
+                                        Floorbrickles
+                                        Lane
+                                        Gutter
+                                        Edge
+                                        EndofAlley
+                                        RackofPins
+                                        ScoreBoard
+                                        Floorpong
+                                        Ceilingpong
+                                        DividingLine
+                        Pucksupply
+                        PongBoard
+                        BricklesBoard
+                        BowlingBoard
+                        Pong
+                        Brickles
+                        Bowling
+                        PongGameMenu
+                        BricklesGameMenu
+                        BowlingGameMenu
+
+constraints
+        !(TopPaddle) | Pong
+        !(BottomPaddle) | Pong
+        !(Leftpong) | Pong
+        !(Rightpont) | Pong
+        !(ScoreBoard) | Pong
+        !(Floorpong) | Pong
+        !(Ceilingpong) | Pong
+        !(DividingLine) | Pong
+        !(PongBoard) | Pong
+        !(PongGameMenu) | Pong
+        !(BowlingBoard) | Bowling
+        !(BowlingBall) | Bowling
+        !(BowlingPin) | Bowling
+        !(Lane) | Bowling
+        !(Gutter) | Bowling
+        !(Edge) | Bowling
+        !(EndofAlley) | Bowling
+        !(RackofPins) | Bowling
+        !(BowlingGameMenu) | Bowling
+        !(BricklesGameMenu) | Brickles
+        !(BricklesBoard) | Brickles
+        !(Leftbrickles) | Brickles
+        !(Rightbrickles) | Brickles
+        !(BrickPile) | Brickles
+        !(Brick) | Brickles
+        !(Ceilingbrickles) | Brickles
+        !(Floorbrickles) | Brickles
+        !(Pucksupply) | Brickles
+        !(SaveScore) | Pong | Brickles | Bowling
+        !(CheckPreviousBestScore) | Pong | Brickles | Bowling
+        !(Pucksupply) | PongBoard | BricklesBoard | BowlingBoard
+        !(Pucksupply) | PongGameMenu | BricklesGameMenu | BowlingGameMenu
+        !(ArcadeGame) | PongBoard | BricklesBoard | BowlingBoard
+        !(ArcadeGame) | PongGameMenu | BricklesGameMenu | BowlingGameMenu
+        !(Pucksupply) | StationarySprite | Velocity
+        !(ArcadeGame) | StationarySprite | Velocity

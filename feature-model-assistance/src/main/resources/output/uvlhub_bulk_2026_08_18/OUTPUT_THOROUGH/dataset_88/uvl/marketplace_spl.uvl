@@ -1,0 +1,14 @@
+features
+        marketplace_spl
+                optional
+                        configurator {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_configurator'}
+                        admin {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_admin'}
+                        mail {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_mail'}
+                        signup {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_signup'}
+                        redis {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_redis'}
+                        skin_store {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_skin_store'}
+                optional
+                        session_filesystem {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_session_filesystem'}
+
+constraints
+        !(marketplace_spl) | redis | session_filesystem

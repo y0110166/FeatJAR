@@ -1,0 +1,46 @@
+features
+        cms_spl
+                optional
+                        team {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_team'}
+                        events {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_events'}
+                        projects {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_projects'}
+                        research_projects {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_research_projects'}
+                        tools {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_tools'}
+                        media {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_media'}
+                        slider {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_slider'}
+                        partners {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_partners'}
+                        post {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_post'}
+                        comments {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_comments'}
+                        mail {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_mail'}
+                        contact {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_contact'}
+                        captcha
+                                alternative
+                                        cloudflare {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_cloudflare'}
+                                        recaptcha {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_recaptcha'}
+                        admin {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_admin'}
+                        redis {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_redis'}
+                        nginx {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_nginx'}
+                        signup {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_signup'}
+                        about {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_about'}
+                        legal {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_legal'}
+                        wordpress_import {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_wordpress_import'}
+                optional
+                        session_filesystem {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_session_filesystem'}
+                optional
+                        skin_arcade {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_skin_arcade'}
+
+constraints
+        wordpress_import => media
+        wordpress_import => post
+        about => media
+        research_projects => projects
+        team => media
+        post => media
+        slider => media
+        partners => media
+        comments => post
+        contact => mail
+        research_projects => media
+        tools => media
+        events => media
+        !(cms_spl) | redis | session_filesystem

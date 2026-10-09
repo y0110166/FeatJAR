@@ -1,0 +1,11 @@
+features
+        "_r"
+                optional
+                        "_r_1_4_5"
+                optional
+                        "_r_2_9_10"
+                optional
+                        "_r_3_12_13"
+
+constraints
+        "_r_1_4_5" => "_r_3_12_13"

@@ -1,0 +1,41 @@
+features
+        Pizza {abstract true}
+                optional
+                        "Half & Half"
+                        CustomMade
+                optional
+                        Tomato
+                        Cream
+                        "BBQ sauce"
+                        "Curry sauce"
+                        Mozzarella
+                        Gouda
+                        Parmesan
+                        Roquefort
+                        Mushroom
+                        Onion
+                        Pepper
+                        Corn
+                        Broccoli
+                        Spinach
+                        Olives
+                        "York ham"
+                        Salami
+                        Bacon
+                        Pepperoni
+                        Chicken
+                        Beef
+                        Mince
+                        "Chicken kebab"
+                        Tuna
+                        Shrimps
+                        Mussels
+                        Spicy
+                        Egg
+                        Pineapple
+                optional
+                        Medium
+
+constraints
+        Tomato | "Curry sauce"
+        Medium => !("Half & Half")

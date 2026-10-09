@@ -1,0 +1,34 @@
+features
+        GpsPort {abstract true}
+                optional
+                        Ajustes
+                                or
+                                        Notificaciones
+                                        Preferencias
+                                        Seguridad
+                optional
+                        Reportes
+                                or
+                                        ExportarExcel
+                                        ExportarPDF
+                optional
+                        Registro
+                        Login
+                optional
+                        MapaSatelital
+                optional
+                        HistoricoRutas
+                optional
+                        PaletaColores
+                                alternative
+                                        Claro {de_featjar_base_data_default true}
+                                        Oscuro
+                                alternative
+                                        Espanol {de_featjar_base_data_default true}
+                                        Ingles
+                                        Frances
+
+constraints
+        Reportes => HistoricoRutas
+        !(GpsPort) | Registro | Login
+        !(PaletaColores) | Ajustes

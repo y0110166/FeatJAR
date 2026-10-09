@@ -1,0 +1,20 @@
+features
+        james
+                optional
+                        ws_interface
+                optional
+                        db
+                optional
+                        pc
+                        pda
+                optional
+                        calendar
+                        forum
+                        congress_mngt
+                        repository
+
+constraints
+        pda => !(repository)
+        congress_mngt => repository
+        !(james) | pc | pda
+        !(james) | calendar | forum | congress_mngt | repository

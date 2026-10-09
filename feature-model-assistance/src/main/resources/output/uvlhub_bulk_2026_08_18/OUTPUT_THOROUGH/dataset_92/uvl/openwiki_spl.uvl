@@ -1,0 +1,20 @@
+features
+        openwiki_spl
+                optional
+                        admin {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_admin'}
+                        archive {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_archive'}
+                        oidc {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_oidc'}
+                        elasticsearch {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_elasticsearch'}
+                        mail {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_mail'}
+                        contact {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_contact'}
+                        signup {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_signup'}
+                        redis {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_redis'}
+                        nginx {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_nginx'}
+                optional
+                        session_filesystem {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_session_filesystem'}
+                optional
+                        skin_egc {de_featjar_base_data_org 'splent-io', de_featjar_base_data_package 'splent_feature_skin_egc'}
+
+constraints
+        contact => mail
+        !(openwiki_spl) | redis | session_filesystem

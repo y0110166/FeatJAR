@@ -1,0 +1,13 @@
+features
+        vof
+                optional
+                        undefined_on_paper
+                optional
+                        "_undefined_on_paper"
+                        access_point
+                        "__undefined_on_paper"
+                optional
+                        printer_register
+                                optional
+                                        file_converter
+

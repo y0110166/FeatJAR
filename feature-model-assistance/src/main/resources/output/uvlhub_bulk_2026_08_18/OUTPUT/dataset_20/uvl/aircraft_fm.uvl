@@ -1,0 +1,20 @@
+features
+        Aircraft
+                optional
+                        Engine
+                                alternative
+                                        Jet
+                                        Piston
+                optional
+                        High
+                        Shoulder
+                        Low
+                optional
+                        Metal
+                        Wood
+                        Cloth
+                        Plastic
+
+constraints
+        !(Aircraft) | High | Shoulder | Low
+        !(Aircraft) | Metal | Wood | Cloth | Plastic

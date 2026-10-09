@@ -1,0 +1,9 @@
+features
+        Bases {abstract true}
+                alternative
+                        "Mixed lettuce"
+                        "Wild arugula"
+                        "Lamb's lettuce"
+                        "Sushi rice"
+                        "Brown rice"
+

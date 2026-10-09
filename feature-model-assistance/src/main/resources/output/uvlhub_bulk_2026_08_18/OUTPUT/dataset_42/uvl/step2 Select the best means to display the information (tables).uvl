@@ -1,0 +1,23 @@
+features
+        Table {abstract true}
+                optional
+                        SingleSetOfCategories {abstract true}
+                        MultipleCategories {abstract true}
+                        HierarchicalCategories {abstract true}
+                        QuantitativeToQuantitative {abstract true}
+                                alternative
+                                        SingleCategoricalItems {abstract true}
+                                        MultipleCategoricalItems {abstract true}
+                optional
+                        Unidirectional
+
+constraints
+        SingleSetOfCategories => Unidirectional
+        SingleCategoricalItems => Unidirectional
+        !(Table) | QuantitativeToQuantitative | SingleSetOfCategories | MultipleCategories | HierarchicalCategories
+        !(HierarchicalCategories) | !(SingleSetOfCategories) | !(Table) | QuantitativeToQuantitative
+        !(HierarchicalCategories) | !(MultipleCategories) | !(Table) | QuantitativeToQuantitative
+        !(MultipleCategories) | !(SingleSetOfCategories) | !(Table) | QuantitativeToQuantitative
+        !(HierarchicalCategories) | !(QuantitativeToQuantitative) | !(Table)
+        !(SingleSetOfCategories) | !(QuantitativeToQuantitative) | !(Table)
+        !(MultipleCategories) | !(QuantitativeToQuantitative) | !(Table)

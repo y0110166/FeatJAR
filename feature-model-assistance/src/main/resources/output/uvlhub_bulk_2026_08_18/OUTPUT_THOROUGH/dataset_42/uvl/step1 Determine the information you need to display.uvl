@@ -1,0 +1,78 @@
+features
+        Visualization {abstract true}
+                optional
+                        IndividualValues {abstract true}
+                        CompareIndividualValues {abstract true}
+                        PreciseValues {abstract true}
+                        PatternsTrendsAndExceptions {abstract true}
+                        MoreThanOneUnitOfMeasure {abstract true}
+                        VariousLevelsOfAggregation {abstract true}
+                        EntireSeriesOfValues {abstract true}
+                optional
+                        Graph
+
+constraints
+        PatternsTrendsAndExceptions => Graph
+        EntireSeriesOfValues => Graph
+        !(Visualization) | IndividualValues | CompareIndividualValues | PreciseValues | PatternsTrendsAndExceptions | MoreThanOneUnitOfMeasure | VariousLevelsOfAggregation | EntireSeriesOfValues
+        !(EntireSeriesOfValues) | !(PatternsTrendsAndExceptions) | !(PreciseValues)
+        !(PatternsTrendsAndExceptions) | !(PreciseValues) | !(CompareIndividualValues)
+        !(EntireSeriesOfValues) | !(PreciseValues) | !(CompareIndividualValues)
+        !(EntireSeriesOfValues) | !(PatternsTrendsAndExceptions) | !(CompareIndividualValues)
+        !(PreciseValues) | !(CompareIndividualValues) | !(IndividualValues)
+        !(PatternsTrendsAndExceptions) | !(CompareIndividualValues) | !(IndividualValues)
+        !(EntireSeriesOfValues) | !(CompareIndividualValues) | !(IndividualValues)
+        !(PatternsTrendsAndExceptions) | !(PreciseValues) | !(IndividualValues)
+        !(EntireSeriesOfValues) | !(PreciseValues) | !(IndividualValues)
+        !(EntireSeriesOfValues) | !(PatternsTrendsAndExceptions) | !(IndividualValues)
+        !(MoreThanOneUnitOfMeasure) | !(PreciseValues) | !(CompareIndividualValues)
+        !(MoreThanOneUnitOfMeasure) | !(PatternsTrendsAndExceptions) | !(IndividualValues)
+        !(EntireSeriesOfValues) | !(MoreThanOneUnitOfMeasure) | !(IndividualValues)
+        !(MoreThanOneUnitOfMeasure) | !(PatternsTrendsAndExceptions) | !(CompareIndividualValues)
+        !(EntireSeriesOfValues) | !(MoreThanOneUnitOfMeasure) | !(CompareIndividualValues)
+        !(MoreThanOneUnitOfMeasure) | !(PatternsTrendsAndExceptions) | !(PreciseValues)
+        !(EntireSeriesOfValues) | !(MoreThanOneUnitOfMeasure) | !(PreciseValues)
+        !(EntireSeriesOfValues) | !(MoreThanOneUnitOfMeasure) | !(PatternsTrendsAndExceptions)
+        !(MoreThanOneUnitOfMeasure) | !(PreciseValues) | !(IndividualValues)
+        !(MoreThanOneUnitOfMeasure) | !(CompareIndividualValues) | !(IndividualValues)
+        !(VariousLevelsOfAggregation) | !(PreciseValues) | !(CompareIndividualValues)
+        !(VariousLevelsOfAggregation) | !(PatternsTrendsAndExceptions) | !(IndividualValues)
+        !(VariousLevelsOfAggregation) | !(MoreThanOneUnitOfMeasure) | !(IndividualValues)
+        !(EntireSeriesOfValues) | !(VariousLevelsOfAggregation) | !(IndividualValues)
+        !(VariousLevelsOfAggregation) | !(PatternsTrendsAndExceptions) | !(CompareIndividualValues)
+        !(VariousLevelsOfAggregation) | !(MoreThanOneUnitOfMeasure) | !(CompareIndividualValues)
+        !(EntireSeriesOfValues) | !(VariousLevelsOfAggregation) | !(CompareIndividualValues)
+        !(VariousLevelsOfAggregation) | !(PatternsTrendsAndExceptions) | !(PreciseValues)
+        !(VariousLevelsOfAggregation) | !(MoreThanOneUnitOfMeasure) | !(PreciseValues)
+        !(EntireSeriesOfValues) | !(VariousLevelsOfAggregation) | !(PreciseValues)
+        !(EntireSeriesOfValues) | !(VariousLevelsOfAggregation) | !(MoreThanOneUnitOfMeasure)
+        !(EntireSeriesOfValues) | !(VariousLevelsOfAggregation) | !(PatternsTrendsAndExceptions)
+        !(VariousLevelsOfAggregation) | !(MoreThanOneUnitOfMeasure) | !(PatternsTrendsAndExceptions)
+        !(VariousLevelsOfAggregation) | !(PreciseValues) | !(IndividualValues)
+        !(VariousLevelsOfAggregation) | !(CompareIndividualValues) | !(IndividualValues)
+        !(PreciseValues) | !(CompareIndividualValues) | !(Visualization)
+        !(PatternsTrendsAndExceptions) | !(IndividualValues) | !(Visualization)
+        !(MoreThanOneUnitOfMeasure) | !(IndividualValues) | !(Visualization)
+        !(VariousLevelsOfAggregation) | !(IndividualValues) | !(Visualization)
+        !(EntireSeriesOfValues) | !(IndividualValues) | !(Visualization)
+        !(PatternsTrendsAndExceptions) | !(CompareIndividualValues) | !(Visualization)
+        !(MoreThanOneUnitOfMeasure) | !(CompareIndividualValues) | !(Visualization)
+        !(VariousLevelsOfAggregation) | !(CompareIndividualValues) | !(Visualization)
+        !(EntireSeriesOfValues) | !(CompareIndividualValues) | !(Visualization)
+        !(PatternsTrendsAndExceptions) | !(PreciseValues) | !(Visualization)
+        !(MoreThanOneUnitOfMeasure) | !(PreciseValues) | !(Visualization)
+        !(VariousLevelsOfAggregation) | !(PreciseValues) | !(Visualization)
+        !(EntireSeriesOfValues) | !(PreciseValues) | !(Visualization)
+        !(EntireSeriesOfValues) | !(MoreThanOneUnitOfMeasure) | !(Visualization)
+        !(EntireSeriesOfValues) | !(PatternsTrendsAndExceptions) | !(Visualization)
+        !(VariousLevelsOfAggregation) | !(MoreThanOneUnitOfMeasure) | !(Visualization)
+        !(VariousLevelsOfAggregation) | !(PatternsTrendsAndExceptions) | !(Visualization)
+        !(EntireSeriesOfValues) | !(VariousLevelsOfAggregation) | !(Visualization)
+        !(MoreThanOneUnitOfMeasure) | !(PatternsTrendsAndExceptions) | !(Visualization)
+        !(PreciseValues) | !(IndividualValues) | !(Visualization)
+        !(CompareIndividualValues) | !(IndividualValues) | !(Visualization)
+        !(Graph) | !(IndividualValues) | !(Visualization)
+        !(Graph) | !(CompareIndividualValues) | !(Visualization)
+        !(Graph) | !(PreciseValues) | !(Visualization)
+        !(Graph) | !(MoreThanOneUnitOfMeasure) | !(Visualization)
+        !(Graph) | !(VariousLevelsOfAggregation) | !(Visualization)

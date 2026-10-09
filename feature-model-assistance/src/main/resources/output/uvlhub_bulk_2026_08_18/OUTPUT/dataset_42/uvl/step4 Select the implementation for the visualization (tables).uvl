@@ -1,0 +1,23 @@
+features
+        VisualizationSoftware {abstract true}
+                optional
+                        DataAnalysis {abstract true}
+                optional
+                        tabular
+                        matplotlib
+                        gt
+                        d3
+
+constraints
+        !(VisualizationSoftware) | DataAnalysis | tabular | d3
+        !(DataAnalysis) | matplotlib | gt
+        !(d3) | !(gt) | !(tabular)
+        !(d3) | !(gt) | !(matplotlib)
+        !(gt) | !(matplotlib) | !(tabular)
+        !(d3) | !(matplotlib) | !(tabular)
+        !(gt) | !(tabular)
+        !(d3) | !(gt)
+        !(d3) | !(tabular)
+        !(matplotlib) | !(tabular)
+        !(d3) | !(matplotlib)
+        !(gt) | !(matplotlib)

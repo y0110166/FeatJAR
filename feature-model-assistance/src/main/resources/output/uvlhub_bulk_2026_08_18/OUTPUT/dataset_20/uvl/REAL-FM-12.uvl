@@ -1,0 +1,23 @@
+features
+        "_id_0"
+                optional
+                        page_translation
+                optional
+                        search_by_language
+                                or
+                                        "_id_9"
+                                        "_id_10"
+                                        "_id_11"
+                optional
+                        page_preview
+                optional
+                        "_id_3"
+                                alternative
+                                        "_id_5"
+                                        "_id_6"
+                                        svg
+                        "_id_7"
+
+constraints
+        search_by_language => page_translation
+        page_preview => !(svg)

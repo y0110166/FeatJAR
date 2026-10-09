@@ -1,0 +1,38 @@
+features
+        "_id_0"
+                optional
+                        "_id_8"
+                        "_id_14"
+                                optional
+                                        "_id_13"
+                        "_id_20"
+                        "_id_23"
+                        "_id_31"
+                                optional
+                                        pumping
+                                alternative
+                                        "_id_28"
+                                        "_id_29"
+                optional
+                        "_id_35"
+                optional
+                        "_id_37"
+                                optional
+                                        "_id_38"
+                                                alternative
+                                                        "_id_41"
+                                                        "_id_42"
+                optional
+                        moisture_sensor
+                optional
+                        sump_pump
+                optional
+                        "_id_53"
+                optional
+                        "_id_62"
+
+constraints
+        pumping => sump_pump
+        !("_id_13") | "_id_37"
+        !("_id_14") | "_id_37"
+        !("_id_31") | moisture_sensor

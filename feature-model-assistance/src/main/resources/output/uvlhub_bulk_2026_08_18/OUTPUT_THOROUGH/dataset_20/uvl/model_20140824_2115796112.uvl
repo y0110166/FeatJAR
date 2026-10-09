@@ -1,0 +1,29 @@
+features
+        "_r"
+                optional
+                        "_r_1_27"
+                        "_r_1_30"
+                        "_r_1_31"
+                optional
+                        "_r_2_19"
+                                optional
+                                        "_r_2_19_21"
+                optional
+                        "_r_4_35"
+                        "_r_4_36"
+                        "_r_4_37"
+                optional
+                        "_r_5_13"
+                        "_r_5_14"
+                        "_r_5_15"
+                optional
+                        "_r_6_40"
+                optional
+                        "_r_8_42"
+                                optional
+                                        "_r_8_43"
+
+constraints
+        "_r_1_27" => "_r_4_35"
+        "_r_1_27" => "_r_4_35"
+        "_r_4_36" => "_r_5_15"

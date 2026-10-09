@@ -1,0 +1,33 @@
+features
+        MonumentosZaragoza
+                optional
+                        Almacenamiento
+                                or
+                                        local
+                                                alternative
+                                                        sharedpreferences
+                                                        datastore
+                                                        room
+                                                        sqlite
+                                        remote
+                                                alternative
+                                                        firebase
+                                                        supabase
+                optional
+                        Lista
+                        Mapa
+                        PorNombre
+                                optional
+                                        PorDistancia
+                        CompartirMonumento
+                optional
+                        Claro
+                        Ingles
+                optional
+                        ListaFavoritos
+
+constraints
+        !(ListaFavoritos) | Almacenamiento
+        !(PorNombre) | Lista | Mapa
+        !(CompartirMonumento) | Lista | Mapa
+        !(MonumentosZaragoza) | Lista | Mapa

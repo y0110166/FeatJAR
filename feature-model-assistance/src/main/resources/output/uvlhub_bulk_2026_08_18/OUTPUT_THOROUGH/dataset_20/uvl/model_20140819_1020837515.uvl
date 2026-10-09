@@ -1,0 +1,51 @@
+features
+        "_r"
+                optional
+                        "_r_15"
+                                optional
+                                        "_r_15_53"
+                                optional
+                                        "_r_15_54"
+                                optional
+                                        "_r_15_56"
+                optional
+                        "_r_17"
+                                optional
+                                        "_r_17_18_59"
+                                optional
+                                        "_r_17_19_63"
+                optional
+                        "_r_2_20"
+                optional
+                        "_r_5_24"
+                        "_r_5_25"
+                optional
+                        "_r_6_30"
+                        "_r_6_31"
+                optional
+                        "_r_10_38"
+                                optional
+                                        "_r_10_42"
+                                        "_r_10_44"
+                optional
+                        "_r_12_45"
+                                optional
+                                        "_r_12_47"
+                                        "_r_12_48"
+                                        "_r_12_49"
+                optional
+                        "_r_13_50"
+                                optional
+                                        "_r_13_52"
+                optional
+                        "_r_14_53"
+                                optional
+                                        "_r_14_55"
+                                        "_r_14_56"
+                                        "_r_14_57"
+                                        "_r_14_58"
+
+constraints
+        "_r_12_47" => "_r_12_48"
+        "_r_14_55" => "_r_14_56"
+        "_r_14_57" => "_r_14_58"

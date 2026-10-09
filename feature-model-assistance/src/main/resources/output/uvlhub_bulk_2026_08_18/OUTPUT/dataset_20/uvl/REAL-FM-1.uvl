@@ -1,0 +1,120 @@
+features
+        Model_Transformation
+                optional
+                        Rule_application_scoping
+                                or
+                                        scoping_source
+                                        target_source
+                optional
+                        Variables
+                                alternative
+                                        Untyped
+                                        Syntactically_typed
+                                        Semantically_typed
+                        Syntax
+                                or
+                                        Abstract
+                                        Concrete
+                                                or
+                                                        Textual
+                                                        Graphical
+                                alternative
+                                        Strings
+                                        Terms
+                                        Graphs
+                                alternative
+                                        typ_untyped
+                                        typ_syntactically_typed
+                                        typ_semantically_typed
+                        Logic
+                                or
+                                        "Non-executable"
+                                        Executable
+                                                or
+                                                        Imperative
+                                                        Declarative
+                        "LHS/RHS_Syntactic_Separation"
+                        Bidirectionality
+                        Parameterization
+                        Intermediate_structures
+                optional
+                        New_target
+                        Update
+                                optional
+                                        "In-place"
+                                alternative
+                                        Destructive
+                                        Extension_only
+                optional
+                        Deterministic
+                        "Non-deterministic"
+                                or
+                                        Concurrent
+                                        "One-point"
+                        Interactive
+                optional
+                        Implicit
+                        Explicit
+                                alternative
+                                        Internal
+                                        External
+                        Explicit_condition
+                        "Non-determinism"
+                        Conflict_resolution
+                        "_Interactive"
+                        Rule_Iteration
+                                alternative
+                                        Recursion
+                                        Looping
+                                        Fixpoint_Iteration
+                        Phasing
+                optional
+                        Modulatiry_mechanisms
+                        Reuse_mechanisms
+                                or
+                                        Inheritance
+                                        Logical_composition
+                        "Source-oriented"
+                        "Target-oriented"
+                        Independent
+                optional
+                        Storage_location
+                                alternative
+                                        Model
+                                                or
+                                                        model_source
+                                                        model_target
+                                        Separate
+                                alternative
+                                        Manual
+                                        Automatic
+                                                alternative
+                                                        All_rules
+                                                        Selected_rules
+                optional
+                        Unidirectional
+                        Bidirectional
+                                alternative
+                                        Bidirectional_rules
+                                        Complementary_pairs
+
+constraints
+        !(Model_Transformation) | Deterministic | "Non-deterministic" | Interactive
+        !(Model_Transformation) | New_target | Update
+        !(Model_Transformation) | Unidirectional | Bidirectional
+        !(Model_Transformation) | Implicit | Explicit
+        !(Model_Transformation) | Explicit_condition | "Non-determinism" | Conflict_resolution | "_Interactive"
+        !(Reuse_mechanisms) | "Source-oriented" | "Target-oriented" | Independent
+        !(Model_Transformation) | "Source-oriented" | "Target-oriented" | Independent
+        !(Independent) | !("Target-oriented") | !(Reuse_mechanisms)
+        !(Independent) | !("Source-oriented") | !(Reuse_mechanisms)
+        !("Target-oriented") | !("Source-oriented") | !(Reuse_mechanisms)
+        !(Independent) | !("Target-oriented") | !(Model_Transformation)
+        !(Independent) | !("Source-oriented") | !(Model_Transformation)
+        !("Target-oriented") | !("Source-oriented") | !(Model_Transformation)
+        !(Parameterization) | Logic | typ_untyped | typ_syntactically_typed | typ_semantically_typed
+        !(Bidirectionality) | Logic | typ_untyped | typ_syntactically_typed | typ_semantically_typed
+        !("LHS/RHS_Syntactic_Separation") | Logic | typ_untyped | typ_syntactically_typed | typ_semantically_typed
+        !(Variables) | Logic | typ_untyped | typ_syntactically_typed | typ_semantically_typed
+        !(Intermediate_structures) | Logic | typ_untyped | typ_syntactically_typed | typ_semantically_typed
+        !(Model_Transformation) | Logic | typ_untyped | typ_syntactically_typed | typ_semantically_typed

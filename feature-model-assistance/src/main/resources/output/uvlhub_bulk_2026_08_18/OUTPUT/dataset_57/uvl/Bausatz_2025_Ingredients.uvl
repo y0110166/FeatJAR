@@ -1,0 +1,63 @@
+features
+        Ingredients {abstract true}
+                alternative
+                        Anchovies {de_featjar_base_data_Allergen {Fish true}}
+                        Artichokes
+                        Arugula {de_featjar_base_data_note 'fresh'}
+                        "Basil Pesto" {de_featjar_base_data_Allergen {Lactose true, Nuts true}}
+                        "Barbecue Sauce" {de_featjar_base_data_Allergen {Mustard true}}
+                        "Bell pepper" {de_featjar_base_data_note 'fresh'}
+                        "Blue Cheese" {de_featjar_base_data_Allergen {Lactose true}, de_featjar_base_data_note 'Gorgonzola'}
+                        "Brie Cheese" {de_featjar_base_data_Allergen {Lactose true}}
+                        Broccoli
+                        Capers
+                        Carrots
+                        "Cayenne Pepper"
+                        Cheddar {de_featjar_base_data_Allergen {Lactose true}, de_featjar_base_data_note 'original burger cheese'}
+                        "Cooked Ham" {de_featjar_base_data_note 'Austrian, no pizza block'}
+                        Corn
+                        "Crispy fried onions"
+                        Cucumber
+                        "Curry Sauce" {de_featjar_base_data_Allergen {Lactose true, Celery true, Mustard true}}
+                        Egg {de_featjar_base_data_Allergen {Egg true}, de_featjar_base_data_note 'Austrian, BIO Free-range'}
+                        "Emmental Cheese" {de_featjar_base_data_Allergen {Lactose true}}
+                        "Feta Cheese" {de_featjar_base_data_Allergen {Lactose true}, de_featjar_base_data_note 'Sheep Cheese'}
+                        Garlic {de_featjar_base_data_Allergen {Lactose true, Mustard true}}
+                        "Gold Bears" {de_featjar_base_data_note 'Haribo'}
+                        "Green Salad"
+                        Jalapenyos
+                        "Kidney beans"
+                        Leek {de_featjar_base_data_note 'fresh'}
+                        Mayonnaise {de_featjar_base_data_Allergen {Egg true, Mustard true}}
+                        "Mild pepperoni" {de_featjar_base_data_Allergen {Mustard true, Soy true}}
+                        Mozzarella {de_featjar_base_data_Allergen {Lactose true}}
+                        Mushrooms {de_featjar_base_data_note 'fresh'}
+                        Mustard {de_featjar_base_data_Allergen {Mustard true}}
+                        Olives
+                        Onion {de_featjar_base_data_note 'fresh'}
+                        Paprika {de_featjar_base_data_note 'fresh'}
+                        "Parmesan Cheese" {de_featjar_base_data_Allergen {Lactose true, Egg true}}
+                        Pickles {de_featjar_base_data_Allergen {Mustard true}}
+                        Pineapple
+                        "Piri-Piri" {de_featjar_base_data_Allergen {Lactose true}}
+                        Prosciutto {de_featjar_base_data_note 'Italian'}
+                        "Pumpkin Seeds"
+                        "Pumpkin Seed Oil"
+                        "Runner Beans"
+                        Salami {de_featjar_base_data_Allergen {Mustard true}}
+                        Seafood {de_featjar_base_data_Allergen {Crustaceans true, Fish true, Mollusks true, Gluten true}}
+                        Snails {de_featjar_base_data_Allergen {Mollusks true}}
+                        Speck
+                        "Spicy pepperoni" {de_featjar_base_data_Allergen {Mustard true, Soy true}}
+                        "Spicy Salami" {de_featjar_base_data_Allergen {Mustard true}}
+                        Spinach
+                        "Sour cream" {de_featjar_base_data_Allergen {Lactose true, Egg true, Mustard true}}
+                        "Steak Tartare Sauce" {de_featjar_base_data_Allergen {Egg true, Mustard true}}
+                        "Sunflower Seeds" {de_featjar_base_data_Allergen {Lactose true, Nuts true, Peanuts true, Mustard true, Soy true, Gluten true, Sesame true}}
+                        Tabasco
+                        Tofu {de_featjar_base_data_Allergen {Celery true, Soy true, Gluten true}, de_featjar_base_data_note 'Austrian, BIO smoked'}
+                        Tomato {de_featjar_base_data_note 'fresh slices'}
+                        Tuna {de_featjar_base_data_Allergen {Fish true, Soy true}, de_featjar_base_data_note 'Dolphin-safe caught'}
+                        "Whipped Cream" {de_featjar_base_data_Allergen {Lactose true}}
+                        Zucchini {de_featjar_base_data_note 'BIO fresh'}
+

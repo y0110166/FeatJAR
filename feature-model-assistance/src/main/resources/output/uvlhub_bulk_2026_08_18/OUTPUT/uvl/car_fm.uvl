@@ -1,0 +1,23 @@
+features
+        "_id_0"
+                optional
+                        "_id_0_10"
+                optional
+                        "_id_0_11"
+                                alternative
+                                        "_id_0_11_12_13"
+                                        "_id_0_11_12_14"
+                                        "_id_0_11_12_15"
+                optional
+                        "_id_2"
+                                optional
+                                        parallel_parking
+                                alternative
+                                        "_id_4"
+                                        enhanced_avoidance
+                optional
+                        lateral_range_finder
+                        forward_range_finder
+
+constraints
+        enhanced_avoidance => forward_range_finder

@@ -1,0 +1,22 @@
+features
+        cellphone
+                optional
+                        wireless
+                                or
+                                        infrared
+                                        bluetooth
+                optional
+                        li_ion
+                        ni_mh
+                        ni_ca
+                optional
+                        color
+
+constraints
+        bluetooth => li_ion
+        color => !(ni_ca)
+        !(cellphone) | li_ion | ni_mh | ni_ca
+        !(ni_ca) | !(ni_mh) | !(li_ion)
+        !(ni_mh) | !(li_ion) | !(cellphone)
+        !(ni_ca) | !(li_ion) | !(cellphone)
+        !(ni_ca) | !(ni_mh) | !(cellphone)

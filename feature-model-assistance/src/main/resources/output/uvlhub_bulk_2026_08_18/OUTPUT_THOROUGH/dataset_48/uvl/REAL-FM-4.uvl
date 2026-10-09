@@ -1,0 +1,342 @@
+features
+        eShop
+                optional
+                        Homepage
+                                or
+                                        Staticcontent
+                                        Dynamiccontent
+                                                or
+                                                        Welcomemessage
+                                                        Specialoffers
+                                                or
+                                                        Timedependent
+                                                        Personalized
+                        Logincredentials
+                                optional
+                                        Shippingaddress
+                                                optional
+                                                        Multipleshippingaddresses
+                                        Billingaddress
+                                                optional
+                                                        Multiplebillingaddresses
+                                        Demographics
+                                                or
+                                                        Age
+                                                        Income
+                                                        Education
+                                                        CustomDemographicfield
+                                        PersonalInformation
+                                        Preferences
+                                                or
+                                                        Sitelayout
+                                                        Listsize
+                                                        Language
+                                        Reminders
+                                        Quickcheckoutprofile
+                                        Customfields
+                                        Userbehaviourtrackinginformation
+                                or
+                                        Registertobrowse
+                                        Registertobuy
+                                        None
+                                optional
+                                        Cardholdername
+                                                optional
+                                                        Securityinformation
+                        Eletronicgoods
+                        Physicalgoods
+                        Services
+                        Detailedinformation
+                        Warrantyinformation
+                        Customerreviews
+                        Associatedassets
+                                or
+                                        Documents
+                                        Mediafiles
+                                                or
+                                                        Image
+                                                                or
+                                                                        Thumbnail
+                                                                        a2Dimage
+                                                                        a3Dimage
+                                                                        a360degreesimage
+                                                                        Differentperspectives
+                                                                        Gallery
+                                                        Video
+                                                        Sound
+                        Productvariants
+                                optional
+                                        Complexproductconfiguration
+                        Size
+                        Weight
+                        Availability
+                        Customfields1
+                        Categories
+                                optional
+                                        Categories1
+                                                optional
+                                                        Multi_level
+                                                        Multipleclassification
+                        Multiplecatalogs
+                        Searching
+                                or
+                                        Basicsearch
+                                        Advancedsearch
+                        Productpage
+                                optional
+                                        Categorypage
+                                        Indexpage
+                                                optional
+                                                        Sortingfilters
+                                                                or
+                                                                        Price
+                                                                        Quality
+                                                                        Price_Qualityratio
+                                                                        Manufacturername
+                                                                        Customfilter
+                        Customviews
+                                optional
+                                        Seasonalproductviews
+                                        Personalizedviews
+                        Wishlistsaveaftersession
+                        E_mailwishlist
+                        Multiplewishlists
+                        Permissions
+                                or
+                                        Publicaccess
+                                        Restrictedaccess
+                                        Privateaccess
+                        Cartsummarypage
+                        Cartsaveaftersession
+                        Registeredcheckout
+                                optional
+                                        Quickcheckout
+                                                optional
+                                                        Enableprofileupdateoncheckout
+                        Guestcheckout
+                        Shippingcostcalculation
+                                optional
+                                        Qualityofserviceselection
+                                        Carrierselection
+                                        Giftoptions
+                                        Multipleshipments
+                        Customtaxation
+                                or
+                                        Surcharge
+                                        Percentage
+                                optional
+                                        Fixed_ratetaxation
+                                optional
+                                        Taxcodes
+                                                optional
+                                                        Billing
+                                                        Resolution
+                                                                or
+                                                                        Country
+                                                                        Region
+                                                                        City
+                        Taxgateways
+                                or
+                                        CertiTAX
+                                        CyberSource
+                                        Customtaxgateway
+                        COD
+                        Creditcard
+                        Debitcard
+                        Eletroniccheque
+                        Faxmailorder
+                        Purchaseorder
+                        Giftcertificate
+                        Phoneorder
+                        Custompaymenttype
+                        Frauddetection
+                        Paymentgateways
+                                or
+                                        Authorize_Net
+                                        CyberSource1
+                                        LinkPoint
+                                        Paradata
+                                        SkipJack
+                                        VerisignPayflowPro
+                                        Custompaymentgateway
+                        Eletronicpage
+                        E_mail
+                        Phone
+                        Mail
+                        RotaryDialing
+                        Customerservice
+                                or
+                                        Questionandfeedbackforms
+                                                optional
+                                                        Questionandfeedbacktracking
+                                        Productreturns
+                                        Orderstatusreview
+                                                optional
+                                                        Requestorderhardcopy
+                                                or
+                                                        Ordernumber
+                                                        Orderdate
+                                                        Orderstatus
+                                        Shipmentstatustracking
+                                                or
+                                                        Internaltracking
+                                                        Partnertracking
+                        Userbehaviourtracking
+                                or
+                                        Locallyvisitedpages
+                                        Externalreferringpages
+                                        Previouspurchases1
+                optional
+                        Warehousemanagement
+                                optional
+                                        Shippinggateways
+                                                or
+                                                        FedEX
+                                                        UPS
+                                                        USPS
+                                                        CanadaPost
+                                                        Customshippinggateway
+                                optional
+                                        Flatrate
+                                                optional
+                                                        Ratefactors
+                                                                or
+                                                                        Quantitypurchased
+                                                                        Ordertotal
+                                                                        Weight1
+                                                                        Productclassification
+                        Filerepository
+                        Servicesfulfillment
+                                optional
+                                        Appointmentscheduling
+                                        Resourceplanning
+                        Targetingmechanisms
+                                optional
+                                        Campaigns
+                                optional
+                                        Sellstrategies
+                                                optional
+                                                        Productkitting
+                                                optional
+                                                        Substituteproducts
+                                                optional
+                                                        Pastcustomersalsobought
+                                or
+                                        Assignmenttopagetypesfordisplay
+                                        Productflagging
+                                        E_mails
+                                                optional
+                                                        Personalized1
+                                                        Responsetracking
+                                or
+                                        Customerpreferences
+                                        Personalinformation
+                                        Demographics1
+                                        Previouspurchases
+                                        Shoppingcartcontent
+                                        Wishlistcontent
+                                        Previouslyvisitedpages
+                                        Dateandtime
+                                        Customtargetcriteria
+                                optional
+                                        Advertisementtypes
+                                                optional
+                                                        Advertisementresponsetracking
+                                                        Contextsensitiveads
+                                                or
+                                                        Bannerads
+                                                        Pop_upads
+                                                optional
+                                                        Houseadvertisements
+                                                optional
+                                                        Advertisementmanagementinterface
+                                optional
+                                        Handlingmultiplediscounts
+                                                optional
+                                                        Purchasevaluescope
+                                                        Customersegments
+                                                        Shippingaddress1
+                                                        Coupons
+                                                or
+                                                        Percentagediscount
+                                                        Fixeddiscount
+                                                        Freeitem
+                                                or
+                                                        Purchasevalue
+                                                        Quantity
+                        Affiliateregistration
+                        Inventorytracking
+                                optional
+                                        Allowbackorders
+                        Manual
+                                optional
+                                        Non_repudiationservice
+                        Reporttypes
+                        Externalsystemsintegration
+                                or
+                                        Fulfillmentsystem
+                                        Inventorymanagementsystem
+                                        Procurementsystem
+                                        Externaldistributorsystem
+                        Contentapproval
+
+constraints
+        !(Eletronicgoods) | Size
+        !(Physicalgoods) | Size
+        !(Userbehaviourtrackinginformation) | Userbehaviourtracking
+        !(Quickcheckout) | Quickcheckoutprofile
+        !(Customerpreferences) | Preferences
+        !(Services) | Servicesfulfillment
+        !(Registeredcheckout) | Registertobuy
+        !(Previouslyvisitedpages) | Externalreferringpages
+        !(Availability) | Inventorytracking
+        !(Physicalgoods) | Weight
+        !(Categorypage) | Categories
+        !(Sellstrategies) | Productkitting | Substituteproducts | Pastcustomersalsobought
+        !(Eletronicgoods) | Filerepository
+        !(Customtaxation) | Fixed_ratetaxation | Taxcodes
+        !(Wishlistcontent) | Wishlistsaveaftersession
+        !(E_mailwishlist) | Wishlistsaveaftersession
+        !(Multiplewishlists) | Wishlistsaveaftersession
+        !(Permissions) | Wishlistsaveaftersession
+        !(Detailedinformation) | Eletronicgoods | Physicalgoods | Services
+        !(Categories) | Eletronicgoods | Physicalgoods | Services
+        !(Multiplecatalogs) | Eletronicgoods | Physicalgoods | Services
+        !(Searching) | Eletronicgoods | Physicalgoods | Services
+        !(Customviews) | Eletronicgoods | Physicalgoods | Services
+        !(Warrantyinformation) | Eletronicgoods | Physicalgoods | Services
+        !(Customerreviews) | Eletronicgoods | Physicalgoods | Services
+        !(Associatedassets) | Eletronicgoods | Physicalgoods | Services
+        !(Productvariants) | Eletronicgoods | Physicalgoods | Services
+        !(Size) | Eletronicgoods | Physicalgoods | Services
+        !(Weight) | Eletronicgoods | Physicalgoods | Services
+        !(eShop) | Eletronicgoods | Physicalgoods | Services
+        !(Shippingcostcalculation) | Shippinggateways | Flatrate
+        !(Cartsaveaftersession) | COD | Creditcard | Debitcard | Eletroniccheque | Faxmailorder | Purchaseorder | Giftcertificate | Phoneorder | Custompaymenttype
+        !(Cartsummarypage) | COD | Creditcard | Debitcard | Eletroniccheque | Faxmailorder | Purchaseorder | Giftcertificate | Phoneorder | Custompaymenttype
+        !(eShop) | COD | Creditcard | Debitcard | Eletroniccheque | Faxmailorder | Purchaseorder | Giftcertificate | Phoneorder | Custompaymenttype
+        !(Cartsaveaftersession) | Eletronicpage | E_mail | Phone | Mail
+        !(Cartsummarypage) | Eletronicpage | E_mail | Phone | Mail
+        !(eShop) | Eletronicpage | E_mail | Phone | Mail
+        !(Cartsaveaftersession) | Customtaxation | Taxgateways
+        !(Cartsaveaftersession) | Registeredcheckout | Guestcheckout
+        !(Cartsummarypage) | Customtaxation | Taxgateways
+        !(Cartsummarypage) | Registeredcheckout | Guestcheckout
+        !(eShop) | Customtaxation | Taxgateways
+        !(eShop) | Registeredcheckout | Guestcheckout
+        !(Advertisementtypes) | Houseadvertisements | Advertisementmanagementinterface
+        !(Affiliateregistration) | Servicesfulfillment | Shippinggateways | Flatrate | Filerepository
+        !(Contentapproval) | Servicesfulfillment | Shippinggateways | Flatrate | Filerepository
+        !(Externalsystemsintegration) | Servicesfulfillment | Shippinggateways | Flatrate | Filerepository
+        !(Reporttypes) | Servicesfulfillment | Shippinggateways | Flatrate | Filerepository
+        !(Inventorytracking) | Servicesfulfillment | Shippinggateways | Flatrate | Filerepository
+        !(eShop) | Servicesfulfillment | Shippinggateways | Flatrate | Filerepository
+        !(Warehousemanagement) | Shippinggateways | Flatrate
+        !(Physicalgoods) | Shippinggateways | Flatrate
+        !(Permissions) | Registertobrowse | Registertobuy | None
+        !(E_mailwishlist) | Registertobrowse | Registertobuy | None
+        !(Cardholdername) | Wishlistsaveaftersession
+        !(Registertobrowse) | Wishlistsaveaftersession
+        !(Logincredentials) | Wishlistsaveaftersession
+        !(Targetingmechanisms) | Sellstrategies | Houseadvertisements | Advertisementmanagementinterface | Percentagediscount | Fixeddiscount | Freeitem
+        !(Specialoffers) | Percentagediscount | Fixeddiscount | Freeitem

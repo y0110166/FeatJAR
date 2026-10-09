@@ -1,0 +1,9 @@
+features
+        Additions
+                alternative
+                        "Strawberry Banana" {de_featjar_base_data_Price 6.99}
+                        "La Croix Sparkling Grapefruit" {de_featjar_base_data_Price 2.19}
+                        "Open Water" {de_featjar_base_data_Price 2.49}
+                        "Skinny Dipped Almonds: Dark Chocolate Cocoa" {de_featjar_base_data_Price 2.49}
+                        "Miss Vickie's Simple Sea Salt" {de_featjar_base_data_Price 1.99}
+

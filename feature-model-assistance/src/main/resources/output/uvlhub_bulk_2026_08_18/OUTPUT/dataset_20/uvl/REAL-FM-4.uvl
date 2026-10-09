@@ -1,0 +1,326 @@
+features
+        eShop
+                optional
+                        homepage
+                                optional
+                                        "_id_1"
+                                optional
+                                        "_id_3"
+                                                or
+                                                        "_id_5"
+                                                        special_offers
+                                                or
+                                                        "_id_8"
+                                                        "_id_9"
+                        "_id_14"
+                                optional
+                                        shipping_address
+                                                optional
+                                                        "_id_15"
+                                        "_id_16"
+                                                optional
+                                                        "_id_17"
+                                        "_id_23"
+                                                or
+                                                        "_id_25"
+                                                        "_id_26"
+                                                        "_id_27"
+                                                        "_id_28"
+                                        "_id_29"
+                                        preferences
+                                                or
+                                                        "_id_31"
+                                                        "_id_32"
+                                                        "_id_33"
+                                        "_id_34"
+                                        quick_checkout_profile
+                                        "_id_35"
+                                        user_behaviour_tracking_info
+                                or
+                                        "_id_11"
+                                        register_to_buy
+                                        "_id_12"
+                                optional
+                                        "_id_19"
+                                                optional
+                                                        "_id_22"
+                        eletronic_goods
+                        physical_goods
+                        services
+                        detailed_information
+                        warranty_information
+                        customer_reviews
+                        associated_assets
+                                or
+                                        "_id_38"
+                                        "_id_39"
+                                                or
+                                                        "_id_41"
+                                                                or
+                                                                        "_id_43"
+                                                                        "_id_44"
+                                                                        "_id_45"
+                                                                        "_id_46"
+                                                                        "_id_47"
+                                                                        "_id_48"
+                                                        "_id_49"
+                                                        "_id_50"
+                        product_variants
+                                optional
+                                        "_id_51"
+                        size
+                        weight
+                        availability
+                        custom_fields
+                        categories
+                                optional
+                                        "_id_52"
+                                                optional
+                                                        "_id_53"
+                                                optional
+                                                        "_id_54"
+                        "_id_55"
+                        "_id_56"
+                                or
+                                        "_id_58"
+                                        "_id_59"
+                        "_id_61"
+                                optional
+                                        category_page
+                                        "_id_62"
+                                                optional
+                                                        "_id_63"
+                                                                or
+                                                                        "_id_65"
+                                                                        "_id_66"
+                                                                        "_id_67"
+                                                                        "_id_68"
+                                                                        "_id_69"
+                        "_id_70"
+                                optional
+                                        "_id_71"
+                                optional
+                                        "_id_72"
+                        wish_list_saved_after_session
+                                optional
+                                        email_wish_list
+                                        "_id_73"
+                                        permissions
+                                                or
+                                                        "_id_75"
+                                                        "_id_76"
+                                                        "_id_77"
+                        "_id_81"
+                        "_id_82"
+                        registered_checkout
+                                optional
+                                        quick_checkout
+                                                optional
+                                                        "_id_86"
+                        "_id_87"
+                        "_id_92"
+                                optional
+                                        "_id_88"
+                                        "_id_89"
+                                        "_id_90"
+                                        "_id_91"
+                        "_id_96"
+                                optional
+                                        "_id_98"
+                                or
+                                        "_id_110"
+                                        "_id_111"
+                                optional
+                                        "_id_100"
+                                                optional
+                                                        "_id_102"
+                                                        "_id_103"
+                                                                or
+                                                                        "_id_105"
+                                                                        "_id_106"
+                                                                        "_id_107"
+                        "_id_112"
+                                or
+                                        "_id_114"
+                                        "_id_115"
+                                        "_id_116"
+                        "_id_120"
+                        "_id_121"
+                        "_id_122"
+                        "_id_123"
+                        "_id_124"
+                        "_id_125"
+                        "_id_126"
+                        "_id_127"
+                        "_id_128"
+                        "_id_129"
+                        "_id_130"
+                                or
+                                        "_id_132"
+                                        "_id_133"
+                                        "_id_134"
+                                        "_id_135"
+                                        "_id_136"
+                                        "_id_137"
+                                        "_id_138"
+                        "_id_141"
+                        "_id_142"
+                        "_id_143"
+                        "_id_144"
+                        buy_paths_288_289_291
+                        customer_service
+                                or
+                                        "_id_146"
+                                                optional
+                                                        "_id_147"
+                                        "_id_148"
+                                        "_id_149"
+                                                optional
+                                                        "_id_155"
+                                                or
+                                                        "_id_152"
+                                                        "_id_153"
+                                                        "_id_154"
+                                        "_id_156"
+                                                or
+                                                        "_id_158"
+                                                        "_id_159"
+                        user_behaviour_tracking
+                                or
+                                        locally_visited_pages
+                                        external_referring_pages
+                                        behaviour_tracked_previous_purchases
+                optional
+                        warehouse_management
+                                optional
+                                        "_id_175"
+                                                or
+                                                        "_id_177"
+                                                        "_id_178"
+                                                        "_id_179"
+                                                        "_id_180"
+                                                        "_id_181"
+                                optional
+                                        "_id_168"
+                                                optional
+                                                        "_id_169"
+                                                                or
+                                                                        "_id_171"
+                                                                        "_id_172"
+                                                                        "_id_173"
+                                                                        "_id_174"
+                        "_id_182"
+                        services_fulfillment
+                                optional
+                                        "_id_184"
+                                optional
+                                        "_id_185"
+                        "_id_194"
+                                optional
+                                        "_id_239"
+                                optional
+                                        "_id_226"
+                                                optional
+                                                        "_id_228"
+                                                optional
+                                                        "_id_230"
+                                                optional
+                                                        "_id_232"
+                                or
+                                        customer_preferences
+                                        "_id_189"
+                                        "_id_190"
+                                        targeting_criteria_previous_purchases
+                                        "_id_191"
+                                        wish_list_content
+                                        previously_visited_pages
+                                        "_id_192"
+                                        "_id_193"
+                                or
+                                        "_id_235"
+                                        "_id_236"
+                                        "_id_237"
+                                                optional
+                                                        personalized_emails
+                                                optional
+                                                        "_id_238"
+                                optional
+                                        "_id_197"
+                                                optional
+                                                        "_id_206"
+                                                        "_id_207"
+                                                or
+                                                        "_id_199"
+                                                        "_id_200"
+                                                optional
+                                                        "_id_203"
+                                                optional
+                                                        "_id_205"
+                                optional
+                                        "_id_225"
+                                                optional
+                                                        "_id_211"
+                                                        "_id_218"
+                                                        "_id_219"
+                                                        "_id_224"
+                                                or
+                                                        "_id_214"
+                                                        "_id_215"
+                                                        "_id_216"
+                                                or
+                                                        "_id_222"
+                                                        "_id_223"
+                        "_id_241"
+                        inventory_tracking
+                                optional
+                                        "_id_243"
+                        "_id_245"
+                                optional
+                                        "_id_246"
+                        "_id_247"
+                        "_id_250"
+                                or
+                                        fulfillment_system
+                                        "_id_252"
+                                        procurement_system
+                                        "_id_253"
+                        "_id_259"
+
+constraints
+        eletronic_goods => size
+        physical_goods => size
+        user_behaviour_tracking_info => user_behaviour_tracking
+        quick_checkout => quick_checkout_profile
+        customer_preferences => preferences
+        services => services_fulfillment
+        registered_checkout => register_to_buy
+        previously_visited_pages => external_referring_pages
+        availability => inventory_tracking
+        physical_goods => weight
+        category_page => categories
+        !("_id_226") | "_id_228" | "_id_230" | "_id_232"
+        !(eletronic_goods) | "_id_182"
+        !("_id_96") | "_id_98" | "_id_100"
+        !(wish_list_content) | wish_list_saved_after_session
+        !(eShop) | eletronic_goods | physical_goods | services
+        !(email_wish_list) | "_id_11" | register_to_buy | "_id_12"
+        !(permissions) | "_id_11" | register_to_buy | "_id_12"
+        !(homepage) | "_id_1" | "_id_8" | "_id_9"
+        !("_id_92") | "_id_175" | "_id_168"
+        !(eShop) | "_id_120" | "_id_121" | "_id_122" | "_id_123" | "_id_124" | "_id_125" | "_id_126" | "_id_127" | "_id_128"
+        !(eShop) | "_id_141" | "_id_142" | "_id_143" | "_id_144"
+        !(eShop) | registered_checkout | "_id_87"
+        !(eShop) | "_id_112" | "_id_96"
+        !("_id_207") | "_id_203" | "_id_205"
+        !("_id_206") | "_id_203" | "_id_205"
+        !("_id_197") | "_id_203" | "_id_205"
+        !("_id_250") | services_fulfillment | "_id_175" | "_id_168" | "_id_182"
+        !("_id_246") | services_fulfillment | "_id_175" | "_id_168" | "_id_182"
+        !(inventory_tracking) | services_fulfillment | "_id_175" | "_id_168" | "_id_182"
+        !("_id_241") | services_fulfillment | "_id_175" | "_id_168" | "_id_182"
+        !("_id_245") | services_fulfillment | "_id_175" | "_id_168" | "_id_182"
+        !(eShop) | services_fulfillment | "_id_175" | "_id_168" | "_id_182"
+        !(warehouse_management) | "_id_175" | "_id_168"
+        !(physical_goods) | "_id_175" | "_id_168"
+        !("_id_194") | "_id_226" | "_id_203" | "_id_205" | "_id_214" | "_id_215" | "_id_216"
+        !(special_offers) | "_id_214" | "_id_215" | "_id_216"

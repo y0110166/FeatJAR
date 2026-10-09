@@ -1,0 +1,19 @@
+features
+        "_r"
+                optional
+                        "_r_8"
+                                optional
+                                        "_r_8_9"
+                                optional
+                                        "_r_8_10"
+                optional
+                        "_r_2_15"
+                        "_r_2_16"
+                        "_r_2_17"
+                optional
+                        "_r_3_14"
+                optional
+                        "_r_4_11"
+                        "_r_4_12"
+                        "_r_4_13"
+
