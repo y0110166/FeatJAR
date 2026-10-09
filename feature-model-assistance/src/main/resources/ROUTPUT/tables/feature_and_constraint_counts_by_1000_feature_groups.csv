@@ -1,0 +1,13 @@
+original_feature_group,quantity,measurement,feature_models,mean,median,standard_deviation
+"1,000 features or fewer",Features,Before reduction,1399,37.689778413152254,22,78.17082356308967
+"1,000 features or fewer",Features,After reduction,1399,25.68906361686919,13,66.71468804798545
+"1,000 features or fewer",Features,Change (after - before),1399,-12.00071479628306,-8,15.68349777610188
+"1,000 features or fewer",Constraints,Before reduction,1399,14.821300929235168,0,133.53668682288767
+"1,000 features or fewer",Constraints,After reduction,1399,40.355968548963546,4,275.7067271141755
+"1,000 features or fewer",Constraints,Change (after - before),1399,25.534667619728378,1,198.24980280524346
+"More than 1,000 features",Features,Before reduction,120,1274.8666666666666,1262,125.58467854238366
+"More than 1,000 features",Features,After reduction,120,658.8416666666667,644,126.64036261230868
+"More than 1,000 features",Features,Change (after - before),120,-616.025,-616,62.00832995004201
+"More than 1,000 features",Constraints,Before reduction,120,894.7916666666666,880,198.19788498024963
+"More than 1,000 features",Constraints,After reduction,120,1329.7833333333333,1285,494.2186462570218
+"More than 1,000 features",Constraints,Change (after - before),120,434.9916666666667,413,342.0895380318029
